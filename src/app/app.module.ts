@@ -10,6 +10,10 @@ import { CreationequipesComponent } from './creationequipes/creationequipes.comp
 import { InscriptionComponent } from './inscription/inscription.component';
 import { FormsModule } from '@angular/forms';
 import { ConnexionComponent } from './connexion/connexion.component';
+import { HomeComponent } from './home/home.component';
+import { LoginComponent } from './login/login.component';
+import { EvenementsComponent } from './evenements/evenements.component';
+import { CreationEvenementComponent } from './creation-evenement/creation-evenement.component';
 
 
 @NgModule({
@@ -20,7 +24,12 @@ import { ConnexionComponent } from './connexion/connexion.component';
     CreationequipesComponent,
     InscriptionComponent,
     MenuComponent,
-    ConnexionComponent
+    ConnexionComponent,
+    EvenementsComponent,
+    CreationEvenementComponent,
+    MenuComponent,
+    LoginComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,

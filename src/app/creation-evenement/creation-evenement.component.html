@@ -1,0 +1,40 @@
+<!--                       Navbar                              -->
+
+<ul class="nav grey lighten-4 py-4">
+    <li class="nav-item">
+        <a class="nav-link active" href="#!">Home</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="#!">Equipe</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="#!">Evenement</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link disabled" href="#!">Deconnexion</a>
+    </li>
+</ul>
+
+<br>
+<!--                     Fin  Navbar                              -->
+
+
+<!--                       Creation évenement                              -->
+
+<div class="card z-depth-5">
+    <div class="card-body">
+        <form #creationForm="ngForm" (ngSubmit)="creerEvent(creationForm.value)">
+            <input type="text" name="nom" placeholder="nom" ngModel="">
+            <input type="date" name="date" placeholder="date" ngModel="">
+            <input type="text" name="adresse" ngModel="">
+            <input type="text" name="niveau" ngModel="">
+            <input type="text" name="description" ngModel="">
+            <input type="int" name="nbmin" ngModel="">
+            <input type="int" name="nbmax" ngModel="">
+            <input type="text" name="activite" ngModel="">
+            <button class="btn btn-primary">Creer</button>
+        </form>
+    </div>
+</div>
+
+<!--                       fin création evenement                             -->
