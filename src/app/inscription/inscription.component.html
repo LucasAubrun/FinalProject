@@ -2,7 +2,7 @@
     <div class="card-body">
         <form #inscriptionForm="ngForm" (ngSubmit)="inscrireMembre(inscriptionForm.value)">
             <input type="text" name="nom" placeholder="nom" ngModel="">
-            <input type="text" name="prenom" ngModel="">
+            <input type="text" name="prenom" placeholder="prenom" ngModel="">
             <input type="date" name="dateNaissance" ngModel="">
             <input type="text" name="mail" ngModel="">
             <input type="text" name="login" ngModel="">
