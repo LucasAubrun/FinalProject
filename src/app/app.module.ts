@@ -9,6 +9,7 @@ import { EquipesComponent } from './equipes/equipes.component';
 import { CreationequipesComponent } from './creationequipes/creationequipes.component';
 import { InscriptionComponent } from './inscription/inscription.component';
 import { FormsModule } from '@angular/forms';
+import { ConnexionComponent } from './connexion/connexion.component';
 
 
 @NgModule({
@@ -17,7 +18,9 @@ import { FormsModule } from '@angular/forms';
     ActivitesComponent,
     EquipesComponent,
     CreationequipesComponent,
-    InscriptionComponent
+    InscriptionComponent,
+    MenuComponent,
+    ConnexionComponent
   ],
   imports: [
     BrowserModule,
