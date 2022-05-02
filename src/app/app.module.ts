@@ -29,7 +29,9 @@ import { CreationEvenementComponent } from './creation-evenement/creation-evenem
     EvenementsComponent,
     CreationEvenementComponent,
     LoginComponent,
-    HomeComponent
+    HomeComponent,
+    LoginComponent,
+    InscriptionComponent
   ],
   imports: [
     BrowserModule,

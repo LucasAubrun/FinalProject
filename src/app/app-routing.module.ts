@@ -4,6 +4,8 @@ import { CreationequipesComponent } from './creationequipes/creationequipes.comp
 import { EquipesComponent } from './equipes/equipes.component';
 import { ActivitesComponent } from './activites/activites.component';
 import { HomeComponent } from './home/home.component';
+import { ConnexionComponent } from './connexion/connexion.component';
+import { InscriptionComponent } from './inscription/inscription.component';
 
 
 const routes: Routes = [
@@ -11,6 +13,8 @@ const routes: Routes = [
 {component: CreationequipesComponent, path: "creationequipes"},
 {component: ActivitesComponent, path: 'activites'},
 {component: HomeComponent, path: 'home'},
+{component: ConnexionComponent, path: 'login'},
+{component: InscriptionComponent, path: 'register'},
 ];
 
 
