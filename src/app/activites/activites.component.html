@@ -1,1 +1,23 @@
 <p>activites works!</p>
+<div>
+    <div class="container  mt-4">
+        <table class="table" style="background-color: rgb(127, 191, 255);">
+            <thead>
+                <tr>
+                    <th>Nom</th>
+                    <th>Description</th>
+                    <th>Nombre de joueurs pour cette activité</th>
+                    <th>Type d'activité</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let a of activitesOne">
+                    <td>{{a.nom}}</td>
+                    <td>{{a.description}}</td>
+                    <td>{{a.nbJoueurs}}</td>
+                    <td>{{a.type}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
