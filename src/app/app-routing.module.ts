@@ -9,13 +9,9 @@ const routes: Routes = [
 //import { HomeComponent } from './home/home.component';
 //import { PriveComponent } from './prive/prive.component';
 //import { PubliqueComponent } from './publique/publique.component';
-
-const routes: Routes = [
-//{component: HomeComponent, path: 'home'},
-//{component: PriveComponent, path: 'prive'},
-//{component: PubliqueComponent, path: 'publique'}
-
 ];
+
+
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

@@ -8,6 +8,7 @@ import { ActivitesComponent } from './activites/activites.component';
 import { EquipesComponent } from './equipes/equipes.component';
 import { CreationequipesComponent } from './creationequipes/creationequipes.component';
 import { InscriptionComponent } from './inscription/inscription.component';
+
 import { FormsModule } from '@angular/forms';
 
 
@@ -17,7 +18,8 @@ import { FormsModule } from '@angular/forms';
     ActivitesComponent,
     EquipesComponent,
     CreationequipesComponent,
-    InscriptionComponent
+    InscriptionComponent,
+    MenuComponent
   ],
   imports: [
     BrowserModule,
