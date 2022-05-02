@@ -8,7 +8,9 @@ import { ActivitesComponent } from './activites/activites.component';
 import { EquipesComponent } from './equipes/equipes.component';
 import { CreationequipesComponent } from './creationequipes/creationequipes.component';
 import { InscriptionComponent } from './inscription/inscription.component';
+
 import { FormsModule } from '@angular/forms';
+import { ConnexionComponent } from './connexion/connexion.component';
 import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
 import { EvenementsComponent } from './evenements/evenements.component';
@@ -22,9 +24,10 @@ import { CreationEvenementComponent } from './creation-evenement/creation-evenem
     EquipesComponent,
     CreationequipesComponent,
     InscriptionComponent,
+    MenuComponent,
+    ConnexionComponent,
     EvenementsComponent,
     CreationEvenementComponent,
-    MenuComponent,
     LoginComponent,
     HomeComponent
   ],
