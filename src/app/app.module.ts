@@ -9,6 +9,8 @@ import { EquipesComponent } from './equipes/equipes.component';
 import { CreationequipesComponent } from './creationequipes/creationequipes.component';
 import { InscriptionComponent } from './inscription/inscription.component';
 import { FormsModule } from '@angular/forms';
+import { EvenementsComponent } from './evenements/evenements.component';
+import { CreationEvenementComponent } from './creation-evenement/creation-evenement.component';
 
 
 @NgModule({
@@ -17,7 +19,9 @@ import { FormsModule } from '@angular/forms';
     ActivitesComponent,
     EquipesComponent,
     CreationequipesComponent,
-    InscriptionComponent
+    InscriptionComponent,
+    EvenementsComponent,
+    CreationEvenementComponent
   ],
   imports: [
     BrowserModule,
