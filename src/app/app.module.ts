@@ -22,7 +22,8 @@ import { FormsModule } from '@angular/forms';
     NewactiviteComponent,
     EquipesComponent,
     CreationequipesComponent,
-    InscriptionComponent
+    InscriptionComponent,
+    MenuComponent
   ],
   imports: [
 
