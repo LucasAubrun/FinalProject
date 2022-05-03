@@ -1,0 +1,25 @@
+<p>newactivite works!</p>
+<div>
+    <form #activiteForm="ngForm" (ngSubmit)="createNewActivite(activiteForm.value)">
+        <div class="md_form">
+            <label for="nom">Nom activté</label><br>
+            <input type="text" id="fcom" name="nom" ngModel="" placeholder="Nom de l'activité"><br>
+            <label for="contenu">Description</label><br>
+            <input type="text" id="fcom" name="contenu" ngModel="" placeholder="Decrivez l'activité"><br>
+            <label for="nbjoueurs">Nombres de joueurs</label><br>
+            <input type="text" id="fcom" name="nbjoueurs" ngModel=""
+                placeholder="Combien de joueurs pour l'activité"><br>
+            <label for="type">Type d'activité</label>
+            <select name="type" id="fcom" ngModel="">
+                <option value="">---</option>
+                <option value="sport">Sport</option>
+                <option value="societe">Jeu de société</option>
+                <option value="video">Jeu vidéo</option>
+                <option value="autre">Autre</option>
+            </select>
+        </div>
+        <div class="mt-4" style="text-align :center">
+            <button mat-raised-button color="primary">Validez la suggestion d'ajout d'activité</button>
+        </div>
+    </form>
+</div>
