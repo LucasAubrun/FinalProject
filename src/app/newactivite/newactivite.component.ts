@@ -20,7 +20,8 @@ export class NewactiviteComponent implements OnInit {
       description: val.contenu,
       nom: val.nom,
       nbJoueurs: val.nbjoueurs,
-      type: val.type
+      type: val.type,
+      valide: false
     }
     this.http.post('http://localhost:8080/activites/save', activite)
       .subscribe({

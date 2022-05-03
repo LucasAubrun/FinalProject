@@ -8,15 +8,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CreationequipesComponent implements OnInit {
 
-    //♦♣♦♣♦♣♦♣♦♣ création de variable ♦♣♦♣♦♣♦♣♦♣//
-  baseURL: string = "http://localhost:8482/";
+  //♦♣♦♣♦♣♦♣♦♣ création de variable ♦♣♦♣♦♣♦♣♦♣//
+  baseURL: string = "http://localhost:8080/";
   resultMessage: string = " ";
   resultColor: string = " ";
   EquipesId1: any;
   TtEquipeId: any;
   EquipeActuelle: any;
 
-     //♦♣♦♣♦♣♦♣♦♣ fin création de variable ♦♣♦♣♦♣♦♣♦♣//
+  //♦♣♦♣♦♣♦♣♦♣ fin création de variable ♦♣♦♣♦♣♦♣♦♣//
 
   constructor(private http: HttpClient) { }
 
@@ -26,23 +26,23 @@ export class CreationequipesComponent implements OnInit {
   }
 
   //♦♣♦♣♦♣♦♣♦♣ recherche des équipes créer par un membre ♦♣♦♣♦♣♦♣♦♣//
-  callEquipeId1(){
+  callEquipeId1() {
     this.http.get(this.baseURL + "equipes/membres/1").subscribe({
-      next: (data)=> {this.EquipesId1 = data},
-      error: (err) => {console.log(err)}
+      next: (data) => { this.EquipesId1 = data },
+      error: (err) => { console.log(err) }
     });
   }
   //♦♣♦♣♦♣♦♣♦♣ fin recherche des équipes ♦♣♦♣♦♣♦♣♦♣//
 
-    //♦♣♦♣♦♣♦♣♦♣ recherche de ttes les équipes créer par un membre ♦♣♦♣♦♣♦♣♦♣//
-    callTtEquipeId(){
-      this.http.get(this.baseURL + "associations/membres/1").subscribe({
-        next: (data)=> {this.TtEquipeId = data},
-        error: (err) => {console.log(err)}
-      });
-    }
+  //♦♣♦♣♦♣♦♣♦♣ recherche de ttes les équipes créer par un membre ♦♣♦♣♦♣♦♣♦♣//
+  callTtEquipeId() {
+    this.http.get(this.baseURL + "associations/membres/1").subscribe({
+      next: (data) => { this.TtEquipeId = data },
+      error: (err) => { console.log(err) }
+    });
+  }
 
-   //♦♣♦♣♦♣♦♣♦♣ Fin recherche de ttes les équipes créer par un membre ♦♣♦♣♦♣♦♣♦♣//
+  //♦♣♦♣♦♣♦♣♦♣ Fin recherche de ttes les équipes créer par un membre ♦♣♦♣♦♣♦♣♦♣//
 
 
   //♦♣♦♣♦♣♦♣♦♣ début création d'équipe ♦♣♦♣♦♣♦♣♦♣//
@@ -53,26 +53,26 @@ export class CreationequipesComponent implements OnInit {
     };
     console.log(equipe);
     this.http.post(this.baseURL + "equipes", equipe)
-    .subscribe({
-      next: (data) => {
-        this.resultMessage = "Votre équipe est bien créée";
-        this.resultColor = "green"
-      },
-      error: (err) => {
-        console.log(err);
-        if (err.error.trace.includes("Duplicate")){
-          this.resultMessage = "Cette equipe existe déja.."
+      .subscribe({
+        next: (data) => {
+          this.resultMessage = "Votre équipe est bien créée";
+          this.resultColor = "green"
+        },
+        error: (err) => {
+          console.log(err);
+          if (err.error.trace.includes("Duplicate")) {
+            this.resultMessage = "Cette equipe existe déja.."
+          }
+          else
+            this.resultMessage = "Une erreur s'est produite"
+          this.resultColor = "red";
         }
-        else
-          this.resultMessage= "Une erreur s'est produite"
-        this.resultColor = "red";
-       }
-        });
-        ;
-    }
-
-      //♦♣♦♣♦♣♦♣♦♣ fin création d'équipe ♦♣♦♣♦♣♦♣♦♣//
+      });
+    ;
   }
+
+  //♦♣♦♣♦♣♦♣♦♣ fin création d'équipe ♦♣♦♣♦♣♦♣♦♣//
+}
 
 
 
