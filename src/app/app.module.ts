@@ -18,7 +18,7 @@ import { ConnexionComponent } from './connexion/connexion.component';
 import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
 import { EvenementsComponent } from './evenements/evenements.component';
-import { CreationEvenementComponent } from './creationevenement/creationevenement.component';
+import { CreationEvenementComponent } from './creation-evenement/creation-evenement.component';
 import { MesevenementsComponent } from './mesevenements/mesevenements.component';
 
 
