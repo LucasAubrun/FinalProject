@@ -1,40 +1,35 @@
-<!--                       Navbar                              -->
-
-<ul class="nav grey lighten-4 py-4">
-    <li class="nav-item">
-        <a class="nav-link active" href="#!">Home</a>
-    </li>
-    <li class="nav-item">
-        <a class="nav-link" href="#!">Equipe</a>
-    </li>
-    <li class="nav-item">
-        <a class="nav-link" href="#!">Evenement</a>
-    </li>
-    <li class="nav-item">
-        <a class="nav-link disabled" href="#!">Deconnexion</a>
-    </li>
-</ul>
-
-<br>
-<!--                     Fin  Navbar                              -->
-
-
 <!--                       Creation évenement                              -->
+<!-- END NAV -->
+<nav class="menu" id="theMenu">
+    <div class="menu-wrap">
+        <i class="fa fa-bars menu-close"></i>
+        <div id="menu-logo">
+            <h2><span class="pe-7s-chat logo-icon"></span> Gestion d'évenements</h2>
+        </div>
+        <ul id="main-menu">
+            <li class="dropdown">
+                <a href="#">Création d'évenements <i class=""></i></a>
+            </li>
+            <li class="dropdown">
+                <a href="#">Mes évenements <i class=""></i></a>
+            </li>
 
-<div class="card z-depth-5">
-    <div class="card-body">
-        <form #creationForm="ngForm" (ngSubmit)="creerEvent(creationForm.value)">
-            <input type="text" name="nom" placeholder="nom" ngModel="">
-            <input type="date" name="date" placeholder="date" ngModel="">
-            <input type="text" name="adresse" placeholder="adresse" ngModel="">
-            <input type="text" name="niveau" placeholder="niv" ngModel="">
-            <input type="text" name="description" placeholder="desc" ngModel="">
-            <input type="int" name="nbmin" placeholder="min" ngModel="">
-            <input type="int" name="nbmax" placeholder="max" ngModel="">
-            <input type="text" name="nomActivite" placeholder="act" ngModel="">
-            <button class="btn btn-primary">Creer</button>
-        </form>
-    </div>
-</div>
 
-<!--                       fin création evenement                             -->
+            <!-- END NAV -->
+            <div class="card z-depth-5">
+                <div class="card-body">
+                    <form #creationForm="ngForm" (ngSubmit)="creerEvent(creationForm.value)">
+                        <input type="text" name="nom" placeholder="nom" ngModel="">
+                        <input type="date" name="date" placeholder="date" ngModel="">
+                        <input type="text" name="adresse" placeholder="adresse" ngModel="">
+                        <input type="text" name="niveau" placeholder="niv" ngModel="">
+                        <input type="text" name="description" placeholder="desc" ngModel="">
+                        <input type="int" name="nbmin" placeholder="min" ngModel="">
+                        <input type="int" name="nbmax" placeholder="max" ngModel="">
+                        <input type="text" name="nomActivite" placeholder="act" ngModel="">
+                        <button class="btn btn-primary">Creer</button>
+                    </form>
+                </div>
+            </div>
+
+            <!--                       fin création evenement                             -->
