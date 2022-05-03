@@ -30,7 +30,7 @@ export class CreationEvenementComponent implements OnInit {
       nomActivite: val.nomActivite,
     };
 
-    this.http.post("http://localhost:8080/Evenements", event)
+    this.http.post("http://localhost:8080/Evenements/save", event)
       .subscribe({
         next: (data) => { this.result = "Creation réussie" },
         error: (err) => { console.log(err) }
