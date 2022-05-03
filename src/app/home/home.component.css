@@ -20,6 +20,11 @@ body {
     top: 30%;
     left: 5%;
 }
+.container-second{
+  position: absolute;
+  top: 30%;
+  left: 5%;
+}
 
 h1 {
     text-transform: uppercase;
@@ -190,7 +195,7 @@ h1 span {
     color: white;
     border: 7px solid #e9ecef;
     border-radius: 100%;
-    background-color: #ffc800;
+    background-color: rgb(177, 53, 53);
   }
   .timeline > li .timeline-image h4, .timeline > li .timeline-image .h4 {
     font-size: 10px;
@@ -299,16 +304,77 @@ h1 span {
     .timeline > li.timeline-inverted > .timeline-panel {
       padding: 0 100px 20px 20px;
     }
-
+  }
     .rounded-circle {
         border-radius: 50% !important;
     }
-
-    .bg-light {
-        --bs-bg-opacity: 1;
-        background-color: rgba(var(--bs-light-rgb), var(--bs-bg-opacity)) !important;
-      }
-
-
-
+ .pic{
+  
+    width : 50px;
+    height : 50px;
+    
+ }
+ .btn-social {
+  height: 2.5rem;
+  width: 2.5rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  border-radius: 100%;
+}
+.text-muted {
+  --bs-text-opacity: 1;
+  color: #6c757d !important;
+  
+}
+.team-member {
+  margin-bottom: 3rem;
+  text-align: center;
+}
+.team-member img {
+  width: 14rem;
+  height: 14rem;
+  border: 0.5rem solid rgba(55, 59, 56, 0.1);
+}
+.team-member h4, .team-member .h4 {
+  margin-top: 1.5rem;
+  margin-bottom: 0;
+}
+.mx-2 {
+  margin-right: 0.5rem !important;
+  margin-left: 0.5rem !important;
+}
+.btn-dark {
+  color: #fff;
+  background-color: #212529;
+  border-color: #212529;
+}
+.btn-dark:hover {
+  color: #fff;
+  background-color: #1c1f23;
+  border-color: #1a1e21;
+}
+.btn-check:focus + .btn-dark, .btn-dark:focus {
+  color: #fff;
+  background-color: #1c1f23;
+  border-color: #1a1e21;
+  box-shadow: 0 0 0 0.25rem rgba(66, 70, 73, 0.5);
+}
+.btn-check:checked + .btn-dark, .btn-check:active + .btn-dark, .btn-dark:active, .btn-dark.active, .show > .btn-dark.dropdown-toggle {
+  color: #fff;
+  background-color: #1a1e21;
+  border-color: #191c1f;
+}
+.btn-check:checked + .btn-dark:focus, .btn-check:active + .btn-dark:focus, .btn-dark:active:focus, .btn-dark.active:focus, .show > .btn-dark.dropdown-toggle:focus {
+  box-shadow: 0 0 0 0.25rem rgba(66, 70, 73, 0.5);
+}
+.btn-dark:disabled, .btn-dark.disabled {
+  color: #fff;
+  background-color: #212529;
+  border-color: #212529;
+}
+.col-lg-4 {
+  flex: 0 0 auto;
+  width: 33.33333333%;
 }
