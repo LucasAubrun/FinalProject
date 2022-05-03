@@ -3,11 +3,12 @@
     <form #activiteForm="ngForm" (ngSubmit)="createNewActivite(activiteForm.value)">
         <div class="md_form">
             <label for="nom">Nom activté</label><br>
-            <input type="text" id="fcom" name="nom" ngModel="" placeholder="Nom de l'activité"><br>
+            <input type="text" id="fcom" name="nom" size="25" ngModel="" placeholder="Nom de l'activité"><br>
             <label for="contenu">Description</label><br>
-            <input type="text" id="fcom" name="contenu" ngModel="" placeholder="Decrivez l'activité"><br>
+            <input type="text" class="descriact" id="fcom" name="contenu" size="25" ngModel=""
+                placeholder="Decrivez l'activité"><br>
             <label for="nbjoueurs">Nombres de joueurs</label><br>
-            <input type="text" id="fcom" name="nbjoueurs" ngModel=""
+            <input type="text" id="fcom" name="nbjoueurs" size="25" ngModel=""
                 placeholder="Combien de joueurs pour l'activité"><br>
             <label for="type">Type d'activité</label>
             <select name="type" id="fcom" ngModel="">
