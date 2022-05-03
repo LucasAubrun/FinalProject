@@ -5,7 +5,6 @@ import { EquipesComponent } from './equipes/equipes.component';
 import { ActivitesComponent } from './activites/activites.component';
 import { ConnexionComponent } from './connexion/connexion.component';
 import { HomeComponent } from './home/home.component';
-import { ConnexionComponent } from './connexion/connexion.component';
 import { InscriptionComponent } from './inscription/inscription.component';
 
 
@@ -18,9 +17,6 @@ const routes: Routes = [
 {component: InscriptionComponent, path: 'inscription'}
 //{component: PriveComponent, path: 'prive'},
 //{component: PubliqueComponent, path: 'publique'}
-
-{component: ConnexionComponent, path: 'login'},
-{component: InscriptionComponent, path: 'register'},
 ];
 
 
