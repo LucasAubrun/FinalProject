@@ -13,15 +13,18 @@ export class CreationequipesComponent implements OnInit {
   resultMessage: string = " ";
   resultColor: string = " ";
   EquipesId1: any;
+  TtEquipeId: any;
+
      //♦♣♦♣♦♣♦♣♦♣ fin création de variable ♦♣♦♣♦♣♦♣♦♣//
 
   constructor(private http: HttpClient) { }
 
   ngOnInit(): void {
     this.callEquipeId1();
+    this.callTtEquipeId();
   }
 
-  //♦♣♦♣♦♣♦♣♦♣ recherche des équipes ♦♣♦♣♦♣♦♣♦♣//
+  //♦♣♦♣♦♣♦♣♦♣ recherche des équipes créer par un membre ♦♣♦♣♦♣♦♣♦♣//
   callEquipeId1(){
     this.http.get(this.baseURL + "equipes/membres/1").subscribe({
       next: (data)=> {this.EquipesId1 = data},
@@ -29,6 +32,16 @@ export class CreationequipesComponent implements OnInit {
     });
   }
   //♦♣♦♣♦♣♦♣♦♣ fin recherche des équipes ♦♣♦♣♦♣♦♣♦♣//
+
+    //♦♣♦♣♦♣♦♣♦♣ recherche de ttes les équipes créer par un membre ♦♣♦♣♦♣♦♣♦♣//
+    callTtEquipeId(){
+      this.http.get(this.baseURL + "associations/membres/1").subscribe({
+        next: (data)=> {this.TtEquipeId = data},
+        error: (err) => {console.log(err)}
+      });
+    }
+
+   //♦♣♦♣♦♣♦♣♦♣ Fin recherche de ttes les équipes créer par un membre ♦♣♦♣♦♣♦♣♦♣//
 
 
   //♦♣♦♣♦♣♦♣♦♣ début création d'équipe ♦♣♦♣♦♣♦♣♦♣//

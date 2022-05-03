@@ -27,14 +27,14 @@ export class CreationEvenementComponent implements OnInit {
       description: val.decription,
       nbmin: val.nbmin,
       nbmax: val.nbmax,
-      activite: val.activite,
+      nomActivite: val.nomActivite,
     };
-    console.log(event);
-    this.http.post(this.baseURL + "event/save", event)
+
+    this.http.post("http://localhost:8080/Evenements/save", event)
       .subscribe({
         next: (data) => { this.result = "Creation réussie" },
         error: (err) => { console.log(err) }
-      });
-    ;
+      })
+    console.log(event)
   }
 }
