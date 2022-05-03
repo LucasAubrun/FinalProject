@@ -9,3 +9,13 @@ body {
 .hiddendiv {
     display: none;
 }
+/* You can add global styles to this file, and also import other style files */
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    height: 100vh;
+    /* background: url('');*/
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+    overflow-x: hidden;
+}

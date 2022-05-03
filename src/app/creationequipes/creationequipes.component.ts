@@ -8,14 +8,43 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CreationequipesComponent implements OnInit {
 
+    //♦♣♦♣♦♣♦♣♦♣ création de variable ♦♣♦♣♦♣♦♣♦♣//
   baseURL: string = "http://localhost:8482/";
   resultMessage: string = " ";
   resultColor: string = " ";
+  EquipesId1: any;
+  TtEquipeId: any;
+
+     //♦♣♦♣♦♣♦♣♦♣ fin création de variable ♦♣♦♣♦♣♦♣♦♣//
 
   constructor(private http: HttpClient) { }
 
   ngOnInit(): void {
+    this.callEquipeId1();
+    this.callTtEquipeId();
   }
+
+  //♦♣♦♣♦♣♦♣♦♣ recherche des équipes créer par un membre ♦♣♦♣♦♣♦♣♦♣//
+  callEquipeId1(){
+    this.http.get(this.baseURL + "equipes/membres/1").subscribe({
+      next: (data)=> {this.EquipesId1 = data},
+      error: (err) => {console.log(err)}
+    });
+  }
+  //♦♣♦♣♦♣♦♣♦♣ fin recherche des équipes ♦♣♦♣♦♣♦♣♦♣//
+
+    //♦♣♦♣♦♣♦♣♦♣ recherche de ttes les équipes créer par un membre ♦♣♦♣♦♣♦♣♦♣//
+    callTtEquipeId(){
+      this.http.get(this.baseURL + "associations/membres/1").subscribe({
+        next: (data)=> {this.TtEquipeId = data},
+        error: (err) => {console.log(err)}
+      });
+    }
+
+   //♦♣♦♣♦♣♦♣♦♣ Fin recherche de ttes les équipes créer par un membre ♦♣♦♣♦♣♦♣♦♣//
+
+
+  //♦♣♦♣♦♣♦♣♦♣ début création d'équipe ♦♣♦♣♦♣♦♣♦♣//
 
   creationEquipe(val: any) {
     let equipe = {
@@ -40,6 +69,8 @@ export class CreationequipesComponent implements OnInit {
         });
         ;
     }
+
+      //♦♣♦♣♦♣♦♣♦♣ fin création d'équipe ♦♣♦♣♦♣♦♣♦♣//
   }
 
 

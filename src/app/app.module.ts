@@ -20,6 +20,7 @@ import { LoginComponent } from './login/login.component';
 import { EvenementsComponent } from './evenements/evenements.component';
 import { CreationEvenementComponent } from './creation-evenement/creation-evenement.component';
 import { FooterComponent } from './footer/footer.component';
+import { MesevenementsComponent } from './mesevenements/mesevenements.component';
 
 
 @NgModule({
@@ -38,7 +39,8 @@ import { FooterComponent } from './footer/footer.component';
     HomeComponent,
     LoginComponent,
     InscriptionComponent,
-    FooterComponent
+    FooterComponent,
+    MesevenementsComponent
   ],
   imports: [
 
