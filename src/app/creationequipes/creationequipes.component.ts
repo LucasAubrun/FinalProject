@@ -14,6 +14,7 @@ export class CreationequipesComponent implements OnInit {
   resultColor: string = " ";
   EquipesId1: any;
   TtEquipeId: any;
+  EquipeActuelle: any;
 
      //♦♣♦♣♦♣♦♣♦♣ fin création de variable ♦♣♦♣♦♣♦♣♦♣//
 
