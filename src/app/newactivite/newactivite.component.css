@@ -1,9 +1,12 @@
 .descriact {
+    width: 30%;
+    outline: 0;
     height: 100px;
-    width: 100px;
+    padding: 10px;
     border: 10;
+    line-height: 20px;
     border-color: blue;
     background: black;
     color: white;
-    display: inline-block;
+    display: block;
 }
