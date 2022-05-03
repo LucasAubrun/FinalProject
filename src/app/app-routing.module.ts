@@ -14,7 +14,9 @@ const routes: Routes = [
 {component: ActivitesComponent, path: 'activites'},
 {component: HomeComponent, path: 'home'},
 {component: ConnexionComponent, path: 'connexion'},
-{component: InscriptionComponent, path: 'inscription'}
+{component: InscriptionComponent, path: 'inscription'},
+{path:'',   redirectTo: '/connexion', pathMatch: 'full'},
+{path:'',   redirectTo: '/inscription', pathMatch: 'full'}
 //{component: PriveComponent, path: 'prive'},
 //{component: PubliqueComponent, path: 'publique'}
 ];
