@@ -9,7 +9,8 @@ import { HttpClient } from '@angular/common/http';
 export class InscriptionComponent implements OnInit {
 
   baseURL: string = "http://localhost:8082/";
-  result: string = "";
+  resultMessage: string = "";
+  resultColor: string="";
 
   constructor(private http: HttpClient) { }
 
@@ -22,14 +23,24 @@ export class InscriptionComponent implements OnInit {
       prenom: val.prenom,
       dateNaissance: val.dateNaissance,
       mail: val.mail,
-      login: val.login,
       mdp: val.mdp,
     };
     console.log(membre);    
     this.http.post(this.baseURL + "membre/save", membre)
     .subscribe({
-    next: (data) => {this.result = "Inscription réussie"},
-    error: (err) => {console.log(err)}
+    next: (data) => {
+      this.resultMessage = "Inscription réussie";
+      this.resultColor = "green";
+    },
+    error: (err) => {
+      console.log(err);
+      if (err.error.trace.includes("Duplicate")) {
+        this.resultMessage = "Cette adresse mail est déjà utilisée";
+      }
+      else 
+        this.resultMessage = "Une erreur s'est produite"
+      this.resultColor = "red";
+    }
     });
     ;
   }
