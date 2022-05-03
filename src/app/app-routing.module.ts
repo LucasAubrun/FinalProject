@@ -6,11 +6,13 @@ import { ActivitesComponent } from './activites/activites.component';
 import { ConnexionComponent } from './connexion/connexion.component';
 import { HomeComponent } from './home/home.component';
 import { InscriptionComponent } from './inscription/inscription.component';
+import { EvenementsComponent } from './evenements/evenements.component';
 
 
 const routes: Routes = [
 {component: EquipesComponent, path: "equipes"},
 {component: CreationequipesComponent, path: "creationequipes"},
+{component: EvenementsComponent, path: "evenement"},
 {component: ActivitesComponent, path: 'activites'},
 {component: HomeComponent, path: 'home'},
 {component: ConnexionComponent, path: 'connexion'},
