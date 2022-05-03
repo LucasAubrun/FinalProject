@@ -1,6 +1,7 @@
 
-<!--                       Navbar                              -->
+<!--  ♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠        Navbar       ♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠               -->
 
+<!--
 <ul class="nav grey lighten-4 py-4">
     <li class="nav-item">
       <a class="nav-link active" href="#!">Home</a>
@@ -16,11 +17,11 @@
     </li>
   </ul>
 
-  <br>
-<!--                     Fin  Navbar                              -->
+  <br>-->
+<!--  ♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠      Fin  Navbar   ♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠               -->
 
 
-<!--                       Creation équipe                              -->
+<!--  ♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠      création équipe   ♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠               -->
 
 <!-- Card -->
 <div class="card mx-xl-5">
@@ -52,7 +53,23 @@
   </div>
   <!-- Card -->
 
-  <!--                       fin création équipe                             -->
+<!--  ♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠         fin création équipe   ♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠              -->
 
 <br>
 <h1>Mes équipes :</h1>
+
+<!--  ♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠    début de recherche des équipes d'un individue   ♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠              -->
+<br>
+
+<div>
+  <div class="row">
+      <div class="col-sm-4" *ngFor="let e of EquipesId1">
+          <div class="card p-2">
+                  <p class="mx-auto my-auto">
+                       {{e.nom}}                   
+                  </p>
+          </div>
+      </div>
+  </div>
+</div> 
+<!--  ♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠       fin recherche des  équipes d'un individue     ♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠              -->
