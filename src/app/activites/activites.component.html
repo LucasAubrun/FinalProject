@@ -1,23 +1,58 @@
 <p>activites works!</p>
 <div>
-    <div class="container  mt-4">
-        <table class="table" style="background-color: rgb(127, 191, 255);">
-            <thead>
-                <tr>
-                    <th>Nom</th>
-                    <th>Description</th>
-                    <th>Nombre de joueurs pour cette activité</th>
-                    <th>Type d'activité</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr *ngFor="let a of activitesOne">
-                    <td>{{a.nom}}</td>
-                    <td>{{a.description}}</td>
-                    <td>{{a.nbJoueurs}}</td>
-                    <td>{{a.type}}</td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
+  <div class="container  mt-4">
+    <table class="table" style="background-color: rgb(127, 191, 255);">
+      <thead>
+        <tr>
+          <th>Nom</th>
+          <th>Description</th>
+          <th>Nombre de joueurs pour cette activité</th>
+          <th>Type d'activité</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let a of activitesOne">
+          <td>{{a.nom}}</td>
+          <td>{{a.description}}</td>
+          <td>{{a.nbJoueurs}}</td>
+          <td>{{a.type}}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
 </div>
+
+<body>
+  <div class="container pt">
+    <div class="row mt centered">
+      <div class="col-lg-4">
+        <a href="work01.html"><img class="img-responsive" src="assets/sport/port01.jpg" alt="" /></a>
+        <p>Football</p>
+      </div>
+      <div class="col-lg-4">
+        <a href="work01.html"><img class="img-responsive" src="assets/sport/port02.jpg" alt="" /></a>
+        <p>Rugby</p>
+      </div>
+      <div class="col-lg-4">
+        <a href="work01.html"><img class="img-responsive" src="assets/sport/port03.jpg" alt="" /></a>
+        <p>Basket</p>
+      </div>
+    </div>
+    <!-- /row -->
+    <div class="row mt centered">
+      <div class="col-lg-4">
+        <a href="work01.html"><img class="img-responsive" src="assets/sport/port04.jpg" alt="" /></a>
+        <p>Tennis</p>
+      </div>
+      <div class="col-lg-4">
+        <a href="work01.html"><img class="img-responsive" src="assets/sport/port05.jpg" alt="" /></a>
+        <p>Five</p>
+      </div>
+      <div class="col-lg-4">
+        <a href="work01.html"><img class="img-responsive" src="assets/sport/port06.jpg" alt="" /></a>
+        <p>Pétanque</p>
+      </div>
+    </div>
+    <!-- /row -->
+  </div>
+</body>
