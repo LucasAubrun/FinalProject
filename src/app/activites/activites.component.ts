@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-activites',
@@ -7,9 +8,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ActivitesComponent implements OnInit {
 
-  constructor() { }
+  constructor(private http: HttpClient) { }
+  activitesOne: any;
 
   ngOnInit(): void {
+    this.callActivitesAll()
   }
 
+  callActivitesAll() {
+    this.http.get('http://localhost:8080/activites/all')
+      .subscribe({
+        next: (data) => { this.activitesOne = data },
+        error: (err) => { console.log(err) }
+      });
+
+  }
 }
