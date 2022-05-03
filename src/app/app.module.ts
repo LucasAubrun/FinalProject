@@ -1,13 +1,18 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { HttpClientModule} from '@angular/common/http'
+
+import { HttpClientModule } from '@angular/common/http';
+
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { MenuComponent } from './menu/menu.component';
 import { ActivitesComponent } from './activites/activites.component';
+import { NewactiviteComponent } from './newactivite/newactivite.component';
+
 import { EquipesComponent } from './equipes/equipes.component';
 import { CreationequipesComponent } from './creationequipes/creationequipes.component';
 import { InscriptionComponent } from './inscription/inscription.component';
+
 import { FormsModule } from '@angular/forms';
 import { ConnexionComponent } from './connexion/connexion.component';
 import { HomeComponent } from './home/home.component';
@@ -20,6 +25,7 @@ import { CreationEvenementComponent } from './creation-evenement/creation-evenem
   declarations: [
     AppComponent,
     ActivitesComponent,
+    NewactiviteComponent,
     EquipesComponent,
     CreationequipesComponent,
     InscriptionComponent,
@@ -27,14 +33,16 @@ import { CreationEvenementComponent } from './creation-evenement/creation-evenem
     ConnexionComponent,
     EvenementsComponent,
     CreationEvenementComponent,
-    MenuComponent,
     LoginComponent,
-    HomeComponent
+    HomeComponent,
+    LoginComponent,
+    InscriptionComponent
   ],
   imports: [
+
+    HttpClientModule,
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule,
     FormsModule
   ],
   providers: [],

@@ -6,7 +6,7 @@
       <a class="nav-link active" href="#!">Home</a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" href="#!">Equipe</a>
+      <a class="nav-link" routerLink="equipes">Equipe</a>
     </li>
     <li class="nav-item">
       <a class="nav-link" href="#!">Evenement</a>
@@ -29,12 +29,12 @@
     <div class="card-body">
   
       <!-- Default form subscription -->
-      <form>
+      <form #creationequipes="ngForm" (ngSubmit)="creationEquipe(creationequipes.value)"> 
         <p class="h4 text-center py-4">Création de ton équipe</p>
   
         <!-- Default input name -->
         <label for="defaultFormCardNameEx" class="grey-text font-weight-light">Nom de l'équipe</label>
-        <input type="text" id="defaultFormCardNameEx" class="form-control">
+        <input type="text" name="nom" placeholder="Nom de votre équipe" class="form-control" ngModel="">
   
         <br>
   
@@ -42,6 +42,7 @@
           <button class="btn btn-outline-purple" type="submit">Valider l'équipe<i
               class="fa fa-paper-plane-o ml-2"></i></button>
         </div>
+        <p class="mt-3" [style.color]="resultColor">{{resultMessage}}</p>
       </form>
       <!-- Default form subscription -->
   
@@ -52,3 +53,6 @@
   <!-- Card -->
 
   <!--                       fin création équipe                             -->
+
+<br>
+<h1>Mes équipes :</h1>
