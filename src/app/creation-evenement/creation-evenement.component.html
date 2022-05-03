@@ -26,12 +26,12 @@
         <form #creationForm="ngForm" (ngSubmit)="creerEvent(creationForm.value)">
             <input type="text" name="nom" placeholder="nom" ngModel="">
             <input type="date" name="date" placeholder="date" ngModel="">
-            <input type="text" name="adresse" ngModel="">
-            <input type="text" name="niveau" ngModel="">
-            <input type="text" name="description" ngModel="">
-            <input type="int" name="nbmin" ngModel="">
-            <input type="int" name="nbmax" ngModel="">
-            <input type="text" name="activite" ngModel="">
+            <input type="text" name="adresse" placeholder="adresse" ngModel="">
+            <input type="text" name="niveau" placeholder="niv" ngModel="">
+            <input type="text" name="description" placeholder="desc" ngModel="">
+            <input type="int" name="nbmin" placeholder="min" ngModel="">
+            <input type="int" name="nbmax" placeholder="max" ngModel="">
+            <input type="text" name="nomActivite" placeholder="act" ngModel="">
             <button class="btn btn-primary">Creer</button>
         </form>
     </div>
