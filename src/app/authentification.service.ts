@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
 import { HttpResponse } from '@angular/common/http';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
@@ -10,7 +11,7 @@ export class AuthentificationService {
   // mail: string = "mail";
   // mdp: string = "mdp";
 
-  constructor() { }
+  constructor(private route: Router) { }
 
   // login(mail: string, mdp: string): Observable<any> {
   //   // Mock a successful call to an API server.
@@ -51,5 +52,9 @@ export class AuthentificationService {
     }
   }
 
-  
+  deco() {
+    localStorage.clear();
+    this.route.navigateByUrl('');
+  }
+ 
 }
