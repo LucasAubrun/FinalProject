@@ -2,11 +2,7 @@
 
 <head>
 </head>
-
-<body>
-
-
-    <img src="Multisport.jpeg" alt="my image" width=max-width height=max-height>
+<img src="assets/img/Multisport.jpeg" alt="my image" width=100% height=max-height>
 
 
     <ul class="medias">
@@ -17,150 +13,142 @@
     </ul>
 
     <div class="container-first">
-        <h1><span>Démontre </span><span>tes </span><span>capacités </span></h1>
+        <h1><span>Repousse </span><span>tes </span><span>Limites </span></h1>
         <div class="container-btns">
-            <button class="btn-first b1" href="#concept">Le concept</button>
-            <a class="btn-first b1" href="#concept">concept</a>
+            <button class="btn-first b1" (click)="scroll(concept)">Découvre-nous</button>
             <button class="btn-first b2">Rejoindre l'équipe</button>
         </div>
     </div>
+    
 
-    <!-- Concept-->
-    <section class="page-section" id="concept">
-        <div class="container">
-            <div class="text-center">
-                <h2 class="section-heading text-uppercase">Le concept</h2>
-                <h3 class="section-subheading text-muted">Le concept de EloSport est de rassembler les différents
-                    joueurs blabla</h3>
-            </div>
-            <div class="row text-center">
-                <div class="col-md-4">
-                    <span class="fa-stack fa-4x">
-                        <i class="fas fa-circle fa-stack-2x text-primary"></i>
-                        <i class="fas fa-shopping-cart fa-stack-1x fa-inverse"></i>
-                    </span>
-                    <h4 class="my-3">Sport</h4>
-                    <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam
-                        architecto quo inventore harum ex magni, dicta impedit.</p>
-                </div>
-                <div class="col-md-4">
-                    <span class="fa-stack fa-4x">
-                        <i class="fas fa-circle fa-stack-2x text-primary"></i>
-                        <i class="fas fa-laptop fa-stack-1x fa-inverse"></i>
-                    </span>
-                    <h4 class="my-3">Jeux de plateau</h4>
-                    <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam
-                        architecto quo inventore harum ex magni, dicta impedit.</p>
-                </div>
-                <div class="col-md-4">
-                    <span class="fa-stack fa-4x">
-                        <i class="fas fa-circle fa-stack-2x text-primary"></i>
-                        <i class="fas fa-lock fa-stack-1x fa-inverse"></i>
-                    </span>
-                    <h4 class="my-3">Jeux vidéos</h4>
-                    <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam
-                        architecto quo inventore harum ex magni, dicta impedit.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-</body>
-
-<!-- Activités -->
-<section class="page-section bg-light" id="portfolio">
+<!-- Concept-->
+<section class="page-section" #concept id="concept">
     <div class="container">
         <div class="text-center">
-            <h2 class="section-heading text-uppercase">Portfolio</h2>
-            <h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3>
+            <h2 class="section-heading text-uppercase">Le concept</h2>
+            <h3 class="section-subheading text-muted">Le concept de EloSport est de rassembler les différents
+                joueurs de différents sport à plus fins : </h3>
         </div>
+        <div class="row text-center">
+            <div class="col-md-4">
+                <span class="fa-stack fa-4x">
+                    <i class="fas fa-circle fa-stack-2x text-primary"></i>
+                    <i class="fas fa-trophy fa-stack-1x fa-inverse"></i>
+                </span>
+                <h4 class="my-3">Compétif</h4>
+                <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam
+                    architecto quo inventore harum ex magni, dicta impedit.</p>
+            </div>
+            <div class="col-md-4">
+                <span class="fa-stack fa-4x">
+                    <i class="fas fa-circle fa-stack-2x text-primary"></i>
+                    <i class="fas fa-handshake fa-stack-1x fa-inverse"></i>
+                </span>
+                <h4 class="my-3">Amical</h4>
+                <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam
+                    architecto quo inventore harum ex magni, dicta impedit.</p>
+            </div>
+            <div class="col-md-4">
+                <span class="fa-stack fa-4x">
+                    <i class="fas fa-circle fa-stack-2x text-primary"></i>
+                    <i class="fas fa-link fa-stack-1x fa-inverse"></i>
+                </span>
+                <h4 class="my-3">Rencontres</h4>
+                <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam
+                    architecto quo inventore harum ex magni, dicta impedit.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!-- Activités -->
+<section class="page-section bg-light" id="activites">
+    <div class="container">
         <div class="row">
-            <div class="col-lg-4 col-sm-6 mb-4">
-                <!-- Portfolio item 1-->
-                <div class="portfolio-item">
-                    <a class="portfolio-link" data-bs-toggle="modal" href="#portfolioModal1">
-                        <div class="portfolio-hover">
-                            <div class="portfolio-hover-content"><i class="fas fa-plus fa-3x"></i></div>
+            <div class="card my-4 border-0 rounded-0">
+                <div class="row">
+                    <div class="col-md-6">
+                        <img src="assets/sports.jpg" class="img-fluid rounded-start" alt="...">
+                    </div>
+                    <div class="col-md-6 bg-light">
+                        <div class="card-body ">
+                            <h5 class="card-title">Sports</h5>
+                            <p class="card-text">
+                                <br>
+                                This is a wider card with supporting text below as a natural lead-in to
+                                additional content. This content is a little bit longer.
+                            </p>
+                            <p class="card-text"><a class="text-muted">Last updated 3 mins ago</a></p>
                         </div>
-                        <img class="img-fluid" src="assets/img/portfolio/1.jpg" alt="..." />
-                    </a>
-                    <div class="portfolio-caption">
-                        <div class="portfolio-caption-heading">Threads</div>
-                        <div class="portfolio-caption-subheading text-muted">Illustration</div>
                     </div>
                 </div>
             </div>
-            <div class="col-lg-4 col-sm-6 mb-4">
-                <!-- Portfolio item 2-->
-                <div class="portfolio-item">
-                    <a class="portfolio-link" data-bs-toggle="modal" href="#portfolioModal2">
-                        <div class="portfolio-hover">
-                            <div class="portfolio-hover-content"><i class="fas fa-plus fa-3x"></i></div>
+
+            <div class="card my-4 border-0 rounded-0">
+                <div class="row">
+
+                    <div class="col-md-6 bg-light">
+                        <div class="card-body ">
+                            <h5 class="card-title">Jeux de plateaux</h5>
+                            <p class="card-text">
+                                <br>
+                                This is a wider card with supporting text below as a natural lead-in to
+                                additional content. This content is a little bit longer.
+                            </p>
+                            <p class="card-text"><a class="text-muted">Last updated 3 mins ago</a></p>
                         </div>
-                        <img class="img-fluid" src="assets/img/portfolio/2.jpg" alt="..." />
-                    </a>
-                    <div class="portfolio-caption">
-                        <div class="portfolio-caption-heading">Explore</div>
-                        <div class="portfolio-caption-subheading text-muted">Graphic Design</div>
+                    </div>
+                    <div class="col-md-6">
+                        <img src="assets/jeuxp.avif" class="img-fluid rounded-start" alt="...">
                     </div>
                 </div>
             </div>
-            <div class="col-lg-4 col-sm-6 mb-4">
-                <!-- Portfolio item 3-->
-                <div class="portfolio-item">
-                    <a class="portfolio-link" data-bs-toggle="modal" href="#portfolioModal3">
-                        <div class="portfolio-hover">
-                            <div class="portfolio-hover-content"><i class="fas fa-plus fa-3x"></i></div>
+
+            <div class="card my-4 border-0 rounded-0">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div id="carouselExampleIndicators" class="carousel slide" data-ride="carouse">
+                            <ol class="carousel-indicators">
+                                <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+                                <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+                                <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+                            </ol>
+                            <div class="carousel-inner">
+                                <div class="carousel-item active">
+                                    <img class="img-fluid rounded-start" src="assets/jeuxv1.jpg" alt="First slide">
+                                </div>
+                                <div class="carousel-item">
+                                    <img class="img-fluid rounded-start" src="assets/jeuxv1.jpg" alt="Second slide">
+                                </div>
+                                <div class="carousel-item">
+                                    <img class="img-fluid rounded-start" src="assets/jeuxv1.jpg" alt="Third slide">
+                                </div>
+                            </div>
+                            <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button"
+                                data-slide="prev">
+                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                <span class="sr-only">Previous</span>
+                            </a>
+                            <a class="carousel-control-next" href="#carouselExampleIndicators" role="button"
+                                data-slide="next">
+                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                <span class="sr-only">Next</span>
+                            </a>
                         </div>
-                        <img class="img-fluid" src="assets/img/portfolio/3.jpg" alt="..." />
-                    </a>
-                    <div class="portfolio-caption">
-                        <div class="portfolio-caption-heading">Finish</div>
-                        <div class="portfolio-caption-subheading text-muted">Identity</div>
                     </div>
-                </div>
-            </div>
-            <div class="col-lg-4 col-sm-6 mb-4 mb-lg-0">
-                <!-- Portfolio item 4-->
-                <div class="portfolio-item">
-                    <a class="portfolio-link" data-bs-toggle="modal" href="#portfolioModal4">
-                        <div class="portfolio-hover">
-                            <div class="portfolio-hover-content"><i class="fas fa-plus fa-3x"></i></div>
+                    <div class="col-md-6 bg-light">
+                        <div class="card-body ">
+                            <h5 class="card-title">Jeux Vidéos</h5>
+                            <p class="card-text">
+                                <br>
+                                Tu es à la recherche de coéquipiers pour participer aux prochaines compétitions ou juste
+                                pour rigoler le soir? Où simplement à la recherce d'adversaires?
+                                Que tu sois un joueur Playstation, Xbox, Nintendo, ou PC, EloSport est là pour te
+                                trouver les bonnes personnes.
+                            </p>
+                            <p class="card-btn"><a class="btn text-muted">Découvrir</a></p>
                         </div>
-                        <img class="img-fluid" src="assets/img/portfolio/4.jpg" alt="..." />
-                    </a>
-                    <div class="portfolio-caption">
-                        <div class="portfolio-caption-heading">Lines</div>
-                        <div class="portfolio-caption-subheading text-muted">Branding</div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4 col-sm-6 mb-4 mb-sm-0">
-                <!-- Portfolio item 5-->
-                <div class="portfolio-item">
-                    <a class="portfolio-link" data-bs-toggle="modal" href="#portfolioModal5">
-                        <div class="portfolio-hover">
-                            <div class="portfolio-hover-content"><i class="fas fa-plus fa-3x"></i></div>
-                        </div>
-                        <img class="img-fluid" src="assets/img/portfolio/5.jpg" alt="..." />
-                    </a>
-                    <div class="portfolio-caption">
-                        <div class="portfolio-caption-heading">Southwest</div>
-                        <div class="portfolio-caption-subheading text-muted">Website Design</div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4 col-sm-6">
-                <!-- Portfolio item 6-->
-                <div class="portfolio-item">
-                    <a class="portfolio-link" data-bs-toggle="modal" href="#portfolioModal6">
-                        <div class="portfolio-hover">
-                            <div class="portfolio-hover-content"><i class="fas fa-plus fa-3x"></i></div>
-                        </div>
-                        <img class="img-fluid" src="assets/img/portfolio/6.jpg" alt="..." />
-                    </a>
-                    <div class="portfolio-caption">
-                        <div class="portfolio-caption-heading">Window</div>
-                        <div class="portfolio-caption-subheading text-muted">Photography</div>
                     </div>
                 </div>
             </div>
@@ -179,45 +167,51 @@
         </div>
         <ul class="timeline">
             <li>
-                <div class="timeline-image"><img class="rounded-circle img-fluid" src="foot.jpg"
-                        alt="..." /></div>
+                <div class="timeline-image"><img class="rounded-circle img-fluid" src="./assets/sol.webp" alt="..." />
+                </div>
                 <div class="timeline-panel">
                     <div class="timeline-heading">
-                        <h4>2009-2011</h4>
-                        <h4 class="subheading">Our Humble Beginnings</h4>
+                        <h4>28 mars 2022</h4>
+                        <h4 class="subheading">Le commencement</h4>
                     </div>
                     <div class="timeline-body">
-                        <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut
-                            voluptatum eius sapiente, totam reiciendis temporibus qui quibusdam, recusandae sit vero
-                            unde, sed, incidunt et ea quo dolore laudantium consectetur!</p>
+                        <p class="text-muted">
+                            <br>
+                            L'histoire débute le 28 mars 2022. En ce jour, 7 jeunes cadres dynamiques
+                            rejoignent l'entreprise Solutec. Sous la pression grandissante, l'un d'entre eux quitte
+                            rapidement le navire. Les 6 derniers vont, suite à ça, donner naissance à EloSport.
+                        </p>
                     </div>
                 </div>
             </li>
-            
-            
+
+
             <li class="timeline-inverted">
-                <div class="timeline-image"><img class="rounded-circle img-fluid" src="alex.PNG"
-                        alt="..." /></div>
+                <div class="timeline-image"><img class="rounded-circle img-fluid" src="alex.PNG" alt="..." /></div>
                 <div class="timeline-panel">
                     <div class="timeline-heading">
-                        <h4>July 2020</h4>
-                        <h4 class="subheading">Phase Two Expansion</h4>
+                        <h4>6 mai 2022</h4>
+                        <h4 class="subheading">Le lancement</h4>
                     </div>
                     <div class="timeline-body">
-                        <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut
-                            voluptatum eius sapiente, totam reiciendis temporibus qui quibusdam, recusandae sit vero
-                            unde, sed, incidunt et ea quo dolore laudantium consectetur!</p>
+                        <p class="text-muted">
+                            <br>
+                            Seulement 6 semaines après le commencement, le projet est lancé sur le
+                            Web.
+                        </p>
                     </div>
                 </div>
             </li>
             <li class="timeline-inverted">
                 <div class="timeline-image">
                     <h4>
-                        Be Part
-                        <br />
-                        Of Our
-                        <br />
-                        Story!
+
+                        Rejoignez
+                        <br>
+                        Nous
+                        <br>
+                        Vite!
+
                     </h4>
                 </div>
             </li>
@@ -229,84 +223,92 @@
 <section class="page-section bg-light" id="team">
     <div class="container">
         <div class="text-center">
-            <h2 class="section-heading text-uppercase">Our Amazing Team</h2>
-            <h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3>
+            <h2 class="section-heading text-uppercase">Notre équipe</h2>
+            <h3 class="section-subheading text-muted">Les fondateurs de EloSport</h3>
         </div>
         <div class="row">
             <div class="col-lg-4">
                 <div class="team-member">
-                    <img class="mx-auto rounded-circle" src="assets/alex.jpg" alt="..." />
+                    <img class="mx-auto rounded-circle" src="./assets/img/lucas.jpg" alt="..." />
                     <h4>Lucas</h4>
                     <p class="text-muted">Lead Designer</p>
+                    <br>
                     <a class="btn btn-dark btn-social mx-2" href="#!" aria-label="Parveen Anand Twitter Profile"><i
                             class="fab fa-twitter"></i></a>
-                    <a class="btn btn-dark btn-social mx-2" href="#!" aria-label="Parveen Anand Facebook Profile"><i
-                            class="fab fa-facebook-f"></i></a>
+                    <a class="btn btn-dark btn-social mx-2" href="https://www.facebook.com/petit.ange2019"
+                        aria-label="Parveen Anand Facebook Profile"><i class="fab fa-facebook-f"></i></a>
                     <a class="btn btn-dark btn-social mx-2" href="#!" aria-label="Parveen Anand LinkedIn Profile"><i
                             class="fab fa-linkedin-in"></i></a>
                 </div>
             </div>
             <div class="col-lg-4">
                 <div class="team-member">
-                    <img class="mx-auto rounded-circle" src="assets/img/team/2.jpg" alt="..." />
+                    <img class="mx-auto rounded-circle" src="./assets/img/clara.jpg" alt="..." />
                     <h4>Clara</h4>
                     <p class="text-muted">Lead Marketer</p>
+                    <br>
                     <a class="btn btn-dark btn-social mx-2" href="#!" aria-label="Diana Petersen Twitter Profile"><i
                             class="fab fa-twitter"></i></a>
-                    <a class="btn btn-dark btn-social mx-2" href="#!" aria-label="Diana Petersen Facebook Profile"><i
-                            class="fab fa-facebook-f"></i></a>
+                    <a class="btn btn-dark btn-social mx-2"
+                        href="https://www.facebook.com/profile.php?id=100006881985051"
+                        aria-label="Diana Petersen Facebook Profile"><i class="fab fa-facebook-f"></i></a>
                     <a class="btn btn-dark btn-social mx-2" href="#!" aria-label="Diana Petersen LinkedIn Profile"><i
                             class="fab fa-linkedin-in"></i></a>
                 </div>
             </div>
             <div class="col-lg-4">
                 <div class="team-member">
-                    <img class="mx-auto rounded-circle" src="assets/img/team/3.jpg" alt="..." />
+                    <img class="mx-auto rounded-circle" src="./assets/img/matthieu.jpg" alt="..." />
                     <h4>Matthieu</h4>
                     <p class="text-muted">Lead Developer</p>
+                    <br>
                     <a class="btn btn-dark btn-social mx-2" href="#!" aria-label="Larry Parker Twitter Profile"><i
                             class="fab fa-twitter"></i></a>
-                    <a class="btn btn-dark btn-social mx-2" href="#!" aria-label="Larry Parker Facebook Profile"><i
-                            class="fab fa-facebook-f"></i></a>
+                    <a class="btn btn-dark btn-social mx-2" href="https://www.facebook.com/matthieu.beauchet"
+                        aria-label="Larry Parker Facebook Profile"><i class="fab fa-facebook-f"></i></a>
                     <a class="btn btn-dark btn-social mx-2" href="#!" aria-label="Larry Parker LinkedIn Profile"><i
                             class="fab fa-linkedin-in"></i></a>
                 </div>
             </div>
             <div class="col-lg-4">
                 <div class="team-member">
-                    <img class="mx-auto rounded-circle" src="assets/img/team/3.jpg" alt="..." />
+                    <img class="mx-auto rounded-circle" src="./assets/img/alexis.jpg" alt="..." />
                     <h4>Alexis</h4>
                     <p class="text-muted">Lead Developer</p>
+                    <br>
                     <a class="btn btn-dark btn-social mx-2" href="#!" aria-label="Larry Parker Twitter Profile"><i
                             class="fab fa-twitter"></i></a>
-                    <a class="btn btn-dark btn-social mx-2" href="#!" aria-label="Larry Parker Facebook Profile"><i
-                            class="fab fa-facebook-f"></i></a>
+                    <a class="btn btn-dark btn-social mx-2" href="https://www.facebook.com/alexis.perrocheau.zer"
+                        aria-label="Larry Parker Facebook Profile"><i class="fab fa-facebook-f"></i></a>
                     <a class="btn btn-dark btn-social mx-2" href="#!" aria-label="Larry Parker LinkedIn Profile"><i
                             class="fab fa-linkedin-in"></i></a>
                 </div>
             </div>
             <div class="col-lg-4">
                 <div class="team-member">
-                    <img class="mx-auto rounded-circle" src="assets/img/team/3.jpg" alt="..." />
+                    <img class="pic rounded-circle" src="./assets/img/dylan.JPG" alt="..." />
                     <h4>Dylan</h4>
                     <p class="text-muted">Lead Developer</p>
+                    <br>
                     <a class="btn btn-dark btn-social mx-2" href="#!" aria-label="Larry Parker Twitter Profile"><i
                             class="fab fa-twitter"></i></a>
-                    <a class="btn btn-dark btn-social mx-2" href="#!" aria-label="Larry Parker Facebook Profile"><i
-                            class="fab fa-facebook-f"></i></a>
+                    <a class="btn btn-dark btn-social mx-2" href="https://www.facebook.com/dylan.sergeant.94"
+                        aria-label="Larry Parker Facebook Profile"><i class="fab fa-facebook-f"></i></a>
                     <a class="btn btn-dark btn-social mx-2" href="#!" aria-label="Larry Parker LinkedIn Profile"><i
                             class="fab fa-linkedin-in"></i></a>
                 </div>
             </div>
             <div class="col-lg-4">
                 <div class="team-member">
-                    <img class="mx-auto rounded-circle" src="alex.PNG" alt=".ff.." />
+                    <img class="pic rounded-circle" src="./assets/img/alex.jpg" alt=".ff.." />
+
                     <h4>Alexandre</h4>
-                    <p class="text-muted">Lead Developer</p>
+                    <p class="text-muted">Front-end Developper</p>
+                    <br>
                     <a class="btn btn-dark btn-social mx-2" href="#!" aria-label="Larry Parker Twitter Profile"><i
                             class="fab fa-twitter"></i></a>
-                    <a class="btn btn-dark btn-social mx-2" href="#!" aria-label="Larry Parker Facebook Profile"><i
-                            class="fab fa-facebook-f"></i></a>
+                    <a class="btn btn-dark btn-social mx-2" href="https://www.facebook.com/Alexandre.roux22"
+                        aria-label="Larry Parker Facebook Profile"><i class="fab fa-facebook-f"></i></a>
                     <a class="btn btn-dark btn-social mx-2" href="#!" aria-label="Larry Parker LinkedIn Profile"><i
                             class="fab fa-linkedin-in"></i></a>
                 </div>
@@ -322,5 +324,6 @@
         </div>
     </div>
 </section>
+
 
 </html>

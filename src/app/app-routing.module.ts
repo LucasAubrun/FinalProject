@@ -25,12 +25,14 @@ const routes: Routes = [
   { component: MesevenementsComponent, path: 'mesevenements' },
   { component: CreationEvenementComponent, path: 'creation-evenement' },
   { path: '', redirectTo: '/creation-evenement', pathMatch: 'full' },
-  { path: '', redirectTo: '/mesevenements', pathMatch: 'full' }
+  { path: '', redirectTo: '/mesevenements', pathMatch: 'full' },
 ];
 
 
 
 @NgModule({
+
+ 
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
