@@ -21,6 +21,8 @@ import { EvenementsComponent } from './evenements/evenements.component';
 import { CreationEvenementComponent } from './creation-evenement/creation-evenement.component';
 import { FooterComponent } from './footer/footer.component';
 import { MesevenementsComponent } from './mesevenements/mesevenements.component';
+import { AdminComponent } from './admin/admin.component';
+import { ConnexionadminComponent } from './connexionadmin/connexionadmin.component';
 
 
 @NgModule({
@@ -40,7 +42,9 @@ import { MesevenementsComponent } from './mesevenements/mesevenements.component'
     LoginComponent,
     InscriptionComponent,
     FooterComponent,
-    MesevenementsComponent
+    MesevenementsComponent,
+    AdminComponent,
+    ConnexionadminComponent
   ],
   imports: [
 
