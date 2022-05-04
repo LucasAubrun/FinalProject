@@ -22,7 +22,7 @@ export class MesevenementsComponent implements OnInit {
   }
 
   callTtEventId() {
-    this.http.get(this.baseURL + "Evenement/membres/1").subscribe({
+    this.http.get(this.baseURL + "evenements/membres/1").subscribe({
       next: (data) => { this.TtEventId = data },
       error: (err) => { console.log(err) }
     });
