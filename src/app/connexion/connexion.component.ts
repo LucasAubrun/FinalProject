@@ -16,10 +16,7 @@ export class ConnexionComponent implements OnInit {
   resultColor: string = "red";
   membre: any;
 
-  connexionForm = new FormGroup({
-    mail: new FormControl('', Validators.required),
-    mdp: new FormControl(['', Validators.required, Validators.minLength(5)])
-  })
+  user= {mail: '', mdp: ''};
 
   constructor(
     private http: HttpClient,
@@ -28,10 +25,13 @@ export class ConnexionComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+    if(this.authentificationService.isConnected()){
+      this.route.navigateByUrl('equipes');
+    }
   }
 
-  connexion(user: any) {
-    this.http.post(this.baseURL + "membre/get", user)
+  connexion() {
+    this.http.post(this.baseURL + "membre/get", this.user)
       .subscribe({
         next: (data) => {
           this.membre = data;

@@ -21,6 +21,7 @@ import { EvenementsComponent } from './evenements/evenements.component';
 import { CreationEvenementComponent } from './creation-evenement/creation-evenement.component';
 import { FooterComponent } from './footer/footer.component';
 import { MesevenementsComponent } from './mesevenements/mesevenements.component';
+import { MembresComponent } from './membres/membres.component';
 
 
 @NgModule({
@@ -41,6 +42,7 @@ import { MesevenementsComponent } from './mesevenements/mesevenements.component'
     InscriptionComponent,
     FooterComponent,
     MesevenementsComponent,
+    MembresComponent,
   ],
   imports: [
     FormsModule,

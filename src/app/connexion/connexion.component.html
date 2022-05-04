@@ -1,17 +1,45 @@
-<div class="card z-depth-5 mx-auto w-25">
+<!--
+<div class="card z-depth-5 mx-auto w-25" style="margin-top: 150px;">
     <div class="card-body mx-auto">
-        <form #connexionForm="ngForm" (ngSubmit)="connexion(connexionForm.value)">
-            <div class="form-group">
-                <input class="my-2 w-100 form-control" type="text" name="mail" placeholder="Mail" ngModel=""> <br>
+
+        <form #connexionForm="ngForm" (ngSubmit)="connexion()">
+            <div class="md-form">
+                <input class="my-2 w-100 form-control" type="text" name="mail" placeholder="Mail" required
+                    [(ngModel)]="user.mail"> <br>
             </div>
-            <div class="form-group">
-                <input class="mt-2 mb-4 w-100" type="password" name="mdp" placeholder="Mot de passe" ngModel=""> <br>
+            <div class="md-form">
+                <input class="form-control" type="password" name="mdp" placeholder="Mot de passe" #mdpAction="ngModel"
+                    required [(ngModel)]="user.mdp">
+                <div class="text-danger" [hidden]="mdpAction.valid">
+                    vide
+                </div>
+                <br>
             </div>
             <div class="text-center">
-                <button type="submit" class="btn btn-primary z-depth-1">Connexion</button>
+                <button type="submit" class="btn btn-primary z-depth-1"
+                    [disabled]="!connexionForm.form.valid">Connexion</button>
                 <button type="button" class="btn z-depth-1" routerLink="/inscription">Inscription</button>
-                <p class="mt-3" [style.color]="resultColor">{{resultMessage}}</p>
+                <p class="mt-3" [style.color]="resultColor">{{resultMessage}}</p> hey
             </div>
         </form>
     </div>
+</div>
+-->
+
+<div class="main-block" style="margin-top: 150px">
+    <h1>Connexion</h1>
+    <form #connexionForm="ngForm" (ngSubmit)="connexion()">
+        <hr>
+        <label id="icon" for="nom"><i class="fas fa-user"></i></label>
+        <input id="nom" type="text" name="mail" placeholder="Adresse mail" required [(ngModel)]="user.mail">
+
+        <label id="icon" for="nom"><i class="fas fa-user"></i></label>
+        <input type="password" name="mdp" placeholder="Mot de passe" required [(ngModel)]="user.mdp">
+
+        <div class="btn-block">
+            <button type="submit" class="btn btn-primary z-depth-1" [disabled]="!connexionForm.form.valid">Valider</button>
+            <button type="button" class="btn btn-primary z-depth-1" routerLink="/inscription">Inscription</button>
+            <p class="mt-3" [style.color]="resultColor">{{resultMessage}}</p>
+        </div>
+    </form>
 </div>
