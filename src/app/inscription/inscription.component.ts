@@ -17,7 +17,7 @@ export class InscriptionComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  inscrireMembre(val: any) {
+  inscription(val: any) {
     let membre = {
       nom: val.nom,
       prenom: val.prenom,
