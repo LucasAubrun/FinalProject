@@ -19,6 +19,7 @@ import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
 import { EvenementsComponent } from './evenements/evenements.component';
 import { CreationEvenementComponent } from './creation-evenement/creation-evenement.component';
+import { FooterComponent } from './footer/footer.component';
 import { MesevenementsComponent } from './mesevenements/mesevenements.component';
 
 
@@ -38,6 +39,7 @@ import { MesevenementsComponent } from './mesevenements/mesevenements.component'
     HomeComponent,
     LoginComponent,
     InscriptionComponent,
+    FooterComponent,
     MesevenementsComponent
   ],
   imports: [
