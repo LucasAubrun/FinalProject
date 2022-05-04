@@ -51,18 +51,6 @@
             </div>
             <div class="item">
                 <br><br>
-                <textarea name="contenu" id="fcom" ngModel="" placeholder="Description"></textarea>
-            </div>
-            <div class="item">
-                <br><br>
-                <input type="int" id="fcom" name="nbmin" size="25" ngModel="" placeholder="Nombre de joueurs minimum" />
-            </div>
-            <div class="item">
-                <br><br>
-                <input type="int" id="fcom" name="nbmax" size="25" ngModel="" placeholder="Nombre de joueurs maximum" />
-            </div>
-            <div class="item">
-                <br><br>
                 <select name="type" id="fcom" ngModel="">
                     <option value="">---</option>
                     <option value="Sport">Tous les jours</option>
@@ -73,10 +61,34 @@
             </div>
             <div class="item">
                 <br><br>
+                <select name="type" id="fcom" ngModel="">
+                    <option value="">---</option>
+                    <option value="Sport">Débutant</option>
+                    <option value="Jeu de Société">Moyen</option>
+                    <option value="Jeu Vidéo">Expert</option>
+                    <option value="Autre">Autre (à préciser en description)</option>
+                </select>
+            </div>
+            <div class="item">
+                <br><br>
+                <textarea name="contenu" id="fcom" ngModel="" placeholder="Description"></textarea>
+            </div>
+            <div class="item">
+                <br><br>
+                <input type="int" id="fcom" name="nbmin" size="25" ngModel="" placeholder="Nombre de joueurs minimum" />
+            </div>
+            <div class="item">
+                <br><br>
+                <input type="int" id="fcom" name="nbmax" size="25" ngModel="" placeholder="Nombre de joueurs maximum" />
+            </div>
+
+            <div class="item">
+                <br><br>
                 <input type="text" id="fcom" name="activite" size="25" ngModel="" placeholder="Type d'activité" />
             </div>
             <div class="mt-4" style="text-align :center">
                 <button mat-raised-button color="primary">Validez la création de l'évenement</button>
+                <!--le boutton a l'activation recupere le nom du mec connecté, qui vient prendre la place de evenement.createur-->
             </div>
         </form>
     </div>
