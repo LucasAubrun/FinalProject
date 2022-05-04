@@ -5,21 +5,24 @@
 <img src="assets/img/Multisport.jpeg" alt="my image" width=100% height=max-height>
 
 
-    <ul class="medias">
-        <li class="bulle"><img src="assets/fb.svg" class="logo-medias"></li>
-        <li class="bulle"><img src="assets/insta.svg" class="logo-medias"></li>
-        <li class="bulle"><img src="assets/yt.svg" class="logo-medias"></li>
-        <li class="bulle"><img src="assets/fb.svg" class="logo-medias"></li>
-    </ul>
+<ul class="medias">
+    <li class="bulle"><img src="assets/fb.svg" class="logo-medias"></li>
+    <li class="bulle"><img src="assets/insta.svg" href="https://www.instagram.com/" class="logo-medias"></li>
+    <li class="bulle"><img src="assets/yt.svg" class="logo-medias"></li>
+    <li class="bulle"><img src="assets/fb.svg" class="logo-medias"></li>
+</ul>
 
-    <div class="container-first">
-        <h1><span>Repousse </span><span>tes </span><span>Limites </span></h1>
-        <div class="container-btns">
-            <button class="btn-first b1" (click)="scroll(concept)">Découvre-nous</button>
-            <button class="btn-first b2">Rejoindre l'équipe</button>
-        </div>
+
+<div class="container-first">
+    <h1><span>Repousse </span><span>tes </span><span>Limites </span></h1>
+    <div class="container-btns">
+        <button class="btn-first b1" (click)="scroll(concept)">Découvre-nous</button>
+        <button class="btn-first b2" routerLink="inscription">Rejoindre l'équipe</button>
     </div>
-    
+
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.1/gsap.min.js"></script>
+
 
 <!-- Concept-->
 <section class="page-section" #concept id="concept">
@@ -36,8 +39,7 @@
                     <i class="fas fa-trophy fa-stack-1x fa-inverse"></i>
                 </span>
                 <h4 class="my-3">Compétif</h4>
-                <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam
-                    architecto quo inventore harum ex magni, dicta impedit.</p>
+                <p class="text-muted">Avec son système de score basé sur la technologie</p>
             </div>
             <div class="col-md-4">
                 <span class="fa-stack fa-4x">
@@ -64,7 +66,7 @@
 
 <!-- Activités -->
 <section class="page-section bg-light" id="activites">
-    <div class="container">
+    <div class="container bg-light">
         <div class="row">
             <div class="card my-4 border-0 rounded-0">
                 <div class="row">
@@ -108,34 +110,43 @@
             <div class="card my-4 border-0 rounded-0">
                 <div class="row">
                     <div class="col-md-6">
-                        <div id="carouselExampleIndicators" class="carousel slide" data-ride="carouse">
+                        <img src="assets/jeuxv.jpg" class="img-fluid rounded-start" alt="...">
+                       <!--  Carousel Wrapper
+                        <div id="carousel-example-1z" class="carousel slide " data-ride="carousel">
+                            Indicators
                             <ol class="carousel-indicators">
-                                <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-                                <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-                                <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+                                <li data-target="#carousel-example-1z" data-slide-to="0" class="active"></li>
+                                <li data-target="#carousel-example-1z" data-slide-to="1"></li>
+                                <li data-target="#carousel-example-1z" data-slide-to="2"></li>
                             </ol>
-                            <div class="carousel-inner">
+                            <div class="carousel-inner" role="listbox">
                                 <div class="carousel-item active">
-                                    <img class="img-fluid rounded-start" src="assets/jeuxv1.jpg" alt="First slide">
+                                    <img class="d-block w-100"
+                                        src="https://mdbootstrap.com/img/Photos/Slides/img%20(130).webp"
+                                        alt="First slide">
                                 </div>
                                 <div class="carousel-item">
-                                    <img class="img-fluid rounded-start" src="assets/jeuxv1.jpg" alt="Second slide">
+                                    <img class="d-block w-100"
+                                        src="https://mdbootstrap.com/img/Photos/Slides/img%20(129).webp"
+                                        alt="Second slide">
                                 </div>
                                 <div class="carousel-item">
-                                    <img class="img-fluid rounded-start" src="assets/jeuxv1.jpg" alt="Third slide">
+                                    <img class="d-block w-100"
+                                        src="https://mdbootstrap.com/img/Photos/Slides/img%20(70).webp"
+                                        alt="Third slide">
                                 </div>
                             </div>
-                            <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button"
+                            <a class="carousel-control-prev" href="#carousel-example-1z" role="button"
                                 data-slide="prev">
                                 <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                                 <span class="sr-only">Previous</span>
                             </a>
-                            <a class="carousel-control-next" href="#carouselExampleIndicators" role="button"
+                            <a class="carousel-control-next" href="#carousel-example-1z" role="button"
                                 data-slide="next">
                                 <span class="carousel-control-next-icon" aria-hidden="true"></span>
                                 <span class="sr-only">Next</span>
                             </a>
-                        </div>
+                        </div>-->
                     </div>
                     <div class="col-md-6 bg-light">
                         <div class="card-body ">
@@ -147,7 +158,7 @@
                                 Que tu sois un joueur Playstation, Xbox, Nintendo, ou PC, EloSport est là pour te
                                 trouver les bonnes personnes.
                             </p>
-                            <p class="card-btn"><a class="btn text-muted">Découvrir</a></p>
+                            <button type="button" class="btn btn-light" routerLink="inscription">Inscription</button>
                         </div>
                     </div>
                 </div>
@@ -230,21 +241,22 @@
             <div class="col-lg-4">
                 <div class="team-member">
                     <img class="mx-auto rounded-circle" src="./assets/img/lucas.jpg" alt="..." />
-                    <h4>Lucas</h4>
+                    <h4>Lucas AUBRUN</h4>
                     <p class="text-muted">Lead Designer</p>
                     <br>
                     <a class="btn btn-dark btn-social mx-2" href="#!" aria-label="Parveen Anand Twitter Profile"><i
                             class="fab fa-twitter"></i></a>
                     <a class="btn btn-dark btn-social mx-2" href="https://www.facebook.com/petit.ange2019"
                         aria-label="Parveen Anand Facebook Profile"><i class="fab fa-facebook-f"></i></a>
-                    <a class="btn btn-dark btn-social mx-2" href="#!" aria-label="Parveen Anand LinkedIn Profile"><i
-                            class="fab fa-linkedin-in"></i></a>
+                    <a class="btn btn-dark btn-social mx-2"
+                        href="https://fr.linkedin.com/in/lucas-aubrun-4a5260171?trk=people-guest_people_search-card"
+                        aria-label="Parveen Anand LinkedIn Profile"><i class="fab fa-linkedin-in"></i></a>
                 </div>
             </div>
             <div class="col-lg-4">
                 <div class="team-member">
                     <img class="mx-auto rounded-circle" src="./assets/img/clara.jpg" alt="..." />
-                    <h4>Clara</h4>
+                    <h4>Clara RAISON</h4>
                     <p class="text-muted">Lead Marketer</p>
                     <br>
                     <a class="btn btn-dark btn-social mx-2" href="#!" aria-label="Diana Petersen Twitter Profile"><i
@@ -252,65 +264,70 @@
                     <a class="btn btn-dark btn-social mx-2"
                         href="https://www.facebook.com/profile.php?id=100006881985051"
                         aria-label="Diana Petersen Facebook Profile"><i class="fab fa-facebook-f"></i></a>
-                    <a class="btn btn-dark btn-social mx-2" href="#!" aria-label="Diana Petersen LinkedIn Profile"><i
-                            class="fab fa-linkedin-in"></i></a>
+                    <a class="btn btn-dark btn-social mx-2"
+                        href="https://fr.linkedin.com/in/clara-raison-057943179?trk=people-guest_people_search-card"
+                        aria-label="Diana Petersen LinkedIn Profile"><i class="fab fa-linkedin-in"></i></a>
                 </div>
             </div>
             <div class="col-lg-4">
                 <div class="team-member">
                     <img class="mx-auto rounded-circle" src="./assets/img/matthieu.jpg" alt="..." />
-                    <h4>Matthieu</h4>
+                    <h4>Matthieu BEAUCHET</h4>
                     <p class="text-muted">Lead Developer</p>
                     <br>
                     <a class="btn btn-dark btn-social mx-2" href="#!" aria-label="Larry Parker Twitter Profile"><i
                             class="fab fa-twitter"></i></a>
                     <a class="btn btn-dark btn-social mx-2" href="https://www.facebook.com/matthieu.beauchet"
                         aria-label="Larry Parker Facebook Profile"><i class="fab fa-facebook-f"></i></a>
-                    <a class="btn btn-dark btn-social mx-2" href="#!" aria-label="Larry Parker LinkedIn Profile"><i
-                            class="fab fa-linkedin-in"></i></a>
+                    <a class="btn btn-dark btn-social mx-2"
+                        href="https://fr.linkedin.com/in/matthieu-beauchet-51b468158?trk=people-guest_people_search-card"
+                        aria-label="Larry Parker LinkedIn Profile"><i class="fab fa-linkedin-in"></i></a>
                 </div>
             </div>
             <div class="col-lg-4">
                 <div class="team-member">
                     <img class="mx-auto rounded-circle" src="./assets/img/alexis.jpg" alt="..." />
-                    <h4>Alexis</h4>
+                    <h4>Alexis PERROCHEAU</h4>
                     <p class="text-muted">Lead Developer</p>
                     <br>
                     <a class="btn btn-dark btn-social mx-2" href="#!" aria-label="Larry Parker Twitter Profile"><i
                             class="fab fa-twitter"></i></a>
                     <a class="btn btn-dark btn-social mx-2" href="https://www.facebook.com/alexis.perrocheau.zer"
                         aria-label="Larry Parker Facebook Profile"><i class="fab fa-facebook-f"></i></a>
-                    <a class="btn btn-dark btn-social mx-2" href="#!" aria-label="Larry Parker LinkedIn Profile"><i
-                            class="fab fa-linkedin-in"></i></a>
+                    <a class="btn btn-dark btn-social mx-2"
+                        href="https://fr.linkedin.com/in/alexis-perrocheau?trk=people-guest_people_search-card"
+                        aria-label="Larry Parker LinkedIn Profile"><i class="fab fa-linkedin-in"></i></a>
                 </div>
             </div>
             <div class="col-lg-4">
                 <div class="team-member">
                     <img class="pic rounded-circle" src="./assets/img/dylan.JPG" alt="..." />
-                    <h4>Dylan</h4>
+                    <h4>Dylan SERGEANT</h4>
                     <p class="text-muted">Lead Developer</p>
                     <br>
                     <a class="btn btn-dark btn-social mx-2" href="#!" aria-label="Larry Parker Twitter Profile"><i
                             class="fab fa-twitter"></i></a>
                     <a class="btn btn-dark btn-social mx-2" href="https://www.facebook.com/dylan.sergeant.94"
                         aria-label="Larry Parker Facebook Profile"><i class="fab fa-facebook-f"></i></a>
-                    <a class="btn btn-dark btn-social mx-2" href="#!" aria-label="Larry Parker LinkedIn Profile"><i
-                            class="fab fa-linkedin-in"></i></a>
+                    <a class="btn btn-dark btn-social mx-2"
+                        href="https://fr.linkedin.com/in/dylan-sergeant-4172a219b?trk=people-guest_people_search-card"
+                        aria-label="Larry Parker LinkedIn Profile"><i class="fab fa-linkedin-in"></i></a>
                 </div>
             </div>
             <div class="col-lg-4">
                 <div class="team-member">
                     <img class="pic rounded-circle" src="./assets/img/alex.jpg" alt=".ff.." />
 
-                    <h4>Alexandre</h4>
+                    <h4>Alexandre ROUX</h4>
                     <p class="text-muted">Front-end Developper</p>
                     <br>
                     <a class="btn btn-dark btn-social mx-2" href="#!" aria-label="Larry Parker Twitter Profile"><i
                             class="fab fa-twitter"></i></a>
                     <a class="btn btn-dark btn-social mx-2" href="https://www.facebook.com/Alexandre.roux22"
                         aria-label="Larry Parker Facebook Profile"><i class="fab fa-facebook-f"></i></a>
-                    <a class="btn btn-dark btn-social mx-2" href="#!" aria-label="Larry Parker LinkedIn Profile"><i
-                            class="fab fa-linkedin-in"></i></a>
+                    <a class="btn btn-dark btn-social mx-2"
+                        href="https://fr.linkedin.com/in/alexandre-roux-726562142?trk=people-guest_people_search-card"
+                        aria-label="Larry Parker LinkedIn Profile"><i class="fab fa-linkedin-in"></i></a>
                 </div>
             </div>
         </div>
@@ -324,6 +341,5 @@
         </div>
     </div>
 </section>
-
 
 </html>

@@ -2,7 +2,6 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { HttpClientModule } from '@angular/common/http';
-//import {MatButtonModule} from '@angular/material/button';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -22,6 +21,7 @@ import { EvenementsComponent } from './evenements/evenements.component';
 import { CreationEvenementComponent } from './creation-evenement/creation-evenement.component';
 import { FooterComponent } from './footer/footer.component';
 import { MesevenementsComponent } from './mesevenements/mesevenements.component';
+import { MembresComponent } from './membres/membres.component';
 import { AdminComponent } from './admin/admin.component';
 import { ConnexionadminComponent } from './connexionadmin/connexionadmin.component';
 
@@ -44,6 +44,7 @@ import { ConnexionadminComponent } from './connexionadmin/connexionadmin.compone
     InscriptionComponent,
     FooterComponent,
     MesevenementsComponent,
+    MembresComponent,
     AdminComponent,
     ConnexionadminComponent
   ],
@@ -54,7 +55,6 @@ import { ConnexionadminComponent } from './connexionadmin/connexionadmin.compone
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    //MatButtonModule
   ],
   providers: [],
   bootstrap: [AppComponent]

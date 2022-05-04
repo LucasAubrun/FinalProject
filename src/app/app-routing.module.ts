@@ -19,13 +19,10 @@ const routes: Routes = [
   { component: ConnexionComponent, path: 'connexion' },
   { component: InscriptionComponent, path: 'inscription' },
   { path: '', redirectTo: '/connexion', pathMatch: 'full' },
-  { path: '', redirectTo: '/inscription', pathMatch: 'full' },
   { component: EvenementsComponent, path: "evenement" },
-  { component: HomeComponent, path: 'home' },
   { component: MesevenementsComponent, path: 'mesevenements' },
   { component: CreationEvenementComponent, path: 'creation-evenement' },
-  { path: '', redirectTo: '/creation-evenement', pathMatch: 'full' },
-  { path: '', redirectTo: '/mesevenements', pathMatch: 'full' },
+ 
 ];
 
 
