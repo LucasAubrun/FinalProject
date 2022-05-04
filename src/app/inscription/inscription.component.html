@@ -20,6 +20,7 @@
 </div>
 -->
 
+<!--
 <head>
     <title>Simple registration form</title>
     <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet">
@@ -27,32 +28,32 @@
         integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
     <style href="inscription.component.css"></style>
 </head>
+-->
 
-<body>
-    <div class="main-block">
-        <h1>Inscription</h1>
-        <form #inscriptionForm="ngForm" (ngSubmit)="inscrireMembre(inscriptionForm.value)">
-            <hr>
-            <label id="icon" for="nom"><i class="fas fa-user"></i></label>
-            <input id="nom" type="text" name="nom" placeholder="Nom" ngModel="" required>
 
-            <label id="icon" for="nom"><i class="fas fa-user"></i></label>
-            <input type="text" name="prenom" placeholder="Prénom" ngModel="" required>
+<div class="main-block" style="margin-top: 150px">
+    <h1>Inscription</h1>
+    <form #inscriptionForm="ngForm" (ngSubmit)="inscription(inscriptionForm.value)">
+        <hr>
+        <label id="icon" for="nom"><i class="fas fa-user"></i></label>
+        <input id="nom" type="text" name="nom" placeholder="Nom*" ngModel="" required>
 
-            <label id="icon" for="nom"><i class="fas fa-unlock-alt"></i></label>
-            <input type="password" name="mdp" placeholder="Mot de passe" ngModel="" required>
+        <label id="icon" for="nom"><i class="fas fa-user"></i></label>
+        <input type="text" name="prenom" placeholder="Prénom*" ngModel="" required>
 
-            <label id="icon" for="nom"><i class="fas fa-calendar-check"></i></label>
-            <input type="date" name="dateNaissance" ngModel="" required>
+        <label id="icon" for="nom"><i class="fas fa-unlock-alt"></i></label>
+        <input type="password" name="mdp" placeholder="Mot de passe*" ngModel="" required>
 
-            <label id="icon" for="name"><i class="fas fa-envelope"></i></label>
-            <input type="text" name="mail" id="name" placeholder="Email" ngModel="" required />
+        <label id="icon" for="nom"><i class="fas fa-calendar-check"></i></label>
+        <input type="date" name="dateNaissance" ngModel="">
 
-            <div class="btn-block">
-                <button type="submit" class="btn btn-primary z-depth-1">S'inscrire</button>
-                <button type="button" class="btn btn-primary z-depth-1" routerLink="/connexion">Connexion</button>
-                <p class="mt-3" [style.color]="resultColor">{{resultMessage}}</p>
-            </div>
-        </form>
-    </div>
-</body>
+        <label id="icon" for="name"><i class="fas fa-envelope"></i></label>
+        <input type="text" name="mail" id="name" placeholder="Email*" ngModel="" required />
+
+        <div class="btn-block">
+            <button type="submit" class="btn btn-primary z-depth-1" [disabled]="!inscriptionForm.form.valid ">Valider</button>
+            <button type="button" class="btn btn-primary z-depth-1" routerLink="/connexion">Connexion</button>
+            <p class="mt-3" [style.color]="resultColor">{{resultMessage}}</p>
+        </div>
+    </form>
+</div>
