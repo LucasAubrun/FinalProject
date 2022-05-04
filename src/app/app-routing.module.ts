@@ -20,7 +20,6 @@ const routes: Routes = [
   { component: InscriptionComponent, path: 'inscription' },
   { path: '', redirectTo: '/connexion', pathMatch: 'full' },
   { component: EvenementsComponent, path: "evenement" },
-  { component: HomeComponent, path: 'home' },
   { component: MesevenementsComponent, path: 'mesevenements' },
   { component: CreationEvenementComponent, path: 'creation-evenement' },
  

@@ -379,12 +379,17 @@ h1 span {
   width: 33.33333333%;
 }
 .card-body{
+  margin-top: 20px;
   margin-left: 20px;
   margin-right: 20px;;
+}
+.card-text{
+  margin-top: 5%;
 }
 
 .card-title{
   text-align: center;
+  font-size: 25px;
 }
 .timeline-body{
   text-align: left;
