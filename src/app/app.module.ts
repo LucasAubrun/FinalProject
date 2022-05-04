@@ -22,6 +22,8 @@ import { CreationEvenementComponent } from './creation-evenement/creation-evenem
 import { FooterComponent } from './footer/footer.component';
 import { MesevenementsComponent } from './mesevenements/mesevenements.component';
 import { MembresComponent } from './membres/membres.component';
+import { AdminComponent } from './admin/admin.component';
+import { ConnexionadminComponent } from './connexionadmin/connexionadmin.component';
 
 
 @NgModule({
@@ -43,6 +45,8 @@ import { MembresComponent } from './membres/membres.component';
     FooterComponent,
     MesevenementsComponent,
     MembresComponent,
+    AdminComponent,
+    ConnexionadminComponent
   ],
   imports: [
     FormsModule,
@@ -50,7 +54,7 @@ import { MembresComponent } from './membres/membres.component';
     HttpClientModule,
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -9,11 +9,12 @@ import { Component, OnInit } from '@angular/core';
 export class CreationequipesComponent implements OnInit {
 
   //♦♣♦♣♦♣♦♣♦♣ création de variable ♦♣♦♣♦♣♦♣♦♣//
-  baseURL: string = "http://localhost:8080/";
+  baseURL: string = "http://localhost:8482/";
   resultMessage: string = " ";
   resultColor: string = " ";
   EquipesId1: any;
   TtEquipeId: any;
+  EquipeActuelle: any;
 
   //♦♣♦♣♦♣♦♣♦♣ fin création de variable ♦♣♦♣♦♣♦♣♦♣//
 
