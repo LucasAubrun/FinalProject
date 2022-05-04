@@ -1,44 +1,20 @@
-<div>
-  <div class="container  mt-5">
-    <table class="table" style="background-color: rgb(127, 191, 255);">
-      <thead>
-        <tr>
-          <th>Nom</th>
-          <th>Description</th>
-          <th>Nombre de joueurs pour cette activité</th>
-          <th>Type d'activité</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr *ngFor="let a of activitesOne">
-          <td>{{a.nom}}</td>
-          <td>{{a.description}}</td>
-          <td>{{a.nbJoueurs}}</td>
-          <td>{{a.type}}</td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
-</div>
-
 <ul class="cards">
   <li *ngFor="let a of activitesOne">
     <a href="" class="card">
       <img src="https://i.imgur.com/oYiTqum.jpg" class="card__image" alt="" />
       <div class="card__overlay">
         <div class="card__header">
-          <svg class="card__arc" xmlns="http://www.w3.org/2000/svg">
+          <svg class="card__arc">
             <path />
           </svg>
-          <img class="card__thumb" *ngIf="a.type == 'Autre'" src="https://i.imgur.com/oYiTqum.jpg" alt="" />
+          <img class="card__thumb" *ngIf="a.type == 'Autre'" src="autreimg.jpg" alt="" />
           <img class="card__thumb" *ngIf="a.type == 'Jeu de Société'" src="societeimg.jpg" alt="" />
           <img class="card__thumb" *ngIf="a.type == 'Jeu Vidéo'" src="videoimg.jpg" alt="" />
-          <img class="card__thumb" *ngIf="a.type == 'Sport'" src="sportimg.jpg" alt="" />
-          <img class="card__thumb" src="https://i.imgur.com/oYiTqum.jpg" alt="" />
+          <img class="card__thumb" *ngIf="a.type == 'Sport'" src="sportsimg.jpg" alt="" />
 
           <div class="card__header-text">
             <h3 class="card__title">{{a.nom}}</h3>
-            <span class="card__status">{{a.type}}</span>
+            <span class="card__status">{{a.nbJoueurs}} Joueurs</span>
           </div>
         </div>
         <p class="card__description">{{a.description}}</p>
