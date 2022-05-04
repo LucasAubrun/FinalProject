@@ -22,4 +22,4 @@ describe('InscriptionComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
-});
+}); 

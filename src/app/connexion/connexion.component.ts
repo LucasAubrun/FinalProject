@@ -1,5 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import { AuthentificationService } from '../authentification.service';
 
 @Component({
   selector: 'app-connexion',
@@ -13,32 +16,41 @@ export class ConnexionComponent implements OnInit {
   resultColor: string = "red";
   membre: any;
 
-  constructor(private http: HttpClient) { }
+  connexionForm = new FormGroup({
+    mail: new FormControl('', Validators.required),
+    mdp: new FormControl(['', Validators.required, Validators.minLength(5)])
+  })
+
+  constructor(
+    private http: HttpClient,
+    private route: Router,
+    private authentificationService: AuthentificationService
+  ) { }
 
   ngOnInit(): void {
   }
 
-  connecterMembre(val: any) {
-    let mail = val.mail;
-    let mdp = val.mdp; 
-    this.http.get(this.baseURL + "membre/get/" + mail + "/" + mdp)
-    .subscribe({
-      next: (data) => {
-        if (data != null) {
+  connexion(user: any) {
+    this.http.post(this.baseURL + "membre/get", user)
+      .subscribe({
+        next: (data) => {
           this.membre = data;
-          console.log(data);
-          this.resultMessage = "";
-        }
-        else {
-          this.resultMessage = "Adresse e-mail ou mot de passe incorrect"
+          if (this.membre != null) {
+            this.authentificationService.setUserInLocalStorage(this.membre)
+            console.log(data);
+            this.resultMessage = "";
+            this.route.navigateByUrl("equipes");
+          }
+          else {
+            this.resultMessage = "Adresse e-mail ou mot de passe incorrect"
+            this.resultColor = "red";
+          }
+        },
+        error: (err) => {
+          console.log(err);
+          this.resultMessage = "Une erreur s'est produite";
           this.resultColor = "red";
         }
-      },
-      error: (err) => {
-        console.log(err); 
-        this.resultMessage = "Une erreur s'est produite";
-        this.resultColor = "red";
-      }
       });
   }
 
