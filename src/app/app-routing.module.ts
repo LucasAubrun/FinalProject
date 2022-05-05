@@ -22,7 +22,6 @@ const routes: Routes = [
   { component: MembresComponent, path: 'membres'},
   { path: '', redirectTo: '/connexion', pathMatch: 'full' },
   { component: EvenementsComponent, path: "evenement" },
-  { component: HomeComponent, path: 'home' },
   { component: MesevenementsComponent, path: 'mesevenements' },
   { component: CreationEvenementComponent, path: 'creation-evenement' },
  
