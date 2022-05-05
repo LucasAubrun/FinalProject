@@ -1,0 +1,15 @@
+html,
+body {
+    display: flex;
+    justify-content: center;
+    height: 100%;
+}
+
+.abc{
+    text-align: center;
+}
+
+.btn{
+    color: rgb(227, 173, 56);
+   border-color: rgb(10, 10, 10);
+}
