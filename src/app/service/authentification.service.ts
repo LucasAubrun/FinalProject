@@ -17,6 +17,15 @@ export class AuthentificationService {
     return JSON.parse(user);
   }
 
+  setMembreTargetInLocalStorage(user: any) {
+    localStorage.setItem('membreTarget', JSON.stringify(user));
+  }
+
+  getMembreTargeted() {
+    let user: any = localStorage.getItem('membreTarget');
+    return JSON.parse(user);
+  }
+
   isConnected(){
     if(this.getUserConnect() != null){
       return true;

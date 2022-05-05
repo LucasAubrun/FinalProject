@@ -1,8 +1,6 @@
 <br><br><br><br><br><br><br>
 
 
-<a class="nav-link" routerLink="/creation-evenement">Creation d'un evenement</a>
-<a class="nav-link" routerLink="/mesevenements">Mes évenements</a>
 
 <table class="table align-middle mb- bg-white">
   <div class="col-mv-12" *ngFor="let e of TtEventId">
@@ -38,12 +36,16 @@
           </div>
         </td>
         <td>
-          <form #EvenementForm="ngForm" (ngSubmit)="SupprimerEvent(EvenementForm.value)">
-            <!--Mettre un if pour savoir si l'id du mec est connecté est le meme que celui du créateur-->
-            <button type="button" class="btn btn-link btn-sm btn-rounded">
-              Supprimer
-            </button>
-          </form>
+          <!--Mettre un if pour savoir si l'id du mec est connecté est le meme que celui du créateur-->
+          <button type="button" class="btn btn-link btn-sm btn-rounded" (click)="SupprimerEvent()">
+            Supprimer
+          </button>
+        </td>
+        <td>
+          <!--Mettre un if pour savoir si l'id du mec est connecté est le meme que celui du créateur(else)-->
+          <button type="button" class="btn btn-link btn-sm btn-rounded" (click)="QuitterEvent()">
+            Quitter
+          </button>
         </td>
       </tr>
     </tbody>
