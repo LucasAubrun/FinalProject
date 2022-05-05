@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-connexionadmin',
@@ -12,7 +13,7 @@ export class ConnexionadminComponent implements OnInit {
   resultColor: string = "red";
   admin: any;
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private route: Router,) { }
 
   ngOnInit(): void {
   }
@@ -27,6 +28,7 @@ export class ConnexionadminComponent implements OnInit {
             this.admin = data;
             console.log(data);
             this.resultMessage = "";
+            this.route.navigateByUrl("admin");
           }
           else {
             this.resultMessage = "Adresse e-mail ou mot de passe incorrect"
