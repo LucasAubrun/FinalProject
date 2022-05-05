@@ -12,7 +12,6 @@ import { CreationEvenementComponent } from './creation-evenement/creation-evenem
 import { ConnexionadminComponent } from './connexionadmin/connexionadmin.component';
 import { AdminComponent } from './admin/admin.component';
 import { MembresComponent } from './membres/membres.component';
-import { CommunauteComponent } from './communaute/communaute.component';
 
 
 const routes: Routes = [
@@ -23,13 +22,12 @@ const routes: Routes = [
   { component: ConnexionComponent, path: 'connexion' },
   { component: InscriptionComponent, path: 'inscription' },
   { component: MembresComponent, path: 'membres' },
-  { path: '', redirectTo: '/connexion', pathMatch: 'full' },
+  { path: '', redirectTo: '/home', pathMatch: 'full' },
   { component: EvenementsComponent, path: "evenement" },
   { component: MesevenementsComponent, path: 'mesevenements' },
-  { component: CreationEvenementComponent, path: 'creation-evenement' },
-  { component: CommunauteComponent, path: 'communaute'},
   { component: ConnexionadminComponent, path: 'connexionAdmin' },
   { component: AdminComponent, path: 'admin' },
+  { component: CreationEvenementComponent, path: 'creation-evenement' }
 ];
 
 
