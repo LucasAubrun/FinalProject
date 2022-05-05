@@ -9,6 +9,7 @@ import { InscriptionComponent } from './inscription/inscription.component';
 import { EvenementsComponent } from './evenements/evenements.component';
 import { MesevenementsComponent } from './mesevenements/mesevenements.component';
 import { CreationEvenementComponent } from './creation-evenement/creation-evenement.component';
+import { ClassementComponent } from './classement/classement.component';
 
 
 const routes: Routes = [
@@ -18,6 +19,7 @@ const routes: Routes = [
   { component: HomeComponent, path: 'home' },
   { component: ConnexionComponent, path: 'connexion' },
   { component: InscriptionComponent, path: 'inscription' },
+  {component: ClassementComponent, path: 'classement'},
   { path: '', redirectTo: '/connexion', pathMatch: 'full' },
   { component: EvenementsComponent, path: "evenement" },
   { component: MesevenementsComponent, path: 'mesevenements' },
