@@ -23,28 +23,29 @@
         </thead>-->
     <tbody>
       <tr>
+        <td>{{e.evenements.nom}}</td>
+        <td>{{e.evenements.date}}</td>
+        <td>{{e.evenements.adresse}}</td>
+        <td>{{e.evenements.recurrence}}</td>
+        <td>{{e.evenements.niveau}}</td>
+        <td>{{e.evenements.description}}</td>
+        <td>{{e.evenements.nbmin}}</td>
+        <td>{{e.evenements.nbmax}}</td>
+        <td>{{e.evenements.activite}}</td>
         <td>
-          <div>
-
+          <div class="md-form my-0">
+            <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
           </div>
         </td>
-        <td>{{e.nom}}</td>
-        <td>{{e.date}}</td>
-        <td>{{e.adresse}}</td>
-        <td>{{e.recurrence}}</td>
-        <td>{{e.niveau}}</td>
-        <td>{{e.description}}</td>
-        <td>{{e.nbmin}}</td>
-        <td>{{e.nbmax}}</td>
-        <td>{{e.activite}}</td>
         <td>
-          <!--Mettre un if pour savoir si le nom du mec est connecté est le meme que celui du créateur-->
-          <button type="button" class="btn btn-link btn-sm btn-rounded">
-            Supprimer
-          </button>
+          <form #EvenementForm="ngForm" (ngSubmit)="SupprimerEvent(EvenementForm.value)">
+            <!--Mettre un if pour savoir si l'id du mec est connecté est le meme que celui du créateur-->
+            <button type="button" class="btn btn-link btn-sm btn-rounded">
+              Supprimer
+            </button>
+          </form>
         </td>
       </tr>
-
     </tbody>
   </div>
 </table>

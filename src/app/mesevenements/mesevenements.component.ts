@@ -13,6 +13,9 @@ export class MesevenementsComponent implements OnInit {
   resultMessage: string = " ";
   TtEventId: any;
   result: string = "";
+  invitationEv: any;
+  resultMessageInvit: any;
+  errorInvit: any;
 
   //♦♣♦♣♦♣♦♣♦♣ fin création de variable ♦♣♦♣♦♣♦♣♦♣//
 
@@ -23,7 +26,7 @@ export class MesevenementsComponent implements OnInit {
   }
 
   callTtEventId() {
-    this.http.get(this.baseURL + "evenements/membres/1").subscribe({
+    this.http.get(this.baseURL + "participants/membres/1").subscribe({
       next: (data) => { this.TtEventId = data },
       error: (err) => { console.log(err) }
     });
@@ -31,23 +34,29 @@ export class MesevenementsComponent implements OnInit {
 
   SupprimerEvent(val: any) {
     let event = {
-      nom: val.nom,
-      date: val.date,
-      adresse: val.adresse,
-      recurrence: val.recurrence,
-      niveau: val.niveau,
-      description: val.decription,
-      nbmin: val.nbmin,
-      nbmax: val.nbmax,
-      nomActivite: val.nomActivite,
-      valide: false
+      id: val.id,
     }
 
-    this.http.post("Evenements/supprimer/{id}", event)
+    this.http.delete("Evenements/supprimer/{id}")
       .subscribe({
         next: (data) => { this.result = "Suppression réussie" },
         error: (err) => { console.log(err) }
       })
-    console.log(event)
   }
+
+  sendinvitationEv(val: any) {
+    let invitations = {
+      idM: val.id,
+    };
+    console.log(invitations);
+    this.http.post(this.baseURL + "Participant/inviter", invitations).subscribe({
+      next: (data) => {
+        this.resultMessageInvit = "invitation envoyée"
+      },
+      error: (err) => {
+        this.errorInvit = "invitation impossible"
+      }
+    })
+  }
+
 }
