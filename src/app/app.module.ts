@@ -24,8 +24,8 @@ import { MesevenementsComponent } from './mesevenements/mesevenements.component'
 import { MembresComponent } from './membres/membres.component';
 import { AdminComponent } from './admin/admin.component';
 import { ConnexionadminComponent } from './connexionadmin/connexionadmin.component';
-import { ClassementComponent } from './classement/classement.component';
-
+import { CommunauteComponent } from './communaute/communaute.component';
+import { ModifierProfilComponent } from './modifier-profil/modifier-profil.component';
 
 
 @NgModule({
@@ -49,8 +49,8 @@ import { ClassementComponent } from './classement/classement.component';
     MembresComponent,
     AdminComponent,
     ConnexionadminComponent,
-    ClassementComponent,
-    
+    CommunauteComponent,
+    ModifierProfilComponent
   ],
   imports: [
     FormsModule,
