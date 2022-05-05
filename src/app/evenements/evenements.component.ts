@@ -23,8 +23,9 @@ export class EvenementsComponent implements OnInit {
   constructor(private http: HttpClient) { }
 
   ngOnInit(): void {
-    this.callEventRandId();
-    this.callEventRandAll();
+    //this.callEventRandId();
+    //this.callEventRandAll();
+    this.callEvenementsAll();
   }
 
   callEventRandId() {
@@ -35,13 +36,13 @@ export class EvenementsComponent implements OnInit {
     });
   }
 
-  callEventRandAll() {
-    this.http.get("http://localhost:8080/evenement/multiple").subscribe({
+  //callEventRandAll() {
+  //  this.http.get("http://localhost:8080/evenement/multiple").subscribe({
 
-      next: (data) => { this.ListEventRandId = data },
-      error: (err) => { console.log(err) }
-    });
-  }
+  //   next: (data) => { this.ListEventRandId = data },
+  //   error: (err) => { console.log(err) }
+  //});
+  // }
 
   callEventByNom() {
     this.http.get("evenements/{nom}").subscribe({
@@ -66,7 +67,7 @@ export class EvenementsComponent implements OnInit {
     })
   }
   callEvenementsAll() {
-    this.http.get('http://localhost:8082/evenements/all')
+    this.http.get('http://localhost:8080/evenements/all')
       .subscribe({
         next: (data) => { this.EvenementsOne = data },
         error: (err) => { console.log(err) }
