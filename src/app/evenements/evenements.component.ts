@@ -25,7 +25,7 @@ export class EvenementsComponent implements OnInit {
   ngOnInit(): void {
     //this.callEventRandId();
     //this.callEventRandAll();
-    this.callEvenementsAll();
+    //this.callEvenementsAll();
   }
 
   callEventRandId() {
@@ -45,7 +45,7 @@ export class EvenementsComponent implements OnInit {
   // }
 
   callEventByNom() {
-    this.http.get("evenements/{nom}").subscribe({
+    this.http.get("evenements/nom/{q.value}").subscribe({
 
       next: (data) => { this.EventByNom = data },
       error: (err) => { console.log(err) }
