@@ -10,6 +10,7 @@ import { EvenementsComponent } from './evenements/evenements.component';
 import { MesevenementsComponent } from './mesevenements/mesevenements.component';
 import { CreationEvenementComponent } from './creation-evenement/creation-evenement.component';
 import { MembresComponent } from './membres/membres.component';
+import { CommunauteComponent } from './communaute/communaute.component';
 
 
 const routes: Routes = [
@@ -24,7 +25,7 @@ const routes: Routes = [
   { component: EvenementsComponent, path: "evenement" },
   { component: MesevenementsComponent, path: 'mesevenements' },
   { component: CreationEvenementComponent, path: 'creation-evenement' },
- 
+  { component: CommunauteComponent, path: 'communaute'},
 ];
 
 
