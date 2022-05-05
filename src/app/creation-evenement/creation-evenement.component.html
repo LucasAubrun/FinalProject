@@ -5,7 +5,7 @@
 <a class="nav-link" routerLink="/mesevenements">Mes évenements</a>
 
 <!-- END NAV -->
-<div class="card z-depth-5">
+<!--<div class="card z-depth-5">
     <div class="card-body">
         <form #creationForm="ngForm" (ngSubmit)="creerEvent(creationForm.value)">
             <input type="text" name="nom" placeholder="nom" ngModel="">
@@ -19,6 +19,77 @@
             <button class="btn btn-primary">Creer</button>
         </form>
     </div>
-</div>
+</div>-->
 
 <!--                       fin création evenement                             -->
+
+<head>
+    <title>Roommate Application Form</title>
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css"
+        integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+    <style href="newactivite.component.css"></style>
+</head>
+
+<body>
+    <div class="testbox">
+        <form #EvenementForm="ngForm" (ngSubmit)="creerEvent(EvenementForm.value)">
+            <div class="banner">
+                <h1>Propose un nouvel évenement à mettre dans notre base de données !</h1>
+            </div>
+            <div class="item">
+                <br><br>
+                <input type="text" id="fcom" name="nom" size="25" ngModel="" placeholder="Nom de l'évenement" />
+            </div>
+            <div class="item">
+                <br><br>
+                <input type="date" id="fcom" name="date" size="25" ngModel="" placeholder="Date" />
+            </div>
+            <div class="item">
+                <br><br>
+                <input type="text" id="fcom" name="nom" size="25" ngModel="" placeholder="Adresse" />
+            </div>
+            <div class="item">
+                <br><br>
+                <select name="type" id="fcom" ngModel="">
+                    <option value="">---</option>
+                    <option value="Sport">Tous les jours</option>
+                    <option value="Jeu de Société">Toutes les semaines</option>
+                    <option value="Jeu Vidéo">Tous les mois</option>
+                    <option value="Autre">Autre (à préciser en description)</option>
+                </select>
+            </div>
+            <div class="item">
+                <br><br>
+                <select name="type" id="fcom" ngModel="">
+                    <option value="">---</option>
+                    <option value="Sport">Débutant</option>
+                    <option value="Jeu de Société">Moyen</option>
+                    <option value="Jeu Vidéo">Expert</option>
+                    <option value="Autre">Autre (à préciser en description)</option>
+                </select>
+            </div>
+            <div class="item">
+                <br><br>
+                <textarea name="contenu" id="fcom" ngModel="" placeholder="Description"></textarea>
+            </div>
+            <div class="item">
+                <br><br>
+                <input type="int" id="fcom" name="nbmin" size="25" ngModel="" placeholder="Nombre de joueurs minimum" />
+            </div>
+            <div class="item">
+                <br><br>
+                <input type="int" id="fcom" name="nbmax" size="25" ngModel="" placeholder="Nombre de joueurs maximum" />
+            </div>
+
+            <div class="item">
+                <br><br>
+                <input type="text" id="fcom" name="activite" size="25" ngModel="" placeholder="Type d'activité" />
+            </div>
+            <div class="mt-4" style="text-align :center">
+                <button mat-raised-button color="primary">Validez la création de l'évenement</button>
+                <!--le boutton a l'activation recupere le nom du mec connecté, qui vient prendre la place de evenement.createur-->
+            </div>
+        </form>
+    </div>
+</body>

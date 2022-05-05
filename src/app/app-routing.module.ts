@@ -9,6 +9,7 @@ import { InscriptionComponent } from './inscription/inscription.component';
 import { EvenementsComponent } from './evenements/evenements.component';
 import { MesevenementsComponent } from './mesevenements/mesevenements.component';
 import { CreationEvenementComponent } from './creation-evenement/creation-evenement.component';
+import { MembresComponent } from './membres/membres.component';
 
 
 const routes: Routes = [
@@ -18,19 +19,16 @@ const routes: Routes = [
   { component: HomeComponent, path: 'home' },
   { component: ConnexionComponent, path: 'connexion' },
   { component: InscriptionComponent, path: 'inscription' },
+  { component: MembresComponent, path: 'membres'},
   { path: '', redirectTo: '/connexion', pathMatch: 'full' },
   { component: EvenementsComponent, path: "evenement" },
-  { component: HomeComponent, path: 'home' },
   { component: MesevenementsComponent, path: 'mesevenements' },
   { component: CreationEvenementComponent, path: 'creation-evenement' },
  
 ];
 
 
-
-@NgModule({
-
- 
+@NgModule({ 
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })

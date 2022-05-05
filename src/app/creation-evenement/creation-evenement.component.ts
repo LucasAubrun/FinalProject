@@ -28,7 +28,8 @@ export class CreationEvenementComponent implements OnInit {
       nbmin: val.nbmin,
       nbmax: val.nbmax,
       nomActivite: val.nomActivite,
-    };
+      valide: false
+    }
 
     this.http.post("http://localhost:8080/Evenements/save", event)
       .subscribe({

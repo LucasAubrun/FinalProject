@@ -12,6 +12,7 @@ export class MesevenementsComponent implements OnInit {
   baseURL: string = "http://localhost:8080/";
   resultMessage: string = " ";
   TtEventId: any;
+  result: string = "";
 
   //♦♣♦♣♦♣♦♣♦♣ fin création de variable ♦♣♦♣♦♣♦♣♦♣//
 
@@ -26,5 +27,27 @@ export class MesevenementsComponent implements OnInit {
       next: (data) => { this.TtEventId = data },
       error: (err) => { console.log(err) }
     });
+  }
+
+  SupprimerEvent(val: any) {
+    let event = {
+      nom: val.nom,
+      date: val.date,
+      adresse: val.adresse,
+      recurrence: val.recurrence,
+      niveau: val.niveau,
+      description: val.decription,
+      nbmin: val.nbmin,
+      nbmax: val.nbmax,
+      nomActivite: val.nomActivite,
+      valide: false
+    }
+
+    this.http.post("Evenements/supprimer/{id}", event)
+      .subscribe({
+        next: (data) => { this.result = "Suppression réussie" },
+        error: (err) => { console.log(err) }
+      })
+    console.log(event)
   }
 }

@@ -1,10 +1,10 @@
 <nav class="navbar navbar-expand-lg navbar-dark  fixed-top" style="height: 74.3px;">
 
-  <div class="container">
-    <a class="navbar-brand">
+  <div class="container w-100">
+    <a class="navbar-brand ">
 
       <img src="https://media.newjobs.com/clu/xsol/xsolutec05frx/branding/117320/SOLUTEC-logo.jpg" routerLink="home"
-        width="30" height="30" alt="">
+        width="30" height="30" style="float: left;" alt="">
     </a>
     <!--toggler-->
 
@@ -20,7 +20,7 @@
     <div class="collapse navbar-collapse justify-content-between" id="navbarToggler">
       <ul class="navbar-nav">
         <li class="nav-item">
-          <a class="nav-link active" routerLink="">Lien1</a>
+          <a class="nav-link active" routerLink="membres">Mon espace</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" routerLink="">Lien2</a>
@@ -39,24 +39,18 @@
 
       </ul>
 
-
-        <div class="form-inline ml-auto">
-          >>>>>>> 2c558deb7038a84cdef7df795318dc4eba65bf1d
-
-          <button type="button" class="btn btn-light" routerLink="inscription">Inscription</button>
-          <button type="button" class="btn btn-light" routerLink="connexion">Connexion</button>
-
-        </div>
-        <div class="form-inline ml-auto">
-          <button type="button" class="btn btn-sm btn-danger" *ngIf="authService.isConnected()"
-            (click)="authService.deco()">
-            Déconnexion
-          </button>
-        </div>
+      <div class="form-inline ml-auto" *ngIf="!authService.isConnected()">
+        <button type="button" class="btn btn-light" routerLink="inscription">Inscription</button>
+        <button type="button" class="btn btn-light" routerLink="connexion">Connexion</button>
+      </div>
+      <div class="form-inline ml-auto">
+        <button type="button" class="btn btn-sm btn-danger" *ngIf="authService.isConnected()"
+          (click)="authService.deconnexion()">
+          Déconnexion
+        </button>
+      </div>
     </div>
 
   </div>
 
- </nav>
-   
-
+</nav>
