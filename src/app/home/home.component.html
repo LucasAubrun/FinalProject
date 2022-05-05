@@ -2,68 +2,66 @@
 
 <head>
 </head>
+<div>
+    <img src="assets/img/Multisport.jpeg" alt="my image" width=100% height=max-height>
 
-
-
-
-<img src="assets/img/Multisport.jpeg" alt="my image" width=100% height=max-height>
-
-
-<ul class="medias">
-    <li class="bulle"><img src="assets/fb.svg" class="logo-medias"></li>
-    <li class="bulle"><img src="assets/insta.svg" class="logo-medias"></li>
-    <li class="bulle"><img src="assets/yt.svg" class="logo-medias"></li>
-    <li class="bulle"><img src="assets/fb.svg" class="logo-medias"></li>
-</ul>
-
-<div class="container-first">
-    <h1><span>Repousse </span><span>tes </span><span>Limites </span></h1>
-    <div class="container-btns">
-        <button class="btn-first b1" href="#concept">Découvre-nous</button>
-        <button class="btn-first b2">Rejoindre l'équipe</button>
+    <div>
+        <ul class="medias">
+            <li class="bulle"><img src="assets/fb.svg" class="logo-medias"></li>
+            <li class="bulle"><img src="assets/insta.svg" href="https://www.instagram.com/" class="logo-medias"></li>
+            <li class="bulle"><img src="assets/yt.svg" class="logo-medias"></li>
+            <li class="bulle"><img src="assets/fb.svg" class="logo-medias"></li>
+        </ul>
     </div>
-</div>
-<div class="container-second">
-    <div class="container-btns">
-        <a class="btn-first b3" routerLink="#concept">concept</a>
-        
+
+    <div class="container-first">
+        <h1><span>Rencontre </span><span>des </span><span>Joueurs </span></h1>
+        <div class="container-btns">
+            <button class="btn-first b1" (click)="scroll(concept)">Découvre-nous</button>
+            <button class="btn-first b2" routerLink="inscription">Rejoindre l'équipe</button>
+        </div>
+
     </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.1/gsap.min.js"></script>
+
 </div>
 <!-- Concept-->
-<section class="page-section" id="concept">
+<section class="page-section" #concept id="concept">
     <div class="container">
         <div class="text-center">
             <h2 class="section-heading text-uppercase">Le concept</h2>
-            <h3 class="section-subheading text-muted">Le concept de EloSport est de rassembler les différents
-                joueurs de différents sport à plus fins : </h3>
+            <h3 class="section-subheading text-muted"> Elogames a pour vocation de rassembler les amoureux du jeu et de
+                les amener à se rencontrer pour des parties effrénées</h3>
         </div>
         <div class="row text-center">
-            <div class="col-md-4">
-                <span class="fa-stack fa-4x">
-                    <i class="fas fa-circle fa-stack-2x text-primary"></i>
-                    <i class="fas fa-trophy fa-stack-1x fa-inverse"></i>
-                </span>
-                <h4 class="my-3">Compétif</h4>
-                <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam
-                    architecto quo inventore harum ex magni, dicta impedit.</p>
-            </div>
+
             <div class="col-md-4">
                 <span class="fa-stack fa-4x">
                     <i class="fas fa-circle fa-stack-2x text-primary"></i>
                     <i class="fas fa-handshake fa-stack-1x fa-inverse"></i>
                 </span>
                 <h4 class="my-3">Amical</h4>
-                <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam
-                    architecto quo inventore harum ex magni, dicta impedit.</p>
+                <p class="text-muted">Joue pour le plaisir, redécouvre des activités oubliées ou apprends en de
+                    nouvelles </p>
             </div>
+
             <div class="col-md-4">
                 <span class="fa-stack fa-4x">
                     <i class="fas fa-circle fa-stack-2x text-primary"></i>
                     <i class="fas fa-link fa-stack-1x fa-inverse"></i>
                 </span>
                 <h4 class="my-3">Rencontres</h4>
-                <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam
-                    architecto quo inventore harum ex magni, dicta impedit.</p>
+                <p class="text-muted">Rencontre d'autres utilisateurs avec les mêmes centres d'intérets et rencontre les
+                    autour d'une activité ludique ou sportive</p>
+            </div>
+
+            <div class="col-md-4">
+                <span class="fa-stack fa-4x">
+                    <i class="fas fa-circle fa-stack-2x text-primary"></i>
+                    <i class="fas fa-trophy fa-stack-1x fa-inverse"></i>
+                </span>
+                <h4 class="my-3">Compétitif</h4>
+                <p class="text-muted">Mesure toi aux autres utilisateurs dans tes domaines de prédilecton</p>
             </div>
         </div>
     </div>
@@ -72,104 +70,110 @@
 
 <!-- Activités -->
 <section class="page-section bg-light" id="activites">
-    <div class="container">
-        <div class="text-center">
-            <h2 class="section-heading text-uppercase">Portfolio</h2>
-            <h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3>
-        </div>
+    <div class="container bg-light">
         <div class="row">
-            <div class="col-lg-4 col-sm-6 mb-4">
-                <!-- Portfolio item 1-->
-                <div class="portfolio-item">
-                    <a class="portfolio-link" data-bs-toggle="modal" href="#portfolioModal1">
-                        <div class="portfolio-hover">
-                            <div class="portfolio-hover-content"><i class="fas fa-plus fa-3x"></i></div>
+            <div class="card my-4 border-0 rounded-0">
+                <div class="row">
+                    <div class="col-md-6">
+                        <img src="assets/sports.jpg" class="img-fluid rounded-start" alt="...">
+                    </div>
+                    <div class="col-md-6 bg-light">
+                        <div class="card-body ">
+                            <h5 class="card-title">Sports</h5>
+                            <p class="card-text">
+
+                                Organise ou rejoint des évènements sportifs publics ou entre amis grâce à notre large panel de sports. 
+                            </p>
+                            <p class="card-text"><a class="text-muted">Last updated 3 mins ago</a></p>
                         </div>
-                        <img class="img-fluid" src="assets/img/portfolio/1.jpg" alt="..." />
-                    </a>
-                    <div class="portfolio-caption">
-                        <div class="portfolio-caption-heading">Threads</div>
-                        <div class="portfolio-caption-subheading text-muted">Illustration</div>
                     </div>
                 </div>
             </div>
-            <div class="col-lg-4 col-sm-6 mb-4">
-                <!-- Portfolio item 2-->
-                <div class="portfolio-item">
-                    <a class="portfolio-link" data-bs-toggle="modal" href="#portfolioModal2">
-                        <div class="portfolio-hover">
-                            <div class="portfolio-hover-content"><i class="fas fa-plus fa-3x"></i></div>
+
+            <div class="card my-4 border-0 rounded-0">
+                <div class="row">
+
+                    <div class="col-md-6 bg-light" style="vertical-align: middle;">
+                        <div class="card-body ">
+                            <h5 class="card-title">Jeux de société</h5>
+                            <p class="card-text">
+                                <br>
+                                Participe à des des soirées sur le thème du jeu, organise des rencontres entre passionnés ou des sessions découverte de jeux pour les nouveaux arrivants.
+                            </p>
+                            <p class="card-text"><a class="text-muted">Last updated 3 mins ago</a></p>
                         </div>
-                        <img class="img-fluid" src="assets/img/portfolio/2.jpg" alt="..." />
-                    </a>
-                    <div class="portfolio-caption">
-                        <div class="portfolio-caption-heading">Explore</div>
-                        <div class="portfolio-caption-subheading text-muted">Graphic Design</div>
+                    </div>
+                    <div class="col-md-6">
+                        <img src="https://cdn.pixabay.com/photo/2017/09/08/20/29/chess-2730034_960_720.jpg" class="img-fluid rounded-start" alt="...">
                     </div>
                 </div>
             </div>
-            <div class="col-lg-4 col-sm-6 mb-4">
-                <!-- Portfolio item 3-->
-                <div class="portfolio-item">
-                    <a class="portfolio-link" data-bs-toggle="modal" href="#portfolioModal3">
-                        <div class="portfolio-hover">
-                            <div class="portfolio-hover-content"><i class="fas fa-plus fa-3x"></i></div>
-                        </div>
-                        <img class="img-fluid" src="assets/img/portfolio/3.jpg" alt="..." />
-                    </a>
-                    <div class="portfolio-caption">
-                        <div class="portfolio-caption-heading">Finish</div>
-                        <div class="portfolio-caption-subheading text-muted">Identity</div>
+
+            <div class="card my-4 border-0 rounded-0">
+                <div class="row">
+                    <div class="col-md-6">
+                        <img src="assets/jeuxv.jpg" class="img-fluid rounded-start" alt="...">
+                        <!--  Carousel Wrapper
+                        <div id="carousel-example-1z" class="carousel slide " data-ride="carousel">
+                            Indicators
+                            <ol class="carousel-indicators">
+                                <li data-target="#carousel-example-1z" data-slide-to="0" class="active"></li>
+                                <li data-target="#carousel-example-1z" data-slide-to="1"></li>
+                                <li data-target="#carousel-example-1z" data-slide-to="2"></li>
+                            </ol>
+                            <div class="carousel-inner" role="listbox">
+                                <div class="carousel-item active">
+                                    <img class="d-block w-100"
+                                        src="https://mdbootstrap.com/img/Photos/Slides/img%20(130).webp"
+                                        alt="First slide">
+                                </div>
+                                <div class="carousel-item">
+                                    <img class="d-block w-100"
+                                        src="https://mdbootstrap.com/img/Photos/Slides/img%20(129).webp"
+                                        alt="Second slide">
+                                </div>
+                                <div class="carousel-item">
+                                    <img class="d-block w-100"
+                                        src="https://mdbootstrap.com/img/Photos/Slides/img%20(70).webp"
+                                        alt="Third slide">
+                                </div>
+                            </div>
+                            <a class="carousel-control-prev" href="#carousel-example-1z" role="button"
+                                data-slide="prev">
+                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                <span class="sr-only">Previous</span>
+                            </a>
+                            <a class="carousel-control-next" href="#carousel-example-1z" role="button"
+                                data-slide="next">
+                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                <span class="sr-only">Next</span>
+                            </a>
+                        </div>-->
                     </div>
-                </div>
-            </div>
-            <div class="col-lg-4 col-sm-6 mb-4 mb-lg-0">
-                <!-- Portfolio item 4-->
-                <div class="portfolio-item">
-                    <a class="portfolio-link" data-bs-toggle="modal" href="#portfolioModal4">
-                        <div class="portfolio-hover">
-                            <div class="portfolio-hover-content"><i class="fas fa-plus fa-3x"></i></div>
+                    <div class="col-md-6 bg-light">
+                        <div class="card-body ">
+                            <h5 class="card-title">Jeux Vidéos</h5>
+                            <p class="card-text">
+                                <br>
+                                Tu es à la recherche de coéquipiers pour participer aux prochaines compétitions ou juste
+                                pour rigoler le soir? Où simplement à la recherce d'adversaires?
+                                Que tu sois un joueur Playstation, Xbox, Nintendo, ou PC, Elogames est là pour te
+                                trouver les bonnes personnes.
+                            </p>
+
+
                         </div>
-                        <img class="img-fluid" src="assets/img/portfolio/4.jpg" alt="..." />
-                    </a>
-                    <div class="portfolio-caption">
-                        <div class="portfolio-caption-heading">Lines</div>
-                        <div class="portfolio-caption-subheading text-muted">Branding</div>
+
                     </div>
+
                 </div>
-            </div>
-            <div class="col-lg-4 col-sm-6 mb-4 mb-sm-0">
-                <!-- Portfolio item 5-->
-                <div class="portfolio-item">
-                    <a class="portfolio-link" data-bs-toggle="modal" href="#portfolioModal5">
-                        <div class="portfolio-hover">
-                            <div class="portfolio-hover-content"><i class="fas fa-plus fa-3x"></i></div>
-                        </div>
-                        <img class="img-fluid" src="assets/img/portfolio/5.jpg" alt="..." />
-                    </a>
-                    <div class="portfolio-caption">
-                        <div class="portfolio-caption-heading">Southwest</div>
-                        <div class="portfolio-caption-subheading text-muted">Website Design</div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4 col-sm-6">
-                <!-- Portfolio item 6-->
-                <div class="portfolio-item">
-                    <a class="portfolio-link" data-bs-toggle="modal" href="#portfolioModal6">
-                        <div class="portfolio-hover">
-                            <div class="portfolio-hover-content"><i class="fas fa-plus fa-3x"></i></div>
-                        </div>
-                        <img class="img-fluid" src="assets/img/portfolio/6.jpg" alt="..." />
-                    </a>
-                    <div class="portfolio-caption">
-                        <div class="portfolio-caption-heading">Window</div>
-                        <div class="portfolio-caption-subheading text-muted">Photography</div>
-                    </div>
-                </div>
+                
             </div>
         </div>
     </div>
+    <div class="d-grid gap-2 col-12 mx-auto" style="text-align: center;" >
+        <button type="button" class="btn btn-light" routerLink="inscription">Inscrivez vous pour participer</button>
+        </div>
 </section>
 
 <!-- Historique -->
@@ -179,7 +183,7 @@
     <div class="container">
         <div class="text-center">
             <h2 class="section-heading text-uppercase">About</h2>
-            <h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3>
+            <h3 class="section-subheading text-muted">L'histoire d'Elogames</h3>
         </div>
         <ul class="timeline">
             <li>
@@ -191,24 +195,32 @@
                         <h4 class="subheading">Le commencement</h4>
                     </div>
                     <div class="timeline-body">
-                        <p class="text-muted">L'histoire débute le 28 mars 2022. En ce jour, 7 jeunes cadres dynamiques
+                        <p class="text-muted">
+                            <br>
+                            L'histoire débute le 28 mars 2022. En ce jour, 7 jeunes cadres dynamiques
                             rejoignent l'entreprise Solutec. Sous la pression grandissante, l'un d'entre eux quitte
-                            rapidement le navire. Les 6 derniers vont, suite à ça, donner naissance à EloSport.</p>
+                            rapidement le navire. Les 6 derniers vont, suite à cela, donner naissance à Elogames.
+                        </p>
                     </div>
                 </div>
             </li>
 
 
             <li class="timeline-inverted">
-                <div class="timeline-image"><img class="rounded-circle img-fluid" src="alex.PNG" alt="..." /></div>
+                <div class="timeline-image">
+                    <img class="rounded-circle img-fluid" src="https://cdn.pixabay.com/photo/2019/07/02/05/56/rocket-4311575_960_720.png" alt="..." style="width: 100%; margin-top: px;"/>
+                </div>
                 <div class="timeline-panel">
                     <div class="timeline-heading">
                         <h4>6 mai 2022</h4>
                         <h4 class="subheading">Le lancement</h4>
                     </div>
                     <div class="timeline-body">
-                        <p class="text-muted">Seulement 6 semaines après le commencement, le projet est lancé sur le
-                            Web.</p>
+                        <p class="text-muted">
+                            <br>
+                            Seulement 6 semaines après le commencement, le projet est lancé sur le
+                            Web.
+                        </p>
                     </div>
                 </div>
             </li>
@@ -234,27 +246,28 @@
     <div class="container">
         <div class="text-center">
             <h2 class="section-heading text-uppercase">Notre équipe</h2>
-            <h3 class="section-subheading text-muted">Les fondateurs de EloSport</h3>
+            <h3 class="section-subheading text-muted">Les fondateurs de Elogames</h3>
         </div>
         <div class="row">
             <div class="col-lg-4">
                 <div class="team-member">
                     <img class="mx-auto rounded-circle" src="./assets/img/lucas.jpg" alt="..." />
-                    <h4>Lucas</h4>
+                    <h4>Lucas AUBRUN</h4>
                     <p class="text-muted">Lead Designer</p>
                     <br>
                     <a class="btn btn-dark btn-social mx-2" href="#!" aria-label="Parveen Anand Twitter Profile"><i
                             class="fab fa-twitter"></i></a>
                     <a class="btn btn-dark btn-social mx-2" href="https://www.facebook.com/petit.ange2019"
                         aria-label="Parveen Anand Facebook Profile"><i class="fab fa-facebook-f"></i></a>
-                    <a class="btn btn-dark btn-social mx-2" href="#!" aria-label="Parveen Anand LinkedIn Profile"><i
-                            class="fab fa-linkedin-in"></i></a>
+                    <a class="btn btn-dark btn-social mx-2"
+                        href="https://fr.linkedin.com/in/lucas-aubrun-4a5260171?trk=people-guest_people_search-card"
+                        aria-label="Parveen Anand LinkedIn Profile"><i class="fab fa-linkedin-in"></i></a>
                 </div>
             </div>
             <div class="col-lg-4">
                 <div class="team-member">
                     <img class="mx-auto rounded-circle" src="./assets/img/clara.jpg" alt="..." />
-                    <h4>Clara</h4>
+                    <h4>Clara RAISON</h4>
                     <p class="text-muted">Lead Marketer</p>
                     <br>
                     <a class="btn btn-dark btn-social mx-2" href="#!" aria-label="Diana Petersen Twitter Profile"><i
@@ -262,65 +275,70 @@
                     <a class="btn btn-dark btn-social mx-2"
                         href="https://www.facebook.com/profile.php?id=100006881985051"
                         aria-label="Diana Petersen Facebook Profile"><i class="fab fa-facebook-f"></i></a>
-                    <a class="btn btn-dark btn-social mx-2" href="#!" aria-label="Diana Petersen LinkedIn Profile"><i
-                            class="fab fa-linkedin-in"></i></a>
+                    <a class="btn btn-dark btn-social mx-2"
+                        href="https://fr.linkedin.com/in/clara-raison-057943179?trk=people-guest_people_search-card"
+                        aria-label="Diana Petersen LinkedIn Profile"><i class="fab fa-linkedin-in"></i></a>
                 </div>
             </div>
             <div class="col-lg-4">
                 <div class="team-member">
                     <img class="mx-auto rounded-circle" src="./assets/img/matthieu.jpg" alt="..." />
-                    <h4>Matthieu</h4>
+                    <h4>Matthieu BEAUCHET</h4>
                     <p class="text-muted">Lead Developer</p>
                     <br>
                     <a class="btn btn-dark btn-social mx-2" href="#!" aria-label="Larry Parker Twitter Profile"><i
                             class="fab fa-twitter"></i></a>
                     <a class="btn btn-dark btn-social mx-2" href="https://www.facebook.com/matthieu.beauchet"
                         aria-label="Larry Parker Facebook Profile"><i class="fab fa-facebook-f"></i></a>
-                    <a class="btn btn-dark btn-social mx-2" href="#!" aria-label="Larry Parker LinkedIn Profile"><i
-                            class="fab fa-linkedin-in"></i></a>
+                    <a class="btn btn-dark btn-social mx-2"
+                        href="https://fr.linkedin.com/in/matthieu-beauchet-51b468158?trk=people-guest_people_search-card"
+                        aria-label="Larry Parker LinkedIn Profile"><i class="fab fa-linkedin-in"></i></a>
                 </div>
             </div>
             <div class="col-lg-4">
                 <div class="team-member">
                     <img class="mx-auto rounded-circle" src="./assets/img/alexis.jpg" alt="..." />
-                    <h4>Alexis</h4>
+                    <h4>Alexis PERROCHEAU</h4>
                     <p class="text-muted">Lead Developer</p>
                     <br>
                     <a class="btn btn-dark btn-social mx-2" href="#!" aria-label="Larry Parker Twitter Profile"><i
                             class="fab fa-twitter"></i></a>
                     <a class="btn btn-dark btn-social mx-2" href="https://www.facebook.com/alexis.perrocheau.zer"
                         aria-label="Larry Parker Facebook Profile"><i class="fab fa-facebook-f"></i></a>
-                    <a class="btn btn-dark btn-social mx-2" href="#!" aria-label="Larry Parker LinkedIn Profile"><i
-                            class="fab fa-linkedin-in"></i></a>
+                    <a class="btn btn-dark btn-social mx-2"
+                        href="https://fr.linkedin.com/in/alexis-perrocheau?trk=people-guest_people_search-card"
+                        aria-label="Larry Parker LinkedIn Profile"><i class="fab fa-linkedin-in"></i></a>
                 </div>
             </div>
             <div class="col-lg-4">
                 <div class="team-member">
                     <img class="pic rounded-circle" src="./assets/img/dylan.JPG" alt="..." />
-                    <h4>Dylan</h4>
+                    <h4>Dylan SERGEANT</h4>
                     <p class="text-muted">Lead Developer</p>
                     <br>
                     <a class="btn btn-dark btn-social mx-2" href="#!" aria-label="Larry Parker Twitter Profile"><i
                             class="fab fa-twitter"></i></a>
                     <a class="btn btn-dark btn-social mx-2" href="https://www.facebook.com/dylan.sergeant.94"
                         aria-label="Larry Parker Facebook Profile"><i class="fab fa-facebook-f"></i></a>
-                    <a class="btn btn-dark btn-social mx-2" href="#!" aria-label="Larry Parker LinkedIn Profile"><i
-                            class="fab fa-linkedin-in"></i></a>
+                    <a class="btn btn-dark btn-social mx-2"
+                        href="https://fr.linkedin.com/in/dylan-sergeant-4172a219b?trk=people-guest_people_search-card"
+                        aria-label="Larry Parker LinkedIn Profile"><i class="fab fa-linkedin-in"></i></a>
                 </div>
             </div>
             <div class="col-lg-4">
                 <div class="team-member">
                     <img class="pic rounded-circle" src="./assets/img/alex.jpg" alt=".ff.." />
 
-                    <h4>Alexandre</h4>
+                    <h4>Alexandre ROUX</h4>
                     <p class="text-muted">Front-end Developper</p>
                     <br>
                     <a class="btn btn-dark btn-social mx-2" href="#!" aria-label="Larry Parker Twitter Profile"><i
                             class="fab fa-twitter"></i></a>
                     <a class="btn btn-dark btn-social mx-2" href="https://www.facebook.com/Alexandre.roux22"
                         aria-label="Larry Parker Facebook Profile"><i class="fab fa-facebook-f"></i></a>
-                    <a class="btn btn-dark btn-social mx-2" href="#!" aria-label="Larry Parker LinkedIn Profile"><i
-                            class="fab fa-linkedin-in"></i></a>
+                    <a class="btn btn-dark btn-social mx-2"
+                        href="https://fr.linkedin.com/in/alexandre-roux-726562142?trk=people-guest_people_search-card"
+                        aria-label="Larry Parker LinkedIn Profile"><i class="fab fa-linkedin-in"></i></a>
                 </div>
             </div>
         </div>

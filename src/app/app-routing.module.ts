@@ -11,6 +11,7 @@ import { MesevenementsComponent } from './mesevenements/mesevenements.component'
 import { CreationEvenementComponent } from './creation-evenement/creation-evenement.component';
 import { ConnexionadminComponent } from './connexionadmin/connexionadmin.component';
 import { AdminComponent } from './admin/admin.component';
+import { MembresComponent } from './membres/membres.component';
 
 
 const routes: Routes = [
@@ -20,18 +21,17 @@ const routes: Routes = [
   { component: HomeComponent, path: 'home' },
   { component: ConnexionComponent, path: 'connexion' },
   { component: InscriptionComponent, path: 'inscription' },
+  { component: MembresComponent, path: 'membres' },
+  { path: '', redirectTo: '/connexion', pathMatch: 'full' },
   { component: EvenementsComponent, path: "evenement" },
-  { component: HomeComponent, path: 'home' },
   { component: MesevenementsComponent, path: 'mesevenements' },
   { component: ConnexionadminComponent, path: 'connexionAdmin' },
-  { component: AdminComponent, path: 'admin' }
+  { component: AdminComponent, path: 'admin' },
+  { component: CreationEvenementComponent, path: 'creation-evenement' }
 ];
 
 
-
 @NgModule({
-
-
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })

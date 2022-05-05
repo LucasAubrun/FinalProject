@@ -21,8 +21,10 @@ import { EvenementsComponent } from './evenements/evenements.component';
 import { CreationEvenementComponent } from './creation-evenement/creation-evenement.component';
 import { FooterComponent } from './footer/footer.component';
 import { MesevenementsComponent } from './mesevenements/mesevenements.component';
+import { MembresComponent } from './membres/membres.component';
 import { AdminComponent } from './admin/admin.component';
 import { ConnexionadminComponent } from './connexionadmin/connexionadmin.component';
+import { ClassementComponent } from './classement/classement.component';
 
 
 @NgModule({
@@ -43,8 +45,10 @@ import { ConnexionadminComponent } from './connexionadmin/connexionadmin.compone
     InscriptionComponent,
     FooterComponent,
     MesevenementsComponent,
+    MembresComponent,
     AdminComponent,
-    ConnexionadminComponent
+    ConnexionadminComponent,
+    ClassementComponent
   ],
   imports: [
     FormsModule,
@@ -52,7 +56,7 @@ import { ConnexionadminComponent } from './connexionadmin/connexionadmin.compone
     HttpClientModule,
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

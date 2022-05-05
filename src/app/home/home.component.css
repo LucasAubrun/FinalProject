@@ -325,7 +325,7 @@ h1 span {
 }
 .text-muted {
   --bs-text-opacity: 1;
-  color: #6c757d !important;
+  color: #a69045 !important;
   
 }
 .team-member {
@@ -377,4 +377,29 @@ h1 span {
 .col-lg-4 {
   flex: 0 0 auto;
   width: 33.33333333%;
+}
+.card-body{
+  margin-top: 20px;
+  margin-left: 20px;
+  margin-right: 20px;
+}
+.card-text{
+  margin-top: 5%;
+}
+
+.card-title{
+  text-align: center;
+  font-size: 25px;
+}
+.timeline-body{
+  text-align: left;
+}
+
+.card-btn{
+  text-align: right;
+  position: relative;
+  bottom: 0ch;
+}
+.card-body.h5.card-title{
+  font-size: 90px;
 }

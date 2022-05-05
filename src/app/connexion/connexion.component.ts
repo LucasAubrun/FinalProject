@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { AuthentificationService } from '../authentification.service';
+import { AuthentificationService } from '../service/authentification.service';
 
 @Component({
   selector: 'app-connexion',
@@ -15,11 +15,7 @@ export class ConnexionComponent implements OnInit {
   resultMessage: string = "";
   resultColor: string = "red";
   membre: any;
-
-  connexionForm = new FormGroup({
-    mail: new FormControl('', Validators.required),
-    mdp: new FormControl(['', Validators.required, Validators.minLength(5)])
-  })
+  user= {mail: '', mdp: ''};
 
   constructor(
     private http: HttpClient,
@@ -28,10 +24,13 @@ export class ConnexionComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+    if(this.authentificationService.isConnected()){
+      this.route.navigateByUrl('membres');
+    }
   }
 
-  connexion(user: any) {
-    this.http.post(this.baseURL + "membre/get", user)
+  connexion() {
+    this.http.post(this.baseURL + "membre/get", this.user)
       .subscribe({
         next: (data) => {
           this.membre = data;
@@ -39,7 +38,7 @@ export class ConnexionComponent implements OnInit {
             this.authentificationService.setUserInLocalStorage(this.membre)
             console.log(data);
             this.resultMessage = "";
-            this.route.navigateByUrl("equipes");
+            this.route.navigateByUrl("membres");
           }
           else {
             this.resultMessage = "Adresse e-mail ou mot de passe incorrect"
