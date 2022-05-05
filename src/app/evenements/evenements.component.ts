@@ -13,6 +13,11 @@ export class EvenementsComponent implements OnInit {
   resultColor: string = " ";
   EventRandId: any;
   ListEventRandId: any;
+  EventByNom: any;
+  invitationEv: any;
+  resultMessageInvit: any;
+  errorInvit: any;
+  joinEv: any;
 
   constructor(private http: HttpClient) { }
 
@@ -41,5 +46,29 @@ export class EvenementsComponent implements OnInit {
       error: (err) => { console.log(err) }
     });
   }
+
+  callEventByNom() {
+    this.http.get("evenements/{nom}").subscribe({
+
+      next: (data) => { this.EventByNom = data },
+      error: (err) => { console.log(err) }
+    });
+  }
+
+  RejoindreEvent(val: any) {
+    let rejoindre = {
+      idM: val.id,
+    };
+    console.log(rejoindre);
+    this.http.post(this.baseURL + "Participant/save", rejoindre).subscribe({
+      next: (data) => {
+        this.resultMessageInvit = "evenement rejoint"
+      },
+      error: (err) => {
+        this.errorInvit = "impossible pour l'instant"
+      }
+    })
+  }
+
 
 }

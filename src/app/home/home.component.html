@@ -2,62 +2,66 @@
 
 <head>
 </head>
-<img src="assets/img/Multisport.jpeg" alt="my image" width=100% height=max-height>
+<div>
+    <img src="assets/img/Multisport.jpeg" alt="my image" width=100% height=max-height>
 
-
-<ul class="medias">
-    <li class="bulle"><img src="assets/fb.svg" class="logo-medias"></li>
-    <li class="bulle"><img src="assets/insta.svg" href="https://www.instagram.com/" class="logo-medias"></li>
-    <li class="bulle"><img src="assets/yt.svg" class="logo-medias"></li>
-    <li class="bulle"><img src="assets/fb.svg" class="logo-medias"></li>
-</ul>
-
-
-<div class="container-first">
-    <h1><span>Repousse </span><span>tes </span><span>Limites </span></h1>
-    <div class="container-btns">
-        <button class="btn-first b1" (click)="scroll(concept)">Découvre-nous</button>
-        <button class="btn-first b2" routerLink="inscription">Rejoindre l'équipe</button>
+    <div>
+        <ul class="medias">
+            <li class="bulle"><img src="assets/fb.svg" class="logo-medias"></li>
+            <li class="bulle"><img src="assets/insta.svg" href="https://www.instagram.com/" class="logo-medias"></li>
+            <li class="bulle"><img src="assets/yt.svg" class="logo-medias"></li>
+            <li class="bulle"><img src="assets/fb.svg" class="logo-medias"></li>
+        </ul>
     </div>
 
+    <div class="container-first">
+        <h1><span>Rencontre </span><span>des </span><span>Joueurs </span></h1>
+        <div class="container-btns">
+            <button class="btn-first b1" (click)="scroll(concept)">Découvre-nous</button>
+            <button class="btn-first b2" routerLink="inscription">Rejoindre l'équipe</button>
+        </div>
+
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.1/gsap.min.js"></script>
+
 </div>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.1/gsap.min.js"></script>
-
-
 <!-- Concept-->
 <section class="page-section" #concept id="concept">
     <div class="container">
         <div class="text-center">
             <h2 class="section-heading text-uppercase">Le concept</h2>
-            <h3 class="section-subheading text-muted">Le concept de EloSport est de rassembler les différents
-                joueurs de différents sport à plus fins : </h3>
+            <h3 class="section-subheading text-muted"> Elogames a pour vocation de rassembler les amoureux du jeu et de
+                les amener à se rencontrer pour des parties effrénées</h3>
         </div>
         <div class="row text-center">
-            <div class="col-md-4">
-                <span class="fa-stack fa-4x">
-                    <i class="fas fa-circle fa-stack-2x text-primary"></i>
-                    <i class="fas fa-trophy fa-stack-1x fa-inverse"></i>
-                </span>
-                <h4 class="my-3">Compétif</h4>
-                <p class="text-muted">Avec son système de score basé sur la technologie</p>
-            </div>
+
             <div class="col-md-4">
                 <span class="fa-stack fa-4x">
                     <i class="fas fa-circle fa-stack-2x text-primary"></i>
                     <i class="fas fa-handshake fa-stack-1x fa-inverse"></i>
                 </span>
                 <h4 class="my-3">Amical</h4>
-                <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam
-                    architecto quo inventore harum ex magni, dicta impedit.</p>
+                <p class="text-muted">Joue pour le plaisir, redécouvre des activités oubliées ou apprends en de
+                    nouvelles </p>
             </div>
+
             <div class="col-md-4">
                 <span class="fa-stack fa-4x">
                     <i class="fas fa-circle fa-stack-2x text-primary"></i>
                     <i class="fas fa-link fa-stack-1x fa-inverse"></i>
                 </span>
                 <h4 class="my-3">Rencontres</h4>
-                <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam
-                    architecto quo inventore harum ex magni, dicta impedit.</p>
+                <p class="text-muted">Rencontre d'autres utilisateurs avec les mêmes centres d'intérets et rencontre les
+                    autour d'une activité ludique ou sportive</p>
+            </div>
+
+            <div class="col-md-4">
+                <span class="fa-stack fa-4x">
+                    <i class="fas fa-circle fa-stack-2x text-primary"></i>
+                    <i class="fas fa-trophy fa-stack-1x fa-inverse"></i>
+                </span>
+                <h4 class="my-3">Compétitif</h4>
+                <p class="text-muted">Mesure toi aux autres utilisateurs dans tes domaines de prédilecton</p>
             </div>
         </div>
     </div>
@@ -77,9 +81,8 @@
                         <div class="card-body ">
                             <h5 class="card-title">Sports</h5>
                             <p class="card-text">
-                                <br>
-                                This is a wider card with supporting text below as a natural lead-in to
-                                additional content. This content is a little bit longer.
+
+                                Organise ou rejoint des évènements sportifs publics ou entre amis grâce à notre large panel de sports. 
                             </p>
                             <p class="card-text"><a class="text-muted">Last updated 3 mins ago</a></p>
                         </div>
@@ -90,19 +93,18 @@
             <div class="card my-4 border-0 rounded-0">
                 <div class="row">
 
-                    <div class="col-md-6 bg-light">
+                    <div class="col-md-6 bg-light" style="vertical-align: middle;">
                         <div class="card-body ">
-                            <h5 class="card-title">Jeux de plateaux</h5>
+                            <h5 class="card-title">Jeux de société</h5>
                             <p class="card-text">
                                 <br>
-                                This is a wider card with supporting text below as a natural lead-in to
-                                additional content. This content is a little bit longer.
+                                Participe à des des soirées sur le thème du jeu, organise des rencontres entre passionnés ou des sessions découverte de jeux pour les nouveaux arrivants.
                             </p>
                             <p class="card-text"><a class="text-muted">Last updated 3 mins ago</a></p>
                         </div>
                     </div>
                     <div class="col-md-6">
-                        <img src="assets/jeuxp.avif" class="img-fluid rounded-start" alt="...">
+                        <img src="https://cdn.pixabay.com/photo/2017/09/08/20/29/chess-2730034_960_720.jpg" class="img-fluid rounded-start" alt="...">
                     </div>
                 </div>
             </div>
@@ -111,7 +113,7 @@
                 <div class="row">
                     <div class="col-md-6">
                         <img src="assets/jeuxv.jpg" class="img-fluid rounded-start" alt="...">
-                       <!--  Carousel Wrapper
+                        <!--  Carousel Wrapper
                         <div id="carousel-example-1z" class="carousel slide " data-ride="carousel">
                             Indicators
                             <ol class="carousel-indicators">
@@ -155,16 +157,23 @@
                                 <br>
                                 Tu es à la recherche de coéquipiers pour participer aux prochaines compétitions ou juste
                                 pour rigoler le soir? Où simplement à la recherce d'adversaires?
-                                Que tu sois un joueur Playstation, Xbox, Nintendo, ou PC, EloSport est là pour te
+                                Que tu sois un joueur Playstation, Xbox, Nintendo, ou PC, Elogames est là pour te
                                 trouver les bonnes personnes.
                             </p>
-                            <button type="button" class="btn btn-light" routerLink="inscription">Inscription</button>
+
+
                         </div>
+
                     </div>
+
                 </div>
+                
             </div>
         </div>
     </div>
+    <div class="d-grid gap-2 col-12 mx-auto" style="text-align: center;" >
+        <button type="button" class="btn btn-light" routerLink="inscription">Inscrivez vous pour participer</button>
+        </div>
 </section>
 
 <!-- Historique -->
@@ -174,7 +183,7 @@
     <div class="container">
         <div class="text-center">
             <h2 class="section-heading text-uppercase">About</h2>
-            <h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3>
+            <h3 class="section-subheading text-muted">L'histoire d'Elogames</h3>
         </div>
         <ul class="timeline">
             <li>
@@ -190,7 +199,7 @@
                             <br>
                             L'histoire débute le 28 mars 2022. En ce jour, 7 jeunes cadres dynamiques
                             rejoignent l'entreprise Solutec. Sous la pression grandissante, l'un d'entre eux quitte
-                            rapidement le navire. Les 6 derniers vont, suite à ça, donner naissance à EloSport.
+                            rapidement le navire. Les 6 derniers vont, suite à cela, donner naissance à Elogames.
                         </p>
                     </div>
                 </div>
@@ -198,7 +207,9 @@
 
 
             <li class="timeline-inverted">
-                <div class="timeline-image"><img class="rounded-circle img-fluid" src="alex.PNG" alt="..." /></div>
+                <div class="timeline-image">
+                    <img class="rounded-circle img-fluid" src="https://cdn.pixabay.com/photo/2019/07/02/05/56/rocket-4311575_960_720.png" alt="..." style="width: 100%; margin-top: px;"/>
+                </div>
                 <div class="timeline-panel">
                     <div class="timeline-heading">
                         <h4>6 mai 2022</h4>
@@ -235,7 +246,7 @@
     <div class="container">
         <div class="text-center">
             <h2 class="section-heading text-uppercase">Notre équipe</h2>
-            <h3 class="section-subheading text-muted">Les fondateurs de EloSport</h3>
+            <h3 class="section-subheading text-muted">Les fondateurs de Elogames</h3>
         </div>
         <div class="row">
             <div class="col-lg-4">
