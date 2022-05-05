@@ -1,5 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { AuthentificationService } from '../authentification.service';
+import { EquipeService } from '../service/equipe.service';
 
 @Component({
   selector: 'app-creationequipes',
@@ -16,9 +19,15 @@ export class CreationequipesComponent implements OnInit {
   TtEquipeId: any;
   EquipeActuelle: any;
 
+  equipe: any;
+
   //♦♣♦♣♦♣♦♣♦♣ fin création de variable ♦♣♦♣♦♣♦♣♦♣//
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient,
+    public authentificationService: AuthentificationService,
+    public equipeservice: EquipeService) {}
+
+
 
   ngOnInit(): void {
     this.callEquipeId1();
@@ -30,14 +39,28 @@ export class CreationequipesComponent implements OnInit {
     this.http.get(this.baseURL + "equipes/membres/1").subscribe({
       next: (data) => { this.EquipesId1 = data },
       error: (err) => { console.log(err) }
-    });
+   });
   }
-  //♦♣♦♣♦♣♦♣♦♣ fin recherche des équipes ♦♣♦♣♦♣♦♣♦♣//
+
+  
+  
+    //♦♣♦♣♦♣♦♣♦♣ fin recherche des équipes ♦♣♦♣♦♣♦♣♦♣//
 
   //♦♣♦♣♦♣♦♣♦♣ recherche de ttes les équipes créer par un membre ♦♣♦♣♦♣♦♣♦♣//
+//  callTtEquipeId() {
+//    this.http.get(this.baseURL + "associations/membres/1").subscribe({
+//      next: (data) => { this.TtEquipeId = data },
+//      error: (err) => { console.log(err) }
+ //   });
+//  }
+
   callTtEquipeId() {
     this.http.get(this.baseURL + "associations/membres/1").subscribe({
-      next: (data) => { this.TtEquipeId = data },
+      next: (data) => { this.TtEquipeId = data;
+      if (this.equipe != null){
+        this.equipeservice.setEquipe(this.equipe)
+        console.log(data);
+      } },
       error: (err) => { console.log(err) }
     });
   }
@@ -49,7 +72,10 @@ export class CreationequipesComponent implements OnInit {
 
   creationEquipe(val: any) {
     let equipe = {
-      nom: val.nom
+      nom: val.nom,
+      "membres": {
+        "id": this.authentificationService.getUserConnect().id
+      }
     };
     console.log(equipe);
     this.http.post(this.baseURL + "equipes", equipe)
@@ -57,6 +83,18 @@ export class CreationequipesComponent implements OnInit {
         next: (data) => {
           this.resultMessage = "Votre équipe est bien créée";
           this.resultColor = "green"
+          
+//        let asso = {
+//           "membres": {
+//              "id": this.authentificationService.getUserConnect().id
+//           },
+//            "equipes": {
+//             "id": 1
+//            }
+//          }
+//          console.log(equipe);
+//          this.http.post(this.baseURL + "inviter", asso)
+//            .subscribe()
         },
         error: (err) => {
           console.log(err);
