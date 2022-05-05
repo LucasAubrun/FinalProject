@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { AuthentificationService } from '../authentification.service';
+import { AuthentificationService } from '../service/authentification.service';
 
 @Component({
   selector: 'app-connexion',
@@ -15,7 +15,6 @@ export class ConnexionComponent implements OnInit {
   resultMessage: string = "";
   resultColor: string = "red";
   membre: any;
-
   user= {mail: '', mdp: ''};
 
   constructor(
@@ -26,7 +25,7 @@ export class ConnexionComponent implements OnInit {
 
   ngOnInit(): void {
     if(this.authentificationService.isConnected()){
-      this.route.navigateByUrl('equipes');
+      this.route.navigateByUrl('membres');
     }
   }
 
@@ -39,7 +38,7 @@ export class ConnexionComponent implements OnInit {
             this.authentificationService.setUserInLocalStorage(this.membre)
             console.log(data);
             this.resultMessage = "";
-            this.route.navigateByUrl("equipes");
+            this.route.navigateByUrl("membres");
           }
           else {
             this.resultMessage = "Adresse e-mail ou mot de passe incorrect"

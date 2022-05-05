@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { AuthentificationService } from '../service/authentification.service';
 
 
 @Component({
@@ -19,8 +20,9 @@ export class EquipesComponent implements OnInit {
   //  ♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠    Invitation   ♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠              //
 
 
-
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient,
+    public authService: AuthentificationService
+    ) { }
 
   ngOnInit(): void {
   }
