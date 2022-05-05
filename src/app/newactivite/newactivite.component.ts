@@ -25,7 +25,7 @@ export class NewactiviteComponent implements OnInit {
     }
     this.http.post('http://localhost:8082/activites/save', activite)
       .subscribe({
-        next: (data) => { },
+        next: (data) => { window.location.reload() },
         error: (err) => { console.log(err) }
       })
     console.log(activite)

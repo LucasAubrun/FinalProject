@@ -1,1 +1,213 @@
-<p>admin works!</p>
+<div class="header">
+    <h1>Page Admin</h1>
+
+    <p>Soit valider/reagrder activtés, trucs à faire sur les membres</p>
+</div>
+
+<div id="cover">
+    <form method="get" action="">
+        <div class="tb">
+            <div class="td"><input type="text" placeholder="Search" required></div>
+            <div class="td" id="s-cover">
+                <button type="submit">
+                    <div id="s-circle"></div>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+    </form>
+</div>
+LUCAS C'EST CASSE
+
+
+<ul class="cards">
+    <li *ngFor="let a of activitesOne">
+        <div *ngIf="a.valide == false">
+            <div class="box cyan" *ngIf="a.type == 'Autre'">
+                <h2>{{a.nom}}</h2>
+                <p>{{a.valide}}</p>
+                <p>{{a.nbJoueurs}} Joueurs</p>
+                <p>{{a.description}}</p>
+                <img src="https://assets.codepen.io/2301174/icon-supervisor.svg" alt="">
+                <div id="app-cover">
+                    <div class="toggle-button-cover">
+                        <div class="button-cover">
+                            <div class="button r" id="button-1">
+                                <input type="checkbox" class="checkbox" *ngIf="a.valide"
+                                    (click)="this.setEtatValidationFalse(a.id)">
+                                <input type="checkbox" class="checkbox" *ngIf="!a.valide" checked
+                                    (click)="this.setEtatValidationTrue(a.id)">
+                                <div class="knobs"></div>
+                                <div class="layer"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="box red" *ngIf="a.type == 'Jeu de Société'">
+                <h2>{{a.nom}}</h2>
+                <p>{{a.valide}}</p>
+                <p>{{a.nbJoueurs}} Joueurs</p>
+                <p>{{a.description}}</p>
+                <img src="https://assets.codepen.io/2301174/icon-team-builder.svg" alt="">
+                <div id="app-cover">
+                    <div class="toggle-button-cover">
+                        <div class="button-cover">
+                            <div class="button r" id="button-1">
+                                <input type="checkbox" class="checkbox" *ngIf="a.valide"
+                                    (click)="this.setEtatValidationFalse(a.id)">
+                                <input type="checkbox" class="checkbox" *ngIf="!a.valide" checked
+                                    (click)="this.setEtatValidationTrue(a.id)">
+                                <div class="knobs"></div>
+                                <div class="layer"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="box blue" *ngIf="a.type == 'Jeu Vidéo'">
+                <h2>{{a.nom}}</h2>
+                <p>{{a.valide}}</p>
+                <p>{{a.nbJoueurs}} Joueurs</p>
+                <p>{{a.description}}</p>
+                <img src="https://assets.codepen.io/2301174/icon-calculator.svg" alt="">
+                <div id="app-cover">
+                    <div class="toggle-button-cover">
+                        <div class="button-cover">
+                            <div class="button r" id="button-1">
+                                <input type="checkbox" class="checkbox" *ngIf="a.valide"
+                                    (click)="this.setEtatValidationFalse(a.id)">
+                                <input type="checkbox" class="checkbox" *ngIf="!a.valide" checked
+                                    (click)="this.setEtatValidationTrue(a.id)">
+                                <div class="knobs"></div>
+                                <div class="layer"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="box orange" *ngIf="a.type == 'Sport'">
+                <h2>{{a.nom}}</h2>
+                <p>{{a.valide}}</p>
+                <p>{{a.nbJoueurs}} Joueurs</p>
+                <p>{{a.description}}</p>
+                <img src="https://assets.codepen.io/2301174/icon-karma.svg" alt="">
+                <div id="app-cover">
+                    <div class="toggle-button-cover">
+                        <div class="button-cover">
+                            <div class="button r" id="button-1">
+                                <input type="checkbox" class="checkbox" *ngIf="a.valide"
+                                    (click)="this.setEtatValidationFalse(a.id)">
+                                <input type="checkbox" class="checkbox" *ngIf="!a.valide" checked
+                                    (click)="this.setEtatValidationTrue(a.id)">
+                                <div class="knobs"></div>
+                                <div class="layer"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </li>
+</ul>
+
+
+<ul class="cards">
+    <li *ngFor="let a of activitesOne">
+        <div *ngIf="a.valide == true">
+            <div class="box cyan" *ngIf="a.type == 'Autre'">
+                <h2>{{a.nom}}</h2>
+                <p>{{a.valide}}</p>
+                <p>{{a.nbJoueurs}} Joueurs</p>
+                <p>{{a.description}}</p>
+                <img src="https://assets.codepen.io/2301174/icon-supervisor.svg" alt="">
+                <div id="app-cover">
+                    <div class="toggle-button-cover">
+                        <div class="button-cover">
+                            <div class="button r" id="button-1">
+                                <input type="checkbox" class="checkbox" *ngIf="a.valide"
+                                    (click)="this.setEtatValidationFalse(a.id)">
+                                <input type="checkbox" class="checkbox" *ngIf="!a.valide" checked
+                                    (click)="this.setEtatValidationTrue(a.id)">
+                                <div class="knobs"></div>
+                                <div class="layer"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="box red" *ngIf="a.type == 'Jeu de Société'">
+                <h2>{{a.nom}}</h2>
+                <p>{{a.valide}}</p>
+                <p>{{a.nbJoueurs}} Joueurs</p>
+                <p>{{a.description}}</p>
+                <img src="https://assets.codepen.io/2301174/icon-team-builder.svg" alt="">
+                <div id="app-cover">
+                    <div class="toggle-button-cover">
+                        <div class="button-cover">
+                            <div class="button r" id="button-1">
+                                <input type="checkbox" class="checkbox" *ngIf="a.valide"
+                                    (click)="this.setEtatValidationFalse(a.id)">
+                                <input type="checkbox" class="checkbox" *ngIf="!a.valide" checked
+                                    (click)="this.setEtatValidationTrue(a.id)">
+                                <div class="knobs"></div>
+                                <div class="layer"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="box blue" *ngIf="a.type == 'Jeu Vidéo'">
+                <h2>{{a.nom}}</h2>
+                <p>{{a.valide}}</p>
+                <p>{{a.nbJoueurs}} Joueurs</p>
+                <p>{{a.description}}</p>
+                <img src="https://assets.codepen.io/2301174/icon-calculator.svg" alt="">
+                <div id="app-cover">
+                    <div class="toggle-button-cover">
+                        <div class="button-cover">
+                            <div class="button r" id="button-1">
+                                <input type="checkbox" class="checkbox" *ngIf="a.valide"
+                                    (click)="this.setEtatValidationFalse(a.id)">
+                                <input type="checkbox" class="checkbox" *ngIf="!a.valide" checked
+                                    (click)="this.setEtatValidationTrue(a.id)">
+                                <div class="knobs"></div>
+                                <div class="layer"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="box orange" *ngIf="a.type == 'Sport'">
+                <h2>{{a.nom}}</h2>
+                <p>{{a.valide}}</p>
+                <p>{{a.nbJoueurs}} Joueurs</p>
+                <p>{{a.description}}</p>
+                <img src="https://assets.codepen.io/2301174/icon-karma.svg" alt="">
+                <div id="app-cover">
+                    <div class="toggle-button-cover">
+                        <div class="button-cover">
+                            <div class="button r" id="button-1">
+                                <input type="checkbox" class="checkbox" *ngIf="a.valide"
+                                    (click)="this.setEtatValidationFalse(a.id)">
+                                <input type="checkbox" class="checkbox" *ngIf="!a.valide" checked
+                                    (click)="this.setEtatValidationTrue(a.id)">
+                                <div class="knobs"></div>
+                                <div class="layer"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </li>
+</ul>
+
+
+LUCAS C'EST CASSEeeeeeeeeeeeeeeeeeeeeeeeeee

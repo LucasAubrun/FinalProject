@@ -27,6 +27,7 @@ import { ConnexionadminComponent } from './connexionadmin/connexionadmin.compone
 import { ClassementComponent } from './classement/classement.component';
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -48,7 +49,8 @@ import { ClassementComponent } from './classement/classement.component';
     MembresComponent,
     AdminComponent,
     ConnexionadminComponent,
-    ClassementComponent
+    ClassementComponent,
+    
   ],
   imports: [
     FormsModule,
