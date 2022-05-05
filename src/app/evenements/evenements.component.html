@@ -3,34 +3,54 @@
 <!-- END NAV -->
 
 
-<a class="nav-link" routerLink="/creation-evenement">Creation d'un evenement</a>
-<a class="nav-link" routerLink="/mesevenements">Mes évenements</a>
-
-<div class="input-group">
-    <div class="form-outline">
-        <input type="search" id="form1" class="form-control" />
-        <label class="form-label" for="form1">Search</label>
+<section class="intro">
+    <div class="bg-image h-100" style="
+            background-image: url(https://mdbootstrap.com/img/Photos/new-templates/search-box/img5.jpg);
+          ">
+        <div class="mask d-flex align-items-center h-100" style="background-color: rgba(0,0,0, 0.5);">
+            <div class="container">
+                <div class="card">
+                    <div class="card-body p-4">
+                        <div class="row">
+                            <div class="col-12 mb-4">
+                                <div class="input-group">
+                                    <div class="form-outline flex-fill">
+                                        <input type="search" id="form1" class="form-control form-control-lg" />
+                                        <label class="form-label" for="form1">Trouver un évenement par son nom</label>
+                                    </div>
+                                    <button type="button" class="btn btn-primary" (click)="callEventByNom()">
+                                        <i class="fas fa-search"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-    <button type="button" class="btn btn-primary">
-        <i class="fas fa-search"></i>
-    </button>
-</div>
+</section>
+
+<br><br>
 
 <div class="card" style="width: 18rem;">
-    <img src="https://mdbcdn.b-cdn.net/img/new/standard/city/062.webp" class="card-img-top" alt="Chicago Skyscrapers" />
-    <div class="card-body">
-        <h5 class="card-title">Card title</h5>
-        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
-            content.</p>
-    </div>
-    <ul class="list-group list-group-light list-group-small">
-        <li class="list-group-item px-4">blabla</li>
-        <li class="list-group-item px-4">Dapibus ac facilisis in</li>
-        <li class="list-group-item px-4">Vestibulum at eros</li>
-    </ul>
-    <div class="card-body">
-        <button type="button" class="btn btn">
-            <td>{{"Rejoindre"}}</td>
-        </button>
+    <div class="col-mv-12" *ngFor="let e of EventRandId">
+        <img src="https://mdbcdn.b-cdn.net/img/new/standard/city/062.webp" class="card-img-top"
+            alt="Chicago Skyscrapers" />
+        <div class="card-body">
+            <h5 class="card-title">Card title</h5>
+            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
+                content.</p>
+        </div>
+        <ul class="list-group list-group-light list-group-small">
+            <li class="list-group-item px-4">blabla</li>
+            <li class="list-group-item px-4">Dapibus ac facilisis in</li>
+            <li class="list-group-item px-4">Vestibulum at eros</li>
+        </ul>
+        <div class="card-body">
+            <button type="button" class="btn btn">
+                <td>{{"Rejoindre"}}</td>
+            </button>
+        </div>
     </div>
 </div>

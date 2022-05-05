@@ -32,10 +32,7 @@ export class MesevenementsComponent implements OnInit {
     });
   }
 
-  SupprimerEvent(val: any) {
-    let event = {
-      id: val.id,
-    }
+  SupprimerEvent() {
 
     this.http.delete("Evenements/supprimer/{id}")
       .subscribe({
@@ -43,6 +40,16 @@ export class MesevenementsComponent implements OnInit {
         error: (err) => { console.log(err) }
       })
   }
+
+  QuitterEvent() {
+
+    this.http.delete("Participants/supprimer/{id}")
+      .subscribe({
+        next: (data) => { this.result = "Suppression réussie" },
+        error: (err) => { console.log(err) }
+      })
+  }
+
 
   sendinvitationEv(val: any) {
     let invitations = {
