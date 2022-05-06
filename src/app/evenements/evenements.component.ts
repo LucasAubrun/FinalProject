@@ -1,5 +1,5 @@
 import { HttpClient } from '@angular/common/http';
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-evenements',
@@ -19,6 +19,7 @@ export class EvenementsComponent implements OnInit {
   errorInvit: any;
   joinEv: any;
   EvenementsOne: any;
+  p: any;
 
   constructor(private http: HttpClient) { }
 
@@ -44,12 +45,16 @@ export class EvenementsComponent implements OnInit {
   //});
   // }
 
+
   callEventByNom() {
-    this.http.get("evenements/{nom}").subscribe({
+    this.http.get("evenements/nom/{p}").subscribe({
 
       next: (data) => { this.EventByNom = data },
       error: (err) => { console.log(err) }
+
     });
+    //console.log(this.p)
+    //console.log(Object.values(this.p));
   }
 
   RejoindreEvent(val: any) {
@@ -74,8 +79,5 @@ export class EvenementsComponent implements OnInit {
       });
 
   }
-
-
-
 
 }

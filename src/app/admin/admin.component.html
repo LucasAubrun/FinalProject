@@ -4,31 +4,18 @@
     <p>Soit valider/reagrder activtés, trucs à faire sur les membres</p>
 </div>
 
-<div id="cover">
-    <form method="get" action="">
-        <div class="tb">
-            <div class="td"><input type="text" placeholder="Search" required></div>
-            <div class="td" id="s-cover">
-                <button type="submit">
-                    <div id="s-circle"></div>
-                    <span></span>
-                </button>
-            </div>
-        </div>
-    </form>
-</div>
-LUCAS C'EST CASSE
 
 
 <ul class="cards">
+    <div>
+        <h2>Activitées à valider</h2>
+    </div>
     <li *ngFor="let a of activitesOne">
         <div *ngIf="a.valide == false">
             <div class="box cyan" *ngIf="a.type == 'Autre'">
-                <h2>{{a.nom}}</h2>
-                <p>{{a.valide}}</p>
+                <h2><b>{{a.nom}}</b></h2>
                 <p>{{a.nbJoueurs}} Joueurs</p>
-                <p>{{a.description}}</p>
-                <img src="https://assets.codepen.io/2301174/icon-supervisor.svg" alt="">
+                <p><b>Description : </b>{{a.description}}</p>
                 <div id="app-cover">
                     <div class="toggle-button-cover">
                         <div class="button-cover">
@@ -46,11 +33,9 @@ LUCAS C'EST CASSE
             </div>
 
             <div class="box red" *ngIf="a.type == 'Jeu de Société'">
-                <h2>{{a.nom}}</h2>
-                <p>{{a.valide}}</p>
+                <h2><b>{{a.nom}}</b></h2>
                 <p>{{a.nbJoueurs}} Joueurs</p>
-                <p>{{a.description}}</p>
-                <img src="https://assets.codepen.io/2301174/icon-team-builder.svg" alt="">
+                <p><b>Description : </b>{{a.description}}</p>
                 <div id="app-cover">
                     <div class="toggle-button-cover">
                         <div class="button-cover">
@@ -68,11 +53,9 @@ LUCAS C'EST CASSE
             </div>
 
             <div class="box blue" *ngIf="a.type == 'Jeu Vidéo'">
-                <h2>{{a.nom}}</h2>
-                <p>{{a.valide}}</p>
+                <h2><b>{{a.nom}}</b></h2>
                 <p>{{a.nbJoueurs}} Joueurs</p>
-                <p>{{a.description}}</p>
-                <img src="https://assets.codepen.io/2301174/icon-calculator.svg" alt="">
+                <p><b>Description : </b>{{a.description}}</p>
                 <div id="app-cover">
                     <div class="toggle-button-cover">
                         <div class="button-cover">
@@ -89,11 +72,9 @@ LUCAS C'EST CASSE
                 </div>
             </div>
             <div class="box orange" *ngIf="a.type == 'Sport'">
-                <h2>{{a.nom}}</h2>
-                <p>{{a.valide}}</p>
+                <h2><b>{{a.nom}}</b></h2>
                 <p>{{a.nbJoueurs}} Joueurs</p>
-                <p>{{a.description}}</p>
-                <img src="https://assets.codepen.io/2301174/icon-karma.svg" alt="">
+                <p><b>Description : </b>{{a.description}}</p>
                 <div id="app-cover">
                     <div class="toggle-button-cover">
                         <div class="button-cover">
@@ -114,16 +95,17 @@ LUCAS C'EST CASSE
     </li>
 </ul>
 
+<div>
+    <h2>Activitées qui ont été validées</h2>
+</div>
 
 <ul class="cards">
     <li *ngFor="let a of activitesOne">
         <div *ngIf="a.valide == true">
             <div class="box cyan" *ngIf="a.type == 'Autre'">
-                <h2>{{a.nom}}</h2>
-                <p>{{a.valide}}</p>
+                <h2><b>{{a.nom}}</b></h2>
                 <p>{{a.nbJoueurs}} Joueurs</p>
-                <p>{{a.description}}</p>
-                <img src="https://assets.codepen.io/2301174/icon-supervisor.svg" alt="">
+                <p><b>Description : </b>{{a.description}}</p>
                 <div id="app-cover">
                     <div class="toggle-button-cover">
                         <div class="button-cover">
@@ -141,11 +123,9 @@ LUCAS C'EST CASSE
             </div>
 
             <div class="box red" *ngIf="a.type == 'Jeu de Société'">
-                <h2>{{a.nom}}</h2>
-                <p>{{a.valide}}</p>
+                <h2><b>{{a.nom}}</b></h2>
                 <p>{{a.nbJoueurs}} Joueurs</p>
-                <p>{{a.description}}</p>
-                <img src="https://assets.codepen.io/2301174/icon-team-builder.svg" alt="">
+                <p><b>Description : </b>{{a.description}}</p>
                 <div id="app-cover">
                     <div class="toggle-button-cover">
                         <div class="button-cover">
@@ -163,11 +143,9 @@ LUCAS C'EST CASSE
             </div>
 
             <div class="box blue" *ngIf="a.type == 'Jeu Vidéo'">
-                <h2>{{a.nom}}</h2>
-                <p>{{a.valide}}</p>
+                <h2><b>{{a.nom}}</b></h2>
                 <p>{{a.nbJoueurs}} Joueurs</p>
-                <p>{{a.description}}</p>
-                <img src="https://assets.codepen.io/2301174/icon-calculator.svg" alt="">
+                <p><b>Description : </b>{{a.description}}</p>
                 <div id="app-cover">
                     <div class="toggle-button-cover">
                         <div class="button-cover">
@@ -184,11 +162,9 @@ LUCAS C'EST CASSE
                 </div>
             </div>
             <div class="box orange" *ngIf="a.type == 'Sport'">
-                <h2>{{a.nom}}</h2>
-                <p>{{a.valide}}</p>
+                <h2><b>{{a.nom}}</b></h2>
                 <p>{{a.nbJoueurs}} Joueurs</p>
-                <p>{{a.description}}</p>
-                <img src="https://assets.codepen.io/2301174/icon-karma.svg" alt="">
+                <p><b>Description : </b>{{a.description}}</p>
                 <div id="app-cover">
                     <div class="toggle-button-cover">
                         <div class="button-cover">
@@ -208,6 +184,3 @@ LUCAS C'EST CASSE
 
     </li>
 </ul>
-
-
-LUCAS C'EST CASSEeeeeeeeeeeeeeeeeeeeeeeeeee
