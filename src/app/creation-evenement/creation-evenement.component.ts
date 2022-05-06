@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { AuthentificationService } from '../service/authentification.service';
+import { UrlService } from '../service/url.service';
 import { Router } from '@angular/router';
 
 @Component({
@@ -10,13 +11,13 @@ import { Router } from '@angular/router';
 })
 export class CreationEvenementComponent implements OnInit {
 
-  baseURL: string = "http://localhost:8080/";
+  baseURL: string = "http://localhost:8482/";
   resultMessage: string = "";
   resultColor: string = "";
 
   constructor(private http: HttpClient,
-    public authentificationService: AuthentificationService,
-    private route: Router
+    public authService: AuthentificationService,
+    private url: UrlService
   ) { }
 
   ngOnInit(): void {
@@ -36,11 +37,11 @@ export class CreationEvenementComponent implements OnInit {
       nomActivite: val.nomActivite,
       valide: false,
       "createur": {
-        "id": this.authentificationService.getUserConnect().id
+        "id": this.authService.getUserConnect().id
       },
     };
     console.log(event);
-    this.http.post("http://localhost:8080/Evenements/save", event)
+    this.http.post(this.url.baseURL+"Evenements/save", event)
       .subscribe({
         next: (data) => {
           this.resultMessage = "Évènement créé avec succès.";

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 import { HttpClient } from '@angular/common/http';
+import { UrlService } from '../service/url.service';
 
 @Component({
   selector: 'app-admin',
@@ -9,7 +10,8 @@ import { HttpClient } from '@angular/common/http';
 })
 export class AdminComponent implements OnInit {
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient,
+    private url: UrlService) { }
   activitesOne: any;
 
   ngOnInit(): void {
@@ -17,7 +19,7 @@ export class AdminComponent implements OnInit {
   }
 
   callActivitesAll() {
-    this.http.get('http://localhost:8080/activites/all')
+    this.http.get(this.url.baseURL+"activites/all")
       .subscribe({
         next: (data) => { this.activitesOne = data, console.log(data) },
 
@@ -28,7 +30,7 @@ export class AdminComponent implements OnInit {
   setEtatValidationTrue(id: any) {
     let etatvalidation = true;
     console.log(etatvalidation);
-    this.http.patch('http://localhost:8080/activites/set/valide/' + id, etatvalidation)
+    this.http.patch(this.url.baseURL+"activites/set/valide/" + id, etatvalidation)
       .subscribe({
         next: (data) => { window.location.reload() },
 
@@ -39,7 +41,7 @@ export class AdminComponent implements OnInit {
   setEtatValidationFalse(id: any) {
     let etatvalidation = false;
     console.log(etatvalidation);
-    this.http.patch('http://localhost:8080/activites/set/valide/' + id, etatvalidation)
+    this.http.patch(this.url.baseURL+"activites/set/valide/" + id, etatvalidation)
       .subscribe({
         next: (data) => { window.location.reload() },
 

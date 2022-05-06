@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { UrlService } from '../service/url.service';
 
 @Component({
   selector: 'app-inscription',
@@ -8,11 +9,12 @@ import { HttpClient } from '@angular/common/http';
 })
 export class InscriptionComponent implements OnInit {
 
-  baseURL: string = "http://localhost:8082/";
+  baseURL: string = "http://localhost:8482/";
   resultMessage: string = "";
   resultColor: string="";
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient,
+    private url: UrlService) { }
 
   ngOnInit(): void {
   }
@@ -26,7 +28,7 @@ export class InscriptionComponent implements OnInit {
       mdp: val.mdp,
     };
     console.log(membre);    
-    this.http.post(this.baseURL + "membre/save", membre)
+    this.http.post(this.url.baseURL+"membre/save", membre)
     .subscribe({
     next: (data) => {
       this.resultMessage = "Inscription réussie";
