@@ -1,15 +1,35 @@
 import { Injectable } from '@angular/core';
+import { Observable, of } from 'rxjs';
+import { HttpResponse } from '@angular/common/http';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
 })
 export class EquipeService {
-  equipe = null;
 
-  constructor() { }
+equipe: any;
+  constructor(private route: Router) { }
 
   //getEquipeConnect(): any{
- //   this.equipe = JSON.parse(localStorage.getItem('equipeConnect'));
- //   return this.equipe;
-//  }
+  //   this.equipe = JSON.parse(localStorage.getItem('equipeConnect'));
+  //   return this.equipe;
+  //  }
+
+
+setEquipe(equipe: any) {
+  localStorage.setItem('equipeConnect', JSON.stringify(equipe));
+}
+
+
+
+getEquipe(){
+  let equipe: any = localStorage.getItem('equipeConnect');
+  return JSON.parse(equipe);
+}
+ // getequipeUtil() {
+ //   let user: any = localStorage.getItem('equipeUtil');
+ //   return JSON.parse(equipe);
+ // }
+
 }

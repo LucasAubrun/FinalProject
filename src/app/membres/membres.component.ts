@@ -32,7 +32,7 @@ export class MembresComponent implements OnInit {
   }
 
   callMembrePP(id: any) {
-    this.http.get('http://localhost:8082/membre/photoprofil/' + id)
+    this.http.get('http://localhost:8080/membre/photoprofil/' + id)
       .subscribe({
         next: (data) => { this.membrePP = data, console.log(data) },
 
@@ -41,7 +41,7 @@ export class MembresComponent implements OnInit {
   }
 
   listEvents() {
-    this.http.get("http://localhost:8082/event/get/" + this.authService.getUserConnect().id)
+    this.http.get("http://localhost:8080/event/get/" + this.authService.getUserConnect().id)
       .subscribe({
         next: (data) => {
           this.events = data;
@@ -53,7 +53,7 @@ export class MembresComponent implements OnInit {
   }
 
   setPhotoProfil(id: any, value: any) {
-    this.http.patch('http://localhost:8082/membre/set/photoprofil/' + id, value)
+    this.http.patch('http://localhost:8080/membre/set/photoprofil/' + id, value)
       .subscribe({
         next: (data) => { window.location.reload() },
 
