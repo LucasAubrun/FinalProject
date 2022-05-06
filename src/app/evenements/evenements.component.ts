@@ -8,7 +8,7 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class EvenementsComponent implements OnInit {
 
-  baseURL: string = "http://localhost:8080/";
+  baseURL: string = "http://localhost:8082/";
   resultMessage: string = " ";
   resultColor: string = " ";
   EventRandId: any;
@@ -30,7 +30,7 @@ export class EvenementsComponent implements OnInit {
   }
 
   callEventRandId() {
-    this.http.get("http://localhost:8080/evenements/id").subscribe({
+    this.http.get("http://localhost:8082/evenements/id").subscribe({
 
       next: (data) => { this.EventRandId = data },
       error: (err) => { console.log(err) }
@@ -72,7 +72,7 @@ export class EvenementsComponent implements OnInit {
     })
   }
   callEvenementsAll() {
-    this.http.get('http://localhost:8080/evenements/all')
+    this.http.get('http://localhost:8082/evenements/all')
       .subscribe({
         next: (data) => { this.EvenementsOne = data },
         error: (err) => { console.log(err) }

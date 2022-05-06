@@ -12,7 +12,7 @@ export class EquipesComponent implements OnInit {
 
   //  ♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠    Création de varialbe   ♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠              //
 
-  baseURL: string = "http://localhost:8482/";
+  baseURL: string = "http://localhost:8082/";
   invitationEq: any;
   resultMessageInvit: any;
   errorInvit: any;
@@ -22,7 +22,7 @@ export class EquipesComponent implements OnInit {
 
   constructor(private http: HttpClient,
     public authService: AuthentificationService
-    ) { }
+  ) { }
 
   ngOnInit(): void {
   }

@@ -26,6 +26,7 @@ import { AdminComponent } from './admin/admin.component';
 import { ConnexionadminComponent } from './connexionadmin/connexionadmin.component';
 import { CommunauteComponent } from './communaute/communaute.component';
 import { ModifierProfilComponent } from './modifier-profil/modifier-profil.component';
+import { AmisComponent } from './amis/amis.component';
 
 
 @NgModule({
@@ -50,7 +51,8 @@ import { ModifierProfilComponent } from './modifier-profil/modifier-profil.compo
     AdminComponent,
     ConnexionadminComponent,
     CommunauteComponent,
-    ModifierProfilComponent
+    ModifierProfilComponent,
+    AmisComponent
   ],
   imports: [
     FormsModule,
