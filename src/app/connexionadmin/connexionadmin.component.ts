@@ -21,7 +21,7 @@ export class ConnexionadminComponent implements OnInit {
   connecterAdmin(val: any) {
     let mail = val.mail;
     let mdp = val.mdp;
-    this.http.get("http://localhost:8082/" + "admin/get/" + mail + "/" + mdp)
+    this.http.get("http://localhost:8080/" + "admin/get/" + mail + "/" + mdp)
       .subscribe({
         next: (data) => {
           if (data != null) {

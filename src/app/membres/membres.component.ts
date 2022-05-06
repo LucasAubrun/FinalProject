@@ -32,7 +32,7 @@ export class MembresComponent implements OnInit {
   }
 
   callMembrePP(id: any) {
-    this.http.get('http://localhost:8080/membre/photoprofil/' + id)
+    this.http.get('http://localhost:8082/membre/photoprofil/' + id)
       .subscribe({
         next: (data) => { this.membrePP = data, console.log(data) },
 
@@ -41,7 +41,7 @@ export class MembresComponent implements OnInit {
   }
 
   listEvents() {
-    this.http.get("http://localhost:8080/event/get/" + this.authService.getUserConnect().id)
+    this.http.get("http://localhost:8082/event/get/" + this.authService.getUserConnect().id)
       .subscribe({
         next: (data) => {
           this.events = data;
@@ -53,7 +53,7 @@ export class MembresComponent implements OnInit {
   }
 
   setPhotoProfil(id: any, value: any) {
-    this.http.patch('http://localhost:8080/membre/set/photoprofil/' + id, value)
+    this.http.patch('http://localhost:8082/membre/set/photoprofil/' + id, value)
       .subscribe({
         next: (data) => { window.location.reload() },
 
@@ -62,7 +62,7 @@ export class MembresComponent implements OnInit {
   }
 
   callTtEventId() {
-    this.http.get('http://localhost:8080/participants/membres/' + this.authService.getUserConnect().id).subscribe({
+    this.http.get('http://localhost:8082/participants/membres/' + this.authService.getUserConnect().id).subscribe({
       next: (data) => { this.TtEventId = data },
       error: (err) => { console.log(err) }
     });
@@ -70,7 +70,7 @@ export class MembresComponent implements OnInit {
 
   SupprimerEvent(id: any) {
 
-    this.http.delete("http://localhost:8080/Evenements/supprimer/" + id)
+    this.http.delete("http://localhost:8082/Evenements/supprimer/" + id)
       .subscribe({
         next: (data) => { this.result = "Suppression réussie" },
         error: (err) => { console.log(err) }
@@ -79,7 +79,7 @@ export class MembresComponent implements OnInit {
 
   QuitterEvent(id: any) {
 
-    this.http.delete("http://localhost:8080/Participants/supprimer/" + id)
+    this.http.delete("http://localhost:8082/Participants/supprimer/" + id)
       .subscribe({
         next: (data) => { this.result = "Suppression réussie" },
         error: (err) => { console.log(err) }
