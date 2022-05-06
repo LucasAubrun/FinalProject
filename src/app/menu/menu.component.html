@@ -18,7 +18,7 @@
     <!--fin toggler-->
 
     <div class="collapse navbar-collapse justify-content-between ml-auto" id="navbarToggler">
-      
+
       <ul class="navbar-nav ml-auto">
         <li class="nav-item">
           <a class="nav-link active" routerLink="membres" *ngIf="authService.isConnected()">Mon espace</a>
@@ -36,7 +36,7 @@
         </li>
         <li class="nav-item">
           <a class="nav-link" routerLink="evenement">Évènement</a>
-        </li> 
+        </li>
         <li class="nav-item">
           <a class="nav-link" routerLink="activites">Activités</a>
         </li>
@@ -45,7 +45,7 @@
 
       </ul>
 
-      
+
       <div class="form-inline ml-auto" style="margin-right: 20px;">
         <button type="button" class="btn btn-sm btn-danger" *ngIf="authService.isConnected()"
           (click)="authService.deconnexion()">
