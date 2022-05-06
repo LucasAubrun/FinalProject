@@ -28,24 +28,24 @@ export class MesevenementsComponent implements OnInit {
   }
 
   callTtEventId() {
-    this.http.get(this.url.baseURL+"participants/membres/1").subscribe({
+    this.http.get(this.url.baseURL + "participants/membres/1").subscribe({
       next: (data) => { this.TtEventId = data },
       error: (err) => { console.log(err) }
     });
   }
 
-  SupprimerEvent(id:any) {
+  SupprimerEvent(id: any) {
 
-    this.http.delete(this.url.baseURL+"Evenements/supprimer/"+id)
+    this.http.delete(this.url.baseURL + "Evenements/supprimer/" + id)
       .subscribe({
         next: (data) => { this.result = "Suppression réussie" },
         error: (err) => { console.log(err) }
       })
   }
 
-  QuitterEvent(id:any) {
+  QuitterEvent(id: any) {
 
-    this.http.delete(this.url.baseURL+"Participants/supprimer/"+id)
+    this.http.delete(this.url.baseURL + "Participants/supprimer/" + id)
       .subscribe({
         next: (data) => { this.result = "Suppression réussie" },
         error: (err) => { console.log(err) }
@@ -58,7 +58,7 @@ export class MesevenementsComponent implements OnInit {
       idM: val.id,
     };
     console.log(invitations);
-    this.http.post(this.url.baseURL+"Participant/inviter", invitations).subscribe({
+    this.http.post(this.url.baseURL + "Participant/inviter", invitations).subscribe({
       next: (data) => {
         this.resultMessageInvit = "invitation envoyée"
       },

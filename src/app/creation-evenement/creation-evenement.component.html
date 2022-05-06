@@ -31,6 +31,7 @@
 
 <body>
 
+
     <div class="col-md-6">
         <ul class="nav peach-gradient lighten-3 py-4 mb-4 font-weight-bold z-depth-1">
             <li class="nav-item col-md-9 mx-auto">
@@ -60,10 +61,12 @@
                                 <input type="text" name="adresse" placeholder="Où se déroulera l'évènement."
                                     class="form-control" ngModel="" required>
                             </div>
-                            <div class=md-form>
-                                <label for="defaultFormCardNameEx" class="grey-text font-weight-light">Activité*</label>
-                                <input type="text" name="activite" placeholder="à mettre" class="form-control"
-                                    ngModel="" required>
+                            <div class="md-form">
+                                <label for="exampleFormControlSelect1" class="abc"></label>
+                                <select class="form-control" name="niveau" id="exampleFormControlSelect1" ngModel="">
+                                    <option *ngFor="let ac of activitesOne">{{ac.nom}}</option>
+
+                                </select>
                             </div>
 
 
@@ -74,13 +77,15 @@
                                     ngModel="">
                             </div>
                             <div class=md-form>
-                                <label for="defaultFormCardNameEx" class="grey-text font-weight-light">Nombre de joueurs
+                                <label for="defaultFormCardNameEx" class="grey-text font-weight-light">Nombre de
+                                    joueurs
                                     minimums</label>
                                 <input type="number" name="nbmin" min="1" placeholder="Nombre de joueurs minimums."
                                     class="form-control" ngModel="">
                             </div>
                             <div class=md-form>
-                                <label for="defaultFormCardNameEx" class="grey-text font-weight-light">Nombre de joueurs
+                                <label for="defaultFormCardNameEx" class="grey-text font-weight-light">Nombre de
+                                    joueurs
                                     maximum</label>
                                 <input type="number" name="nbmax" min="1" placeholder="Nombre de joueurs maximum."
                                     class="form-control" ngModel="">
@@ -97,10 +102,11 @@
                                 </select>
                             </div>
 
+
                             <div class="text-center py-4 mt-3">
                                 <button class="btn btn-danger btn-block" type="submit"
-                                    [disabled]="!EvenementForm.form.valid">Valider l'évènement<i
-                                        class="fa fa-paper-plane-o ml-1"></i></button>
+                                    [disabled]="!EvenementForm.form.valid">Valider
+                                    l'évènement<i class="fa fa-paper-plane-o ml-1"></i></button>
                                 <p class="result" [style.color]="resultColor">{{resultMessage}}</p>
                             </div>
 
