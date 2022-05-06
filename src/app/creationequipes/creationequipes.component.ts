@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthentificationService } from '../service/authentification.service';
 import { EquipeService } from '../service/equipe.service';
+import { UrlService } from '../service/url.service';
 
 @Component({
   selector: 'app-creationequipes',
@@ -26,7 +27,8 @@ export class CreationequipesComponent implements OnInit {
   constructor(private http: HttpClient,
     public authentificationService: AuthentificationService,
     public equipeservice: EquipeService,
-    private route: Router) { }
+    private route: Router,
+    private url: UrlService) { }
 
   /*
       goSurEquipe(){
@@ -56,7 +58,7 @@ export class CreationequipesComponent implements OnInit {
 
 
   callEquipeId1() {
-    this.http.get(this.baseURL + "equipes/membres/" + this.authentificationService.getUserConnect().id).subscribe({
+    this.http.get(this.url.baseURL+"equipes/membres/" + this.authentificationService.getUserConnect().id).subscribe({
       next: (data) => { this.EquipesId1 = data },
       error: (err) => { console.log(err) }
     });
@@ -76,7 +78,7 @@ export class CreationequipesComponent implements OnInit {
   //  }
 
   callTtEquipeId() {
-    this.http.get(this.baseURL + "associations/membres/" + this.authentificationService.getUserConnect().id).subscribe({
+    this.http.get(this.url.baseURL+"associations/membres/" + this.authentificationService.getUserConnect().id).subscribe({
       next: (data) => {
         this.TtEquipeId = data;
         if (this.equipe != null) {
@@ -104,7 +106,7 @@ export class CreationequipesComponent implements OnInit {
       },
     };
     console.log(equipe);
-    this.http.post(this.baseURL + "equipes", equipe)
+    this.http.post(this.url.baseURL+"equipes", equipe)
       .subscribe({
         next: (data) => {
           this.equipe = data;
@@ -144,7 +146,7 @@ export class CreationequipesComponent implements OnInit {
         }
       }
       console.log(asso);
-    this.http.post(this.baseURL + "associations/inviter", asso).subscribe({
+    this.http.post(this.url.baseURL+"associations/inviter", asso).subscribe({
       next: (data) => { },
       error: (err) => { console.log(err) }
     })
@@ -156,7 +158,7 @@ export class CreationequipesComponent implements OnInit {
 
   //♦♣♦♣♦♣♦♣♦♣ a supprimer ♦♣♦♣♦♣♦♣♦♣//
   callMember() {
-    this.http.get(this.baseURL + "associations/equipe/" +  this.equipeservice.getEquipe().id).subscribe({
+    this.http.get(this.url.baseURL+"associations/equipe/" +  this.equipeservice.getEquipe().id).subscribe({
       next: (data) => { this.LesMembres = data },
       error: (err) => { console.log(err) }
     });

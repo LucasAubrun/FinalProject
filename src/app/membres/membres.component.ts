@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { AuthentificationService } from '../service/authentification.service';
+import { UrlService } from '../service/url.service';
 
 @Component({
   selector: 'app-membres',
@@ -23,7 +24,8 @@ export class MembresComponent implements OnInit {
 
   constructor(
     public authService: AuthentificationService,
-    private http: HttpClient
+    private http: HttpClient,
+    private url: UrlService
   ) { }
 
   ngOnInit(): void {
@@ -32,7 +34,7 @@ export class MembresComponent implements OnInit {
   }
 
   callMembrePP(id: any) {
-    this.http.get('http://localhost:8482/membre/photoprofil/' + id)
+    this.http.get(this.url.baseURL+"membre/photoprofil/" + id)
       .subscribe({
         next: (data) => { this.membrePP = data, console.log(data) },
 
@@ -41,7 +43,7 @@ export class MembresComponent implements OnInit {
   }
 
   listEvents() {
-    this.http.get("http://localhost:8482/event/get/" + this.authService.getUserConnect().id)
+    this.http.get(this.url.baseURL+"event/get/" + this.authService.getUserConnect().id)
       .subscribe({
         next: (data) => {
           this.events = data;
@@ -53,7 +55,7 @@ export class MembresComponent implements OnInit {
   }
 
   setPhotoProfil(id: any, value: any) {
-    this.http.patch('http://localhost:8482/membre/set/photoprofil/' + id, value)
+    this.http.patch(this.url.baseURL+"membre/set/photoprofil/" + id, value)
       .subscribe({
         next: (data) => { window.location.reload() },
 
@@ -62,7 +64,7 @@ export class MembresComponent implements OnInit {
   }
 
   callTtEventId() {
-    this.http.get('http://localhost:8482/participants/membres/' + this.authService.getUserConnect().id).subscribe({
+    this.http.get(this.url.baseURL+"participants/membres/" + this.authService.getUserConnect().id).subscribe({
       next: (data) => { this.TtEventId = data },
       error: (err) => { console.log(err) }
     });
@@ -70,7 +72,7 @@ export class MembresComponent implements OnInit {
 
   SupprimerEvent(id: any) {
 
-    this.http.delete("http://localhost:8482/Evenements/supprimer/" + id)
+    this.http.delete(this.url.baseURL+"Evenements/supprimer/" + id)
       .subscribe({
         next: (data) => { this.result = "Suppression réussie" },
         error: (err) => { console.log(err) }
@@ -79,7 +81,7 @@ export class MembresComponent implements OnInit {
 
   QuitterEvent(id: any) {
 
-    this.http.delete("http://localhost:8482/Participants/supprimer/" + id)
+    this.http.delete(this.url.baseURL+"Participants/supprimer/" + id)
       .subscribe({
         next: (data) => { this.result = "Suppression réussie" },
         error: (err) => { console.log(err) }
@@ -92,7 +94,7 @@ export class MembresComponent implements OnInit {
       idM: val.id,
     };
     console.log(invitations);
-    this.http.post("http://localhost:8482/Participant/inviter", invitations).subscribe({
+    this.http.post(this.url.baseURL+"Participant/inviter", invitations).subscribe({
       next: (data) => {
         this.resultMessageInvit = "invitation envoyée"
       },

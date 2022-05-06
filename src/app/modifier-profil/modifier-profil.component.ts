@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthentificationService } from '../service/authentification.service';
+import { UrlService } from '../service/url.service';
 
 @Component({
   selector: 'app-modifier-profil',
@@ -16,7 +17,8 @@ export class ModifierProfilComponent implements OnInit {
   constructor(
     public authService: AuthentificationService,
     private http: HttpClient,
-    private route: Router
+    private route: Router,
+    private url: UrlService
     ) { }
 
   ngOnInit(): void {
@@ -33,7 +35,7 @@ export class ModifierProfilComponent implements OnInit {
     };
     let id = this.authService.getUserConnect().id;
     console.log(membre);    
-    this.http.post("http://localhost:8482/membre/edit/" + id, membre)
+    this.http.post(this.url.baseURL+"membre/edit/" + id, membre)
     .subscribe({
     next: (data) => {
       this.route.navigateByUrl("membres");

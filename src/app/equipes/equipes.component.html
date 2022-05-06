@@ -1,22 +1,29 @@
 <br><br><br><br><br><br><br>
 
 
-<h1>{{equipeservice.getEquipe().id}}</h1>
+<h1 style="margin-top:200px" >hey{{equipeservice.getEquipe().id}}</h1>
+
+<div class="col-sm-6" *ngFor="let Lm of LesMembres">
+  <div class="card p-2">
+    <td>{{Lm.membres.prenom}}</td><br>
+    <td>{{Lm.membres.nom}}</td>
+
+  </div>
+
+</div>
+
+<h1>Bienvenue sur l'equipe {{equipeservice.getEquipe().nom}}</h1>
+<!--<h1>Bienvenue sur l'equipe {{equipeservice.getEquipe()[0].nom}}</h1>-->
 
 
 
-  <h1>Bienvenue sur l'equipe {{equipeservice.getEquipe().nom}}</h1>
-  <h1>Bienvenue sur l'equipe {{equipeservice.getEquipe()[0].nom}}</h1>
+
+<!-- ♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠ -->
 
 
 
 
-  <!-- ♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠ -->
-
-
-
-
-  <!-- ♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠ -->
+<!-- ♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠ -->
 
 
 <!--
@@ -49,57 +56,54 @@
 
 
 
-  <!-- ♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠ -->
+<!-- ♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠ -->
 
 
 >
 
-    
-            <!-- Card body -->
-            <div class="card-body">
-    
-              <!-- Default form subscription -->
-              <form #invitation="ngForm" (ngSubmit)="sendinvitationEq(invitation.value)">
-                <p class="h4 text-center py-4">Invitation à l'équipe</p>
-    
-                <!-- Default input name -->
-                <label for="defaultFormCardNameEx" class="grey-text font-weight-light">Nom de votre futur équipier</label>
-                <input type="text" name="id" placeholder="id de votre équipier" class="form-control" ngModel="">
-    
-                <br>
-    
-                <div class="text-center py-4 mt-3">
-                  <button class="btn btn-outline-purple" type="submit">Inviter
-                    <i class="fa fa-paper-plane-o ml-2"></i></button>
-                </div>
-                <p class="mt-3" [style.color]="resultColor">{{resultMessageInvit}}</p>
-              </form>
-              <!-- Default form subscription -->
-    
-            </div>
-            <!-- Card body -->
-    
-          
 
-    
-        <!-- Card -->
-    
-        <!--  ♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠         fin création équipe   ♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠              -->
-    
-          <br>
-    
-          <!--  ♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠    début de recherche des équipes créer par l'individue   ♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠              -->
-          
-          <p>Membres:</p>
-          
-          <div class="col-sm-6"  *ngFor="let Lm of LesMembres">
-            <div class="card p-2">
-            <td>{{Lm.membres.prenom}}</td><br>  
-            <td>{{Lm.membres.nom}}</td>
-            
-          </div>
-            
-          </div>
+<!-- Card body -->
+<div class="card-body">
+
+  <!-- Default form subscription -->
+  <form #invitation="ngForm" (ngSubmit)="sendinvitationEq(invitation.value)">
+    <p class="h4 text-center py-4">Invitation à l'équipe</p>
+
+    <!-- Default input name -->
+    <label for="defaultFormCardNameEx" class="grey-text font-weight-light">Nom de votre futur équipier</label>
+    <input type="text" name="id" placeholder="id de votre équipier" class="form-control" ngModel="">
+
+    <br>
+
+    <div class="text-center py-4 mt-3">
+      <button class="btn btn-outline-purple" type="submit">Inviter
+        <i class="fa fa-paper-plane-o ml-2"></i></button>
+    </div>
+    <p class="mt-3" [style.color]="resultColor">{{resultMessageInvit}}</p>
+  </form>
+  <!-- Default form subscription -->
+
+</div>
+<!-- Card body -->
 
 
 
+
+<!-- Card -->
+
+<!--  ♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠         fin création équipe   ♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠              -->
+
+<br>
+
+<!--  ♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠    début de recherche des équipes créer par l'individue   ♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠              -->
+
+<p>Membres:</p>
+
+<div class="col-sm-6" *ngFor="let Lm of LesMembres">
+  <div class="card p-2">
+    <td>{{Lm.membres.prenom}}</td><br>
+    <td>{{Lm.membres.nom}}</td>
+
+  </div>
+
+</div>

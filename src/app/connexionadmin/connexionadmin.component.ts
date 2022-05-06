@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
+import { UrlService } from '../service/url.service';
 
 @Component({
   selector: 'app-connexionadmin',
@@ -13,7 +14,8 @@ export class ConnexionadminComponent implements OnInit {
   resultColor: string = "red";
   admin: any;
 
-  constructor(private http: HttpClient, private route: Router,) { }
+  constructor(private http: HttpClient, private route: Router,
+    private url: UrlService) { }
 
   ngOnInit(): void {
   }
@@ -21,7 +23,7 @@ export class ConnexionadminComponent implements OnInit {
   connecterAdmin(val: any) {
     let mail = val.mail;
     let mdp = val.mdp;
-    this.http.get("http://localhost:8482/" + "admin/get/" + mail + "/" + mdp)
+    this.http.get(this.url.baseURL+"admin/get/" + mail + "/" + mdp)
       .subscribe({
         next: (data) => {
           if (data != null) {
