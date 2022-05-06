@@ -1,1 +1,186 @@
-<p>admin works!</p>
+<div class="header">
+    <h1>Page Admin</h1>
+
+    <p>Soit valider/reagrder activtés, trucs à faire sur les membres</p>
+</div>
+
+
+
+<ul class="cards">
+    <div>
+        <h2>Activitées à valider</h2>
+    </div>
+    <li *ngFor="let a of activitesOne">
+        <div *ngIf="a.valide == false">
+            <div class="box cyan" *ngIf="a.type == 'Autre'">
+                <h2><b>{{a.nom}}</b></h2>
+                <p>{{a.nbJoueurs}} Joueurs</p>
+                <p><b>Description : </b>{{a.description}}</p>
+                <div id="app-cover">
+                    <div class="toggle-button-cover">
+                        <div class="button-cover">
+                            <div class="button r" id="button-1">
+                                <input type="checkbox" class="checkbox" *ngIf="a.valide"
+                                    (click)="this.setEtatValidationFalse(a.id)">
+                                <input type="checkbox" class="checkbox" *ngIf="!a.valide" checked
+                                    (click)="this.setEtatValidationTrue(a.id)">
+                                <div class="knobs"></div>
+                                <div class="layer"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="box red" *ngIf="a.type == 'Jeu de Société'">
+                <h2><b>{{a.nom}}</b></h2>
+                <p>{{a.nbJoueurs}} Joueurs</p>
+                <p><b>Description : </b>{{a.description}}</p>
+                <div id="app-cover">
+                    <div class="toggle-button-cover">
+                        <div class="button-cover">
+                            <div class="button r" id="button-1">
+                                <input type="checkbox" class="checkbox" *ngIf="a.valide"
+                                    (click)="this.setEtatValidationFalse(a.id)">
+                                <input type="checkbox" class="checkbox" *ngIf="!a.valide" checked
+                                    (click)="this.setEtatValidationTrue(a.id)">
+                                <div class="knobs"></div>
+                                <div class="layer"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="box blue" *ngIf="a.type == 'Jeu Vidéo'">
+                <h2><b>{{a.nom}}</b></h2>
+                <p>{{a.nbJoueurs}} Joueurs</p>
+                <p><b>Description : </b>{{a.description}}</p>
+                <div id="app-cover">
+                    <div class="toggle-button-cover">
+                        <div class="button-cover">
+                            <div class="button r" id="button-1">
+                                <input type="checkbox" class="checkbox" *ngIf="a.valide"
+                                    (click)="this.setEtatValidationFalse(a.id)">
+                                <input type="checkbox" class="checkbox" *ngIf="!a.valide" checked
+                                    (click)="this.setEtatValidationTrue(a.id)">
+                                <div class="knobs"></div>
+                                <div class="layer"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="box orange" *ngIf="a.type == 'Sport'">
+                <h2><b>{{a.nom}}</b></h2>
+                <p>{{a.nbJoueurs}} Joueurs</p>
+                <p><b>Description : </b>{{a.description}}</p>
+                <div id="app-cover">
+                    <div class="toggle-button-cover">
+                        <div class="button-cover">
+                            <div class="button r" id="button-1">
+                                <input type="checkbox" class="checkbox" *ngIf="a.valide"
+                                    (click)="this.setEtatValidationFalse(a.id)">
+                                <input type="checkbox" class="checkbox" *ngIf="!a.valide" checked
+                                    (click)="this.setEtatValidationTrue(a.id)">
+                                <div class="knobs"></div>
+                                <div class="layer"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </li>
+</ul>
+
+<div>
+    <h2>Activitées qui ont été validées</h2>
+</div>
+
+<ul class="cards">
+    <li *ngFor="let a of activitesOne">
+        <div *ngIf="a.valide == true">
+            <div class="box cyan" *ngIf="a.type == 'Autre'">
+                <h2><b>{{a.nom}}</b></h2>
+                <p>{{a.nbJoueurs}} Joueurs</p>
+                <p><b>Description : </b>{{a.description}}</p>
+                <div id="app-cover">
+                    <div class="toggle-button-cover">
+                        <div class="button-cover">
+                            <div class="button r" id="button-1">
+                                <input type="checkbox" class="checkbox" *ngIf="a.valide"
+                                    (click)="this.setEtatValidationFalse(a.id)">
+                                <input type="checkbox" class="checkbox" *ngIf="!a.valide" checked
+                                    (click)="this.setEtatValidationTrue(a.id)">
+                                <div class="knobs"></div>
+                                <div class="layer"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="box red" *ngIf="a.type == 'Jeu de Société'">
+                <h2><b>{{a.nom}}</b></h2>
+                <p>{{a.nbJoueurs}} Joueurs</p>
+                <p><b>Description : </b>{{a.description}}</p>
+                <div id="app-cover">
+                    <div class="toggle-button-cover">
+                        <div class="button-cover">
+                            <div class="button r" id="button-1">
+                                <input type="checkbox" class="checkbox" *ngIf="a.valide"
+                                    (click)="this.setEtatValidationFalse(a.id)">
+                                <input type="checkbox" class="checkbox" *ngIf="!a.valide" checked
+                                    (click)="this.setEtatValidationTrue(a.id)">
+                                <div class="knobs"></div>
+                                <div class="layer"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="box blue" *ngIf="a.type == 'Jeu Vidéo'">
+                <h2><b>{{a.nom}}</b></h2>
+                <p>{{a.nbJoueurs}} Joueurs</p>
+                <p><b>Description : </b>{{a.description}}</p>
+                <div id="app-cover">
+                    <div class="toggle-button-cover">
+                        <div class="button-cover">
+                            <div class="button r" id="button-1">
+                                <input type="checkbox" class="checkbox" *ngIf="a.valide"
+                                    (click)="this.setEtatValidationFalse(a.id)">
+                                <input type="checkbox" class="checkbox" *ngIf="!a.valide" checked
+                                    (click)="this.setEtatValidationTrue(a.id)">
+                                <div class="knobs"></div>
+                                <div class="layer"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="box orange" *ngIf="a.type == 'Sport'">
+                <h2><b>{{a.nom}}</b></h2>
+                <p>{{a.nbJoueurs}} Joueurs</p>
+                <p><b>Description : </b>{{a.description}}</p>
+                <div id="app-cover">
+                    <div class="toggle-button-cover">
+                        <div class="button-cover">
+                            <div class="button r" id="button-1">
+                                <input type="checkbox" class="checkbox" *ngIf="a.valide"
+                                    (click)="this.setEtatValidationFalse(a.id)">
+                                <input type="checkbox" class="checkbox" *ngIf="!a.valide" checked
+                                    (click)="this.setEtatValidationTrue(a.id)">
+                                <div class="knobs"></div>
+                                <div class="layer"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </li>
+</ul>

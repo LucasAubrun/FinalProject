@@ -3,25 +3,142 @@
 <!-- END NAV -->
 
 
-<a class="nav-link" routerLink="/creation-evenement">Creation d'un evenement</a>
-<a class="nav-link" routerLink="/mesevenements">Mes évenements</a>
+
+<section class="intro">
+    <div class="bg-image h-100" style="
+            background-image: url(https://mdbootstrap.com/img/Photos/new-templates/search-box/img5.jpg);
+          ">
+        <div class="mask d-flex align-items-center h-100" style="background-color: rgba(0,0,0, 0.5);">
+            <div class="container">
+                <div class="card">
+                    <div class="card-body p-6">
+                        <div class="row">
+                            <div class="col-12 mb-4">
+                                <ul class="navbar-nav ml-auto"></ul>
+                                <li class="nav-item">
+                                    <a class="nav-link active" routerLink="/creation-evenement">Creer evenement</a>
+                                </li>
+                                <div class="input-group">
+                                    <form #nomForm="ngForm" (ngSubmit)="callEventByNom(nomForm.value)">
+                                        <div>
+                                            <input type="text" name="nom" id="search" placeholder="search"
+                                                class="form-control" ngModel="">
+                                        </div>
+
+                                        <div class="my-4 shadow rounded-lg overflow-hidden">
+                                            <table class="items min-w-full leading-normal"></table>
+                                        </div>
+                                        <button type="submit">Rechercher<i
+                                                class="fa fa-paper-plane-o ml-1"></i></button>
+                                        <ul class="cards">
+                                            <li *ngFor="let eN of EventByNom">
+                                                <!--<div *ngIf="e.valide==true">-->
+                                                <a href="" class="card">
+                                                    <img src="https://i.imgur.com/oYiTqum.jpg" class="card__image"
+                                                        alt="" />
+                                                    <div class="card__overlay">
+                                                        <div class="card__header">
+                                                            <svg class="card__arc">
+                                                                <path />
+                                                            </svg>
+                                                            <div class="card__header-text">
+                                                                <h3 class="card__title">{{eN.nom}}</h3>
+                                                                <span class="card__status">{{eN.date}}</span>
+                                                                <p>
+                                                                </p>
+                                                                <span class="card__status">{{eN.adresse}}</span>
+                                                                <p>
+                                                                </p>
+                                                                <span class="card__status">{{eN.recurrence}}</span>
+                                                                <p>
+                                                                </p>
+                                                                <span class="card__status">{{eN.niveau}}</span>
+                                                                <p>
+                                                                </p>
+                                                                <span
+                                                                    class="card__status">{{eN.nbmin}}/{{eN.nbmax}}</span>
+                                                                <p>
+                                                                </p>
+                                                                <span class="card__status">{{eN.nomActivite}}</span>
+                                                            </div>
+                                                        </div>
+                                                        <p class="card__description">{{eN.description}}</p>
+                                                    </div>
+                                                </a>
+                                                <!-- </div> -->
+
+                                            </li>
+                                        </ul>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
 
 
-<div class="card" style="width: 18rem;">
-    <img src="https://mdbcdn.b-cdn.net/img/new/standard/city/062.webp" class="card-img-top" alt="Chicago Skyscrapers" />
-    <div class="card-body">
-        <h5 class="card-title">Card title</h5>
-        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
-            content.</p>
+<br><br>
+
+<!--<div class="card" style="width: 18rem;">
+    <div class="col-mv-12" *ngFor="let e of ListEventRandId">
+        <img src="https://mdbcdn.b-cdn.net/img/new/standard/city/062.webp" class="card-img-top"
+            alt="Chicago Skyscrapers" />
+        <div class="card-body">
+            <h5 class="card-title">Card title</h5>
+            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
+                content.</p>
+        </div>
+        <ul class="list-group list-group-light list-group-small">
+            <li class="list-group-item px-4">blabla</li>
+            <li class="list-group-item px-4">Dapibus ac facilisis in</li>
+            <li class="list-group-item px-4">Vestibulum at eros</li>
+        </ul>
+        <div class="card-body">
+            <button type="button" class="btn btn">
+                <td>{{"Rejoindre"}}</td>
+            </button>
+        </div>
     </div>
-    <ul class="list-group list-group-light list-group-small">
-        <li class="list-group-item px-4">blabla</li>
-        <li class="list-group-item px-4">Dapibus ac facilisis in</li>
-        <li class="list-group-item px-4">Vestibulum at eros</li>
-    </ul>
-    <div class="card-body">
-        <button type="button" class="btn btn">
-            <td>{{"Rejoindre"}}</td>
-        </button>
-    </div>
-</div>
+</div>-->
+
+<ul class="cards">
+    <li *ngFor="let e of EvenementsOne">
+        <!--<div *ngIf="e.valide==true">-->
+        <a href="" class="card">
+            <img src="https://i.imgur.com/oYiTqum.jpg" class="card__image" alt="" />
+            <div class="card__overlay">
+                <div class="card__header">
+                    <svg class="card__arc">
+                        <path />
+                    </svg>
+                    <div class="card__header-text">
+                        <h3 class="card__title">{{e.nom}}</h3>
+                        <span class="card__status">{{e.date}}</span>
+                        <p>
+                        </p>
+                        <span class="card__status">{{e.adresse}}</span>
+                        <p>
+                        </p>
+                        <span class="card__status">{{e.recurrence}}</span>
+                        <p>
+                        </p>
+                        <span class="card__status">{{e.niveau}}</span>
+                        <p>
+                        </p>
+                        <span class="card__status">{{e.nbmin}}/{{e.nbmax}}</span>
+                        <p>
+                        </p>
+                        <span class="card__status">{{e.nomActivite}}</span>
+                    </div>
+                </div>
+                <p class="card__description">{{e.description}}</p>
+            </div>
+        </a>
+        <!-- </div> -->
+
+    </li>
+</ul>
