@@ -39,18 +39,12 @@
         </div>
 
         <div class="card mx-auto p-5 blue-gradient-rgba w-100">
-            <h1>Mes évènements </h1>
+            <h1>Mes évènements</h1>
+           <br>
             <table class="table">
-               <!--<thead>
-                    <tr>
-                        <th scope="col">Nom</th>
-                        <th scope="col">Lieu</th>
-                        <th scope="col">Date</th>
-                        <th scope="col">Description</th>
-                    </tr>
-                </thead>--> 
-            <div class="col-mv-12" *ngFor="let e of TtEventId">
-                
+
+                <div class="col-mv-12" *ngFor="let e of TtEventId">
+
                     <tbody>
                         <tr>
                             <th>{{e.evenements.nom}}</th>
@@ -58,8 +52,8 @@
                             <td>{{e.evenements.date}}</td>
                             <td>{{e.evenements.description}}</td>
                             <td>
-                                <div>
-                                    <!--Mettre un if pour savoir si l'id du mec est connecté est le meme que celui du créateur-->
+                                <div class=" btndelete btn-link btn-sm btn-rounded"
+                                    *ngIf="authService.getMembreTargeted().id == authService.getUserConnect().id">
                                     <button type="button" class="btndelete btn-link btn-sm "
                                         (click)="SupprimerEvent(e.evenements.id)">
                                         <i class="fas fa-trash"></i>
@@ -68,18 +62,22 @@
                             </td>
                             <td>
                                 <!--Mettre un if pour savoir si l'id du mec est connecté est le meme que celui du créateur(else)-->
-                                <div><button type="button" class="btndelete btn-link btn-sm btn-rounded"
+                                <div class=" btndelete btn-link btn-sm btn-rounded"
+                                    *ngIf="!(authService.getMembreTargeted().id == authService.getUserConnect().id)">
+                                    <button type="button" class="btndelete btn-link btn-sm btn-rounded "
                                         (click)="QuitterEvent(e.evenements.id)">
 
                                         <i class="fa fa-sign-out" aria-hidden="true"></i>
-                                    </button></div>
+                                    </button>
+                                </div>
                             </td>
 
                         </tr>
 
                     </tbody>
-                
-            </div></table>
+
+                </div>
+            </table>
         </div>
 
 
