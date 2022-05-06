@@ -1,5 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
+import { MessagerieComponent } from '../messagerie/messagerie.component';
 import { AuthentificationService } from '../service/authentification.service';
 import { UrlService } from '../service/url.service';
 
@@ -25,7 +27,8 @@ export class MembresComponent implements OnInit {
   constructor(
     public authService: AuthentificationService,
     private http: HttpClient,
-    private url: UrlService
+    private url: UrlService,
+    public dialog: MatDialog
   ) { }
 
   ngOnInit(): void {
@@ -101,7 +104,11 @@ export class MembresComponent implements OnInit {
       error: (err) => {
         this.errorInvit = "invitation impossible"
       }
-    })
+    });
+  };
+
+  openDialog(): void {
+    const dialogRef = this.dialog.open(MessagerieComponent)
   }
 
 }

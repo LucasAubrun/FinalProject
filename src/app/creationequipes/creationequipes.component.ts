@@ -48,8 +48,7 @@ export class CreationequipesComponent implements OnInit {
   ngOnInit(): void {
     this.callEquipeId1();
     this.callTtEquipeId();
-   
-    this.callMember();//a supprimer
+  
     /*
     this.goSurEquipe2();*/
   }
@@ -59,7 +58,7 @@ export class CreationequipesComponent implements OnInit {
 
   callEquipeId1() {
     this.http.get(this.url.baseURL+"equipes/membres/" + this.authentificationService.getUserConnect().id).subscribe({
-      next: (data) => { this.EquipesId1 = data },
+      next: (data) => { this.EquipesId1 = data; console.log(data) },
       error: (err) => { console.log(err) }
     });
   }
@@ -155,14 +154,6 @@ export class CreationequipesComponent implements OnInit {
 
   //♦♣♦♣♦♣♦♣♦♣ association ♦♣♦♣♦♣♦♣♦♣//
 
-
-  //♦♣♦♣♦♣♦♣♦♣ a supprimer ♦♣♦♣♦♣♦♣♦♣//
-  callMember() {
-    this.http.get(this.url.baseURL+"associations/equipe/" +  this.equipeservice.getEquipe().id).subscribe({
-      next: (data) => { this.LesMembres = data },
-      error: (err) => { console.log(err) }
-    });
-  }
 //♦♣♦♣♦♣♦♣♦♣ a supprimer ♦♣♦♣♦♣♦♣♦♣//
 
   //♦♣♦♣♦♣♦♣♦♣ fin création d'équipe ♦♣♦♣♦♣♦♣♦♣//

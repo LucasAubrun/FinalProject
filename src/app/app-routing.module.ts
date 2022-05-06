@@ -33,7 +33,7 @@ const routes: Routes = [
   { component: ModifierProfilComponent, path: 'modifier-profil' },
   { component: CreationEvenementComponent, path: 'creation-evenement' },
   { component: CommunauteComponent, path: 'communaute'},
-  { component: MessagerieComponent, path: 'messagerie'}
+  { component: MessagerieComponent, path: 'messagerie'},
 ];
 
 

@@ -1,36 +1,3 @@
-<!--
-<div class="inscription-page">
-    <div class="card z-depth-5 mx-auto w-25">
-        /*style="margin-top: 200px; margin-bottom: 10px;">*/
-        <div class="card-body mx-auto">
-            <form #inscriptionForm="ngForm" (ngSubmit)="inscrireMembre(inscriptionForm.value)">
-                <input class="my-2 w-100" id="nom" type="text" name="nom" placeholder="Nom" ngModel=""> <br>
-                <input class="my-2 w-100" type="text" name="prenom" placeholder="Prénom" ngModel=""> <br>
-                <input class="my-2 w-100" type="date" name="dateNaissance" ngModel=""> <br>
-                <input class="my-2 w-100" type="text" name="mail" placeholder="Mail" ngModel=""> <br>
-                <input class="mt-2 mb-4 w-100" type="password" name="mdp" placeholder="Mot de passe" ngModel=""> <br>
-                <div class="text-center">
-                    <button type="submit" class="btn btn-primary z-depth-1">S'inscrire</button>
-                    <button type="button" class="btn z-depth-1" routerLink="/connexion">Connexion</button>
-                    <p class="mt-3" [style.color]="resultColor">{{resultMessage}}</p>
-                </div>
-            </form>
-        </div>
-    </div>
-</div>
--->
-
-<!--
-<head>
-    <title>Simple registration form</title>
-    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css"
-        integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
-    <style href="inscription.component.css"></style>
-</head>
--->
-
-
 <div class="main-block" style="margin-top: 150px">
     <h1>Inscription</h1>
     <form #inscriptionForm="ngForm" (ngSubmit)="inscription(inscriptionForm.value)">
