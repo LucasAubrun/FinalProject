@@ -36,6 +36,7 @@ export class ConnexionComponent implements OnInit {
           this.membre = data;
           if (this.membre != null) {
             this.authentificationService.setUserInLocalStorage(this.membre)
+            this.authentificationService.setMembreTargetInLocalStorage(this.membre)
             console.log(data);
             this.resultMessage = "";
             this.route.navigateByUrl("membres");
