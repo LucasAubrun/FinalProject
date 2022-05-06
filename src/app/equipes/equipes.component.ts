@@ -15,7 +15,7 @@ export class EquipesComponent implements OnInit {
 
   //  ♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠    Création de varialbe   ♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠              //
 
-  baseURL: string = "http://localhost:8482/";
+  baseURL: string = "http://localhost:8080/";
   invitationEq: any;
   resultMessageInvit: any;
   errorInvit: any;

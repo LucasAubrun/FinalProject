@@ -11,7 +11,7 @@ import { AuthentificationService } from '../service/authentification.service';
 })
 export class ConnexionComponent implements OnInit {
 
-  baseURL: string = "http://localhost:8482/";
+  baseURL: string = "http://localhost:8080/";
   resultMessage: string = "";
   resultColor: string = "red";
   membre: any;
