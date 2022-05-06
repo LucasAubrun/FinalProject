@@ -25,6 +25,7 @@
 <!--  ♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠      création équipe   ♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠               -->
 
 <!-- Card -->
+<div ngif="equipe">
 
 <div class="col-md-12">
   <ul class="nav peach-gradient lighten-3 py-4 mb-4 font-weight-bold z-depth-1">
@@ -71,13 +72,13 @@
         <div class="row">
           <div class="col-sm-4" *ngFor="let e of EquipesId1">
             <div class="card p-2">
-              <button type="button" class="btn btn">
+              <button type="button" class="btn btn" (click)="equipeservice.setEquipe(e)" routerLink="/equipes">
                 <li class="nav-item">
-                 <a routerLink="/equipes">
+                  <a routerLink="/equipes">
                    <p class="mx-auto my-auto">
                      {{e.nom}}
-                   </p>
-                </a>
+                   </p>  
+                  </a>    
               </li>
              </button>
             </div>
@@ -89,7 +90,8 @@
 </div>
 <!--  ♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠       fin recherche des équipes créer par l'individue     ♥♦♣♠♥♦♣♠♥♦ -->
 
-<h1>Toutes mes équipes :</h1>
+<h1>Toutes mes équipes : {{equipeservice.getEquipe().id}} </h1>
+
 
 <!--  ♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠    début de recherche de ttes les équipes de l'individue   ♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠              -->
 <div class="col-md-12">
@@ -99,11 +101,9 @@
         <div class="col-sm-6" *ngFor="let a of TtEquipeId">
           <div class="card p-2">
             <p class="mx-auto my-auto">
-              <button type="button" class="btn btn">
-                <li class="nav-item">
-                  <a routerLink="/equipes" >
-                    <td>{{a.equipes.nom}}</td>
-                  </a>
+              <button type="button" class="btn btn" (click)="equipeservice.setEquipe(a.equipes)"  routerLink="/equipes">
+                <li class="nav-item">                
+                    <td>{{a.equipes.nom}}</td>               
                 </li>
               </button>
             </p>
@@ -116,3 +116,4 @@
 
 <!--  ♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠    Fin recherche de ttes les équipes de l'individue   ♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠              -->
 
+</div>

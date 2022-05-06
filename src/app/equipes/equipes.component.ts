@@ -2,6 +2,8 @@ import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { EquipeService } from '../service/equipe.service';
 import { AuthentificationService } from '../service/authentification.service';
+import { identifierName } from '@angular/compiler';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -17,39 +19,63 @@ export class EquipesComponent implements OnInit {
   invitationEq: any;
   resultMessageInvit: any;
   errorInvit: any;
+  LesMembres: any;
+  resultColor: any;
+  bonjour =  this.equipeservice.getEquipe().id;
 
   //  ♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠    Invitation   ♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠              //
 
 
   constructor(private http: HttpClient,
-    public authService: AuthentificationService
-    ) { }
+    public authService: AuthentificationService,
+    public equipeservice: EquipeService,
+    private route: Router) { }
 
+
+
+    
   ngOnInit(): void {
+    this.callMember();
   }
 
 //  ♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠    récuperer l'equipe   ♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠              //
 
-//EquipeService.getEquipe;
+
 
  //  ♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠    Invitation   ♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠              //
 
   sendinvitationEq(val: any) {
     let invitations = {
-      idM: val.id,
+        "membres": {
+          "id": val.id},
+        "equipes": {
+        "id": this.equipeservice.getEquipe().id
+      }
+
     };
     console.log(invitations);
-    this.http.post(this.baseURL + "inviter", invitations).subscribe({
+    this.http.post(this.baseURL + "associations/inviter", invitations).subscribe({
       next: (data) => {
-        this.resultMessageInvit = "invitation envoyée"
+        this.resultMessageInvit = "Invitation réussite";
+        this.resultColor = "green"
       },
       error: (err) => {
-        this.errorInvit = "invitation impossible"
+        this.resultMessageInvit = "invitation impossible";
+        this.resultColor = "red"
       }
     })
   }
 
 
-  //  ♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠    Fin Invitation   ♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠              //
+  //  ♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠    Afficher les membres d'une équipes   ♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠              //
 
+
+  callMember() {
+    this.http.get(this.baseURL + "associations/equipe/" +  this.equipeservice.getEquipe().id).subscribe({
+      next: (data) => { this.LesMembres = data },
+      error: (err) => { console.log(err) }
+    });
+  }
+
+    //  ♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠    Afficher les membres d'une équiês   ♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠              //
 }

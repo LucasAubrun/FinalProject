@@ -18,11 +18,14 @@ equipe: any;
 
 
 setEquipe(equipe: any) {
-
+  localStorage.setItem('equipeConnect', JSON.stringify(equipe));
 }
 
+
+
 getEquipe(){
-  return this.equipe()
+  let equipe: any = localStorage.getItem('equipeConnect');
+  return JSON.parse(equipe);
 }
  // getequipeUtil() {
  //   let user: any = localStorage.getItem('equipeUtil');
