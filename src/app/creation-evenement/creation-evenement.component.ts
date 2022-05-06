@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { AuthentificationService } from '../service/authentification.service';
 import { UrlService } from '../service/url.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-creation-evenement',
@@ -34,9 +35,12 @@ export class CreationEvenementComponent implements OnInit {
       nbmin: val.nbmin,
       nbmax: val.nbmax,
       nomActivite: val.nomActivite,
-      valide: false
-    }
-
+      valide: false,
+      "createur": {
+        "id": this.authService.getUserConnect().id
+      },
+    };
+    console.log(event);
     this.http.post(this.url.baseURL+"Evenements/save", event)
       .subscribe({
         next: (data) => {

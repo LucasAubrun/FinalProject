@@ -29,9 +29,9 @@ const routes: Routes = [
   { component: MesevenementsComponent, path: 'mesevenements' },
   { component: ConnexionadminComponent, path: 'connexionAdmin' },
   { component: AdminComponent, path: 'admin' },
-  { component: ModifierProfilComponent, path:'modifier-profil'},
+  { component: ModifierProfilComponent, path: 'modifier-profil' },
   { component: CreationEvenementComponent, path: 'creation-evenement' },
-  { component: CommunauteComponent, path: 'communaute'}
+  { component: CommunauteComponent, path: 'communaute' }
 ];
 
 
