@@ -133,15 +133,15 @@ export class CreationequipesComponent implements OnInit {
 
       });
 
-      let asso = {
-        "membres": {
-          "id": this.authentificationService.getUserConnect().id
-        },
-          "equipes": {
-          "id": this.equipeservice.getEquipe().id
-        }
+    let asso = {
+      "membres": {
+        "id": this.authentificationService.getUserConnect().id
+      },
+      "equipes": {
+        "id": this.equipeservice.getEquipe().id
       }
-      console.log(asso);
+    }
+    console.log(asso);
     this.http.post(this.baseURL + "inviter", asso).subscribe({
       next: (data) => { },
       error: (err) => { console.log(err) }

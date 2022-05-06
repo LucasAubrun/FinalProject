@@ -26,7 +26,7 @@ export class EvenementsComponent implements OnInit {
   ngOnInit(): void {
     //this.callEventRandId();
     //this.callEventRandAll();
-    //this.callEvenementsAll();
+    this.callEvenementsAll();
   }
 
   callEventRandId() {
