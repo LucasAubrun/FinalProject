@@ -37,13 +37,13 @@
         </td>
         <td>
           <!--Mettre un if pour savoir si l'id du mec est connecté est le meme que celui du créateur-->
-          <button type="button" class="btn btn-link btn-sm btn-rounded" (click)="SupprimerEvent()">
+          <button type="button" class="btn btn-link btn-sm btn-rounded" (click)="SupprimerEvent(e.evenements.id)">
             Supprimer
           </button>
         </td>
         <td>
           <!--Mettre un if pour savoir si l'id du mec est connecté est le meme que celui du créateur(else)-->
-          <button type="button" class="btn btn-link btn-sm btn-rounded" (click)="QuitterEvent()">
+          <button type="button" class="btn btn-link btn-sm btn-rounded" (click)="QuitterEvent(e.evenements.id)">
             Quitter
           </button>
         </td>
