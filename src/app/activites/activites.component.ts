@@ -16,7 +16,7 @@ export class ActivitesComponent implements OnInit {
   }
 
   callActivitesAll() {
-    this.http.get('http://localhost:8080/activites/all')
+    this.http.get('http://localhost:8482/activites/all')
       .subscribe({
         next: (data) => { this.activitesOne = data },
         error: (err) => { console.log(err) }

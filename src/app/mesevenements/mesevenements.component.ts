@@ -9,7 +9,7 @@ import { Component, OnInit } from '@angular/core';
 export class MesevenementsComponent implements OnInit {
 
   //♦♣♦♣♦♣♦♣♦♣ création de variable ♦♣♦♣♦♣♦♣♦♣//
-  baseURL: string = "http://localhost:8080/";
+  baseURL: string = "http://localhost:8482/";
   resultMessage: string = " ";
   TtEventId: any;
   result: string = "";
@@ -34,7 +34,7 @@ export class MesevenementsComponent implements OnInit {
 
   SupprimerEvent(id:any) {
 
-    this.http.delete("http://localhost:8080/Evenements/supprimer/"+id)
+    this.http.delete("http://localhost:8482/Evenements/supprimer/"+id)
       .subscribe({
         next: (data) => { this.result = "Suppression réussie" },
         error: (err) => { console.log(err) }
@@ -43,7 +43,7 @@ export class MesevenementsComponent implements OnInit {
 
   QuitterEvent(id:any) {
 
-    this.http.delete("http://localhost:8080/Participants/supprimer/"+id)
+    this.http.delete("http://localhost:8482/Participants/supprimer/"+id)
       .subscribe({
         next: (data) => { this.result = "Suppression réussie" },
         error: (err) => { console.log(err) }

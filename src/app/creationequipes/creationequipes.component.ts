@@ -12,13 +12,14 @@ import { EquipeService } from '../service/equipe.service';
 export class CreationequipesComponent implements OnInit {
 
   //♦♣♦♣♦♣♦♣♦♣ création de variable ♦♣♦♣♦♣♦♣♦♣//
-  baseURL: string = "http://localhost:8080/";
+  baseURL: string = "http://localhost:8482/";
   resultMessage: string = " ";
   resultColor: string = " ";
   EquipesId1: any;
   TtEquipeId: any;
   EquipeActuelle: any;
   equipe: any;
+  LesMembres: any; //a supprimer
 
   //♦♣♦♣♦♣♦♣♦♣ fin création de variable ♦♣♦♣♦♣♦♣♦♣//
 
@@ -45,6 +46,8 @@ export class CreationequipesComponent implements OnInit {
   ngOnInit(): void {
     this.callEquipeId1();
     this.callTtEquipeId();
+   
+    this.callMember();//a supprimer
     /*
     this.goSurEquipe2();*/
   }
@@ -122,18 +125,17 @@ export class CreationequipesComponent implements OnInit {
           else
             this.resultMessage = "Une erreur s'est produite"
           this.resultColor = "red";
-          //         if (this.equipe != null){
-          //           this.equipeservice.setEquipe(this.equipe)
-          //          console.log(data);
-
-
-          //        }
         }
-
-
       });
+   
+    }
+  //♦♣♦♣♦♣♦♣♦♣ association ♦♣♦♣♦♣♦♣♦♣//
 
-      let asso = {
+
+
+
+  association(){   
+    let asso = {
         "membres": {
           "id": this.authentificationService.getUserConnect().id
         },
@@ -142,13 +144,24 @@ export class CreationequipesComponent implements OnInit {
         }
       }
       console.log(asso);
-    this.http.post(this.baseURL + "inviter", asso).subscribe({
+    this.http.post(this.baseURL + "associations/inviter", asso).subscribe({
       next: (data) => { },
       error: (err) => { console.log(err) }
     })
       ;
   }
 
+  //♦♣♦♣♦♣♦♣♦♣ association ♦♣♦♣♦♣♦♣♦♣//
+
+
+  //♦♣♦♣♦♣♦♣♦♣ a supprimer ♦♣♦♣♦♣♦♣♦♣//
+  callMember() {
+    this.http.get(this.baseURL + "associations/equipe/" +  this.equipeservice.getEquipe().id).subscribe({
+      next: (data) => { this.LesMembres = data },
+      error: (err) => { console.log(err) }
+    });
+  }
+//♦♣♦♣♦♣♦♣♦♣ a supprimer ♦♣♦♣♦♣♦♣♦♣//
 
   //♦♣♦♣♦♣♦♣♦♣ fin création d'équipe ♦♣♦♣♦♣♦♣♦♣//
 

@@ -17,7 +17,7 @@ export class AdminComponent implements OnInit {
   }
 
   callActivitesAll() {
-    this.http.get('http://localhost:8082/activites/all')
+    this.http.get('http://localhost:8482/activites/all')
       .subscribe({
         next: (data) => { this.activitesOne = data, console.log(data) },
 
@@ -28,7 +28,7 @@ export class AdminComponent implements OnInit {
   setEtatValidationTrue(id: any) {
     let etatvalidation = true;
     console.log(etatvalidation);
-    this.http.patch('http://localhost:8082/activites/set/valide/' + id, etatvalidation)
+    this.http.patch('http://localhost:8482/activites/set/valide/' + id, etatvalidation)
       .subscribe({
         next: (data) => { window.location.reload() },
 

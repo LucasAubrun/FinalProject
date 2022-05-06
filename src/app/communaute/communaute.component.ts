@@ -22,7 +22,7 @@ export class CommunauteComponent implements OnInit {
   }
 
   getLeaderboard() {
-    this.http.get("http://localhost:8082/membre/get/leaderboard")
+    this.http.get("http://localhost:8482/membre/get/leaderboard")
     .subscribe({
       next: (data) => {
         this.leaderboard = data;

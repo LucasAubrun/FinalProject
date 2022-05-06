@@ -23,7 +23,7 @@ export class NewactiviteComponent implements OnInit {
       type: val.type,
       valide: false
     }
-    this.http.post('http://localhost:8082/activites/save', activite)
+    this.http.post('http://localhost:8482/activites/save', activite)
       .subscribe({
         next: (data) => { window.location.reload() },
         error: (err) => { console.log(err) }

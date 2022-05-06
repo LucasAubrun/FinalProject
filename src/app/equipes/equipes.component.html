@@ -56,7 +56,7 @@
 
     <div class="col-md-12">
       <ul class="nav peach-gradient lighten-3 py-4 mb-4 font-weight-bold z-depth-1">
-        <li class="nav-item col-md-8" >
+        <li class="nav-item col-md-4" >
           <div class="card mx-xl-6" >
     
             <!-- Card body -->
@@ -89,15 +89,16 @@
         <!-- Card -->
     
         <!--  ♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠         fin création équipe   ♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠              -->
-        <li class="nav-item col-md-4">
+        <li class="nav-item col-md-8">
           <br>
     
           <!--  ♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠    début de recherche des équipes créer par l'individue   ♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠              -->
           
           <p>Membres:</p>
-          <div class="card p-2">bonjour
-          <div class="col-sm-6"  *ngFor="let Lm of LesMembres">bonjour
-            <td>{{Lm.membres.prenom}}</td>
+          
+          <div class="col-sm-6"  *ngFor="let Lm of LesMembres">
+            <div class="card p-2">
+            <td>{{Lm.membres.prenom}}</td><br>  
             <td>{{Lm.membres.nom}}</td>
             
           </div>

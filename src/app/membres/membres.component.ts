@@ -25,7 +25,7 @@ export class MembresComponent implements OnInit {
   }
 
   callMembrePP(id: any) {
-    this.http.get('http://localhost:8080/membre/photoprofil/' + id)
+    this.http.get('http://localhost:8482/membre/photoprofil/' + id)
       .subscribe({
         next: (data) => { this.membrePP = data, console.log(data) },
 
@@ -34,7 +34,7 @@ export class MembresComponent implements OnInit {
   }
 
   listEvents() {
-    this.http.get("http://localhost:8080/event/get/" + this.authService.getUserConnect().id)
+    this.http.get("http://localhost:8482/event/get/" + this.authService.getUserConnect().id)
       .subscribe({
         next: (data) => {
           this.events = data;

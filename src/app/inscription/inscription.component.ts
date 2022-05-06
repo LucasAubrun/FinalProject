@@ -8,7 +8,7 @@ import { HttpClient } from '@angular/common/http';
 })
 export class InscriptionComponent implements OnInit {
 
-  baseURL: string = "http://localhost:8082/";
+  baseURL: string = "http://localhost:8482/";
   resultMessage: string = "";
   resultColor: string="";
 
