@@ -8,7 +8,7 @@ import { HttpClient } from '@angular/common/http';
 })
 export class CreationEvenementComponent implements OnInit {
 
-  baseURL: string = "http://localhost:8082/";
+  baseURL: string = "http://localhost:8482/";
   resultMessage: string = "";
   resultColor: string = "";
 
@@ -32,7 +32,7 @@ export class CreationEvenementComponent implements OnInit {
       valide: false
     }
 
-    this.http.post("http://localhost:8080/Evenements/save", event)
+    this.http.post("http://localhost:8482/Evenements/save", event)
       .subscribe({
         next: (data) => {
           this.resultMessage = "Évènement créé avec succès.";
