@@ -34,9 +34,9 @@ export class CreationEvenementComponent implements OnInit {
       recurrence: val.recurrence,
       niveau: val.niveau,
       description: val.description,
-      nbmin: val.nbmin,
-      nbmax: val.nbmax,
-      nomActivite: val.nomActivite,
+      nbMin: val.nbmin,
+      nbMax: val.nbmax,
+      nomActivite: val.activite,
       valide: false,
       "createur": {
         "id": this.authService.getUserConnect().id
