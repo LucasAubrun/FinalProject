@@ -1,11 +1,23 @@
 <p style="margin-top: 90px;"></p>
 <h1 class="ml-4"> Mon espace </h1>
 
+
+
+
+
+
+
 <div class="container mt-4 mb-4 mx-auto p-3 d-flex justify-content-center">
     <div class="card mx-auto p-4 aqua-gradient-rgba">
         <div class="image d-flex flex-column justify-content-center align-items-center">
-            <button class="btn btn-white">
-                <img src="https://i.imgur.com/wvxPV9S.png" height="100" width="100" />
+            <button class="btn" type="button" (click)="popup = true">
+                <div>
+                    <img class="pp1" *ngIf="membrePP==1" src="profil1.png" height="100" width="100" />
+                    <img class="pp2" *ngIf="membrePP==2" src="profil2.png" height="100" width="100" />
+                    <img class="pp3" *ngIf="membrePP==3" src="profil3.png" height="100" width="100" />
+                    <img class="pp4" *ngIf="membrePP==4" src="profil4.png" height="100" width="100" />
+                    <img class="pp5" *ngIf="membrePP==5" src="profil5.png" height="100" width="100" />
+                </div>
             </button>
             <span class="name mt-3">{{authService.getUserConnect().prenom}} {{authService.getUserConnect().nom}}</span>
             <span class="idd">{{authService.getUserConnect().mail}}</span>
@@ -96,3 +108,27 @@
     </ul>
 </div>
 
+
+<div class="overlay" *ngIf="popup">
+    <div class="popup">
+        <h2>Choisisez votre photo de profil</h2>
+        <a class="close" (click)="popup = false">&times;</a>
+        <div class="content">
+            <button class="btn" type="button" (click)="this.setPhotoProfil(authService.getUserConnect().id,1)">
+                <img class="pp1" src="profil1.png" />
+            </button>
+            <button class="btn" type="button" (click)="this.setPhotoProfil(authService.getUserConnect().id,2)">
+                <img class="pp2" src="profil2.png" />
+            </button>
+            <button class="btn" type="button" (click)="this.setPhotoProfil(authService.getUserConnect().id,3)">
+                <img class="pp3" src="profil3.png" />
+            </button>
+            <button class="btn" type="button" (click)="this.setPhotoProfil(authService.getUserConnect().id,4)">
+                <img class="pp4" src="profil4.png" />
+            </button>
+            <button class="btn" type="button" (click)="this.setPhotoProfil(authService.getUserConnect().id,5)">
+                <img class="pp5" src="profil5.png" />
+            </button>
+        </div>
+    </div>
+</div>
