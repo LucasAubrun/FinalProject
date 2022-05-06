@@ -50,7 +50,7 @@ import { ModifierProfilComponent } from './modifier-profil/modifier-profil.compo
     AdminComponent,
     ConnexionadminComponent,
     CommunauteComponent,
-    ModifierProfilComponent
+    ModifierProfilComponent,
   ],
   imports: [
     FormsModule,

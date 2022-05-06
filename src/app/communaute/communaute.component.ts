@@ -24,7 +24,7 @@ export class CommunauteComponent implements OnInit {
   }
 
   getLeaderboard() {
-    this.http.get(this.url.baseURL + +"membre/get/leaderboard")
+    this.http.get(this.url.baseURL +"membre/get/leaderboard")
     .subscribe({
       next: (data) => {
         this.leaderboard = data;
