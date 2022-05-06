@@ -16,7 +16,7 @@ export class CommunauteComponent implements OnInit {
   constructor (
     private http : HttpClient,
     private url: UrlService,
-    public authService : AuthentificationService
+    public authService : AuthentificationService,
   ) { }
 
   ngOnInit(): void {
@@ -24,7 +24,7 @@ export class CommunauteComponent implements OnInit {
   }
 
   getLeaderboard() {
-    this.http.get(this.url.baseURL +"membre/get/leaderboard")
+    this.http.get(this.url.baseURL+"membre/get/leaderboard")
     .subscribe({
       next: (data) => {
         this.leaderboard = data;
