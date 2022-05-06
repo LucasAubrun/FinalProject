@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { AuthentificationService } from '../service/authentification.service';
 
 @Component({
   selector: 'app-creation-evenement',
@@ -12,7 +13,9 @@ export class CreationEvenementComponent implements OnInit {
   resultMessage: string = "";
   resultColor: string = "";
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient,
+    public authService: AuthentificationService
+  ) { }
 
   ngOnInit(): void {
   }
