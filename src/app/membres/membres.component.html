@@ -69,18 +69,55 @@
         <li class="nav-item col-md-4">
             Mes évènements à venir
             <div class="card mx-xl-5">
-                <!-- Card body -->
+                <!--Card body
+                    <p>{{authService.getUserConnect().id}}</p>
                 <div class="card-body">
 
-                    <p>{{authService.getUserConnect().id}}</p>
                     <p>{{authService.getUserConnect().nom}}</p>
                     <p>{{authService.getUserConnect().prenom}}</p>
                     <p>{{authService.getUserConnect().mail}}</p>
                     <p>{{authService.getUserConnect().dateNaissance}}</p>
 
                 </div>
-                <!-- Card body -->
+                Card body -->
 
+                <div class="col-mv-12" *ngFor="let e of TtEventId">
+                    <!-- <thead class="bg-light">
+                </thead>-->
+                    <tbody>
+                        <tr>
+                            <td>{{e.evenements.nom}}</td>
+                            <td>{{e.evenements.date}}</td>
+                            <td>{{e.evenements.adresse}}</td>
+                            <td>{{e.evenements.recurrence}}</td>
+                            <td>{{e.evenements.niveau}}</td>
+                            <td>{{e.evenements.description}}</td>
+                            <td>{{e.evenements.nbmin}}</td>
+                            <td>{{e.evenements.nbmax}}</td>
+                            <td>{{e.evenements.activite}}</td>
+                            <td>
+                                <div class="md-form my-0">
+                                    <input class="form-control mr-sm-2" type="text" placeholder="Search"
+                                        aria-label="Search">
+                                </div>
+                            </td>
+                            <td>
+                                <!--Mettre un if pour savoir si l'id du mec est connecté est le meme que celui du créateur-->
+                                <button type="button" class="btn btn-link btn-sm btn-rounded"
+                                    (click)="SupprimerEvent(e.evenements.id)">
+                                    Supprimer
+                                </button>
+                            </td>
+                            <td>
+                                <!--Mettre un if pour savoir si l'id du mec est connecté est le meme que celui du créateur(else)-->
+                                <button type="button" class="btn btn-link btn-sm btn-rounded"
+                                    (click)="QuitterEvent(e.evenements.id)">
+                                    Quitter
+                                </button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </div>
             </div>
         </li>
     </ul>
