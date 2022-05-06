@@ -1,39 +1,45 @@
-<div class="card one" style="margin-top: 150px;" *ngIf="leaderboard">
+<div class="card one mx-auto" style="margin-top: 15%" *ngIf="leaderboard">
     <div class="header">
         <h3 class="title mx-auto text-white">Leaderboard</h3>
     </div>
     <div class="profile">
         <div class="person second">
-            <div class="num" style="color: silver; font-size: x-large;">2</div>
-            <a class="link mt-1" style="font-size: large"
-                (click)="authService.setMembreTargetInLocalStorage(leaderboard[1])" routerLink="/membres">{{leaderboard[1]?.prenom}}</a>
+            <div class="num" style="color: silver; font-size: xx-large;">2</div>
+            <a class="link mt-1" style="font-size: x-large"
+                (click)="authService.setMembreTargetInLocalStorage(leaderboard[1])"
+                routerLink="/membres">{{leaderboard[1]?.prenom}}</a>
             <img src="" alt="" class="photo">
             <p class="points">{{leaderboard[1]?.score}}</p>
         </div>
         <div class="person first">
-            <div class="num" style="color: gold; font-size: x-large;">1</div>
-            <a class="link mt-1" style="font-size: large"
-                (click)="authService.setMembreTargetInLocalStorage(leaderboard[0])" routerLink="/membres">{{leaderboard[0]?.prenom}}</a>
+            <div class="num" style="color: gold; font-size: xx-large;">1</div>
+            <a class="link mt-1" style="font-size: x-large"
+                (click)="authService.setMembreTargetInLocalStorage(leaderboard[0])"
+                routerLink="/membres">{{leaderboard[0]?.prenom}}</a>
             <img src="" alt="" class="photo main">
             <p class="points">{{leaderboard[0]?.score}}</p>
         </div>
         <div class="person third">
-            <div class="num" style="color: rgb(207, 155, 86); font-size: x-large;">3</div>
-            <a class="link mt-1" style="font-size: large"
-                (click)="authService.setMembreTargetInLocalStorage(leaderboard[2])" routerLink="/membres">{{leaderboard[2]?.prenom}}</a>
+            <div class="num" style="color: rgb(207, 155, 86); font-size: xx-large;">3</div>
+            <a class="link mt-1" style="font-size: x-large"
+                (click)="authService.setMembreTargetInLocalStorage(leaderboard[2])"
+                routerLink="/membres">{{leaderboard[2]?.prenom}}</a>
             <img src="" alt="" class="photo">
             <p class="points">{{leaderboard[2]?.score}}</p>
         </div>
     </div>
 
     <div class="rest">
-        <div class="others flex" *ngFor="let l of $any(leaderboard | slice: 3) ; let i=index">
-            <div class="rank">
-                <p class="num"> {{i+4}} </p>
-            </div>
-            <div class="info flex">
-                <a class="link" (click)="authService.setMembreTargetInLocalStorage(l)" routerLink="/membres"> {{l?.prenom}} </a>
-                <p class="points"> {{l?.score}} </p>
+        <div class="scrollable">
+            <div class="others flex" *ngFor="let l of $any(leaderboard | slice: 3) ; let i=index">
+                <div class="rank">
+                    <p class="num" style="font-size: large;"> {{i+4}} </p>
+                </div>
+                <div class="info flex">
+                    <a class="link" (click)="authService.setMembreTargetInLocalStorage(l)" routerLink="/membres">
+                        {{l?.prenom}} </a>
+                    <p class="points"> {{l?.score}} </p>
+                </div>
             </div>
         </div>
     </div>
