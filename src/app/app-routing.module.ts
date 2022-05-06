@@ -12,11 +12,8 @@ import { CreationEvenementComponent } from './creation-evenement/creation-evenem
 import { ConnexionadminComponent } from './connexionadmin/connexionadmin.component';
 import { AdminComponent } from './admin/admin.component';
 import { MembresComponent } from './membres/membres.component';
-<<<<<<< HEAD
 import { CommunauteComponent } from './communaute/communaute.component';
 import { ModifierProfilComponent } from './modifier-profil/modifier-profil.component';
-=======
->>>>>>> 475127a5459ba1bcc625153c822237a41b080d90
 
 
 const routes: Routes = [
@@ -32,11 +29,9 @@ const routes: Routes = [
   { component: MesevenementsComponent, path: 'mesevenements' },
   { component: ConnexionadminComponent, path: 'connexionAdmin' },
   { component: AdminComponent, path: 'admin' },
-<<<<<<< HEAD
+  { component: CreationEvenementComponent, path: 'creation-evenement' },
   { component: ModifierProfilComponent, path:'modifier-profil'}
-=======
-  { component: CreationEvenementComponent, path: 'creation-evenement' }
->>>>>>> 475127a5459ba1bcc625153c822237a41b080d90
+  
 ];
 
 
