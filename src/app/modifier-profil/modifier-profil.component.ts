@@ -33,7 +33,7 @@ export class ModifierProfilComponent implements OnInit {
     };
     let id = this.authService.getUserConnect().id;
     console.log(membre);    
-    this.http.post("http://localhost:8082/membre/edit/" + id, membre)
+    this.http.post("http://localhost:8482/membre/edit/" + id, membre)
     .subscribe({
     next: (data) => {
       this.route.navigateByUrl("membres");

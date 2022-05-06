@@ -53,7 +53,7 @@ export class MembresComponent implements OnInit {
   }
 
   setPhotoProfil(id: any, value: any) {
-    this.http.patch('http://localhost:8080/membre/set/photoprofil/' + id, value)
+    this.http.patch('http://localhost:8482/membre/set/photoprofil/' + id, value)
       .subscribe({
         next: (data) => { window.location.reload() },
 
@@ -62,7 +62,7 @@ export class MembresComponent implements OnInit {
   }
 
   callTtEventId() {
-    this.http.get('http://localhost:8080/participants/membres/' + this.authService.getUserConnect().id).subscribe({
+    this.http.get('http://localhost:8482/participants/membres/' + this.authService.getUserConnect().id).subscribe({
       next: (data) => { this.TtEventId = data },
       error: (err) => { console.log(err) }
     });
@@ -70,7 +70,7 @@ export class MembresComponent implements OnInit {
 
   SupprimerEvent(id: any) {
 
-    this.http.delete("http://localhost:8080/Evenements/supprimer/" + id)
+    this.http.delete("http://localhost:8482/Evenements/supprimer/" + id)
       .subscribe({
         next: (data) => { this.result = "Suppression réussie" },
         error: (err) => { console.log(err) }
@@ -79,7 +79,7 @@ export class MembresComponent implements OnInit {
 
   QuitterEvent(id: any) {
 
-    this.http.delete("http://localhost:8080/Participants/supprimer/" + id)
+    this.http.delete("http://localhost:8482/Participants/supprimer/" + id)
       .subscribe({
         next: (data) => { this.result = "Suppression réussie" },
         error: (err) => { console.log(err) }
@@ -92,7 +92,7 @@ export class MembresComponent implements OnInit {
       idM: val.id,
     };
     console.log(invitations);
-    this.http.post("http://localhost:8082/Participant/inviter", invitations).subscribe({
+    this.http.post("http://localhost:8482/Participant/inviter", invitations).subscribe({
       next: (data) => {
         this.resultMessageInvit = "invitation envoyée"
       },

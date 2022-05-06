@@ -48,7 +48,7 @@ export class EvenementsComponent implements OnInit {
 
   callEventByNom(val: any) {
     let nom = val.nom
-    this.http.get("http://localhost:8080/evenements/nom/" + nom).subscribe({
+    this.http.get("http://localhost:8482/evenements/nom/" + nom).subscribe({
 
       next: (data) => { this.EventByNom = data },
       error: (err) => { console.log(err) }
@@ -73,7 +73,7 @@ export class EvenementsComponent implements OnInit {
     })
   }
   callEvenementsAll() {
-    this.http.get('http://localhost:8080/evenements/all')
+    this.http.get('http://localhost:8482/evenements/all')
       .subscribe({
         next: (data) => { this.EvenementsOne = data },
         error: (err) => { console.log(err) }

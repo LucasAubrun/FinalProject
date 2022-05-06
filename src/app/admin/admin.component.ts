@@ -39,7 +39,7 @@ export class AdminComponent implements OnInit {
   setEtatValidationFalse(id: any) {
     let etatvalidation = false;
     console.log(etatvalidation);
-    this.http.patch('http://localhost:8082/activites/set/valide/' + id, etatvalidation)
+    this.http.patch('http://localhost:8482/activites/set/valide/' + id, etatvalidation)
       .subscribe({
         next: (data) => { window.location.reload() },
 
