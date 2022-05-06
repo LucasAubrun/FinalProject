@@ -4,8 +4,6 @@
 }
 
 .card {
-    width: 350px;
-    background-color: #efefef;
     border: none;
     cursor: pointer;
     transition: all 0.5s;
@@ -26,21 +24,21 @@
 }
 
 .name {
-    font-size: 22px;
+    font-size: x-large;
     font-weight: bold
 }
 
 .idd {
-    font-size: 14px;
+    font-size: larger;
     font-weight: 600
 }
 
 .idd1 {
-    font-size: 12px
+    font-size: large
 }
 
 .number {
-    font-size: 22px;
+    font-size: x-large;
     font-weight: bold
 }
 
@@ -51,16 +49,19 @@
 }
 
 .btn1 {
-    height: 40px;
-    width: 150px;
-    border: none;
+    padding: 5px;
+    margin: auto;
+    height: 100%;
+    width: 100%;
+    border: white solid 1px;
+    border-top-right-radius: 2px;
     background-color: #000;
     color: #aeaeae;
-    font-size: 15px
+    font-size: large;
 }
 
 .text span {
-    font-size: 13px;
+    font-size: large;
     color: #545454;
     font-weight: 500
 }

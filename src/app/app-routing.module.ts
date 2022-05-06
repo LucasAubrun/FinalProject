@@ -13,6 +13,7 @@ import { ConnexionadminComponent } from './connexionadmin/connexionadmin.compone
 import { AdminComponent } from './admin/admin.component';
 import { MembresComponent } from './membres/membres.component';
 import { CommunauteComponent } from './communaute/communaute.component';
+import { ModifierProfilComponent } from './modifier-profil/modifier-profil.component';
 
 
 const routes: Routes = [
@@ -30,6 +31,7 @@ const routes: Routes = [
   { component: CommunauteComponent, path: 'communaute'},
   { component: ConnexionadminComponent, path: 'connexionAdmin' },
   { component: AdminComponent, path: 'admin' },
+  { component: ModifierProfilComponent, path:'modifier-profil'}
 ];
 
 

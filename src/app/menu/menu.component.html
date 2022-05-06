@@ -20,9 +20,10 @@
     <div class="collapse navbar-collapse justify-content-between ml-auto" id="navbarToggler">
       <ul class="navbar-nav ml-auto">
         <li class="nav-item">
-          <a class="nav-link active" routerLink="membres" *ngIf="authService.isConnected()">Mon espace</a>
+          <a class="nav-link active" routerLink="membres" *ngIf="authService.isConnected()"
+            (click)="authService.setMembreTargetInLocalStorage(authService.getUserConnect())">Mon espace</a>
         </li>
-        <li class="nav-item">
+        <li class=" nav-item">
           <a class="nav-link" routerLink="communaute">Communauté</a>
         </li>
         <li class="nav-item">
@@ -35,7 +36,7 @@
         </li>
         <li class="nav-item">
           <a class="nav-link" routerLink="evenement">Évènement</a>
-        </li> 
+        </li>
         <li class="nav-item">
           <a class="nav-link" routerLink="activites">Activités</a>
         </li>
