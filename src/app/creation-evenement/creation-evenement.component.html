@@ -1,8 +1,6 @@
 <!--                       Creation évenement                              -->
 <br><br><br><br><br>
 
-<a class="nav-link" routerLink="/creation-evenement">Creation d'un evenement</a>
-<a class="nav-link" routerLink="/mesevenements">Mes évenements</a>
 
 <!-- END NAV -->
 <!--<div class="card z-depth-5">
@@ -32,23 +30,83 @@
 </head>
 
 <body>
-    <div class="testbox">
-        <form #EvenementForm="ngForm" (ngSubmit)="creerEvent(EvenementForm.value)">
-            <div class="banner">
-                <h1>Propose un nouvel évenement à mettre dans notre base de données !</h1>
+
+    <div class="col-md-6">
+        <ul class="nav peach-gradient lighten-3 py-4 mb-4 font-weight-bold z-depth-1">
+          <li class="nav-item col-md-9 mx-auto">
+            <div class="card mx-xl-5">
+      
+              <!-- Card body -->
+              <div class="card-body">
+      
+                <!-- Default form subscription -->
+                <form #EvenementForm="ngForm" (ngSubmit)="creerEvent(EvenementForm.value)">
+                  <p class="h4 text-center py-4">Création d'un évènement</p>
+      
+                  <!-- Default input name -->
+                  <div class=md-form>
+                  <label for="defaultFormCardNameEx" class="grey-text font-weight-light">Nom de l'évènement*</label>
+                  <input type="text" name="nom" placeholder="Donne un nom à ton évènement." class="form-control" ngModel="" required>
+                </div>
+                <div class=md-form>
+                  <label for="defaultFormCardNameEx" class="grey-text font-weight-light">Date*</label>
+                  <input type="date" name="date" placeholder="jj/mm/aaaa" class="form-control" ngModel="" required>
+                </div>
+                <div class=md-form>
+                  <label for="defaultFormCardNameEx" class="grey-text font-weight-light">Adresse*</label>
+                  <input type="text" name="adresse" placeholder="Où se déroulera l'évènement." class="form-control" ngModel="" required>
+                </div>
+                <div class=md-form>
+                  <label for="defaultFormCardNameEx" class="grey-text font-weight-light">Activité*</label>
+                  <input type="text" name="activite" placeholder="à mettre" class="form-control" ngModel="" required>
+                </div>
+
+
+                <div class=md-form>
+                  <label for="defaultFormCardNameEx" class="grey-text font-weight-light">Description</label>
+                  <input type="text"  name="description" placeholder="Description" class="form-control" ngModel="">
+                </div>
+                <div class=md-form>
+                  <label for="defaultFormCardNameEx" class="grey-text font-weight-light">Nombre de joueurs minimums</label>
+                  <input type="number" name="nbmin" min="1" placeholder="Nombre de joueurs minimums." class="form-control" ngModel="">
+                </div>
+                <div class=md-form>
+                  <label for="defaultFormCardNameEx" class="grey-text font-weight-light">Nombre de joueurs maximum</label>
+                  <input type="number" name="nbmax" min="1" placeholder="Nombre de joueurs maximum." class="form-control" ngModel="">
+                </div>
+                
+                <div class="md-form">
+                    <label for="exampleFormControlSelect1" class="abc">Niveau</label>
+                    <select class="form-control" name="niveau" id="exampleFormControlSelect1" ngModel="">
+                      <option>Débutant</option>
+                      <option>Intérmediaire</option>
+                      <option>Expert</option>
+                      <option>Autre (à préciser en description)</option>
+                      
+                    </select>
+                  </div>
+                  
+                  <div class="text-center py-4 mt-3">
+                    <button class="btn btn-danger btn-block" type="submit" [disabled]="!EvenementForm.form.valid">Valider l'évènement<i
+                        class="fa fa-paper-plane-o ml-1"></i></button>
+                        <p class="result" [style.color]="resultColor">{{resultMessage}}</p>
+                  </div>
+                  
+                </form>
+                <!-- Default form subscription -->
+      
+              </div>
+              <!-- Card body -->
+      
             </div>
-            <div class="item">
-                <br><br>
-                <input type="text" id="fcom" name="nom" size="25" ngModel="" placeholder="Nom de l'évenement" />
-            </div>
-            <div class="item">
-                <br><br>
-                <input type="date" id="fcom" name="date" size="25" ngModel="" placeholder="Date" />
-            </div>
-            <div class="item">
-                <br><br>
-                <input type="text" id="fcom" name="nom" size="25" ngModel="" placeholder="Adresse" />
-            </div>
+          </li>
+          </ul>
+    </div>
+
+
+
+
+<!--
             <div class="item">
                 <br><br>
                 <select name="type" id="fcom" ngModel="">
@@ -88,8 +146,7 @@
             </div>
             <div class="mt-4" style="text-align :center">
                 <button mat-raised-button color="primary">Validez la création de l'évenement</button>
-                <!--le boutton a l'activation recupere le nom du mec connecté, qui vient prendre la place de evenement.createur-->
-            </div>
-        </form>
-    </div>
+               le boutton a l'activation recupere le nom du mec connecté, qui vient prendre la place de evenement.createur
+            </div>-->
+     
 </body>

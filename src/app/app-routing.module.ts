@@ -22,7 +22,7 @@ const routes: Routes = [
   { component: ConnexionComponent, path: 'connexion' },
   { component: InscriptionComponent, path: 'inscription' },
   { component: MembresComponent, path: 'membres' },
-  { path: '', redirectTo: '/connexion', pathMatch: 'full' },
+  { path: '', redirectTo: '/home', pathMatch: 'full' },
   { component: EvenementsComponent, path: "evenement" },
   { component: MesevenementsComponent, path: 'mesevenements' },
   { component: ConnexionadminComponent, path: 'connexionAdmin' },
