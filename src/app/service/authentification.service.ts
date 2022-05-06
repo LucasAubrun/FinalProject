@@ -36,7 +36,7 @@ export class AuthentificationService {
   }
 
   deconnexion() {
-    localStorage.clear();
+    localStorage.clear(); 
     this.route.navigateByUrl('');
   }
  

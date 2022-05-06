@@ -12,8 +12,11 @@ import { CreationEvenementComponent } from './creation-evenement/creation-evenem
 import { ConnexionadminComponent } from './connexionadmin/connexionadmin.component';
 import { AdminComponent } from './admin/admin.component';
 import { MembresComponent } from './membres/membres.component';
+<<<<<<< HEAD
 import { CommunauteComponent } from './communaute/communaute.component';
 import { ModifierProfilComponent } from './modifier-profil/modifier-profil.component';
+=======
+>>>>>>> 475127a5459ba1bcc625153c822237a41b080d90
 
 
 const routes: Routes = [
@@ -24,14 +27,16 @@ const routes: Routes = [
   { component: ConnexionComponent, path: 'connexion' },
   { component: InscriptionComponent, path: 'inscription' },
   { component: MembresComponent, path: 'membres' },
-  { path: '', redirectTo: '/connexion', pathMatch: 'full' },
+  { path: '', redirectTo: '/home', pathMatch: 'full' },
   { component: EvenementsComponent, path: "evenement" },
   { component: MesevenementsComponent, path: 'mesevenements' },
-  { component: CreationEvenementComponent, path: 'creation-evenement' },
-  { component: CommunauteComponent, path: 'communaute'},
   { component: ConnexionadminComponent, path: 'connexionAdmin' },
   { component: AdminComponent, path: 'admin' },
+<<<<<<< HEAD
   { component: ModifierProfilComponent, path:'modifier-profil'}
+=======
+  { component: CreationEvenementComponent, path: 'creation-evenement' }
+>>>>>>> 475127a5459ba1bcc625153c822237a41b080d90
 ];
 
 

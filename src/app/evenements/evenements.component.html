@@ -3,6 +3,7 @@
 <!-- END NAV -->
 
 
+
 <section class="intro">
     <div class="bg-image h-100" style="
             background-image: url(https://mdbootstrap.com/img/Photos/new-templates/search-box/img5.jpg);
@@ -10,17 +11,65 @@
         <div class="mask d-flex align-items-center h-100" style="background-color: rgba(0,0,0, 0.5);">
             <div class="container">
                 <div class="card">
-                    <div class="card-body p-4">
+                    <div class="card-body p-6">
                         <div class="row">
                             <div class="col-12 mb-4">
+                                <ul class="navbar-nav ml-auto"></ul>
+                                <li class="nav-item">
+                                    <a class="nav-link active" routerLink="/creation-evenement">Creer evenement</a>
+                                </li>
                                 <div class="input-group">
-                                    <div class="form-outline flex-fill">
-                                        <input type="search" id="form1" class="form-control form-control-lg" />
-                                        <label class="form-label" for="form1">Trouver un évenement par son nom</label>
-                                    </div>
-                                    <button type="button" class="btn btn-primary" (click)="callEventByNom()">
-                                        <i class="fas fa-search"></i>
-                                    </button>
+                                    <form #nomForm="ngForm" (ngSubmit)="callEventByNom(nomForm.value)">
+                                        <div>
+                                            <input type="text" name="nom" id="search" placeholder="search"
+                                                class="form-control" ngModel="">
+                                        </div>
+
+                                        <div class="my-4 shadow rounded-lg overflow-hidden">
+                                            <table class="items min-w-full leading-normal"></table>
+                                        </div>
+                                        <button type="submit">Rechercher<i
+                                                class="fa fa-paper-plane-o ml-1"></i></button>
+                                        <ul class="cards">
+                                            <li *ngFor="let eN of EventByNom">
+                                                <!--<div *ngIf="e.valide==true">-->
+                                                <a href="" class="card">
+                                                    <img src="https://i.imgur.com/oYiTqum.jpg" class="card__image"
+                                                        alt="" />
+                                                    <div class="card__overlay">
+                                                        <div class="card__header">
+                                                            <svg class="card__arc">
+                                                                <path />
+                                                            </svg>
+                                                            <div class="card__header-text">
+                                                                <h3 class="card__title">{{eN.nom}}</h3>
+                                                                <span class="card__status">{{eN.date}}</span>
+                                                                <p>
+                                                                </p>
+                                                                <span class="card__status">{{eN.adresse}}</span>
+                                                                <p>
+                                                                </p>
+                                                                <span class="card__status">{{eN.recurrence}}</span>
+                                                                <p>
+                                                                </p>
+                                                                <span class="card__status">{{eN.niveau}}</span>
+                                                                <p>
+                                                                </p>
+                                                                <span
+                                                                    class="card__status">{{eN.nbmin}}/{{eN.nbmax}}</span>
+                                                                <p>
+                                                                </p>
+                                                                <span class="card__status">{{eN.nomActivite}}</span>
+                                                            </div>
+                                                        </div>
+                                                        <p class="card__description">{{eN.description}}</p>
+                                                    </div>
+                                                </a>
+                                                <!-- </div> -->
+
+                                            </li>
+                                        </ul>
+                                    </form>
                                 </div>
                             </div>
                         </div>
@@ -31,10 +80,11 @@
     </div>
 </section>
 
+
 <br><br>
 
-<div class="card" style="width: 18rem;">
-    <div class="col-mv-12" *ngFor="let e of EventRandId">
+<!--<div class="card" style="width: 18rem;">
+    <div class="col-mv-12" *ngFor="let e of ListEventRandId">
         <img src="https://mdbcdn.b-cdn.net/img/new/standard/city/062.webp" class="card-img-top"
             alt="Chicago Skyscrapers" />
         <div class="card-body">
@@ -53,4 +103,42 @@
             </button>
         </div>
     </div>
-</div>
+</div>-->
+
+<ul class="cards">
+    <li *ngFor="let e of EvenementsOne">
+        <!--<div *ngIf="e.valide==true">-->
+        <a href="" class="card">
+            <img src="https://i.imgur.com/oYiTqum.jpg" class="card__image" alt="" />
+            <div class="card__overlay">
+                <div class="card__header">
+                    <svg class="card__arc">
+                        <path />
+                    </svg>
+                    <div class="card__header-text">
+                        <h3 class="card__title">{{e.nom}}</h3>
+                        <span class="card__status">{{e.date}}</span>
+                        <p>
+                        </p>
+                        <span class="card__status">{{e.adresse}}</span>
+                        <p>
+                        </p>
+                        <span class="card__status">{{e.recurrence}}</span>
+                        <p>
+                        </p>
+                        <span class="card__status">{{e.niveau}}</span>
+                        <p>
+                        </p>
+                        <span class="card__status">{{e.nbmin}}/{{e.nbmax}}</span>
+                        <p>
+                        </p>
+                        <span class="card__status">{{e.nomActivite}}</span>
+                    </div>
+                </div>
+                <p class="card__description">{{e.description}}</p>
+            </div>
+        </a>
+        <!-- </div> -->
+
+    </li>
+</ul>

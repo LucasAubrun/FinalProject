@@ -1,5 +1,6 @@
 <p>connexionadmin works!</p>
 
+<!--
 <div class="card z-depth-5 mx-auto w-25" style="margin-top:150px">
     <div class="card-body mx-auto">
         <form #connexionForm="ngForm" (ngSubmit)="connecterAdmin(connexionForm.value)">
@@ -11,4 +12,23 @@
             </div>
         </form>
     </div>
+</div>
+-->
+
+
+<div class="main-block" style="margin-top: 150px">
+    <h1>Connexion Admin</h1>
+    <form #connexionForm="ngForm" (ngSubmit)="connecterAdmin(connexionForm.value)">
+        <hr>
+        <label id="icon" for="nom"><i class="fas fa-user"></i></label>
+        <input id="nom" type="text" name="mail" placeholder="Adresse mail" required ngModel="">
+
+        <label id="icon" for="nom"><i class="fas fa-user"></i></label>
+        <input type="password" name="mdp" placeholder="Mot de passe" required ngModel="">
+
+        <div class="btn-block">
+            <button type="submit" class="btn btn-primary z-depth-1">Connexion</button>
+            <p class="mt-3" [style.color]="resultColor">{{resultMessage}}</p>
+        </div>
+    </form>
 </div>

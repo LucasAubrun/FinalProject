@@ -8,8 +8,9 @@ import { HttpClient } from '@angular/common/http';
 })
 export class CreationEvenementComponent implements OnInit {
 
-  baseURL: string = "http://localhost:8282/";
-  result: string = "";
+  baseURL: string = "http://localhost:8082/";
+  resultMessage: string = "";
+  resultColor: string = "";
 
   constructor(private http: HttpClient) { }
 
@@ -24,7 +25,7 @@ export class CreationEvenementComponent implements OnInit {
       adresse: val.adresse,
       recurrence: val.recurrence,
       niveau: val.niveau,
-      description: val.decription,
+      description: val.description,
       nbmin: val.nbmin,
       nbmax: val.nbmax,
       nomActivite: val.nomActivite,
@@ -33,9 +34,13 @@ export class CreationEvenementComponent implements OnInit {
 
     this.http.post("http://localhost:8080/Evenements/save", event)
       .subscribe({
-        next: (data) => { this.result = "Creation réussie" },
+        next: (data) => {
+          this.resultMessage = "Évènement créé avec succès.";
+          this.resultColor = "green";
+        },
         error: (err) => { console.log(err) }
       })
     console.log(event)
   }
 }
+

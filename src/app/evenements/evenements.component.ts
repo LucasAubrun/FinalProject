@@ -1,5 +1,5 @@
 import { HttpClient } from '@angular/common/http';
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-evenements',
@@ -18,26 +18,16 @@ export class EvenementsComponent implements OnInit {
   resultMessageInvit: any;
   errorInvit: any;
   joinEv: any;
+  EvenementsOne: any;
+  p: any;
 
   constructor(private http: HttpClient) { }
 
   ngOnInit(): void {
-    this.callEventRandId();
+    //this.callEventRandId();
+    //this.callEventRandAll();
+    //this.callEvenementsAll();
   }
-
-  // callEventRandId() {
-  //  this.http.get("http://localhost:8080/evenements/id").subscribe({
-
-  //   next: (data) => { this.EventRandId = data },
-  //   error: (err) => { console.log(err) }
-  // });
-  //}
-
-  // callListEventRandId() {
-  //   for(let nombre = 0; nombre <=10; nombre++) {
-  //       this.ListEventRandId 
-  //   }
-  // }
 
   callEventRandId() {
     this.http.get("http://localhost:8080/evenements/id").subscribe({
@@ -47,12 +37,25 @@ export class EvenementsComponent implements OnInit {
     });
   }
 
-  callEventByNom() {
-    this.http.get("evenements/{nom}").subscribe({
+  //callEventRandAll() {
+  //  this.http.get("http://localhost:8080/evenement/multiple").subscribe({
+
+  //   next: (data) => { this.ListEventRandId = data },
+  //   error: (err) => { console.log(err) }
+  //});
+  // }
+
+
+  callEventByNom(val: any) {
+    let nom = val.nom
+    this.http.get("http://localhost:8080/evenements/nom/" + nom).subscribe({
 
       next: (data) => { this.EventByNom = data },
       error: (err) => { console.log(err) }
+
     });
+    //console.log(this.p)
+    //console.log(Object.values(this.p));
   }
 
   RejoindreEvent(val: any) {
@@ -69,6 +72,13 @@ export class EvenementsComponent implements OnInit {
       }
     })
   }
+  callEvenementsAll() {
+    this.http.get('http://localhost:8080/evenements/all')
+      .subscribe({
+        next: (data) => { this.EvenementsOne = data },
+        error: (err) => { console.log(err) }
+      });
 
+  }
 
 }
