@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { UrlService } from '../service/url.service';
 
 
 
@@ -10,7 +11,10 @@ import { HttpClient } from '@angular/common/http';
 })
 export class NewactiviteComponent implements OnInit {
 
-  constructor(private http: HttpClient) { }
+  constructor(
+    private http: HttpClient,
+    private url: UrlService,
+    ) { }
 
   ngOnInit(): void {
   }
@@ -23,7 +27,7 @@ export class NewactiviteComponent implements OnInit {
       type: val.type,
       valide: false
     }
-    this.http.post('http://localhost:8482/activites/save', activite)
+    this.http.post(this.url.baseURL+"activites/save", activite)
       .subscribe({
         next: (data) => { window.location.reload() },
         error: (err) => { console.log(err) }

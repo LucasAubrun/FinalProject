@@ -17,7 +17,7 @@ export class AdminComponent implements OnInit {
   }
 
   callActivitesAll() {
-    this.http.get('http://localhost:8482/activites/all')
+    this.http.get('http://localhost:8080/activites/all')
       .subscribe({
         next: (data) => { this.activitesOne = data, console.log(data) },
 
