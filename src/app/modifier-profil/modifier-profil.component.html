@@ -1,1 +1,40 @@
-<p>modifier-profil works!</p>
+<div class="container mx-auto p-3 d-flex justify-content-center" style="margin-top: 120px">
+    <div class="card mx-auto p-4 aqua-gradient-rgba">
+        <form #profilForm="ngForm" (ngSubmit)="modifierProfil(profilForm.value)">
+            <div class="image d-flex flex-column justify-content-center align-items-center" style="font-size: larger;">
+
+                Nom*
+                <input class="mb-3" type="text" name="nom" ngModel="{{authService.getUserConnect().nom}}" required>
+
+                Prénom*
+                <input class="mb-3" type="text" name="prenom" ngModel="{{authService.getUserConnect().prenom}}"
+                    required>
+
+                Adresse e-mail*
+                <input class="mb-3" type="text" name="mail" required ngModel="{{authService.getUserConnect().mail}}">
+
+                Date de naissance*
+                <input class="mb-3 w-100" type="date" name="dateNaissance"
+                    ngModel="" required>
+
+                Description
+                <textarea class="mb-3 w-100" type="text" name="description"
+                    ngModel="{{authService.getUserConnect().note}}" style="font-size: medium;"></textarea>
+
+                Mot de passe*
+                <input class="mb-3 w-100" type="password" name="mdp" ngModel="{{authService.getUserConnect().mdp}}"
+                    required>
+
+                <div class="text-center" style="width: 150px;">
+                    <p [style.color]="resultColor">{{resultMessage}}</p>
+                    <p class="text-danger mt-3" style="width: fit-content;" *ngIf="!profilForm.form.valid">Veuillez remplir tous les champs
+                        obligatoires</p>
+                </div>
+
+                <div class="d-flex mt-2">
+                    <button type="submit" class="btn1 btn-dark text-white" [disabled]="!profilForm.form.valid">Valider</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
