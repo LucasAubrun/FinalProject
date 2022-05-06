@@ -11,7 +11,7 @@ import { AuthentificationService } from '../service/authentification.service';
 })
 export class ConnexionComponent implements OnInit {
 
-  baseURL: string = "http://localhost:8482/";
+  baseURL: string = "http://localhost:8082/";
   resultMessage: string = "";
   resultColor: string = "red";
   membre: any;
@@ -36,6 +36,7 @@ export class ConnexionComponent implements OnInit {
           this.membre = data;
           if (this.membre != null) {
             this.authentificationService.setUserInLocalStorage(this.membre)
+            this.authentificationService.setMembreTargetInLocalStorage(this.membre)
             console.log(data);
             this.resultMessage = "";
             this.route.navigateByUrl("membres");

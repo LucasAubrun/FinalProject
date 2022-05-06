@@ -32,7 +32,7 @@ export class MembresComponent implements OnInit {
   }
 
   callMembrePP(id: any) {
-    this.http.get('http://localhost:808/membre/photoprofil/' + id)
+    this.http.get('http://localhost:8082/membre/photoprofil/' + id)
       .subscribe({
         next: (data) => { this.membrePP = data, console.log(data) },
 
