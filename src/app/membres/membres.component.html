@@ -1,17 +1,16 @@
-<div>
-    <div class="container mx-auto p-3 d-flex justify-content-center w-75" style=" margin-top: 120px">
-        <div class="card p-5 aqua-gradient-rgba w-50" style="margin-right: 10% ;">
-            <div class="image d-flex flex-column justify-content-center align-items-center">
-                <button class="btn" type="button" (click)="popup = true">
-                    <div>
-                        <img class="pp1" *ngIf="membrePP==1" src="profil1.png" height="100" width="100" />
-                        <img class="pp2" *ngIf="membrePP==2" src="profil2.png" height="100" width="100" />
-                        <img class="pp3" *ngIf="membrePP==3" src="profil3.png" height="100" width="100" />
-                        <img class="pp4" *ngIf="membrePP==4" src="profil4.png" height="100" width="100" />
-                        <img class="pp5" *ngIf="membrePP==5" src="profil5.png" height="100" width="100" />
-                    </div>
-                </button>
-            <span class="name mt-3">{{authService.getMembreTargeted().prenom}}
+<div class="container mx-auto p-3 d-flex justify-content-center w-100" style=" margin-top: 120px">
+    <div class="card p-5 aqua-gradient-rgba w-25">
+        <div class="image d-flex flex-column justify-content-center align-items-center">
+            <button class="btn" type="button" (click)="popup = true">
+                <div>
+                    <img class="pp1" *ngIf="membrePP==1" src="profil1.png" height="100" width="100" />
+                    <img class="pp2" *ngIf="membrePP==2" src="profil2.png" height="100" width="100" />
+                    <img class="pp3" *ngIf="membrePP==3" src="profil3.png" height="100" width="100" />
+                    <img class="pp4" *ngIf="membrePP==4" src="profil4.png" height="100" width="100" />
+                    <img class="pp5" *ngIf="membrePP==5" src="profil5.png" height="100" width="100" />
+                </div>
+            </button>
+            <span class="name mt-3 text-center">{{authService.getMembreTargeted().prenom}}
                 {{authService.getMembreTargeted().nom}}</span>
             <span class="idd">{{authService.getMembreTargeted().mail}}</span>
             <div class="d-flex flex-row justify-content-center align-items-center gap-2">
@@ -36,52 +35,95 @@
                 <button class="btn1 btn-dark text-white" (click)="openDialog()">Envoyer un message</button>
             </div>
         </div>
-
-        <div class="card mx-auto p-5 blue-gradient-rgba w-100">
-            <h1>Mes évènements</h1>
-           <br>
-            <table class="table">
-
-                <div class="col-mv-12" *ngFor="let e of TtEventId">
-
-                    <tbody>
-                        <tr>
-                            <th>{{e.evenements.nom}}</th>
-                            <td>{{e.evenements.adresse}}</td>
-                            <td>{{e.evenements.date}}</td>
-                            <td>{{e.evenements.description}}</td>
-                            <td>
-                                <div class=" btndelete btn-link btn-sm btn-rounded"
-                                    *ngIf="authService.getMembreTargeted().id == authService.getUserConnect().id">
-                                    <button type="button" class="btndelete btn-link btn-sm "
-                                        (click)="SupprimerEvent(e.evenements.id)">
-                                        <i class="fas fa-trash"></i>
-                                    </button>
-                                </div>
-                            </td>
-                            <td>
-                                <!--Mettre un if pour savoir si l'id du mec est connecté est le meme que celui du créateur(else)-->
-                                <div class=" btndelete btn-link btn-sm btn-rounded"
-                                    *ngIf="!(authService.getMembreTargeted().id == authService.getUserConnect().id)">
-                                    <button type="button" class="btndelete btn-link btn-sm btn-rounded "
-                                        (click)="QuitterEvent(e.evenements.id)">
-
-                                        <i class="fa fa-sign-out" aria-hidden="true"></i>
-                                    </button>
-                                </div>
-                            </td>
-
-                        </tr>
-
-                    </tbody>
-
-                </div>
-            </table>
-        </div>
+    </div>
 
 
+    <div class="card mx-auto p-5 blue-gradient-rgba w-25">
+        <h1>Évènements</h1>
+        <br>
+        <table class="table">
+
+            <div class="col-mv-12" *ngFor="let e of TtEventId">
+
+                <tbody>
+                    <tr>
+                        <th>{{e.evenements.nom}}</th>
+                        <td>{{e.evenements.adresse}}</td>
+                        <td>{{e.evenements.date}}</td>
+                        <td>{{e.evenements.description}}</td>
+                        <td>
+                            <div class=" btndelete btn-link btn-sm btn-rounded"
+                                *ngIf="authService.getMembreTargeted().id == authService.getUserConnect().id">
+                                <button type="button" class="btndelete btn-link btn-sm "
+                                    (click)="SupprimerEvent(e.evenements.id)">
+                                    <i class="fas fa-trash"></i>
+                                </button>
+                            </div>
+                        </td>
+                        <td>
+                            <!--Mettre un if pour savoir si l'id du mec est connecté est le meme que celui du créateur(else)-->
+                            <div class=" btndelete btn-link btn-sm btn-rounded"
+                                *ngIf="!(authService.getMembreTargeted().id == authService.getUserConnect().id)">
+                                <button type="button" class="btndelete btn-link btn-sm btn-rounded "
+                                    (click)="QuitterEvent(e.evenements.id)">
+
+                                    <i class="fa fa-sign-out" aria-hidden="true"></i>
+                                </button>
+                            </div>
+                        </td>
+
+                    </tr>
+
+                </tbody>
+
+            </div>
+        </table>
+    </div>
+
+    <div class="card mx-auto p-5 peach-gradient-rgba w-25"
+        *ngIf="!(authService.getMembreTargeted().id == authService.getUserConnect().id)">
+        <h1>Messages</h1>
+        <br>
+        <table class="table">
+
+            <div class="col-mv-12" *ngFor="let e of TtEventId">
+
+                <tbody>
+                    <tr>
+                        <th>{{e.evenements.nom}}</th>
+                        <td>{{e.evenements.adresse}}</td>
+                        <td>{{e.evenements.date}}</td>
+                        <td>{{e.evenements.description}}</td>
+                        <td>
+                            <div class=" btndelete btn-link btn-sm btn-rounded"
+                                *ngIf="authService.getMembreTargeted().id == authService.getUserConnect().id">
+                                <button type="button" class="btndelete btn-link btn-sm "
+                                    (click)="SupprimerEvent(e.evenements.id)">
+                                    <i class="fas fa-trash"></i>
+                                </button>
+                            </div>
+                        </td>
+                        <td>
+                            <!--Mettre un if pour savoir si l'id du mec est connecté est le meme que celui du créateur(else)-->
+                            <div class=" btndelete btn-link btn-sm btn-rounded"
+                                *ngIf="!(authService.getMembreTargeted().id == authService.getUserConnect().id)">
+                                <button type="button" class="btndelete btn-link btn-sm btn-rounded "
+                                    (click)="QuitterEvent(e.evenements.id)">
+
+                                    <i class="fa fa-sign-out" aria-hidden="true"></i>
+                                </button>
+                            </div>
+                        </td>
+
+                    </tr>
+
+                </tbody>
+
+            </div>
+        </table>
     </div>
 </div>
+
 
 
 <div class="overlay" *ngIf="popup">
