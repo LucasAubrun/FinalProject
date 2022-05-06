@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthentificationService } from '../service/authentification.service';
+import { UrlService } from '../service/url.service';
 
 @Component({
   selector: 'app-connexion',
@@ -20,7 +21,8 @@ export class ConnexionComponent implements OnInit {
   constructor(
     private http: HttpClient,
     private route: Router,
-    private authentificationService: AuthentificationService
+    private authentificationService: AuthentificationService,
+    private url: UrlService
   ) { }
 
   ngOnInit(): void {
@@ -30,7 +32,7 @@ export class ConnexionComponent implements OnInit {
   }
 
   connexion() {
-    this.http.post(this.baseURL + "membre/get", this.user)
+    this.http.post(this.url.baseURL+"membre/get", this.user)
       .subscribe({
         next: (data) => {
           this.membre = data;

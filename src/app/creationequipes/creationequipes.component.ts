@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthentificationService } from '../service/authentification.service';
 import { EquipeService } from '../service/equipe.service';
+import { UrlService } from '../service/url.service';
 
 @Component({
   selector: 'app-creationequipes',
@@ -12,20 +13,22 @@ import { EquipeService } from '../service/equipe.service';
 export class CreationequipesComponent implements OnInit {
 
   //♦♣♦♣♦♣♦♣♦♣ création de variable ♦♣♦♣♦♣♦♣♦♣//
-  baseURL: string = "http://localhost:8082/";
+  baseURL: string = "http://localhost:8482/";
   resultMessage: string = " ";
   resultColor: string = " ";
   EquipesId1: any;
   TtEquipeId: any;
   EquipeActuelle: any;
   equipe: any;
+  LesMembres: any; //a supprimer
 
   //♦♣♦♣♦♣♦♣♦♣ fin création de variable ♦♣♦♣♦♣♦♣♦♣//
 
   constructor(private http: HttpClient,
     public authentificationService: AuthentificationService,
     public equipeservice: EquipeService,
-    private route: Router) { }
+    private route: Router,
+    private url: UrlService) { }
 
   /*
       goSurEquipe(){
@@ -45,6 +48,8 @@ export class CreationequipesComponent implements OnInit {
   ngOnInit(): void {
     this.callEquipeId1();
     this.callTtEquipeId();
+
+    this.callMember();//a supprimer
     /*
     this.goSurEquipe2();*/
   }
@@ -53,7 +58,7 @@ export class CreationequipesComponent implements OnInit {
 
 
   callEquipeId1() {
-    this.http.get(this.baseURL + "equipes/membres/" + this.authentificationService.getUserConnect().id).subscribe({
+    this.http.get(this.url.baseURL + "equipes/membres/" + this.authentificationService.getUserConnect().id).subscribe({
       next: (data) => { this.EquipesId1 = data },
       error: (err) => { console.log(err) }
     });
@@ -73,7 +78,7 @@ export class CreationequipesComponent implements OnInit {
   //  }
 
   callTtEquipeId() {
-    this.http.get(this.baseURL + "associations/membres/" + this.authentificationService.getUserConnect().id).subscribe({
+    this.http.get(this.url.baseURL + "associations/membres/" + this.authentificationService.getUserConnect().id).subscribe({
       next: (data) => {
         this.TtEquipeId = data;
         if (this.equipe != null) {
@@ -101,7 +106,7 @@ export class CreationequipesComponent implements OnInit {
       },
     };
     console.log(equipe);
-    this.http.post(this.baseURL + "equipes", equipe)
+    this.http.post(this.url.baseURL + "equipes", equipe)
       .subscribe({
         next: (data) => {
           this.equipe = data;
@@ -122,33 +127,43 @@ export class CreationequipesComponent implements OnInit {
           else
             this.resultMessage = "Une erreur s'est produite"
           this.resultColor = "red";
-          //         if (this.equipe != null){
-          //           this.equipeservice.setEquipe(this.equipe)
-          //          console.log(data);
-
-
-          //        }
         }
-
-
       });
 
-      let asso = {
-        "membres": {
-          "id": this.authentificationService.getUserConnect().id
-        },
-          "equipes": {
-          "id": this.equipeservice.getEquipe().id
-        }
+  }
+  //♦♣♦♣♦♣♦♣♦♣ association ♦♣♦♣♦♣♦♣♦♣//
+
+
+
+
+  association() {
+    let asso = {
+      "membres": {
+        "id": this.authentificationService.getUserConnect().id
+      },
+      "equipes": {
+        "id": this.equipeservice.getEquipe().id
       }
-      console.log(asso);
-    this.http.post(this.baseURL + "inviter", asso).subscribe({
+    }
+    console.log(asso);
+    this.http.post(this.url.baseURL + "associations/inviter", asso).subscribe({
       next: (data) => { },
       error: (err) => { console.log(err) }
     })
       ;
   }
 
+  //♦♣♦♣♦♣♦♣♦♣ association ♦♣♦♣♦♣♦♣♦♣//
+
+
+  //♦♣♦♣♦♣♦♣♦♣ a supprimer ♦♣♦♣♦♣♦♣♦♣//
+  callMember() {
+    this.http.get(this.url.baseURL + "associations/equipe/" + this.equipeservice.getEquipe().id).subscribe({
+      next: (data) => { this.LesMembres = data },
+      error: (err) => { console.log(err) }
+    });
+  }
+  //♦♣♦♣♦♣♦♣♦♣ a supprimer ♦♣♦♣♦♣♦♣♦♣//
 
   //♦♣♦♣♦♣♦♣♦♣ fin création d'équipe ♦♣♦♣♦♣♦♣♦♣//
 
