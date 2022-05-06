@@ -24,6 +24,14 @@
     margin: 20px;
     background-color: #d7eaf1;
 }
+.btndelete {
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+    margin: 0px;
+    background-color: #f42a18;
+}
+
 
 .name {
     font-size: x-large;
@@ -41,7 +49,8 @@
 
 .number {
     font-size: x-large;
-    font-weight: bold
+    font-weight: bold;
+    text-align: center;
 }
 
 .follow {
@@ -174,3 +183,4 @@ hr .new1 {
         width: 70%;
     }
 }
+

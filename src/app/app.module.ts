@@ -25,6 +25,8 @@ import { ModifierProfilComponent } from './modifier-profil/modifier-profil.compo
 import { MatDialogModule } from '@angular/material/dialog';
 import { MessagerieComponent } from './messagerie/messagerie.component';
 import { BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import { PolitiqueComponent } from './politique/politique.component';
+
 
 @NgModule({
   declarations: [
@@ -50,6 +52,7 @@ import { BrowserAnimationsModule} from '@angular/platform-browser/animations';
     CommunauteComponent,
     ModifierProfilComponent,
     MessagerieComponent,
+    PolitiqueComponent
   ],
   imports: [
     ReactiveFormsModule,
