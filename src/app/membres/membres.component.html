@@ -1,126 +1,125 @@
-<div class="container mx-auto p-3 d-flex justify-content-center w-100" style=" margin-top: 120px">
-    <div class="card p-5 aqua-gradient-rgba w-25">
-        <div class="image d-flex flex-column justify-content-center align-items-center">
-            <button class="btn" type="button" (click)="popup = true">
-                <div>
-                    <img class="pp1" *ngIf="membrePP==1" src="profil1.png" height="100" width="100" />
-                    <img class="pp2" *ngIf="membrePP==2" src="profil2.png" height="100" width="100" />
-                    <img class="pp3" *ngIf="membrePP==3" src="profil3.png" height="100" width="100" />
-                    <img class="pp4" *ngIf="membrePP==4" src="profil4.png" height="100" width="100" />
-                    <img class="pp5" *ngIf="membrePP==5" src="profil5.png" height="100" width="100" />
+<div class="container-fluid" style=" margin-top: 120px">
+    <h1 class="ml-5 mb-5 text-info" style="font-weight: bold;">Mon espace</h1>
+    <div class="row mb-5">
+        <div class="col-md-1"></div>
+        <div class="card p-5 aqua-gradient-rgba col-md-3">
+            <div class="image d-flex flex-column justify-content-center align-items-center">
+                <button class="btn btn-pp" type="button" (click)="popup = true"
+                    style="height:180px; width:180px; margin:0;">
+                    <div>
+                        <img class="pp1" *ngIf="membrePP==1" src="profil1.png" height="100" width="100"
+                            style="height:180px; width:180px" />
+                        <img class="pp2" *ngIf="membrePP==2" src="profil2.png" height="100" width="100"
+                            style="height:180px; width:180px" />
+                        <img class="pp3" *ngIf="membrePP==3" src="profil3.png" height="100" width="100"
+                            style="height:180px; width:180px" />
+                        <img class="pp4" *ngIf="membrePP==4" src="profil4.png" height="100" width="100"
+                            style="height:180px; width:180px" />
+                        <img class="pp5" *ngIf="membrePP==5" src="profil5.png" height="100" width="100"
+                            style="height:180px; width:180px" />
+                    </div>
+                </button>
+                <span class="name mt-3 text-center">{{authService.getMembreTargeted().prenom}}
+                    {{authService.getMembreTargeted().nom}}</span>
+                <span class="idd">{{authService.getMembreTargeted().mail}}</span>
+                <div class="d-flex flex-row justify-content-center align-items-center gap-2">
+                    <span class="idd1">{{authService.getMembreTargeted().dateNaissance | date : 'dd/MM/yyyy'}}</span>
                 </div>
-            </button>
-            <span class="name mt-3 text-center">{{authService.getMembreTargeted().prenom}}
-                {{authService.getMembreTargeted().nom}}</span>
-            <span class="idd">{{authService.getMembreTargeted().mail}}</span>
-            <div class="d-flex flex-row justify-content-center align-items-center gap-2">
-                <span class="idd1">{{authService.getMembreTargeted().dateNaissance | date : 'dd/MM/yyyy'}}</span>
-            </div>
-            <div class="d-flex flex-row text-left align-items-center mt-3">
-                <span class="number">
-                    Score : {{authService.getMembreTargeted().score}} <br>
-                    Expérience : {{authService.getMembreTargeted().xp}}
-                </span>
-            </div>
-            <div class="text mt-3 text-center">
-                <span style="color:black">
-                    {{authService.getMembreTargeted().note}}
-                </span>
-            </div>
-            <div class=" d-flex mt-5" *ngIf="authService.getMembreTargeted().id == authService.getUserConnect().id">
-                <button class="btn1 btn-dark text-white" routerLink="/modifier-profil">Modifier mon profil</button>
-            </div>
+                <div class="d-flex flex-row text-left align-items-center mt-3">
+                    <span class="number">
+                        Score : {{authService.getMembreTargeted().score}} <br>
+                        Expérience : {{authService.getMembreTargeted().xp}}
+                    </span>
+                </div>
+                <div class="text mt-3 text-center">
+                    <span style="color:black">
+                        {{authService.getMembreTargeted().note}}
+                    </span>
+                </div>
+                <div class=" d-flex mt-4" *ngIf="authService.getMembreTargeted().id == authService.getUserConnect().id">
+                    <button class="btn1 btn-dark text-white" routerLink="/modifier-profil">Modifier mon profil</button>
+                </div>
 
-            <div class=" d-flex mt-4" *ngIf="!(authService.getMembreTargeted().id == authService.getUserConnect().id)">
-                <button class="btn1 btn-dark text-white" (click)="openDialog()">Envoyer un message</button>
+                <div class=" d-flex mt-4"
+                    *ngIf="!(authService.getMembreTargeted().id == authService.getUserConnect().id)">
+                    <button class="btn1 btn-dark text-white"
+                        (click)="openDialog(authService.getUserConnect(), authService.getMembreTargeted())">Envoyer un
+                        message</button>
+                </div>
             </div>
         </div>
-    </div>
 
+        <div class="col-md-1"></div>
 
-    <div class="card mx-auto p-5 blue-gradient-rgba w-25">
-        <h1>Évènements</h1>
-        <br>
-        <table class="table">
-
-            <div class="col-mv-12" *ngFor="let e of TtEventId">
-
-                <tbody>
-                    <tr>
-                        <th>{{e.evenements.nom}}</th>
-                        <td>{{e.evenements.adresse}}</td>
-                        <td>{{e.evenements.date}}</td>
-                        <td>{{e.evenements.description}}</td>
-                        <td>
-                            <div class=" btndelete btn-link btn-sm btn-rounded"
-                                *ngIf="authService.getMembreTargeted().id == authService.getUserConnect().id">
-                                <button type="button" class="btndelete btn-link btn-sm "
-                                    (click)="SupprimerEvent(e.evenements.id)">
-                                    <i class="fas fa-trash"></i>
-                                </button>
-                            </div>
-                        </td>
-                        <td>
-                            <!--Mettre un if pour savoir si l'id du mec est connecté est le meme que celui du créateur(else)-->
-                            <div class=" btndelete btn-link btn-sm btn-rounded"
-                                *ngIf="!(authService.getMembreTargeted().id == authService.getUserConnect().id)">
-                                <button type="button" class="btndelete btn-link btn-sm btn-rounded "
-                                    (click)="QuitterEvent(e.evenements.id)">
-
-                                    <i class="fa fa-sign-out" aria-hidden="true"></i>
-                                </button>
-                            </div>
-                        </td>
-
-                    </tr>
-
-                </tbody>
-
+        <div class="card p-5 blue-gradient-rgba col-md-6 scrollable">
+            <h2 style="font-weight: bold;">Évènements</h2>
+            <br>
+            <div class="text-center mx-auto mt-5" *ngIf="!TtEventId?.length">
+                <label class="h4">Tu n'es inscrit à aucun évènement pour le moment</label>
+                <button class="btn1 btn-dark text-white mt-3 w-50" routerLink="/evenement">Rejoins des évènements
+                    !</button>
             </div>
-        </table>
+            <table class="table">
+                <div class="col-mv-12" *ngFor="let e of TtEventId">
+                    <tbody>
+                        <tr>
+                            <th>{{e.evenements.nom}}</th>
+                            <td>{{e.evenements.adresse}}</td>
+                            <td>{{e.evenements.date}}</td>
+                            <td>{{e.evenements.description}}</td>
+                            <td>
+                                <div class=" btndelete btn-link btn-sm btn-rounded"
+                                    *ngIf="authService.getMembreTargeted().id == authService.getUserConnect().id">
+                                    <button type="button" class="btndelete btn-link btn-sm "
+                                        (click)="SupprimerEvent(e.evenements.id)">
+                                        <i class="fas fa-trash"></i>
+                                    </button>
+                                </div>
+                            </td>
+                            <td>
+                                <!--Mettre un if pour savoir si l'id du mec est connecté est le meme que celui du créateur(else)-->
+                                <div class=" btndelete btn-link btn-sm btn-rounded"
+                                    *ngIf="!(authService.getMembreTargeted().id == authService.getUserConnect().id)">
+                                    <button type="button" class="btndelete btn-link btn-sm btn-rounded "
+                                        (click)="QuitterEvent(e.evenements.id)">
+                                        <i class="fa fa-sign-out" aria-hidden="true"></i>
+                                    </button>
+                                </div>
+                            </td>
+
+                        </tr>
+
+                    </tbody>
+
+                </div>
+            </table>
+        </div>
     </div>
-
-    <div class="card mx-auto p-5 peach-gradient-rgba w-25"
-        *ngIf="!(authService.getMembreTargeted().id == authService.getUserConnect().id)">
-        <h1>Messages</h1>
-        <br>
-        <table class="table">
-
-            <div class="col-mv-12" *ngFor="let e of TtEventId">
-
-                <tbody>
+</div>
+<div class="container-fluid mb-5" style="margin-top: 120px"
+    *ngIf="authService.getMembreTargeted().id == authService.getUserConnect().id">
+    <div class="row">
+        <div class="col-md-1"></div>
+        <div class="card p-5 peach-gradient-rgba col-md-10">
+            <h2 style="font-weight: bold;">Messages</h2>
+            <br>
+            <table class="table">
+                <thead>
                     <tr>
-                        <th>{{e.evenements.nom}}</th>
-                        <td>{{e.evenements.adresse}}</td>
-                        <td>{{e.evenements.date}}</td>
-                        <td>{{e.evenements.description}}</td>
-                        <td>
-                            <div class=" btndelete btn-link btn-sm btn-rounded"
-                                *ngIf="authService.getMembreTargeted().id == authService.getUserConnect().id">
-                                <button type="button" class="btndelete btn-link btn-sm "
-                                    (click)="SupprimerEvent(e.evenements.id)">
-                                    <i class="fas fa-trash"></i>
-                                </button>
-                            </div>
-                        </td>
-                        <td>
-                            <!--Mettre un if pour savoir si l'id du mec est connecté est le meme que celui du créateur(else)-->
-                            <div class=" btndelete btn-link btn-sm btn-rounded"
-                                *ngIf="!(authService.getMembreTargeted().id == authService.getUserConnect().id)">
-                                <button type="button" class="btndelete btn-link btn-sm btn-rounded "
-                                    (click)="QuitterEvent(e.evenements.id)">
-
-                                    <i class="fa fa-sign-out" aria-hidden="true"></i>
-                                </button>
-                            </div>
-                        </td>
-
+                        <th class="h5" style="width:80%; font-weight: bold;">Contenu</th>
+                        <th class="h5" style="font-weight: bold">Emetteur</th>
                     </tr>
-
+                </thead>
+                <tbody *ngFor="let m of this.messages">
+                    <tr>
+                        <a (click)="openDialog(authService.getUserConnect(), m.emetteur)">
+                            <th class="h5" style="width:80%">{{m.contenu}}</th>
+                        </a>
+                        <th class="h5">{{m.emetteur.nom}} {{m.emetteur.prenom}}</th>
+                    </tr>
                 </tbody>
-
-            </div>
-        </table>
+            </table>
+        </div>
     </div>
 </div>
 

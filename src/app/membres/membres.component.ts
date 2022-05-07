@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import { MatDialog } from '@angular/material/dialog';
+import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { MessagerieComponent } from '../messagerie/messagerie.component';
 import { AuthentificationService } from '../service/authentification.service';
 import { UrlService } from '../service/url.service';
@@ -23,6 +23,7 @@ export class MembresComponent implements OnInit {
   invitationEv: any;
   resultMessageInvit: any;
   errorInvit: any;
+  messages: any;
 
   constructor(
     public authService: AuthentificationService,
@@ -34,10 +35,11 @@ export class MembresComponent implements OnInit {
   ngOnInit(): void {
     this.callMembrePP(this.authService.getUserConnect().id)
     this.callTtEventId();
+    this.getMessageForUser();
   }
 
   callMembrePP(id: any) {
-    this.http.get(this.url.baseURL+"membre/photoprofil/" + id)
+    this.http.get(this.url.baseURL + "membre/photoprofil/" + id)
       .subscribe({
         next: (data) => { this.membrePP = data, console.log(data) },
 
@@ -46,7 +48,7 @@ export class MembresComponent implements OnInit {
   }
 
   listEvents() {
-    this.http.get(this.url.baseURL+"event/get/" + this.authService.getUserConnect().id)
+    this.http.get(this.url.baseURL + "event/get/" + this.authService.getUserConnect().id)
       .subscribe({
         next: (data) => {
           this.events = data;
@@ -58,7 +60,7 @@ export class MembresComponent implements OnInit {
   }
 
   setPhotoProfil(id: any, value: any) {
-    this.http.patch(this.url.baseURL+"membre/set/photoprofil/" + id, value)
+    this.http.patch(this.url.baseURL + "membre/set/photoprofil/" + id, value)
       .subscribe({
         next: (data) => { window.location.reload() },
 
@@ -67,7 +69,7 @@ export class MembresComponent implements OnInit {
   }
 
   callTtEventId() {
-    this.http.get(this.url.baseURL+"participants/membres/" + this.authService.getUserConnect().id).subscribe({
+    this.http.get(this.url.baseURL + "participants/membres/" + this.authService.getUserConnect().id).subscribe({
       next: (data) => { this.TtEventId = data },
       error: (err) => { console.log(err) }
     });
@@ -75,7 +77,7 @@ export class MembresComponent implements OnInit {
 
   SupprimerEvent(id: any) {
 
-    this.http.delete(this.url.baseURL+"Evenements/supprimer/" + id)
+    this.http.delete(this.url.baseURL + "Evenements/supprimer/" + id)
       .subscribe({
         next: (data) => { this.result = "Suppression réussie" },
         error: (err) => { console.log(err) }
@@ -84,7 +86,7 @@ export class MembresComponent implements OnInit {
 
   QuitterEvent(id: any) {
 
-    this.http.delete(this.url.baseURL+"Participants/supprimer/" + id)
+    this.http.delete(this.url.baseURL + "Participants/supprimer/" + id)
       .subscribe({
         next: (data) => { this.result = "Suppression réussie" },
         error: (err) => { console.log(err) }
@@ -97,7 +99,7 @@ export class MembresComponent implements OnInit {
       idM: val.id,
     };
     console.log(invitations);
-    this.http.post(this.url.baseURL+"Participant/inviter", invitations).subscribe({
+    this.http.post(this.url.baseURL + "Participant/inviter", invitations).subscribe({
       next: (data) => {
         this.resultMessageInvit = "invitation envoyée"
       },
@@ -107,8 +109,26 @@ export class MembresComponent implements OnInit {
     });
   };
 
-  openDialog(): void {
-    const dialogRef = this.dialog.open(MessagerieComponent)
+  openDialog(emetteur: any, recepteur: any): void {
+    let dialogRef = this.dialog.open(MessagerieComponent, {
+      data: {
+        emetteur: emetteur,
+        recepteur: recepteur,
+      }
+    })
   }
+
+  getMessageForUser() {
+    this.http.get(this.url.baseURL + "message/get/nonlu/" + this.authService.getUserConnect().id)
+      .subscribe({
+        next: (data) => {
+          this.messages = data;
+          console.log(data);
+        },
+        error: (err) => {
+          console.log(err);
+        }
+      });
+  };
 
 }
