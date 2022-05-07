@@ -32,18 +32,18 @@ export class MesevenementsComponent implements OnInit {
     });
   }
 
-  SupprimerEvent() {
+  SupprimerEvent(id:any) {
 
-    this.http.delete("Evenements/supprimer/{id}")
+    this.http.delete("http://localhost:8080/Evenements/supprimer/"+id)
       .subscribe({
         next: (data) => { this.result = "Suppression réussie" },
         error: (err) => { console.log(err) }
       })
   }
 
-  QuitterEvent() {
+  QuitterEvent(id:any) {
 
-    this.http.delete("Participants/supprimer/{id}")
+    this.http.delete("http://localhost:8080/Participants/supprimer/"+id)
       .subscribe({
         next: (data) => { this.result = "Suppression réussie" },
         error: (err) => { console.log(err) }

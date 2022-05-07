@@ -1,5 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { AuthentificationService } from '../service/authentification.service';
+import { EquipeService } from '../service/equipe.service';
 
 @Component({
   selector: 'app-creationequipes',
@@ -9,35 +12,75 @@ import { Component, OnInit } from '@angular/core';
 export class CreationequipesComponent implements OnInit {
 
   //♦♣♦♣♦♣♦♣♦♣ création de variable ♦♣♦♣♦♣♦♣♦♣//
-  baseURL: string = "http://localhost:8482/";
+  baseURL: string = "http://localhost:8080/";
   resultMessage: string = " ";
   resultColor: string = " ";
   EquipesId1: any;
   TtEquipeId: any;
   EquipeActuelle: any;
+  equipe: any;
 
   //♦♣♦♣♦♣♦♣♦♣ fin création de variable ♦♣♦♣♦♣♦♣♦♣//
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient,
+    public authentificationService: AuthentificationService,
+    public equipeservice: EquipeService,
+    private route: Router) { }
+
+  /*
+      goSurEquipe(){
+        this.http.get(this.baseURL + "equipes/" + "La DreamTeam").subscribe({
+          next: (data) => { this.goEquipe = data;
+          if (this.goEquipe != null) {
+            this.equipeservice.setEquipe(this.goEquipe)
+            console.log(data);
+            this.resultMessage = "";
+              this.route.navigateByUrl("equipes");
+            } },
+            error: (err) => { console.log(err) }
+          });
+        }
+  */
 
   ngOnInit(): void {
     this.callEquipeId1();
     this.callTtEquipeId();
+    /*
+    this.goSurEquipe2();*/
   }
 
   //♦♣♦♣♦♣♦♣♦♣ recherche des équipes créer par un membre ♦♣♦♣♦♣♦♣♦♣//
+
+
   callEquipeId1() {
-    this.http.get(this.baseURL + "equipes/membres/1").subscribe({
+    this.http.get(this.baseURL + "equipes/membres/" + this.authentificationService.getUserConnect().id).subscribe({
       next: (data) => { this.EquipesId1 = data },
       error: (err) => { console.log(err) }
     });
   }
+
+
+
+
   //♦♣♦♣♦♣♦♣♦♣ fin recherche des équipes ♦♣♦♣♦♣♦♣♦♣//
 
   //♦♣♦♣♦♣♦♣♦♣ recherche de ttes les équipes créer par un membre ♦♣♦♣♦♣♦♣♦♣//
+  //  callTtEquipeId() {
+  //    this.http.get(this.baseURL + "associations/membres/1").subscribe({
+  //      next: (data) => { this.TtEquipeId = data },
+  //      error: (err) => { console.log(err) }
+  //   });
+  //  }
+
   callTtEquipeId() {
-    this.http.get(this.baseURL + "associations/membres/1").subscribe({
-      next: (data) => { this.TtEquipeId = data },
+    this.http.get(this.baseURL + "associations/membres/" + this.authentificationService.getUserConnect().id).subscribe({
+      next: (data) => {
+        this.TtEquipeId = data;
+        if (this.equipe != null) {
+          this.equipeservice.setEquipe(this.equipe)
+          console.log(data);
+        }
+      },
       error: (err) => { console.log(err) }
     });
   }
@@ -47,14 +90,27 @@ export class CreationequipesComponent implements OnInit {
 
   //♦♣♦♣♦♣♦♣♦♣ début création d'équipe ♦♣♦♣♦♣♦♣♦♣//
 
+
+
+
   creationEquipe(val: any) {
     let equipe = {
-      nom: val.nom
+      nom: val.nom,
+      "membres": {
+        "id": this.authentificationService.getUserConnect().id
+      },
     };
     console.log(equipe);
     this.http.post(this.baseURL + "equipes", equipe)
       .subscribe({
         next: (data) => {
+          this.equipe = data;
+          if (this.equipe != null) {
+            this.equipeservice.setEquipe(this.equipe)
+            console.log(data);
+            this.resultMessage = "";
+            this.route.navigateByUrl("equipes");
+          }
           this.resultMessage = "Votre équipe est bien créée";
           this.resultColor = "green"
         },
@@ -66,13 +122,41 @@ export class CreationequipesComponent implements OnInit {
           else
             this.resultMessage = "Une erreur s'est produite"
           this.resultColor = "red";
+          //         if (this.equipe != null){
+          //           this.equipeservice.setEquipe(this.equipe)
+          //          console.log(data);
+
+
+          //        }
         }
+
+
       });
-    ;
+
+      let asso = {
+        "membres": {
+          "id": this.authentificationService.getUserConnect().id
+        },
+          "equipes": {
+          "id": this.equipeservice.getEquipe().id
+        }
+      }
+      console.log(asso);
+    this.http.post(this.baseURL + "inviter", asso).subscribe({
+      next: (data) => { },
+      error: (err) => { console.log(err) }
+    })
+      ;
   }
 
+
   //♦♣♦♣♦♣♦♣♦♣ fin création d'équipe ♦♣♦♣♦♣♦♣♦♣//
+
+  //♦♣♦♣♦♣♦♣♦♣  trouver l'equipe   ♦♣♦♣♦♣♦♣♦♣//
+
 }
+
+
 
 
 
