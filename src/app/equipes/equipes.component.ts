@@ -4,6 +4,7 @@ import { EquipeService } from '../service/equipe.service';
 import { AuthentificationService } from '../service/authentification.service';
 import { identifierName } from '@angular/compiler';
 import { Router } from '@angular/router';
+import { UrlService } from '../service/url.service';
 
 
 @Component({
@@ -29,7 +30,8 @@ export class EquipesComponent implements OnInit {
   constructor(private http: HttpClient,
     public authService: AuthentificationService,
     public equipeservice: EquipeService,
-    private route: Router) { }
+    private route: Router,
+    private url: UrlService) { }
 
 
 
@@ -55,7 +57,7 @@ export class EquipesComponent implements OnInit {
 
     };
     console.log(invitations);
-    this.http.post(this.baseURL + "associations/inviter", invitations).subscribe({
+    this.http.post(this.url.baseURL + "associations/inviter", invitations).subscribe({
       next: (data) => {
         this.resultMessageInvit = "Invitation réussite";
         this.resultColor = "green"
@@ -72,8 +74,11 @@ export class EquipesComponent implements OnInit {
 
 
   callMember() {
-    this.http.get(this.baseURL + "associations/equipe/" + this.equipeservice.getEquipe().id).subscribe({
-      next: (data) => { this.LesMembres = data },
+    this.http.get(this.url.baseURL + "associations/equipe/" + this.equipeservice.getEquipe().id).subscribe({
+      next: (data) => {
+        this.LesMembres = data;
+        console.log(data)
+      },
       error: (err) => { console.log(err) }
     });
   }

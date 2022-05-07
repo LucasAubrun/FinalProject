@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { AuthentificationService } from '../service/authentification.service';
+import { UrlService } from '../service/url.service';
 
 @Component({
   selector: 'app-communaute',
@@ -14,7 +15,8 @@ export class CommunauteComponent implements OnInit {
 
   constructor (
     private http : HttpClient,
-    public authService : AuthentificationService
+    private url: UrlService,
+    public authService : AuthentificationService,
   ) { }
 
   ngOnInit(): void {
@@ -22,7 +24,7 @@ export class CommunauteComponent implements OnInit {
   }
 
   getLeaderboard() {
-    this.http.get("http://localhost:8082/membre/get/leaderboard")
+    this.http.get(this.url.baseURL+"membre/get/leaderboard")
     .subscribe({
       next: (data) => {
         this.leaderboard = data;

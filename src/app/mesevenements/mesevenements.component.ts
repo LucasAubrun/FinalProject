@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { UrlService } from '../service/url.service';
 
 @Component({
   selector: 'app-mesevenements',
@@ -9,7 +10,7 @@ import { Component, OnInit } from '@angular/core';
 export class MesevenementsComponent implements OnInit {
 
   //♦♣♦♣♦♣♦♣♦♣ création de variable ♦♣♦♣♦♣♦♣♦♣//
-  baseURL: string = "http://localhost:8080/";
+  baseURL: string = "http://localhost:8482/";
   resultMessage: string = " ";
   TtEventId: any;
   result: string = "";
@@ -19,31 +20,32 @@ export class MesevenementsComponent implements OnInit {
 
   //♦♣♦♣♦♣♦♣♦♣ fin création de variable ♦♣♦♣♦♣♦♣♦♣//
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient,
+    private url: UrlService) { }
 
   ngOnInit(): void {
     this.callTtEventId();
   }
 
   callTtEventId() {
-    this.http.get(this.baseURL + "participants/membres/1").subscribe({
+    this.http.get(this.url.baseURL + "participants/membres/1").subscribe({
       next: (data) => { this.TtEventId = data },
       error: (err) => { console.log(err) }
     });
   }
 
-  SupprimerEvent(id:any) {
+  SupprimerEvent(id: any) {
 
-    this.http.delete("http://localhost:8080/Evenements/supprimer/"+id)
+    this.http.delete(this.url.baseURL + "Evenements/supprimer/" + id)
       .subscribe({
         next: (data) => { this.result = "Suppression réussie" },
         error: (err) => { console.log(err) }
       })
   }
 
-  QuitterEvent(id:any) {
+  QuitterEvent(id: any) {
 
-    this.http.delete("http://localhost:8080/Participants/supprimer/"+id)
+    this.http.delete(this.url.baseURL + "Participants/supprimer/" + id)
       .subscribe({
         next: (data) => { this.result = "Suppression réussie" },
         error: (err) => { console.log(err) }
@@ -56,7 +58,7 @@ export class MesevenementsComponent implements OnInit {
       idM: val.id,
     };
     console.log(invitations);
-    this.http.post(this.baseURL + "Participant/inviter", invitations).subscribe({
+    this.http.post(this.url.baseURL + "Participant/inviter", invitations).subscribe({
       next: (data) => {
         this.resultMessageInvit = "invitation envoyée"
       },
