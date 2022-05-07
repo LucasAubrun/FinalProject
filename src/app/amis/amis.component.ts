@@ -1,6 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { AuthentificationService } from '../service/authentification.service';
+import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
+import { MessagerieComponent } from '../messagerie/messagerie.component';
 
 @Component({
   selector: 'app-amis',
@@ -14,7 +16,8 @@ export class AmisComponent implements OnInit {
 
   constructor(
     public authService: AuthentificationService,
-    private http: HttpClient) { }
+    private http: HttpClient,
+    public dialog: MatDialog) { }
 
   ngOnInit(): void {
     this.callAmisMembre1();
@@ -58,6 +61,15 @@ export class AmisComponent implements OnInit {
         error: (err) => { console.log(err) }
 
       })
+  }
+
+  openDialog(emetteur: any, recepteur: any): void {
+    let dialogRef = this.dialog.open(MessagerieComponent, {
+      data: {
+        emetteur: emetteur,
+        recepteur: recepteur,
+      }
+    })
   }
 
 
