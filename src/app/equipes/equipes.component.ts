@@ -16,13 +16,13 @@ export class EquipesComponent implements OnInit {
 
   //  ♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠    Création de varialbe   ♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠              //
 
-  baseURL: string = "http://localhost:8482/";
+  baseURL: string = "http://localhost:8082/";
   invitationEq: any;
   resultMessageInvit: any;
   errorInvit: any;
   LesMembres: any;
   resultColor: any;
-  bonjour =  this.equipeservice.getEquipe().id;
+  bonjour = this.equipeservice.getEquipe().id;
 
   //  ♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠    Invitation   ♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠              //
 
@@ -35,28 +35,29 @@ export class EquipesComponent implements OnInit {
 
 
 
-    
+
   ngOnInit(): void {
     this.callMember();
   }
 
-//  ♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠    récuperer l'equipe   ♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠              //
+  //  ♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠    récuperer l'equipe   ♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠              //
 
 
 
- //  ♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠    Invitation   ♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠              //
+  //  ♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠    Invitation   ♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠              //
 
   sendinvitationEq(val: any) {
     let invitations = {
-        "membres": {
-          "id": val.id},
-        "equipes": {
+      "membres": {
+        "id": val.id
+      },
+      "equipes": {
         "id": this.equipeservice.getEquipe().id
       }
 
     };
     console.log(invitations);
-    this.http.post(this.url.baseURL+"associations/inviter", invitations).subscribe({
+    this.http.post(this.url.baseURL + "associations/inviter", invitations).subscribe({
       next: (data) => {
         this.resultMessageInvit = "Invitation réussite";
         this.resultColor = "green"
@@ -73,12 +74,14 @@ export class EquipesComponent implements OnInit {
 
 
   callMember() {
-    this.http.get(this.url.baseURL+"associations/equipe/" +  this.equipeservice.getEquipe().id).subscribe({
-      next: (data) => { this.LesMembres = data;
-      console.log(data)  },
+    this.http.get(this.url.baseURL + "associations/equipe/" + this.equipeservice.getEquipe().id).subscribe({
+      next: (data) => {
+        this.LesMembres = data;
+        console.log(data)
+      },
       error: (err) => { console.log(err) }
     });
   }
 
-    //  ♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠    Afficher les membres d'une équiês   ♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠              //
-  }
+  //  ♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠    Afficher les membres d'une équiês   ♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠              //
+}

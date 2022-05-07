@@ -22,6 +22,7 @@ import { AdminComponent } from './admin/admin.component';
 import { ConnexionadminComponent } from './connexionadmin/connexionadmin.component';
 import { CommunauteComponent } from './communaute/communaute.component';
 import { ModifierProfilComponent } from './modifier-profil/modifier-profil.component';
+import { AmisComponent } from './amis/amis.component';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MessagerieComponent } from './messagerie/messagerie.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -51,6 +52,7 @@ import { PolitiqueComponent } from './politique/politique.component';
     ConnexionadminComponent,
     CommunauteComponent,
     ModifierProfilComponent,
+    AmisComponent,
     MessagerieComponent,
     PolitiqueComponent
   ],

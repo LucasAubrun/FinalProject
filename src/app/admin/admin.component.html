@@ -1,7 +1,7 @@
 <div class="header">
     <h1>Page Admin</h1>
 
-    <p>Soit valider/reagrder activtés, trucs à faire sur les membres</p>
+    <p>Valider reagrder activtéss</p>
 </div>
 
 
@@ -10,7 +10,7 @@
     <div>
         <h2>Activitées à valider</h2>
     </div>
-    <li *ngFor="let a of activitesOne">
+    <div *ngFor="let a of activitesOne">
         <div *ngIf="a.valide == false">
             <div class="box cyan" *ngIf="a.type == 'Autre'">
                 <h2><b>{{a.nom}}</b></h2>
@@ -92,7 +92,7 @@
             </div>
         </div>
 
-    </li>
+    </div>
 </ul>
 
 <div>

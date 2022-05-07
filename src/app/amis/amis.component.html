@@ -1,0 +1,140 @@
+<p>amis works!</p>
+<!--
+<div class="container">
+    <div class="card" *ngFor="let ami of listamis1">
+        <div class="imgBx">
+            <img class="pp1" *ngIf="ami.membre2.photoprofil==1" src="profil1.png" />
+            <img class="pp2" *ngIf="ami.membre2.photoprofil==2" src="profil2.png" />
+            <img class="pp3" *ngIf="ami.membre2.photoprofil==3" src="profil3.png" />
+            <img class="pp4" *ngIf="ami.membre2.photoprofil==4" src="profil4.png" />
+            <img class="pp5" *ngIf="ami.membre2.photoprofil==5" src="profil5.png" />
+        </div>
+        <div class="contentBx">
+            <h2>{{ami.membre2.prenom}}</h2>
+            <div class="size">
+                <h3>XP :</h3>
+                <span>{{ami.membre2.xp}}</span>
+            </div>
+            <div class="size">
+                <h3>Score :</h3>
+                <span>{{ami.membre2.score}}</span>
+            </div>
+            <a href="#">Buy Now</a>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="card" *ngFor="let ami of listamis2">
+        <div class="imgBx">
+            <img class="pp1" *ngIf="ami.membre1.photoprofil==1" src="profil1.png" />
+            <img class="pp2" *ngIf="ami.membre1.photoprofil==2" src="profil2.png" />
+            <img class="pp3" *ngIf="ami.membre1.photoprofil==3" src="profil3.png" />
+            <img class="pp4" *ngIf="ami.membre1.photoprofil==4" src="profil4.png" />
+            <img class="pp5" *ngIf="ami.membre1.photoprofil==5" src="profil5.png" />
+        </div>
+        <div class="contentBx">
+            <h2>{{ami.membre1.prenom}}</h2>
+            <div class="size">
+                <h3>XP :</h3>
+                <span>{{ami.membre1.xp}}</span>
+            </div>
+            <div class="size">
+                <h3>Score :</h3>
+                <span>{{ami.membre1.score}}</span>
+            </div>
+            <a href="#">Buy Now</a>
+        </div>
+    </div>
+</div>
+-->
+<div class="container">
+    <div id="demo" class="carousel slide" data-ride="carousel">
+
+        <!-- Carrousel -->
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img src="amis.jpg" alt="" class="amisjpg d-block">
+                <div class="carousel-caption d-none d-md-block">
+                    <h2>MES AMIS MES COPAINS MES POTOS</h2>
+                </div>
+            </div>
+            <div class="carousel-item" *ngFor="let ami of listamis1">
+                <div *ngIf="ami.amitievalide == true">
+                    <div class="card positioncard d-block">
+                        <div class="imgBx">
+                            <img class="pp1" *ngIf="ami.membre2.photoprofil==1" src="profil1.png" />
+                            <img class="pp2" *ngIf="ami.membre2.photoprofil==2" src="profil2.png" />
+                            <img class="pp3" *ngIf="ami.membre2.photoprofil==3" src="profil3.png" />
+                            <img class="pp4" *ngIf="ami.membre2.photoprofil==4" src="profil4.png" />
+                            <img class="pp5" *ngIf="ami.membre2.photoprofil==5" src="profil5.png" />
+                        </div>
+                        <div class="contentBx">
+                            <h2>{{ami.membre2.prenom}}</h2>
+                            <div class="size">
+                                <h3>XP :</h3>
+                                <span>{{ami.membre2.xp}}</span>
+                            </div>
+                            <div class="size">
+                                <h3>Score :</h3>
+                                <span>{{ami.membre2.score}}</span>
+                            </div>
+                            <a href="#">Message</a>
+                            <ul class="wrapper">
+                                <button class="icon youtube fas fa-xmark" (click)="this.setAmitieFalse(ami.idAmis)">
+                                    <span class=" tooltip">Supprimer l'ami</span>
+                                    <span><i class="fas fa-xmark"></i></span>
+                                </button>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Contrôles -->
+        <a class="carousel-control-prev" href="#demo" role="button" data-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="sr-only">Précédent</span>
+        </a>
+        <a class="carousel-control-next" href="#demo" role="button" data-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="sr-only">Suivant</span>
+        </a>
+    </div>
+</div>
+
+
+<ul class="cardsamis">
+    <div>
+        <h2>Amitiées à valider</h2>
+    </div>
+    <div *ngFor="let ami of listamis1">
+        <div *ngIf="ami.amitievalide == false">
+            <div class="box cyan">
+                <div class="imgBx">
+                    <img class="pp1bis" *ngIf="ami.membre2.photoprofil==1" src="profil1.png" />
+                    <img class="pp2bis" *ngIf="ami.membre2.photoprofil==2" src="profil2.png" />
+                    <img class="pp3bis" *ngIf="ami.membre2.photoprofil==3" src="profil3.png" />
+                    <img class="pp4bis" *ngIf="ami.membre2.photoprofil==4" src="profil4.png" />
+                    <img class="pp5bis" *ngIf="ami.membre2.photoprofil==5" src="profil5.png" />
+                </div>
+                <h2><b>{{ami.membre2.prenom}}</b></h2>
+                <div id="app-cover">
+                    <div class="toggle-button-cover">
+                        <div class="button-cover">
+                            <div class="button r" id="button-1">
+                                <input type="checkbox" class="checkbox" *ngIf="ami.amitievalide"
+                                    (click)="this.setAmitieFalse(ami.idAmis)">
+                                <input type="checkbox" class="checkbox" *ngIf="!ami.amitievalide" checked
+                                    (click)="this.setAmitieTrue(ami.idAmis)">
+                                <div class="knobs"></div>
+                                <div class="layer"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</ul>

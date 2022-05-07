@@ -16,7 +16,7 @@ export class ConnexionComponent implements OnInit {
   resultMessage: string = "";
   resultColor: string = "red";
   membre: any;
-  user= {mail: '', mdp: ''};
+  user = { mail: '', mdp: '' };
 
   constructor(
     private http: HttpClient,
@@ -26,7 +26,7 @@ export class ConnexionComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    if(this.authentificationService.isConnected()){
+    if (this.authentificationService.isConnected()) {
       this.route.navigateByUrl('membres');
     }
   }

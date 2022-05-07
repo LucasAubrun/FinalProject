@@ -33,8 +33,8 @@ const routes: Routes = [
   { component: AdminComponent, path: 'admin' },
   { component: ModifierProfilComponent, path: 'modifier-profil' },
   { component: CreationEvenementComponent, path: 'creation-evenement' },
-  { component: CommunauteComponent, path: 'communaute'},
-  { component: MessagerieComponent, path: 'messagerie'},
+  { component: CommunauteComponent, path: 'communaute' },
+  { component: MessagerieComponent, path: 'messagerie' },
   { component: PolitiqueComponent, path: 'politique' }
 ];
 
