@@ -3,6 +3,7 @@
     padding: 0
 }
 
+
 .card {
     border: none;
     cursor: pointer;
@@ -17,6 +18,10 @@
     transform: scale(1.5)
 }
 
+.btn.btn-pp:hover img {
+    transform: scale(1.3);
+}
+
 .btn {
     height: 140px;
     width: 140px;
@@ -24,6 +29,7 @@
     margin: 20px;
     background-color: #d7eaf1;
 }
+
 .btndelete {
     height: 40px;
     width: 40px;
@@ -44,7 +50,7 @@
 }
 
 .idd1 {
-    font-size: large
+    font-size: larger
 }
 
 .number {
@@ -68,11 +74,11 @@
     border-top-right-radius: 2px;
     background-color: #000;
     color: #aeaeae;
-    font-size: large;
+    font-size: larger;
 }
 
 .text span {
-    font-size: large;
+    font-size: larger;
     color: #545454;
     font-weight: 500
 }
@@ -89,6 +95,11 @@ hr .new1 {
     font-size: 14px;
     color: #a0a0a0;
     font-weight: bold
+}
+
+.scrollable {
+    overflow-x: auto;
+    scrollbar-color: inherit;
 }
 
 .date {
@@ -141,7 +152,7 @@ hr .new1 {
 }
 
 .popup {
-    margin: 70px auto;
+    margin: 50% auto;
     padding: 20px;
     background: #fff;
     border-radius: 5px;
@@ -183,4 +194,3 @@ hr .new1 {
         width: 70%;
     }
 }
-

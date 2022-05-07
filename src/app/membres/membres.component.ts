@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import { MatDialog } from '@angular/material/dialog';
+import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { MessagerieComponent } from '../messagerie/messagerie.component';
 import { AuthentificationService } from '../service/authentification.service';
 import { UrlService } from '../service/url.service';
@@ -23,6 +23,7 @@ export class MembresComponent implements OnInit {
   invitationEv: any;
   resultMessageInvit: any;
   errorInvit: any;
+  messages: any;
 
   constructor(
     public authService: AuthentificationService,
@@ -34,6 +35,7 @@ export class MembresComponent implements OnInit {
   ngOnInit(): void {
     this.callMembrePP(this.authService.getUserConnect().id)
     this.callTtEventId();
+    this.getMessageForUser();
   }
 
   callMembrePP(id: any) {
@@ -107,8 +109,26 @@ export class MembresComponent implements OnInit {
     });
   };
 
-  openDialog(): void {
-    const dialogRef = this.dialog.open(MessagerieComponent)
+  openDialog(emetteur: any, recepteur: any): void {
+    let dialogRef = this.dialog.open(MessagerieComponent, {
+      data: {
+        emetteur: emetteur,
+        recepteur: recepteur,
+      }
+    })
   }
+
+  getMessageForUser() {
+    this.http.get(this.url.baseURL + "message/get/nonlu/" + this.authService.getUserConnect().id)
+      .subscribe({
+        next: (data) => {
+          this.messages = data;
+          console.log(data);
+        },
+        error: (err) => {
+          console.log(err);
+        }
+      });
+  };
 
 }

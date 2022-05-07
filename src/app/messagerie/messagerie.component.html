@@ -1,4 +1,6 @@
 <form class="text-center" #messageForm="ngForm" (ngSubmit)="createMessage(messageForm.value)">
-    <textarea style="height:100px" id="contenu" type="text" name="contenu" placeholder="Mon message..." ngModel="" required></textarea> <br>
+    <label> Envoyer un message à : {{this.recepteur.nom}} {{this.recepteur.prenom}}</label>
+    <textarea style="height:100px" id="contenu" type="text" name="contenu" placeholder="Mon message..." ngModel=""
+        required></textarea> <br>
     <button class="btn btn-primary" [disabled]="!messageForm.valid">Envoyer</button>
 </form>

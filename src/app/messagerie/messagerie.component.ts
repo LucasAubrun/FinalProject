@@ -1,8 +1,8 @@
 import { HttpClient } from '@angular/common/http';
-import { Component, OnInit } from '@angular/core';
-import { MatDialog, MatDialogRef } from '@angular/material/dialog';
+import { Component, OnInit, Optional, Inject } from '@angular/core';
 import { AuthentificationService } from '../service/authentification.service';
 import { UrlService } from '../service/url.service';
+import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-messagerie',
@@ -15,13 +15,19 @@ export class MessagerieComponent implements OnInit {
   messagesNonLu: any;
   infoText: any;
   infoColor: any;
+  emetteur: any;
+  recepteur: any;
 
   constructor(
     private url: UrlService,
     private authService: AuthentificationService,
     private http: HttpClient,
-    public dialogRef: MatDialogRef<MessagerieComponent>
-    ) { }
+    public dialogRef: MatDialogRef<MessagerieComponent>,
+    @Optional() @Inject(MAT_DIALOG_DATA) public data: any
+  ) {
+    this.emetteur = data.emetteur;
+    this.recepteur = data.recepteur;
+  }
 
   ngOnInit(): void {
   }
@@ -29,45 +35,21 @@ export class MessagerieComponent implements OnInit {
   createMessage(val: any) {
     let message = {
       contenu: val.contenu,
-      emetteur: this.authService.getUserConnect(),
-      recepteur: this.authService.getMembreTargeted()
+      emetteur: this.emetteur,
+      recepteur: this.recepteur
     };
-    this.http.post(this.url.baseURL+"message/save", message)
-    .subscribe({
-      next: (data) => {
-        this.dialogRef.close()
-      },
-      error: (err) => {
-        console.log(err);
-        this.infoText = "Une erreur s'est produite";
-        this.infoColor = "red";
-      }
-    });
-  
-  };
-
-  getMessageForUser(val: any) {
-    this.http.get(this.url.baseURL+"message/get/all/"+this.authService.getUserConnect().id)
-    .subscribe({
-      next: (data) => {
-        this.messages = data;
-      },
-      error: (err) => {
-        console.log(err);
-      }
+    this.http.post(this.url.baseURL + "message/save", message)
+      .subscribe({
+        next: (data) => {
+          this.dialogRef.close()
+        },
+        error: (err) => {
+          console.log(err);
+          this.infoText = "Une erreur s'est produite";
+          this.infoColor = "red";
+        }
       });
-  };
 
-  getMessageNonLuForUser(val: any) {
-    this.http.get(this.url.baseURL+"message/get/nonlu/"+this.authService.getUserConnect().id)
-    .subscribe({
-      next: (data) => {
-        this.messagesNonLu = data;
-      },
-      error: (err) => {
-        console.log(err);
-      }
-      });
   };
 
 

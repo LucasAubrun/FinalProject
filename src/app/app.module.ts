@@ -63,7 +63,7 @@ import { PolitiqueComponent } from './politique/politique.component';
     AppRoutingModule,
     MatDialogModule,
     FormsModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
