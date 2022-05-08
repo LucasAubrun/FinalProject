@@ -41,7 +41,7 @@ export class MembresComponent implements OnInit {
   callMembrePP(id: any) {
     this.http.get(this.url.baseURL + "membre/photoprofil/" + id)
       .subscribe({
-        next: (data) => { this.membrePP = data, console.log(data) },
+        next: (data) => { this.membrePP = data },
 
         error: (err) => { console.log(err) }
       });
@@ -123,7 +123,6 @@ export class MembresComponent implements OnInit {
       .subscribe({
         next: (data) => {
           this.messages = data;
-          console.log(data);
         },
         error: (err) => {
           console.log(err);

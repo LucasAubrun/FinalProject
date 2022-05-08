@@ -52,13 +52,30 @@
 
         <!-- Carrousel -->
         <div class="carousel-inner">
-            <div class="carousel-item active">
+            <div class="carousel-item active" data-interval="200000000">
                 <img src="amis.jpg" alt="" class="amisjpg d-block">
                 <div class="carousel-caption d-none d-md-block">
                     <h2>MES AMIS MES COPAINS MES POTOS</h2>
                 </div>
             </div>
-            <div class="carousel-item" *ngFor="let ami of listamis1">
+            <div class="carousel-item" *ngFor="let ami of listamis1" data-interval="200000000">
+                <div *ngIf="ami.amitievalide == false">
+                    <div class="card positioncard d-block">
+                        <div class="imgBx">
+                            <img class="pp1" *ngIf="ami.membre2.photoprofil==1" src="profil1.png" />
+                            <img class="pp2" *ngIf="ami.membre2.photoprofil==2" src="profil2.png" />
+                            <img class="pp3" *ngIf="ami.membre2.photoprofil==3" src="profil3.png" />
+                            <img class="pp4" *ngIf="ami.membre2.photoprofil==4" src="profil4.png" />
+                            <img class="pp5" *ngIf="ami.membre2.photoprofil==5" src="profil5.png" />
+                        </div>
+                        <div class="contentBx">
+                            <h2>{{ami.membre2.prenom}}</h2>
+                            <div class="size">
+                                <h3><br>En attente d'acceptation</h3>
+                            </div>
+                        </div>
+                    </div>
+                </div>
                 <div *ngIf="ami.amitievalide == true">
                     <div class="card positioncard d-block">
                         <div class="imgBx">
@@ -78,10 +95,13 @@
                                 <h3>Score :</h3>
                                 <span>{{ami.membre2.score}}</span>
                             </div>
+                            <ul class="wrapper"><button class="bn31"
+                                    (click)="openDialog(authService.getUserConnect(), ami.membre2)">Envoyer
+                                    un
+                                    message</button>
+                            </ul>
 
-                            <button class="bn31" (click)="openDialog(authService.getUserConnect(), ami.membre2)">Envoyer
-                                un
-                                message</button>
+
                             <ul class="wrapper">
                                 <button class="icon youtube fas fa-xmark" (click)="this.setAmitieFalse(ami.idAmis)">
                                     <span class=" tooltip">Supprimer l'ami</span>
@@ -92,7 +112,24 @@
                     </div>
                 </div>
             </div>
-            <div class="carousel-item" *ngFor="let ami of listamis2">
+            <div class="carousel-item" *ngFor="let ami of listamis2" data-interval="200000000">
+                <div *ngIf="ami.amitievalide == false">
+                    <div class="card positioncard d-block">
+                        <div class="imgBx">
+                            <img class="pp1" *ngIf="ami.membre1.photoprofil==1" src="profil1.png" />
+                            <img class="pp2" *ngIf="ami.membre1.photoprofil==2" src="profil2.png" />
+                            <img class="pp3" *ngIf="ami.membre1.photoprofil==3" src="profil3.png" />
+                            <img class="pp4" *ngIf="ami.membre1.photoprofil==4" src="profil4.png" />
+                            <img class="pp5" *ngIf="ami.membre1.photoprofil==5" src="profil5.png" />
+                        </div>
+                        <div class="contentBx">
+                            <h2>{{ami.membre1.prenom}}</h2>
+                            <div class="size">
+                                <h3><br>En attente d'acceptation</h3>
+                            </div>
+                        </div>
+                    </div>
+                </div>
                 <div *ngIf="ami.amitievalide == true">
                     <div class="card positioncard d-block">
                         <div class="imgBx">
@@ -143,28 +180,48 @@
 </div>
 
 
-<ul class="cardsamis">
-    <div>
-        <h2>Amitiées à valider</h2>
+<div class="card">
+    <div class="card-header">
+        Amitiées à valider
     </div>
-    <div *ngFor="let ami of listamis1">
-        <div *ngIf="!ami.amitievalide">
-            <div *ngIf="(authService.getMembreTargeted().id != authService.getUserConnect().id)">
-                <div class="box cyan">
-                    <div class="imgBx">
-                        <img class="pp1bis" *ngIf="ami.membre2.photoprofil==1" src="profil1.png" />
-                        <img class="pp2bis" *ngIf="ami.membre2.photoprofil==2" src="profil2.png" />
-                        <img class="pp3bis" *ngIf="ami.membre2.photoprofil==3" src="profil3.png" />
-                        <img class="pp4bis" *ngIf="ami.membre2.photoprofil==4" src="profil4.png" />
-                        <img class="pp5bis" *ngIf="ami.membre2.photoprofil==5" src="profil5.png" />
-                    </div>
-                    <h2><b>{{ami.membre2.prenom}}</b></h2>
-                    <div id="app-cover">
-                        <button class="bn29" (click)="this.setAmitieTrue(ami.idAmis)">Accepter la demande</button>
+    <div class="card-body">
+        <ul class="cardsamis">
+            <div *ngFor="let ami of listamis1">
+                <div *ngIf="!ami.amitievalide">
+                    <div class="box cyan">
+                        <div class="imgBx">
+                            <img class="pp1bis" *ngIf="ami.membre2.photoprofil==1" src="profil1.png" />
+                            <img class="pp2bis" *ngIf="ami.membre2.photoprofil==2" src="profil2.png" />
+                            <img class="pp3bis" *ngIf="ami.membre2.photoprofil==3" src="profil3.png" />
+                            <img class="pp4bis" *ngIf="ami.membre2.photoprofil==4" src="profil4.png" />
+                            <img class="pp5bis" *ngIf="ami.membre2.photoprofil==5" src="profil5.png" />
+                        </div>
+                        <h2><b>{{ami.membre2.prenom}}</b></h2>
+                        <div id="app-cover">
+                            <button class="bn29" (click)="this.setAmitieTrue(ami.idAmis)">Accepter la demande</button>
+                        </div>
                     </div>
                 </div>
-            </div>
-        </div>
 
+            </div>
+            <div *ngFor="let ami of listamis2">
+                <div *ngIf="!ami.amitievalide">
+                    <div class="box cyan">
+                        <div class="imgBx">
+                            <img class="pp1bis" *ngIf="ami.membre1.photoprofil==1" src="profil1.png" />
+                            <img class="pp2bis" *ngIf="ami.membre1.photoprofil==2" src="profil2.png" />
+                            <img class="pp3bis" *ngIf="ami.membre1.photoprofil==3" src="profil3.png" />
+                            <img class="pp4bis" *ngIf="ami.membre1.photoprofil==4" src="profil4.png" />
+                            <img class="pp5bis" *ngIf="ami.membre1.photoprofil==5" src="profil5.png" />
+                        </div>
+                        <h2><b>{{ami.membre1.prenom}}</b></h2>
+                        <div id="app-cover">
+                            <button class="bn29" (click)="this.setAmitieTrue(ami.idAmis)">Accepter la demande</button>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </ul>
     </div>
-</ul>
+</div>
