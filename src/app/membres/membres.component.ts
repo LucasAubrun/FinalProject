@@ -131,4 +131,20 @@ export class MembresComponent implements OnInit {
       });
   };
 
+  createNewAmitie(membre1id: any, membre2id: any) {
+    let amitie = {
+      amitievalide: false,
+      membre1: { id: membre1id },
+      membre2: { id: membre2id },
+    }
+
+
+    this.http.post(this.url.baseURL + "amis/save", amitie)
+      .subscribe({
+        next: (data) => { window.location.reload() },
+        error: (err) => { console.log(err) }
+      })
+    console.log(amitie)
+  }
+
 }
