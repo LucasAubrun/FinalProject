@@ -7,22 +7,31 @@
 
     <div>
         <ul class="medias">
-            <li class="bulle"><img src="assets/fb.svg" class="logo-medias"></li>
-            <li class="bulle"><img src="assets/insta.svg" href="https://www.instagram.com/" class="logo-medias"></li>
-            <li class="bulle"><img src="assets/yt.svg" class="logo-medias"></li>
-            <li class="bulle"><img src="assets/fb.svg" class="logo-medias"></li>
+            <a class="" href="https://www.twitter.com/">
+                <li class="bulle"><img src="assets/twi.png" class="logo-medias"></li>
+            </a>
+            <a class="" href="https://www.instagram.com/">
+                <li class="bulle"><img src="assets/insta.svg" class="logo-medias">
+                </li>
+            </a>
+            <a class="" href="https://youtube.com/">
+                <li class="bulle"><img src="assets/yt.svg" class="logo-medias"></li>
+            </a>
+            <a class="" href="https://www.facebook.com/">
+                <li class="bulle"><img src="assets/fb.svg" class="logo-medias"></li>
+            </a>
         </ul>
     </div>
 
     <div class="container-first">
         <h1><span>Rencontre </span><span>des </span><span>Joueurs </span></h1>
-        <div class="container-btns" *ngIf="!authService.isConnected()">
+        <div class="container-btns" *ngIf="authService.isConnected()">
             <button class="btn-first b1" (click)="scroll(concept)">Découvre-nous</button>
 
         </div>
-        <div class="container-btns" *ngIf="authService.isConnected()">
+        <div class="container-btns" *ngIf="!authService.isConnected()">
             <button class="btn-first b1" (click)="scroll(concept)">Découvre-nous</button>
-            <button type="button" class="btn-first b2" routerLink="inscription">Rejoindre l'équipe</button>
+            <button type="button" class="btn-first b2" routerLink="/inscription">Rejoindre l'équipe</button>
         </div>
 
 
