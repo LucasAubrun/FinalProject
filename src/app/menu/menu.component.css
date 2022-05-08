@@ -40,5 +40,7 @@
 }
 
 .okok {
+    position: relative;
     margin-right: 50px;
+    margin-left: 225px;
 }

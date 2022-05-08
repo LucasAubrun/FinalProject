@@ -16,10 +16,16 @@
 
     <div class="container-first">
         <h1><span>Rencontre </span><span>des </span><span>Joueurs </span></h1>
-        <div class="container-btns">
+        <div class="container-btns" *ngIf="!authService.isConnected()">
             <button class="btn-first b1" (click)="scroll(concept)">Découvre-nous</button>
-            <button class="btn-first b2" routerLink="inscription">Rejoindre l'équipe</button>
+
         </div>
+        <div class="container-btns" *ngIf="authService.isConnected()">
+            <button class="btn-first b1" (click)="scroll(concept)">Découvre-nous</button>
+            <button type="button" class="btn-first b2" routerLink="inscription">Rejoindre l'équipe</button>
+        </div>
+
+
 
     </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.1/gsap.min.js"></script>
@@ -82,7 +88,8 @@
                             <h5 class="card-title">Sports</h5>
                             <p class="card-text">
 
-                                Organise ou rejoint des évènements sportifs publics ou entre amis grâce à notre large panel de sports. 
+                                Organise ou rejoint des évènements sportifs publics ou entre amis grâce à notre large
+                                panel de sports.
                             </p>
                             <p class="card-text"><a class="text-muted">Last updated 3 mins ago</a></p>
                         </div>
@@ -98,13 +105,15 @@
                             <h5 class="card-title">Jeux de société</h5>
                             <p class="card-text">
                                 <br>
-                                Participe à des des soirées sur le thème du jeu, organise des rencontres entre passionnés ou des sessions découverte de jeux pour les nouveaux arrivants.
+                                Participe à des des soirées sur le thème du jeu, organise des rencontres entre
+                                passionnés ou des sessions découverte de jeux pour les nouveaux arrivants.
                             </p>
                             <p class="card-text"><a class="text-muted">Last updated 3 mins ago</a></p>
                         </div>
                     </div>
                     <div class="col-md-6">
-                        <img src="https://cdn.pixabay.com/photo/2017/09/08/20/29/chess-2730034_960_720.jpg" class="img-fluid rounded-start" alt="...">
+                        <img src="https://cdn.pixabay.com/photo/2017/09/08/20/29/chess-2730034_960_720.jpg"
+                            class="img-fluid rounded-start" alt="...">
                     </div>
                 </div>
             </div>
@@ -167,13 +176,13 @@
                     </div>
 
                 </div>
-                
+
             </div>
         </div>
     </div>
-    <div class="d-grid gap-2 col-12 mx-auto" style="text-align: center;" >
+    <div class="d-grid gap-2 col-12 mx-auto" style="text-align: center;">
         <button type="button" class="btn btn-light" routerLink="inscription">Inscrivez vous pour participer</button>
-        </div>
+    </div>
 </section>
 
 <!-- Historique -->
@@ -208,7 +217,9 @@
 
             <li class="timeline-inverted">
                 <div class="timeline-image">
-                    <img class="rounded-circle img-fluid" src="https://cdn.pixabay.com/photo/2019/07/02/05/56/rocket-4311575_960_720.png" alt="..." style="width: 100%; margin-top: px;"/>
+                    <img class="rounded-circle img-fluid"
+                        src="https://cdn.pixabay.com/photo/2019/07/02/05/56/rocket-4311575_960_720.png" alt="..."
+                        style="width: 100%; margin-top: px;" />
                 </div>
                 <div class="timeline-panel">
                     <div class="timeline-heading">
