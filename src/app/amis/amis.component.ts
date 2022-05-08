@@ -27,15 +27,22 @@ export class AmisComponent implements OnInit {
   callAmisMembre1() {
     this.http.get('http://localhost:8082/amis/membre1/' + this.authService.getUserConnect().id)
       .subscribe({
-        next: (data) => { this.listamis1 = data },
+        next: (data) => {
+          this.listamis1 = data,
+          console.log(this.listamis1)
+        },
         error: (err) => { console.log(err) }
       });
+
   }
 
   callAmisMembre2() {
     this.http.get('http://localhost:8082/amis/membre2/' + this.authService.getUserConnect().id)
       .subscribe({
-        next: (data) => { this.listamis2 = data },
+        next: (data) => {
+          this.listamis2 = data,
+          console.log(this.listamis2)
+        },
         error: (err) => { console.log(err) }
       });
   }
