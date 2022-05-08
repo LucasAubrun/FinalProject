@@ -48,7 +48,7 @@ export class CreationequipesComponent implements OnInit {
   ngOnInit(): void {
     this.callEquipeId1();
     this.callTtEquipeId();
-  
+
     /*
     this.goSurEquipe2();*/
   }
@@ -115,6 +115,7 @@ export class CreationequipesComponent implements OnInit {
             this.resultMessage = "";
             this.route.navigateByUrl("equipes");
           }
+          this.association();
           this.resultMessage = "Votre équipe est bien créée";
           this.resultColor = "green"
         },
