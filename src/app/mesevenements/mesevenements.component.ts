@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { UrlService } from '../service/url.service';
+import { AuthentificationService } from '../service/authentification.service';
 
 @Component({
   selector: 'app-mesevenements',
@@ -21,14 +22,16 @@ export class MesevenementsComponent implements OnInit {
   //♦♣♦♣♦♣♦♣♦♣ fin création de variable ♦♣♦♣♦♣♦♣♦♣//
 
   constructor(private http: HttpClient,
+    public authentificationService: AuthentificationService,
     private url: UrlService) { }
 
   ngOnInit(): void {
-    this.callTtEventId();
+    this.callTtEventId(this.authentificationService.getUserConnect().id);
   }
 
-  callTtEventId() {
-    this.http.get(this.url.baseURL + "participants/membres/1").subscribe({
+  callTtEventId(val: any) {
+    let id = val.id
+    this.http.get(this.url.baseURL + "participants/membres/" + id).subscribe({
       next: (data) => { this.TtEventId = data },
       error: (err) => { console.log(err) }
     });

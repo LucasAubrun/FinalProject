@@ -83,4 +83,21 @@ export class EvenementsComponent implements OnInit {
 
   }
 
+  //participant() {
+  // let part = {
+  // "membres": {
+  //   "id": this.authService.getUserConnect().id
+  // },
+  //  "evenements": {
+  //    "id": this.evenementservice.getEvenement().id
+  //  }
+  // }
+  //console.log(part);
+  //this.http.post(this.url.baseURL + "Participant/inviter", part).subscribe({
+  //  next: (data) => { },
+  //  error: (err) => { console.log(err) }
+  //})
+  //  ;
+  //}
+
 }

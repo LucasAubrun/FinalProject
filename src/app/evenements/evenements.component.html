@@ -15,9 +15,11 @@
                         <div class="row">
                             <div class="col-12 mb-4">
                                 <ul class="navbar-nav ml-auto"></ul>
-                                <li class="nav-item">
-                                    <a class="nav-link active" routerLink="/creation-evenement">Creer evenement</a>
-                                </li>
+                                <div class="text-center mx-auto mt-5">
+                                    <button class="btn1 btn-dark text-white mt-3 w-50"
+                                        routerLink="/creation-evenement">Creer evenement
+                                    </button>
+                                </div>
                                 <div class="input-group">
                                     <form #nomForm="ngForm" (ngSubmit)="callEventByNom(nomForm.value)">
                                         <div>
@@ -49,14 +51,10 @@
                                                                 <span class="card__status">{{eN.adresse}}</span>
                                                                 <p>
                                                                 </p>
-                                                                <span class="card__status">{{eN.recurrence}}</span>
-                                                                <p>
-                                                                </p>
                                                                 <span class="card__status">{{eN.niveau}}</span>
                                                                 <p>
                                                                 </p>
-                                                                <span
-                                                                    class="card__status">{{eN.nbmin}}/{{eN.nbmax}}</span>
+                                                                <span class="card__status">{{eN.nbmin}}</span>
                                                                 <p>
                                                                 </p>
                                                                 <span class="card__status">{{eN.nomActivite}}</span>
@@ -123,16 +121,17 @@
                         <span class="card__status">{{e.adresse}}</span>
                         <p>
                         </p>
-                        <span class="card__status">{{e.recurrence}}</span>
-                        <p>
-                        </p>
                         <span class="card__status">{{e.niveau}}</span>
                         <p>
                         </p>
-                        <span class="card__status">{{e.nbmin}}/{{e.nbmax}}</span>
+                        <span class="card__status">{{e.nbmin}}</span>
                         <p>
                         </p>
                         <span class="card__status">{{e.nomActivite}}</span>
+                        <p>
+                            <!--<button type="button" class="btn btn" (click)="participant()">
+                              </button> -->
+                        </p>
                     </div>
                 </div>
                 <p class="card__description">{{e.description}}</p>
