@@ -1,6 +1,7 @@
 <form class="text-center" #messageForm="ngForm" (ngSubmit)="createMessage(messageForm.value)">
-    <label> Envoyer un message à : {{this.recepteur.nom}} {{this.recepteur.prenom}}</label>
+    <img class="message-img mb-3" src="messagerie.jpg" height="200" width="300" /> <br>
     <textarea style="height:100px" id="contenu" type="text" name="contenu" placeholder="Mon message..." ngModel=""
         required></textarea> <br>
-    <button class="btn btn-primary" [disabled]="!messageForm.valid">Envoyer</button>
+    <button class="btn btn-primary mb-2" [disabled]="!messageForm.valid">Envoyer</button> <br>
+    <label> À : {{this.recepteur.prenom}} {{this.recepteur.nom}}</label>
 </form>
