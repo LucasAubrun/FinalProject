@@ -74,35 +74,35 @@
 
     <ul class="nav sunny-morning-gradient lighten-3 py-4 mb-4 font-weight-bold z-depth-2">
       <div class="col-md-12">
-        <h1 text-align: center>Evenement</h1>
+        <h1 text-align: center>Les Evenements de {{equipeservice.getEquipe().nom}} </h1>
       </div>
-      <!-- Card body -->
+     <!-- Card body -->
 
-      <div class="col-md-12">
-        <div class="card-body">
-          <div class="card mx-xl-4">
-            <!-- Default form subscription -->
-            <form #creerevenement="ngForm" (ngSubmit)="AjouterEvenement(creerevenement.value)">
-              <p class="h6 text-center py-4">Ajoutez un évenement</p>
+     <div class="col-md-12">
+      <div class="card-body">
+        <div class="card mx-xl-4">
+          <!-- Default form subscription -->
+          <form #creerevenement="ngForm" (ngSubmit)="AjouterEvenement(creerevenement.value)">
+            <p class="h6 text-center py-4">Ajoutez un évenement</p>
 
-              <!-- Default input name -->
-              <label for="defaultFormCardNameEx" class="grey-text font-weight-light">Entrez votre prochain évenement
-                d'équipe</label>
-              <input type="text" name="id" placeholder="id de l'évenement" class="form-control" ngModel="">
+            <!-- Default input name -->
+            <label for="defaultFormCardNameEx" class="grey-text font-weight-light">Entrez votre prochain évenement
+              d'équipe</label>
+            <input type="text" name="id" placeholder="id de l'évenement" class="form-control" ngModel="">
 
-              <br>
+            <br>
 
-              <div class="text-center py-4 mt-3">
-                <button class="btn btn-outline-purple" type="submit">Ajouter
-                  <i class="fa fa-paper-plane-o ml-2"></i></button>
-              </div>
-              <p class="mt-3" [style.color]="resultColor">{{resultMessageInvit}}</p>
-            </form>
-            <!-- Default form subscription -->
-          </div>
+            <div class="text-center py-4 mt-3">
+              <button class="btn btn-outline-purple" type="submit">Ajouter
+                <i class="fa fa-paper-plane-o ml-2"></i></button>
+            </div>
+            <p class="mt-3" [style.color]="resultColor">{{resultMessageEv}}</p>
+          </form>
+          <!-- Default form subscription -->
         </div>
       </div>
-      <!-- Card body -->
+    </div>
+    <!-- Card body -->
 
       <!--  ♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠         fin ajouter un evenement   ♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠              -->
 
@@ -116,12 +116,12 @@
 
 
 
-      <div class="col-sm-2" *ngFor="let Le of LesEvenements">
-        <p>Les Evenements de {{equipeservice.getEquipe().nom}} :</p>
+      <div  *ngFor="let Le of LesEvenements">
+        
         <div class="card1">
           <button type="button" class="monBoutton1"
             (click)="equipeservice.setEvenementTargetInLocalStorage(Le.Evenement)" routerLink="/evenement">
-            <td>{{Le.evenement.nomActivite}}</td>
+            <td>{{Le.evenements.nomActivite}}</td>
           </button>
         </div>
 

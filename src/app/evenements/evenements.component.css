@@ -24,7 +24,7 @@ body {
 .card {
     position: relative;
     display: block;
-    height: 110%;
+    height: 57%;
     border-radius: calc(var(--curve) * 1px);
     overflow: hidden;
     text-decoration: none;

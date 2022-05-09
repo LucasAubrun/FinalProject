@@ -7,17 +7,17 @@
 
     <div>
         <ul class="medias">
-            <a class="" href="https://www.twitter.com/" target="_blank">
-                <li class="bulle"><img src="assets/twi.png" class="logo-medias"></li>
+            <a class="btn" href="https://www.twitter.com/" target="_blank">
+                <li class="bulle"><img src="assets/twi.svg" class="logo-medias"></li>
             </a>
-            <a class="" href="https://www.instagram.com/" target="_blank">
-                <li class="bulle"><img src="assets/insta.svg" class="logo-medias">
+            <a class="btn" href="https://www.instagram.com/" target="_blank">
+                <li class="bulle"><img src="assets/insta.svg"  class="logo-medias">
                 </li>
             </a>
-            <a class="" href="https://youtube.com/" target="_blank">
+            <a class="btn" href="https://www.youtube.com/" target="_blank">
                 <li class="bulle"><img src="assets/yt.svg" class="logo-medias"></li>
             </a>
-            <a class="" href="https://www.facebook.com/" target="_blank">
+            <a class="btn" href="https://www.facebook.com/" target="_blank">
                 <li class="bulle"><img src="assets/fb.svg" class="logo-medias"></li>
             </a>
         </ul>
@@ -25,6 +25,10 @@
 
     <div class="container-first">
         <h1><span>Rencontre </span><span>des </span><span>Joueurs </span></h1>
+        <div class="container-btns" *ngIf="!authService.isConnected()">
+            <button class="btn-first b1" (click)="scroll(concept)">Découvre-nous</button>
+            <button class="btn-first b2" routerLink="/inscription">Rejoindre l'équipe</button>
+        </div>
         <div class="container-btns" *ngIf="authService.isConnected()">
             <button class="btn-first b1" (click)="scroll(concept)">Découvre-nous</button>
 
