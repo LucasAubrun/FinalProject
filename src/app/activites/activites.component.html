@@ -1,4 +1,10 @@
-<ul class="cards">
+<br>
+<div class="text-center mx-auto mt-5">
+  <button class="btn1 btn-dark text-white mt-3 w-50" 
+      routerLink="/newactivite"  style="margin-top: 80px;">Proposer une activité</button>
+</div>
+
+<ul class="cards" style="margin-top: 40px;">
   <li *ngFor="let a of activitesOne">
     <div *ngIf="a.valide==true">
       <a href="" class="card">

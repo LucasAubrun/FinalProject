@@ -104,6 +104,7 @@
 
                             <div class="text-center py-4 mt-3">
                                 <button class="btn btn-danger btn-block" type="submit"
+                                    (click)="setExperience(this.authService.getUserConnect().id)"
                                     [disabled]="!EvenementForm.form.valid">Valider
                                     l'évènement<i class="fa fa-paper-plane-o ml-1"></i></button>
                                 <p class="result" [style.color]="resultColor">{{resultMessage}}</p>
