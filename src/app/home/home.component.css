@@ -34,8 +34,8 @@ h1 {
   text-transform: uppercase;
   font-size: 90px;
   color: #e9f581;
-  font-family: cursive, sans-serif;
-}
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+} 
 
 h1 span {
   position: relative;
@@ -501,3 +501,4 @@ h1 span {
 .card-body.h5.card-title {
   font-size: 90px;
 }
+
