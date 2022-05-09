@@ -7,6 +7,7 @@ import { Router } from '@angular/router';
 import { UrlService } from '../service/url.service';
 
 
+
 @Component({
   selector: 'app-equipes',
   templateUrl: './equipes.component.html',
@@ -19,6 +20,7 @@ export class EquipesComponent implements OnInit {
   baseURL: string = "http://localhost:8082/";
   invitationEq: any;
   resultMessageInvit: any;
+  resultMessageEv: any;
   errorInvit: any;
   LesMembres: any;
   resultColor: any;
@@ -98,7 +100,7 @@ export class EquipesComponent implements OnInit {
   //  ♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠    Afficher les évenements   ♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠              //
 
   callEvenement() {
-    this.http.get(this.url.baseURL + "associationEV/equipe/" + this.equipeservice.getEquipe().id).subscribe({
+    this.http.get(this.url.baseURL + "associationsEV/equipe/" + this.equipeservice.getEquipe().id).subscribe({
       next: (data) => {
         this.LesEvenements = data;
         console.log(data)
@@ -113,22 +115,21 @@ export class EquipesComponent implements OnInit {
 
   AjouterEvenement(val: any) {
     let invitations = {
-      "evenement": {
+      "evenements": {
         "id": val.id
       },
       "equipes": {
         "id": this.equipeservice.getEquipe().id
       }
-
     };
     console.log(invitations);
     this.http.post(this.url.baseURL + "associationEV/ajouterEvEq", invitations).subscribe({
       next: (data) => {
-        this.resultMessageInvit = "Evenement ajouté";
+        this.resultMessageEv = "Evenement ajouté";
         this.resultColor = "green"
       },
       error: (err) => {
-        this.resultMessageInvit = "Impossible d'ajouter l'évenement";
+        this.resultMessageEv = "Impossible d'ajouter l'évenement";
         this.resultColor = "red"
       }
     })

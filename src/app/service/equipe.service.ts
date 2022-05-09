@@ -9,6 +9,7 @@ import { Router } from '@angular/router';
 export class EquipeService {
 
   equipe: any;
+  evenement: any;
   constructor(private route: Router) { }
 
   //getEquipeConnect(): any{
@@ -21,12 +22,11 @@ export class EquipeService {
     localStorage.setItem('equipeConnect', JSON.stringify(equipe));
   }
 
-
-
   getEquipe() {
     let equipe: any = localStorage.getItem('equipeConnect');
     return JSON.parse(equipe);
   }
+
 
   setEvenementTargetInLocalStorage(Evenement: any) {
     localStorage.setItem('EvenementTarget', JSON.stringify(Evenement));
