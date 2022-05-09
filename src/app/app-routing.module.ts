@@ -16,6 +16,8 @@ import { CommunauteComponent } from './communaute/communaute.component';
 import { ModifierProfilComponent } from './modifier-profil/modifier-profil.component';
 import { MessagerieComponent } from './messagerie/messagerie.component';
 import { PolitiqueComponent } from './politique/politique.component';
+import { NewactiviteComponent } from './newactivite/newactivite.component';
+
 
 
 const routes: Routes = [
@@ -35,7 +37,8 @@ const routes: Routes = [
   { component: CreationEvenementComponent, path: 'creation-evenement' },
   { component: CommunauteComponent, path: 'communaute' },
   { component: MessagerieComponent, path: 'messagerie' },
-  { component: PolitiqueComponent, path: 'politique' }
+  { component: PolitiqueComponent, path: 'politique' },
+  { component : NewactiviteComponent, path: 'newactivite'}
 ];
 
 
