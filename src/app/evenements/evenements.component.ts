@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, Input, OnInit } from '@angular/core';
 import { UrlService } from '../service/url.service';
+import { AuthentificationService } from '../service/authentification.service';
 
 @Component({
   selector: 'app-evenements',
@@ -9,7 +10,7 @@ import { UrlService } from '../service/url.service';
 })
 export class EvenementsComponent implements OnInit {
 
-  baseURL: string = "http://localhost:8082/";
+  baseURL: string = "http://localhost:8080/";
   resultMessage: string = " ";
   resultColor: string = " ";
   EventRandId: any;
@@ -21,14 +22,17 @@ export class EvenementsComponent implements OnInit {
   joinEv: any;
   EvenementsOne: any;
   p: any;
+  MembreById: any;
 
   constructor(private http: HttpClient,
+    public authentificationService: AuthentificationService,
     private url: UrlService) { }
 
   ngOnInit(): void {
     //this.callEventRandId();
     //this.callEventRandAll();
     this.callEvenementsAll();
+    this.callMembreById(this.authentificationService.getUserConnect().id)
   }
 
   callEventRandId() {
@@ -81,6 +85,41 @@ export class EvenementsComponent implements OnInit {
         error: (err) => { console.log(err) }
       });
 
+  }
+
+  participant(EvId: any) {
+    let part = {
+      "membres": {
+        "id": this.authentificationService.getUserConnect().id
+      },
+      "evenements": {
+        "id": EvId.id
+      }
+    }
+    this.http.post(this.url.baseURL + "Participant/inviter", part).subscribe({
+      next: (data) => { this.resultMessageInvit = "evenement rejoint" },
+      error: (err) => { console.log(err) }
+    })
+      ;
+  }
+  setExperience(id: any) {
+    let xp = this.MembreById.xp + 1;
+    console.log(xp);
+    this.http.patch('http://localhost:8080/membre/set/xp/' + id, xp)
+      .subscribe({
+        next: (data) => { console.log(xp) },
+
+        error: (err) => { console.log(err) }
+      })
+  }
+
+  callMembreById(id: any) {
+    this.http.get(this.url.baseURL + "membre/get/" + id).subscribe({
+
+      next: (data) => { this.MembreById = data },
+      error: (err) => { console.log(err) }
+
+    });
   }
 
 }

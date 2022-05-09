@@ -3,23 +3,38 @@
 <head>
 </head>
 <div>
-    <img src="assets/img/Multisport.jpeg" alt="my image" width=100% height=max-height>
+    <img src="https://img.freepik.com/vecteurs-libre/mon-passe-temps-lie-sports-activites-illustration-temps-libre_24908-60577.jpg?t=st=1652087039~exp=1652087639~hmac=3a76103545711894688ca216e31cdab7504b80a36daab4f1e7bf5d37ca242133&w=1380" alt="my image" width=100% height=max-height style="margin-top: 74px;">
 
     <div>
         <ul class="medias">
-            <li class="bulle"><img src="assets/fb.svg" class="logo-medias"></li>
-            <li class="bulle"><img src="assets/insta.svg" href="https://www.instagram.com/" class="logo-medias"></li>
-            <li class="bulle"><img src="assets/yt.svg" class="logo-medias"></li>
-            <li class="bulle"><img src="assets/fb.svg" class="logo-medias"></li>
+            <a class="btn" href="https://www.twitter.com/" target="_blank">
+                <li class="bulle"><img src="assets/twi.svg" class="logo-medias"></li>
+            </a>
+            <a class="btn" href="https://www.instagram.com/" target="_blank">
+                <li class="bulle"><img src="assets/insta.svg"  class="logo-medias">
+                </li>
+            </a>
+            <a class="btn" href="https://www.youtube.com/" target="_blank">
+                <li class="bulle"><img src="assets/yt.svg" class="logo-medias"></li>
+            </a>
+            <a class="btn" href="https://www.facebook.com/" target="_blank">
+                <li class="bulle"><img src="assets/fb.svg" class="logo-medias"></li>
+            </a>
         </ul>
     </div>
 
     <div class="container-first">
-        <h1><span>Rencontre </span><span>des </span><span>Joueurs </span></h1>
-        <div class="container-btns">
-            <button class="btn-first b1" (click)="scroll(concept)">Découvre-nous</button>
-            <button class="btn-first b2" routerLink="inscription">Rejoindre l'équipe</button>
+        <h1 style="font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; color: black; margin-top: 0px;"><span>Rencontre </span><span>des </span><span>Joueurs </span></h1>
+        <div class="container-btns" *ngIf="!authService.isConnected()">
+            <button class="btn-first b1" (click)="scroll(concept)" style="margin-top: 20px;">Découvre-nous</button>
+            <button class="btn-first b2" routerLink="/inscription" style="margin-top: 20px;">Rejoindre l'équipe</button>
         </div>
+        <div class="container-btns" *ngIf="authService.isConnected()">
+            <button class="btn-first b1" (click)="scroll(concept)"style="margin-top: 20px;">Découvre-nous</button>
+
+        </div>
+        
+
 
     </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.1/gsap.min.js"></script>
@@ -30,7 +45,7 @@
     <div class="container">
         <div class="text-center">
             <h2 class="section-heading text-uppercase">Le concept</h2>
-            <h3 class="section-subheading text-muted"> Elogames a pour vocation de rassembler les amoureux du jeu et de
+            <h3 class="section-subheading text-muted"> MUP a pour vocation de rassembler les amoureux du jeu et de
                 les amener à se rencontrer pour des parties effrénées</h3>
         </div>
         <div class="row text-center">
@@ -61,7 +76,7 @@
                     <i class="fas fa-trophy fa-stack-1x fa-inverse"></i>
                 </span>
                 <h4 class="my-3">Compétitif</h4>
-                <p class="text-muted">Mesure toi aux autres utilisateurs dans tes domaines de prédilecton</p>
+                <p class="text-muted">Mesure toi aux autres utilisateurs dans tes domaines de prédilection</p>
             </div>
         </div>
     </div>
@@ -82,7 +97,8 @@
                             <h5 class="card-title">Sports</h5>
                             <p class="card-text">
 
-                                Organise ou rejoint des évènements sportifs publics ou entre amis grâce à notre large panel de sports. 
+                                Organise ou rejoint des évènements sportifs publics ou entre amis grâce à notre large
+                                panel de sports.
                             </p>
                             <p class="card-text"><a class="text-muted">Last updated 3 mins ago</a></p>
                         </div>
@@ -98,13 +114,15 @@
                             <h5 class="card-title">Jeux de société</h5>
                             <p class="card-text">
                                 <br>
-                                Participe à des des soirées sur le thème du jeu, organise des rencontres entre passionnés ou des sessions découverte de jeux pour les nouveaux arrivants.
+                                Participe à des des soirées sur le thème du jeu, organise des rencontres entre
+                                passionnés ou des sessions découverte de jeux pour les nouveaux arrivants.
                             </p>
                             <p class="card-text"><a class="text-muted">Last updated 3 mins ago</a></p>
                         </div>
                     </div>
                     <div class="col-md-6">
-                        <img src="https://cdn.pixabay.com/photo/2017/09/08/20/29/chess-2730034_960_720.jpg" class="img-fluid rounded-start" alt="...">
+                        <img src="https://cdn.pixabay.com/photo/2017/09/08/20/29/chess-2730034_960_720.jpg"
+                            class="img-fluid rounded-start" alt="...">
                     </div>
                 </div>
             </div>
@@ -112,7 +130,7 @@
             <div class="card my-4 border-0 rounded-0">
                 <div class="row">
                     <div class="col-md-6">
-                        <img src="assets/jeuxv.jpg" class="img-fluid rounded-start" alt="...">
+                        <img src="assets/jeuxv.jpg" class="img-fluid rounded-start" alt="..." style="width: 100%;">
                         <!--  Carousel Wrapper
                         <div id="carousel-example-1z" class="carousel slide " data-ride="carousel">
                             Indicators
@@ -157,7 +175,7 @@
                                 <br>
                                 Tu es à la recherche de coéquipiers pour participer aux prochaines compétitions ou juste
                                 pour rigoler le soir? Où simplement à la recherce d'adversaires?
-                                Que tu sois un joueur Playstation, Xbox, Nintendo, ou PC, Elogames est là pour te
+                                Que tu sois un joueur Playstation, Xbox, Nintendo, ou PC, MUP est là pour te
                                 trouver les bonnes personnes.
                             </p>
 
@@ -167,13 +185,13 @@
                     </div>
 
                 </div>
-                
+
             </div>
         </div>
     </div>
-    <div class="d-grid gap-2 col-12 mx-auto" style="text-align: center;" >
-        <button type="button" class="btn btn-light" routerLink="inscription">Inscrivez vous pour participer</button>
-        </div>
+    <div class="d-grid gap-2 col-12 mx-auto" style="text-align: center;">
+        <button type="button" class="btn btn-light" routerLink="/inscription">Inscrivez vous pour participer</button>
+    </div>
 </section>
 
 <!-- Historique -->
@@ -183,11 +201,12 @@
     <div class="container">
         <div class="text-center">
             <h2 class="section-heading text-uppercase">About</h2>
-            <h3 class="section-subheading text-muted">L'histoire d'Elogames</h3>
+            <h3 class="section-subheading text-muted">L'histoire de MUP</h3>
         </div>
         <ul class="timeline">
             <li>
-                <div class="timeline-image"><img class="rounded-circle img-fluid" src="./assets/sol.webp" alt="..." />
+                <div class="timeline-image"><img src="mup.png" routerLink="home"
+                    width="100" height="40" style="float:none; margin-top: 55px;" alt="">
                 </div>
                 <div class="timeline-panel">
                     <div class="timeline-heading">
@@ -199,7 +218,7 @@
                             <br>
                             L'histoire débute le 28 mars 2022. En ce jour, 7 jeunes cadres dynamiques
                             rejoignent l'entreprise Solutec. Sous la pression grandissante, l'un d'entre eux quitte
-                            rapidement le navire. Les 6 derniers vont, suite à cela, donner naissance à Elogames.
+                            rapidement le navire. Les 6 derniers vont, suite à cela, donner naissance à MUP.
                         </p>
                     </div>
                 </div>
@@ -208,7 +227,9 @@
 
             <li class="timeline-inverted">
                 <div class="timeline-image">
-                    <img class="rounded-circle img-fluid" src="https://cdn.pixabay.com/photo/2019/07/02/05/56/rocket-4311575_960_720.png" alt="..." style="width: 100%; margin-top: px;"/>
+                    <img class="rounded-circle img-fluid"
+                        src="https://cdn.pixabay.com/photo/2019/07/02/05/56/rocket-4311575_960_720.png" alt="..."
+                        style="width: 100%; margin-top: px;" />
                 </div>
                 <div class="timeline-panel">
                     <div class="timeline-heading">
@@ -246,7 +267,7 @@
     <div class="container">
         <div class="text-center">
             <h2 class="section-heading text-uppercase">Notre équipe</h2>
-            <h3 class="section-subheading text-muted">Les fondateurs de Elogames</h3>
+            <h3 class="section-subheading text-muted">Les fondateurs de MUP</h3>
         </div>
         <div class="row">
             <div class="col-lg-4">
@@ -258,10 +279,12 @@
                     <a class="btn btn-dark btn-social mx-2" href="#!" aria-label="Parveen Anand Twitter Profile"><i
                             class="fab fa-twitter"></i></a>
                     <a class="btn btn-dark btn-social mx-2" href="https://www.facebook.com/petit.ange2019"
-                        aria-label="Parveen Anand Facebook Profile"><i class="fab fa-facebook-f"></i></a>
+                        target="_blank" aria-label="Parveen Anand Facebook Profile"><i
+                            class="fab fa-facebook-f"></i></a>
                     <a class="btn btn-dark btn-social mx-2"
                         href="https://fr.linkedin.com/in/lucas-aubrun-4a5260171?trk=people-guest_people_search-card"
-                        aria-label="Parveen Anand LinkedIn Profile"><i class="fab fa-linkedin-in"></i></a>
+                        target="_blank" aria-label="Parveen Anand LinkedIn Profile"><i
+                            class="fab fa-linkedin-in"></i></a>
                 </div>
             </div>
             <div class="col-lg-4">
@@ -273,11 +296,12 @@
                     <a class="btn btn-dark btn-social mx-2" href="#!" aria-label="Diana Petersen Twitter Profile"><i
                             class="fab fa-twitter"></i></a>
                     <a class="btn btn-dark btn-social mx-2"
-                        href="https://www.facebook.com/profile.php?id=100006881985051"
+                        href="https://www.facebook.com/profile.php?id=100006881985051" target="_blank"
                         aria-label="Diana Petersen Facebook Profile"><i class="fab fa-facebook-f"></i></a>
                     <a class="btn btn-dark btn-social mx-2"
                         href="https://fr.linkedin.com/in/clara-raison-057943179?trk=people-guest_people_search-card"
-                        aria-label="Diana Petersen LinkedIn Profile"><i class="fab fa-linkedin-in"></i></a>
+                        target="_blank" aria-label="Diana Petersen LinkedIn Profile"><i
+                            class="fab fa-linkedin-in"></i></a>
                 </div>
             </div>
             <div class="col-lg-4">
@@ -289,10 +313,11 @@
                     <a class="btn btn-dark btn-social mx-2" href="#!" aria-label="Larry Parker Twitter Profile"><i
                             class="fab fa-twitter"></i></a>
                     <a class="btn btn-dark btn-social mx-2" href="https://www.facebook.com/matthieu.beauchet"
-                        aria-label="Larry Parker Facebook Profile"><i class="fab fa-facebook-f"></i></a>
+                        target="_blank" aria-label="Larry Parker Facebook Profile"><i class="fab fa-facebook-f"></i></a>
                     <a class="btn btn-dark btn-social mx-2"
                         href="https://fr.linkedin.com/in/matthieu-beauchet-51b468158?trk=people-guest_people_search-card"
-                        aria-label="Larry Parker LinkedIn Profile"><i class="fab fa-linkedin-in"></i></a>
+                        target="_blank" aria-label="Larry Parker LinkedIn Profile"><i
+                            class="fab fa-linkedin-in"></i></a>
                 </div>
             </div>
             <div class="col-lg-4">
@@ -304,10 +329,11 @@
                     <a class="btn btn-dark btn-social mx-2" href="#!" aria-label="Larry Parker Twitter Profile"><i
                             class="fab fa-twitter"></i></a>
                     <a class="btn btn-dark btn-social mx-2" href="https://www.facebook.com/alexis.perrocheau.zer"
-                        aria-label="Larry Parker Facebook Profile"><i class="fab fa-facebook-f"></i></a>
+                        target="_blank" aria-label="Larry Parker Facebook Profile"><i class="fab fa-facebook-f"></i></a>
                     <a class="btn btn-dark btn-social mx-2"
                         href="https://fr.linkedin.com/in/alexis-perrocheau?trk=people-guest_people_search-card"
-                        aria-label="Larry Parker LinkedIn Profile"><i class="fab fa-linkedin-in"></i></a>
+                        target="_blank" aria-label="Larry Parker LinkedIn Profile"><i
+                            class="fab fa-linkedin-in"></i></a>
                 </div>
             </div>
             <div class="col-lg-4">
@@ -318,11 +344,12 @@
                     <br>
                     <a class="btn btn-dark btn-social mx-2" href="#!" aria-label="Larry Parker Twitter Profile"><i
                             class="fab fa-twitter"></i></a>
-                    <a class="btn btn-dark btn-social mx-2" href="https://www.facebook.com/dylan.sergeant.94"
-                        aria-label="Larry Parker Facebook Profile"><i class="fab fa-facebook-f"></i></a>
+                    <a class="btn btn-dark btn-social mx-2" href="https://www.facebook.com/dylan.sergeant.94 "
+                        target="_blank" aria-label="Larry Parker Facebook Profile"><i class="fab fa-facebook-f"></i></a>
                     <a class="btn btn-dark btn-social mx-2"
                         href="https://fr.linkedin.com/in/dylan-sergeant-4172a219b?trk=people-guest_people_search-card"
-                        aria-label="Larry Parker LinkedIn Profile"><i class="fab fa-linkedin-in"></i></a>
+                        target="_blank" aria-label="Larry Parker LinkedIn Profile"><i
+                            class="fab fa-linkedin-in"></i></a>
                 </div>
             </div>
             <div class="col-lg-4">
@@ -335,10 +362,11 @@
                     <a class="btn btn-dark btn-social mx-2" href="#!" aria-label="Larry Parker Twitter Profile"><i
                             class="fab fa-twitter"></i></a>
                     <a class="btn btn-dark btn-social mx-2" href="https://www.facebook.com/Alexandre.roux22"
-                        aria-label="Larry Parker Facebook Profile"><i class="fab fa-facebook-f"></i></a>
+                        target="_blank" aria-label="Larry Parker Facebook Profile"><i class="fab fa-facebook-f"></i></a>
                     <a class="btn btn-dark btn-social mx-2"
                         href="https://fr.linkedin.com/in/alexandre-roux-726562142?trk=people-guest_people_search-card"
-                        aria-label="Larry Parker LinkedIn Profile"><i class="fab fa-linkedin-in"></i></a>
+                        target="_blank" aria-label="Larry Parker LinkedIn Profile"><i
+                            class="fab fa-linkedin-in"></i></a>
                 </div>
             </div>
         </div>
@@ -346,8 +374,8 @@
             <div class="col-lg-8 mx-auto text-center">
                 <br>
                 <br>
-                <p class="large text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut eaque,
-                    laboriosam veritatis, quos non quis ad perspiciatis, totam corporis ea, alias ut unde.</p>
+                <!--<p class="large text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut eaque,
+                    laboriosam veritatis, quos non quis ad perspiciatis, totam corporis ea, alias ut unde.</p> -->
             </div>
         </div>
     </div>

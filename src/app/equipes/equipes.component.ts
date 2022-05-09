@@ -7,6 +7,7 @@ import { Router } from '@angular/router';
 import { UrlService } from '../service/url.service';
 
 
+
 @Component({
   selector: 'app-equipes',
   templateUrl: './equipes.component.html',
@@ -19,10 +20,17 @@ export class EquipesComponent implements OnInit {
   baseURL: string = "http://localhost:8082/";
   invitationEq: any;
   resultMessageInvit: any;
+  resultMessageEv: any;
   errorInvit: any;
   LesMembres: any;
   resultColor: any;
+  LesEvenements: any;
   bonjour = this.equipeservice.getEquipe().id;
+  
+  membreall: any;
+  evenementall: any;
+  index: any;
+  index2: any;
 
   //  ♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠    Invitation   ♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠              //
 
@@ -38,6 +46,9 @@ export class EquipesComponent implements OnInit {
 
   ngOnInit(): void {
     this.callMember();
+    this.callEvenement();
+    this.getAllMember();
+    this.getAllEvenement();
   }
 
   //  ♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠    récuperer l'equipe   ♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠              //
@@ -45,6 +56,13 @@ export class EquipesComponent implements OnInit {
 
 
   //  ♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠    Invitation   ♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠              //
+
+  /* FindIdByMail(val: any){
+     
+     mail: val.mail
+     this.http.post(this.url.baseURL + "membre/id/" + mail).subscribe({
+   }*/
+
 
   sendinvitationEq(val: any) {
     let invitations = {
@@ -84,4 +102,88 @@ export class EquipesComponent implements OnInit {
   }
 
   //  ♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠    Afficher les membres d'une équiês   ♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠              //
+
+
+  //  ♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠    Afficher les évenements   ♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠              //
+
+  callEvenement() {
+    this.http.get(this.url.baseURL + "associationsEV/equipe/" + this.equipeservice.getEquipe().id).subscribe({
+      next: (data) => {
+        this.LesEvenements = data;
+        console.log(data)
+      },
+      error: (err) => { console.log(err) }
+    });
+  }
+
+  //  ♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠    fin Afficher les évenements   ♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠              //
+
+  //  ♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠    Ajouter evenement   ♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠              //
+
+  AjouterEvenement(val: any) {
+    let invitations = {
+      "evenements": {
+        "id": val.id
+      },
+      "equipes": {
+        "id": this.equipeservice.getEquipe().id
+      }
+    };
+    console.log(invitations);
+    this.http.post(this.url.baseURL + "associationEV/ajouterEvEq", invitations).subscribe({
+      next: (data) => {
+        this.resultMessageEv = "Evenement ajouté";
+        this.resultColor = "green"
+      },
+      error: (err) => {
+        this.resultMessageEv = "Impossible d'ajouter l'évenement";
+        this.resultColor = "red"
+      }
+    })
+  }
+  //  ♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠  fin  Ajouter evenement   ♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠              //
+
+
+  getAllMember() {
+    this.http.get(this.url.baseURL+"membre/get/all")
+    .subscribe({
+      next: (data) => {
+        this.membreall = data;
+        console.log(data);
+      },
+      error: (err) => {
+        console.log(err);
+      }
+      });
+  }
+
+
+  getAllEvenement() {
+    this.http.get(this.url.baseURL+"evenements/all")
+    .subscribe({
+      next: (data) => {
+        this.evenementall = data;
+        console.log(data);
+      },
+      error: (err) => {
+        console.log(err);
+      }
+      });
+  }
+
+  /* 
+ Trouver_association
+ 
+ 
+ 
+ 
+ 
+ 
+   Exclureequipier(){
+     this.http.get(this.url.baseURL + "Associations/supprimer/" + this.equipeservice.getEquipe().id).subscribe({
+   }
+ */
 }
+
+
+

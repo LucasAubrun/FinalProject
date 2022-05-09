@@ -26,18 +26,18 @@ export class AuthentificationService {
     return JSON.parse(user);
   }
 
-  isConnected(){
-    if(this.getUserConnect() != null){
+  isConnected() {
+    if (this.getUserConnect() != null) {
       return true;
     }
-    else{
+    else {
       return false;
     }
   }
 
   deconnexion() {
-    localStorage.clear(); 
+    localStorage.clear();
     this.route.navigateByUrl('');
   }
- 
+
 }

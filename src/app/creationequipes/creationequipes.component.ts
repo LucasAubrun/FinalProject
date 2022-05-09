@@ -13,7 +13,7 @@ import { UrlService } from '../service/url.service';
 export class CreationequipesComponent implements OnInit {
 
   //♦♣♦♣♦♣♦♣♦♣ création de variable ♦♣♦♣♦♣♦♣♦♣//
-  baseURL: string = "http://localhost:8482/";
+  baseURL: string = "http://localhost:8080/";
   resultMessage: string = " ";
   resultColor: string = " ";
   EquipesId1: any;
@@ -48,7 +48,7 @@ export class CreationequipesComponent implements OnInit {
   ngOnInit(): void {
     this.callEquipeId1();
     this.callTtEquipeId();
-  
+
     /*
     this.goSurEquipe2();*/
   }
@@ -115,13 +115,16 @@ export class CreationequipesComponent implements OnInit {
             this.resultMessage = "";
             this.route.navigateByUrl("equipes");
           }
+          this.association();
           this.resultMessage = "Votre équipe est bien créée";
-          this.resultColor = "green"
+          this.resultColor = "green";
+          this.association()
         },
         error: (err) => {
           console.log(err);
           if (err.error.trace.includes("Duplicate")) {
             this.resultMessage = "Cette equipe existe déja.."
+            this.resultColor = "green"
           }
           else
             this.resultMessage = "Une erreur s'est produite"

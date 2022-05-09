@@ -29,6 +29,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { PolitiqueComponent } from './politique/politique.component';
 import { EventpassesComponent } from './eventpasses/eventpasses.component';
 import { MembrespassesComponent } from './membrespasses/membrespasses.component';
+import { ContactComponent } from './contact/contact.component';
 
 
 @NgModule({
@@ -58,7 +59,8 @@ import { MembrespassesComponent } from './membrespasses/membrespasses.component'
     MessagerieComponent,
     PolitiqueComponent,
     EventpassesComponent,
-    MembrespassesComponent
+    MembrespassesComponent,
+    ContactComponent
   ],
   imports: [
     ReactiveFormsModule,

@@ -1,29 +1,199 @@
-<br><br><br><br><br><br><br>
+<h1 style="margin-top:150px">Bienvenue sur l'équipe {{equipeservice.getEquipe().nom}}</h1>
 
-
-<h1 style="margin-top:200px" >hey{{equipeservice.getEquipe().id}}</h1>
-
-<div class="col-sm-6" *ngFor="let Lm of LesMembres">
-  <div class="card p-2">
-    <td>{{Lm.membres.prenom}}</td><br>
-    <td>{{Lm.membres.nom}}</td>
-
-  </div>
-
-</div>
-
-<h1>Bienvenue sur l'equipe {{equipeservice.getEquipe().nom}}</h1>
 <!--<h1>Bienvenue sur l'equipe {{equipeservice.getEquipe()[0].nom}}</h1>-->
 
-
-
-
 <!-- ♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠ -->
 
 
 
 
-<!-- ♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠ -->
+
+<!--  ♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠         inviter qqun dans l'equipe   ♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠              -->
+
+
+<!-- Card body -->
+<div class="row" style="margin-top:50px">
+
+  <div class="col-1"></div>
+  <div class="col-3">
+
+
+
+    <ul class="nav sunny-morning-gradient lighten-3 py-4 mb-4 font-weight-bold z-depth-2">
+
+      <div class="col-md-12">
+        <h1 text-align: center> Inviter membres</h1>
+      </div>
+ 
+      <div class="col-md-12">     
+        <div class="row">
+          <div class="col-6">
+            <div class="card-body">
+              <div class="card">
+                <!-- Default form subscription -->
+                <form #invitation="ngForm" (ngSubmit)="sendinvitationEq(invitation.value)">
+                  <p class="h6 text-center py-4">Ajouter un membre</p>
+
+                  <!-- Default input name -->
+                  <label for="defaultFormCardNameEx" class="grey-text font-weight-light">Nom de votre futur
+                    équipier</label>
+                  <input type="text" name="id" placeholder="id de votre équipier" class="form-control" ngModel="">
+
+                  <div class="text-center py-4 mt-3">
+                    <button class="btn btn-outline-purple" type="submit" onclick='window.location.reload(false)'
+                      value="Rafraichir">Inviter
+                      <i class="fa fa-paper-plane-o ml-2"></i></button>
+                  </div>
+                  <p class="mt-3" [style.color]="resultColor">{{resultMessageInvit}}</p>
+                </form>
+                <!-- Default form subscription -->
+              </div>
+            </div>
+          </div>
+          <div class="col-6">
+            <div class="card one mx-auto" style="margin-top: 10%" *ngIf="membreall">
+              <div class="rest">
+                <div class="scrollable">
+                  <p class="h6 text-center py-4">Liste des membres avec l'ID :</p>
+                  <div class="others flex" *ngFor="let l of $any(membreall ) ; let i=index">
+                    <div class="rank">
+                      <p class="num" style="font-size: large;"> {{i}} </p>
+                    </div>
+                    <div class="info flex">
+                      <a class="link" (click)="authService.setMembreTargetInLocalStorage(l)" routerLink="/membres">
+                        {{l?.prenom}} </a>
+                      <h6 class="points"> {{l?.id}} </h6>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Card body -->
+
+      <h1>Vos coéquipiers</h1>
+      <div *ngFor="let Lm of LesMembres">
+
+        <div class="card1">
+          <button type="button" class="monBoutton1" (click)="authService.setMembreTargetInLocalStorage(Lm.membres)"
+            routerLink="/membres">
+            <td>{{Lm.membres.prenom}}</td><br>
+            <td>{{Lm.membres.nom}}</td>
+          </button>
+          <!--    <button type="button" class="btn btn" (click)="authService.setMembreTargetInLocalStorage(Lm.membres)">
+            supprimer
+          </button>-->
+        </div>
+      </div>
+    </ul>
+
+
+  </div>
+  <!--  ♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠       Fin  inviter qqun dans l'equipe   ♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠              -->
+  <div class="col-1"></div>
+  <!--  ♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠         ajouter un evenement  ♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠              -->
+
+  <div class="col-6">
+
+    <ul class="nav sunny-morning-gradient lighten-3 py-4 mb-4 font-weight-bold z-depth-2">
+      <div class="col-md-12">
+        <h1 text-align: center>Les Évènements de {{equipeservice.getEquipe().nom}} </h1>
+      </div>
+      <!-- Card body -->
+
+      <div class="col-md-12">
+        <div class="row">
+          <div class="col-4">
+            <div class="card-body">
+              <div class="card mx-xl-4">
+                <!-- Default form subscription -->
+                <form #creerevenement="ngForm" (ngSubmit)="AjouterEvenement(creerevenement.value)">
+                  <p class="h6 text-center py-4">Ajouter un évènement</p>
+
+                  <!-- Default input name -->
+                  <label for="defaultFormCardNameEx" class="grey-text font-weight-light">Entrer le prochain évenement
+                    pour l'équipe</label>
+                  <input type="text" name="id" placeholder="id de l'évenement" class="form-control" ngModel="">
+
+                  <br>
+
+                  <div class="text-center py-4 mt-3">
+                    <button class="btn btn-outline-purple" type="submit" onclick='window.location.reload(false)'
+                      value="Rafraichir">Ajouter
+                      <i class="fa fa-paper-plane-o ml-2"></i></button>
+                  </div>
+                  <p class="mt-3" [style.color]="resultColor">{{resultMessageEv}}</p>
+                </form>
+                <!-- Default form subscription -->
+              </div>
+            </div>
+          </div>
+          <div class="col-8">
+              <div class="card one mx-auto" style="margin-top: 10%" *ngIf="evenementall">
+                <div class="rest">            
+                  <div class="scrollable">
+                    <p class="h6 text-center py-4">Lste d'évenements à importer :</p>
+                    <div class="others flex" *ngFor="let ev of $any(evenementall ) ; let i=index">
+                      <div class="rank">
+                        <p class="num" style="font-size: large;"> {{i}} </p>
+                      </div>
+                      <div class="info flex">
+                        <a >
+                          {{ev.nom}} </a>
+                        <a >
+                          {{ev.nomActivite}} </a>
+                          <a >
+                            {{ev.adresse}} </a>
+                        <h6 class="points"> {{ev.id}} </h6>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+        </div>
+
+
+
+
+      </div>
+      <!-- Card body -->
+
+      <!--  ♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠         fin ajouter un evenement   ♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠              -->
+
+      <!-- Card -->
+
+      <!--  ♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠         fin création équipe   ♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠              -->
+
+
+
+      <!--  ♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠    début de recherche des équipes créer par l'individue   ♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠              -->
+
+
+
+      <div *ngFor="let Le of LesEvenements">
+
+        <div class="card1">
+          <button type="button" class="monBoutton1"
+            (click)="equipeservice.setEvenementTargetInLocalStorage(Le.Evenement)" routerLink="/evenement">
+            <td>{{Le.evenements.nomActivite}}</td>
+          </button>
+        </div>
+
+      </div>
+
+
+
+    </ul>
+
+    <div class="col-1"></div>
+  </div>
+  <!-- ♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠ -->
+
+</div>
 
 
 <!--
@@ -57,53 +227,3 @@
 
 
 <!-- ♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠ -->
-
-
->
-
-
-<!-- Card body -->
-<div class="card-body">
-
-  <!-- Default form subscription -->
-  <form #invitation="ngForm" (ngSubmit)="sendinvitationEq(invitation.value)">
-    <p class="h4 text-center py-4">Invitation à l'équipe</p>
-
-    <!-- Default input name -->
-    <label for="defaultFormCardNameEx" class="grey-text font-weight-light">Nom de votre futur équipier</label>
-    <input type="text" name="id" placeholder="id de votre équipier" class="form-control" ngModel="">
-
-    <br>
-
-    <div class="text-center py-4 mt-3">
-      <button class="btn btn-outline-purple" type="submit">Inviter
-        <i class="fa fa-paper-plane-o ml-2"></i></button>
-    </div>
-    <p class="mt-3" [style.color]="resultColor">{{resultMessageInvit}}</p>
-  </form>
-  <!-- Default form subscription -->
-
-</div>
-<!-- Card body -->
-
-
-
-
-<!-- Card -->
-
-<!--  ♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠         fin création équipe   ♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠              -->
-
-<br>
-
-<!--  ♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠    début de recherche des équipes créer par l'individue   ♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠              -->
-
-<p>Membres:</p>
-
-<div class="col-sm-6" *ngFor="let Lm of LesMembres">
-  <div class="card p-2">
-    <td>{{Lm.membres.prenom}}</td><br>
-    <td>{{Lm.membres.nom}}</td>
-
-  </div>
-
-</div>

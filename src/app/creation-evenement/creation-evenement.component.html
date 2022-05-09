@@ -60,14 +60,15 @@
                                 <input type="text" name="adresse" placeholder="" class="form-control" ngModel=""
                                     required>
                             </div>
+
                             <div class="md-form">
                                 <label for="exampleFormControlSelect1" class="abc"></label>
-                                <select class="form-control" name="niveau" id="exampleFormControlSelect1" ngModel="">
+                                <select class="form-control" name="nomActivite" id="exampleFormControlSelect1"
+                                    ngModel="" required>
                                     <option *ngFor="let ac of activitesOne">{{ac.nom}}</option>
 
                                 </select>
                             </div>
-
 
                             <div class=md-form>
                                 <label for="defaultFormCardNameEx"
@@ -103,6 +104,7 @@
 
                             <div class="text-center py-4 mt-3">
                                 <button class="btn btn-danger btn-block" type="submit"
+                                    (click)="setExperience(this.authService.getUserConnect().id)"
                                     [disabled]="!EvenementForm.form.valid">Valider
                                     l'évènement<i class="fa fa-paper-plane-o ml-1"></i></button>
                                 <p class="result" [style.color]="resultColor">{{resultMessage}}</p>
@@ -121,48 +123,5 @@
 
 
 
-
-    <!--
-            <div class="item">
-                <br><br>
-                <select name="type" id="fcom" ngModel="">
-                    <option value="">---</option>
-                    <option value="Sport">Tous les jours</option>
-                    <option value="Jeu de Société">Toutes les semaines</option>
-                    <option value="Jeu Vidéo">Tous les mois</option>
-                    <option value="Autre">Autre (à préciser en description)</option>
-                </select>
-            </div>
-            <div class="item">
-                <br><br>
-                <select name="type" id="fcom" ngModel="">
-                    <option value="">---</option>
-                    <option value="Sport">Débutant</option>
-                    <option value="Jeu de Société">Moyen</option>
-                    <option value="Jeu Vidéo">Expert</option>
-                    <option value="Autre">Autre (à préciser en description)</option>
-                </select>
-            </div>
-            <div class="item">
-                <br><br>
-                <textarea name="contenu" id="fcom" ngModel="" placeholder="Description"></textarea>
-            </div>
-            <div class="item">
-                <br><br>
-                <input type="int" id="fcom" name="nbmin" size="25" ngModel="" placeholder="Nombre de joueurs minimum" />
-            </div>
-            <div class="item">
-                <br><br>
-                <input type="int" id="fcom" name="nbmax" size="25" ngModel="" placeholder="Nombre de joueurs maximum" />
-            </div>
-
-            <div class="item">
-                <br><br>
-                <input type="text" id="fcom" name="activite" size="25" ngModel="" placeholder="Type d'activité" />
-            </div>
-            <div class="mt-4" style="text-align :center">
-                <button mat-raised-button color="primary">Validez la création de l'évenement</button>
-               le boutton a l'activation recupere le nom du mec connecté, qui vient prendre la place de evenement.createur
-            </div>-->
 
 </body>

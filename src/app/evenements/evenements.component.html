@@ -4,32 +4,41 @@
 
 
 
-<section class="intro">
+<section class="intro" style="height: 400px;">
     <div class="bg-image h-100" style="
             background-image: url(https://mdbootstrap.com/img/Photos/new-templates/search-box/img5.jpg);
           ">
         <div class="mask d-flex align-items-center h-100" style="background-color: rgba(0,0,0, 0.5);">
-            <div class="container">
+            <div class="container" style="height: 400px; margin-top: 150px;">
                 <div class="card">
                     <div class="card-body p-6">
                         <div class="row">
                             <div class="col-12 mb-4">
                                 <ul class="navbar-nav ml-auto"></ul>
-                                <li class="nav-item">
-                                    <a class="nav-link active" routerLink="/creation-evenement">Creer evenement</a>
-                                </li>
-                                <div class="input-group">
-                                    <form #nomForm="ngForm" (ngSubmit)="callEventByNom(nomForm.value)">
-                                        <div>
-                                            <input type="text" name="nom" id="search" placeholder="search"
-                                                class="form-control" ngModel="">
+                                <div class="text-center mx-auto mt-5">
+                                    <button class="btn1 btn-dark text-white mt-3 w-50"
+                                        routerLink="/creation-evenement" style="margin-top: -30px;">Creer un évènement
+                                    </button>
+                                </div>
+                                <div class="input-group col-12">
+                                    <form #nomForm="ngForm" (ngSubmit)="callEventByNom(nomForm.value)" class="col-12">
+                                        <div class="container" style="padding-top: 20px;">
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                    <input type="text" name="nom" id="search" placeholder="Rechercher un évènement"
+                                                        class="form-control" ngModel="">
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <button class="bn62" type="submit" style="float: right;">Rechercher<i
+                                                            class="fa fa-paper-plane-o ml-1"></i></button>
+                                                </div>
+                                            </div>
                                         </div>
 
                                         <div class="my-4 shadow rounded-lg overflow-hidden">
                                             <table class="items min-w-full leading-normal"></table>
                                         </div>
-                                        <button type="submit">Rechercher<i
-                                                class="fa fa-paper-plane-o ml-1"></i></button>
+
                                         <ul class="cards">
                                             <li *ngFor="let eN of EventByNom">
                                                 <!--<div *ngIf="e.valide==true">-->
@@ -49,14 +58,10 @@
                                                                 <span class="card__status">{{eN.adresse}}</span>
                                                                 <p>
                                                                 </p>
-                                                                <span class="card__status">{{eN.recurrence}}</span>
-                                                                <p>
-                                                                </p>
                                                                 <span class="card__status">{{eN.niveau}}</span>
                                                                 <p>
                                                                 </p>
-                                                                <span
-                                                                    class="card__status">{{eN.nbmin}}/{{eN.nbmax}}</span>
+                                                                <span class="card__status">{{eN.nbmin}}</span>
                                                                 <p>
                                                                 </p>
                                                                 <span class="card__status">{{eN.nomActivite}}</span>
@@ -117,22 +122,24 @@
                     </svg>
                     <div class="card__header-text">
                         <h3 class="card__title">{{e.nom}}</h3>
-                        <span class="card__status">{{e.date}}</span>
+                        <span class="card__status">{{e.date| date : 'dd/MM/yyyy'}}</span>
                         <p>
                         </p>
                         <span class="card__status">{{e.adresse}}</span>
                         <p>
                         </p>
-                        <span class="card__status">{{e.recurrence}}</span>
-                        <p>
-                        </p>
                         <span class="card__status">{{e.niveau}}</span>
                         <p>
                         </p>
-                        <span class="card__status">{{e.nbmin}}/{{e.nbmax}}</span>
+                        <span class="card__status">{{e.nbMin}}/{{e.nbMax}}</span>
                         <p>
                         </p>
                         <span class="card__status">{{e.nomActivite}}</span>
+                        <p>
+                            <button type="button" class="btn btn" (click)="participant(e)"
+                                (click)="setExperience(this.authentificationService.getUserConnect().id)">Rejoindre
+                            </button>
+                        </p>
                     </div>
                 </div>
                 <p class="card__description">{{e.description}}</p>
