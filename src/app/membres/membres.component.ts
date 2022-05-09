@@ -4,6 +4,7 @@ import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { MessagerieComponent } from '../messagerie/messagerie.component';
 import { AuthentificationService } from '../service/authentification.service';
 import { UrlService } from '../service/url.service';
+import { FormGroup, FormBuilder, FormArray, FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-membres',
@@ -25,12 +26,26 @@ export class MembresComponent implements OnInit {
   errorInvit: any;
   messages: any;
 
+  form: FormGroup;
+  participants: Array<any> = [
+    { name: 'India', value: 'india' },
+    { name: 'France', value: 'france' },
+    { name: 'USA', value: 'USA' },
+    { name: 'Germany', value: 'germany' },
+    { name: 'Japan', value: 'Japan' }
+  ];
+
   constructor(
     public authService: AuthentificationService,
     private http: HttpClient,
     private url: UrlService,
-    public dialog: MatDialog
-  ) { }
+    public dialog: MatDialog,
+    public fb: FormBuilder,
+  ) {
+    this.form = fb.group({
+      selectedCountries: new FormArray([])
+    });
+  }
 
   ngOnInit(): void {
     this.callMembrePP(this.authService.getUserConnect().id)
@@ -144,6 +159,6 @@ export class MembresComponent implements OnInit {
         error: (err) => { console.log(err) }
       })
     console.log(amitie)
-  }
+  } 
 
 }
