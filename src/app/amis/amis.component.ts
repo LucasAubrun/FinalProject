@@ -27,7 +27,7 @@ export class AmisComponent implements OnInit {
   }
 
   callAmisMembre1() {
-    this.http.get('http://localhost:8080/amis/membre1/' + this.authService.getUserConnect().id)
+    this.http.get(this.url.baseURL + "amis/membre1/" + this.authService.getUserConnect().id)
     this.http.get(this.url.baseURL + "amis/membre1/" + this.authService.getUserConnect().id)
       .subscribe({
         next: (data) => {

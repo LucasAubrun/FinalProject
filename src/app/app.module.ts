@@ -54,7 +54,7 @@ import { PolitiqueComponent } from './politique/politique.component';
     ModifierProfilComponent,
     AmisComponent,
     MessagerieComponent,
-    PolitiqueComponent
+    PolitiqueComponent,
   ],
   imports: [
     ReactiveFormsModule,
