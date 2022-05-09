@@ -12,12 +12,11 @@ export class HomeComponent implements OnInit {
   constructor(public authService: AuthentificationService,
     private url: UrlService) { }
 
-
   ngOnInit(): void {
   }
 
   scroll(el: HTMLElement) {
-    el.scrollIntoView({behavior: 'smooth'});
-}
+    el.scrollIntoView({ behavior: 'smooth' });
+  }
 
 }

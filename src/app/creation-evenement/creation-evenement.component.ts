@@ -11,9 +11,10 @@ import { Router } from '@angular/router';
 })
 export class CreationEvenementComponent implements OnInit {
 
-  baseURL: string = "http://localhost:8482/";
+  baseURL: string = "http://localhost:8080/";
   resultMessage: string = "";
   resultColor: string = "";
+  activitesOne: any;
 
   constructor(private http: HttpClient,
     public authService: AuthentificationService,
@@ -21,6 +22,7 @@ export class CreationEvenementComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+    this.callActivitesAll()
   }
 
 
@@ -41,7 +43,7 @@ export class CreationEvenementComponent implements OnInit {
       },
     };
     console.log(event);
-    this.http.post(this.url.baseURL+"Evenements/save", event)
+    this.http.post(this.baseURL + "Evenements/save", event)
       .subscribe({
         next: (data) => {
           this.resultMessage = "Évènement créé avec succès.";
@@ -51,5 +53,30 @@ export class CreationEvenementComponent implements OnInit {
       })
     console.log(event)
   }
-}
 
+  callActivitesAll() {
+    this.http.get(this.baseURL + "activites/all")
+      .subscribe({
+        next: (data) => { this.activitesOne = data },
+        error: (err) => { console.log(err) }
+      });
+
+  }
+
+  //participant() {
+  // let part = {
+  // "membres": {
+  //   "id": this.authService.getUserConnect().id
+  // },
+  //  "evenements": {
+  //    "id": this.evenementservice.getEvenement().id
+  //  }
+  // }
+  //console.log(part);
+  //this.http.post(this.url.baseURL + "Participant/inviter", part).subscribe({
+  //  next: (data) => { },
+  //  error: (err) => { console.log(err) }
+  //})
+  //  ;
+  //}
+}

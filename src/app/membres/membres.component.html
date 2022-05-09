@@ -1,17 +1,26 @@
-<div>
-    <div class="container mx-auto p-3 d-flex justify-content-center w-75" style=" margin-top: 120px">
-        <div class="card p-5 aqua-gradient-rgba w-50" style="margin-right: 10% ;">
+<div class="container-fluid" style=" margin-top: 120px">
+    <h1 class="ml-5 mb-5 text-info" style="font-weight: bold;"
+        *ngIf="authService.getMembreTargeted().id == authService.getUserConnect().id">Mon espace</h1>
+    <div class="row mb-5">
+        <div class="col-md-1"></div>
+        <div class="card p-5 aqua-gradient-rgba col-md-3">
             <div class="image d-flex flex-column justify-content-center align-items-center">
-                <button class="btn" type="button" (click)="popup = true">
+                <button class="btn btn-pp" type="button" (click)="popup = true"
+                    style="height:180px; width:180px; margin:0;">
                     <div>
-                        <img class="pp1" *ngIf="membrePP==1" src="profil1.png" height="100" width="100" />
-                        <img class="pp2" *ngIf="membrePP==2" src="profil2.png" height="100" width="100" />
-                        <img class="pp3" *ngIf="membrePP==3" src="profil3.png" height="100" width="100" />
-                        <img class="pp4" *ngIf="membrePP==4" src="profil4.png" height="100" width="100" />
-                        <img class="pp5" *ngIf="membrePP==5" src="profil5.png" height="100" width="100" />
+                        <img class="pp1" *ngIf="membrePP==1" src="profil1.png" height="100" width="100"
+                            style="height:180px; width:180px" />
+                        <img class="pp2" *ngIf="membrePP==2" src="profil2.png" height="100" width="100"
+                            style="height:180px; width:180px" />
+                        <img class="pp3" *ngIf="membrePP==3" src="profil3.png" height="100" width="100"
+                            style="height:180px; width:180px" />
+                        <img class="pp4" *ngIf="membrePP==4" src="profil4.png" height="100" width="100"
+                            style="height:180px; width:180px" />
+                        <img class="pp5" *ngIf="membrePP==5" src="profil5.png" height="100" width="100"
+                            style="height:180px; width:180px" />
                     </div>
                 </button>
-                <span class="name mt-3 text-center ">{{authService.getMembreTargeted().prenom}}
+                <span class="name mt-3 text-center">{{authService.getMembreTargeted().prenom}}
                     {{authService.getMembreTargeted().nom}}</span>
                 <span class="idd">{{authService.getMembreTargeted().mail}}</span>
                 <div class="d-flex flex-row justify-content-center align-items-center gap-2">
@@ -28,23 +37,37 @@
                         {{authService.getMembreTargeted().note}}
                     </span>
                 </div>
-                <div class=" d-flex mt-5" *ngIf="authService.getMembreTargeted().id == authService.getUserConnect().id">
+                <div class=" d-flex mt-4" *ngIf="authService.getMembreTargeted().id == authService.getUserConnect().id">
                     <button class="btn1 btn-dark text-white" routerLink="/modifier-profil">Modifier mon profil</button>
+                </div>
+
+                <div class=" d-flex mt-4"
+                    *ngIf="!(authService.getMembreTargeted().id == authService.getUserConnect().id)">
+                    <button class="btn1 btn-dark text-white"
+                        (click)="openDialog(authService.getUserConnect(), authService.getMembreTargeted())">Envoyer un
+                        message</button>
                 </div>
                 <div class=" d-flex mt-4"
                     *ngIf="!(authService.getMembreTargeted().id == authService.getUserConnect().id)">
-                    <button class="btn1 btn-dark text-white">Envoyer un message</button>
+                    <button class="bn29"
+                        (click)="createNewAmitie(authService.getUserConnect().id, authService.getMembreTargeted().id) ">Ajouter
+                        en ami</button>
                 </div>
             </div>
         </div>
 
-        <div class="card mx-auto p-5 blue-gradient-rgba w-100">
-            <h1>Mes évènements</h1>
-           <br>
+        <div class="col-md-1"></div>
+
+        <div class="card p-5 blue-gradient-rgba col-md-6 scrollable">
+            <h2 style="font-weight: bold;">Évènements</h2>
+            <br>
+            <div class="text-center mx-auto mt-5" *ngIf="!TtEventId?.length">
+                <label class="h4">Tu n'es inscrit à aucun évènement pour le moment</label>
+                <button class="btn1 btn-dark text-white mt-3 w-50" routerLink="/evenement">Rejoins des évènements
+                    !</button>
+            </div>
             <table class="table">
-
                 <div class="col-mv-12" *ngFor="let e of TtEventId">
-
                     <tbody>
                         <tr>
                             <th>{{e.evenements.nom}}</th>
@@ -66,7 +89,6 @@
                                     *ngIf="!(authService.getMembreTargeted().id == authService.getUserConnect().id)">
                                     <button type="button" class="btndelete btn-link btn-sm btn-rounded "
                                         (click)="QuitterEvent(e.evenements.id)">
-
                                         <i class="fa fa-sign-out" aria-hidden="true"></i>
                                     </button>
                                 </div>
@@ -79,9 +101,36 @@
                 </div>
             </table>
         </div>
-
-
     </div>
+</div>
+<div class="container-fluid mb-5" *ngIf="authService.getMembreTargeted().id == authService.getUserConnect().id">
+    <div class="row">
+        <div class="col-md-1"></div>
+        <div class="card p-5 peach-gradient-rgba col-md-10">
+            <h2 style="font-weight: bold;">Messages</h2>
+            <br>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th class="h5" style="width:80%; font-weight: bold;">Contenu</th>
+                        <th class="h5" style="font-weight: bold">Emetteur</th>
+                    </tr>
+                </thead>
+                <tbody *ngFor="let m of this.messages">
+                    <tr>
+                        <a (click)="openDialog(authService.getUserConnect(), m.emetteur)">
+                            <th class="h5" style="width:80%">{{m.contenu}}</th>
+                        </a>
+                        <th class="h5">{{m.emetteur.prenom}} {{m.emetteur.nom}}</th>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<div *ngIf="authService.getMembreTargeted().id == authService.getUserConnect().id">
+    <app-amis></app-amis>
 </div>
 
 

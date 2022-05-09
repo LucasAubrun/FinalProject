@@ -3,6 +3,7 @@
     padding: 0
 }
 
+
 .card {
     border: none;
     cursor: pointer;
@@ -17,6 +18,10 @@
     transform: scale(1.5)
 }
 
+.btn.btn-pp:hover img {
+    transform: scale(1.3);
+}
+
 .btn {
     height: 140px;
     width: 140px;
@@ -24,6 +29,7 @@
     margin: 20px;
     background-color: #d7eaf1;
 }
+
 .btndelete {
     height: 40px;
     width: 40px;
@@ -44,7 +50,7 @@
 }
 
 .idd1 {
-    font-size: large
+    font-size: larger
 }
 
 .number {
@@ -68,11 +74,11 @@
     border-top-right-radius: 2px;
     background-color: #000;
     color: #aeaeae;
-    font-size: large;
+    font-size: larger;
 }
 
 .text span {
-    font-size: large;
+    font-size: larger;
     color: #545454;
     font-weight: 500
 }
@@ -89,6 +95,11 @@ hr .new1 {
     font-size: 14px;
     color: #a0a0a0;
     font-weight: bold
+}
+
+.scrollable {
+    overflow-x: auto;
+    scrollbar-color: inherit;
 }
 
 .date {
@@ -141,7 +152,7 @@ hr .new1 {
 }
 
 .popup {
-    margin: 70px auto;
+    margin: 50% auto;
     padding: 20px;
     background: #fff;
     border-radius: 5px;
@@ -184,3 +195,60 @@ hr .new1 {
     }
 }
 
+
+/*BOUTON AJOUTER AMI*/
+.bn29 {
+    border: none;
+    padding: 0.8em 2.5em;
+    outline: none;
+    color: white;
+    font-style: 1.2em;
+    position: relative;
+    z-index: 1;
+    cursor: pointer;
+    background: none;
+    text-shadow: 3px 3px 10px rgba(0, 0, 0, 0.45);
+}
+
+.bn29:before,
+.bn29:after {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    border-radius: 10em;
+    -webkit-transform: translateX(-50%) translateY(-50%);
+    transform: translateX(-50%) translateY(-50%);
+    width: 105%;
+    height: 105%;
+    content: "";
+    z-index: -2;
+    background-size: 400% 400%;
+    background: linear-gradient(60deg,
+            #f79533,
+            #f37055,
+            #ef4e7b,
+            #a166ab,
+            #5073b8,
+            #1098ad,
+            #07b39b,
+            #6fba82);
+}
+
+.bn29:before {
+    -webkit-filter: blur(7px);
+    filter: blur(7px);
+    -webkit-transition: all 0.25s ease;
+    transition: all 0.25s ease;
+    -webkit-animation: pulse 10s infinite ease;
+    animation: pulse 10s infinite ease;
+}
+
+.bn29:after {
+    -webkit-filter: blur(0.3px);
+    filter: blur(0.3px);
+}
+
+.bn29:hover:before {
+    width: 115%;
+    height: 115%;
+}

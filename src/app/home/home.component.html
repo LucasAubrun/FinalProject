@@ -33,6 +33,12 @@
             <button class="btn-first b1" (click)="scroll(concept)">Découvre-nous</button>
 
         </div>
+        <div class="container-btns" *ngIf="!authService.isConnected()">
+            <button class="btn-first b1" (click)="scroll(concept)">Découvre-nous</button>
+            <button type="button" class="btn-first b2" routerLink="/inscription">Rejoindre l'équipe</button>
+        </div>
+
+
 
     </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.1/gsap.min.js"></script>
@@ -276,10 +282,12 @@
                     <a class="btn btn-dark btn-social mx-2" href="#!" aria-label="Parveen Anand Twitter Profile"><i
                             class="fab fa-twitter"></i></a>
                     <a class="btn btn-dark btn-social mx-2" href="https://www.facebook.com/petit.ange2019"
-                        aria-label="Parveen Anand Facebook Profile" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                        target="_blank" aria-label="Parveen Anand Facebook Profile"><i
+                            class="fab fa-facebook-f"></i></a>
                     <a class="btn btn-dark btn-social mx-2"
                         href="https://fr.linkedin.com/in/lucas-aubrun-4a5260171?trk=people-guest_people_search-card"
-                        aria-label="Parveen Anand LinkedIn Profile" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+                        target="_blank" aria-label="Parveen Anand LinkedIn Profile"><i
+                            class="fab fa-linkedin-in"></i></a>
                 </div>
             </div>
             <div class="col-lg-4">
@@ -291,11 +299,12 @@
                     <a class="btn btn-dark btn-social mx-2" href="#!" aria-label="Diana Petersen Twitter Profile"><i
                             class="fab fa-twitter"></i></a>
                     <a class="btn btn-dark btn-social mx-2"
-                        href="https://www.facebook.com/profile.php?id=100006881985051"
-                        aria-label="Diana Petersen Facebook Profile" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                        href="https://www.facebook.com/profile.php?id=100006881985051" target="_blank"
+                        aria-label="Diana Petersen Facebook Profile"><i class="fab fa-facebook-f"></i></a>
                     <a class="btn btn-dark btn-social mx-2"
                         href="https://fr.linkedin.com/in/clara-raison-057943179?trk=people-guest_people_search-card"
-                        aria-label="Diana Petersen LinkedIn Profile" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+                        target="_blank" aria-label="Diana Petersen LinkedIn Profile"><i
+                            class="fab fa-linkedin-in"></i></a>
                 </div>
             </div>
             <div class="col-lg-4">
@@ -307,10 +316,11 @@
                     <a class="btn btn-dark btn-social mx-2" href="#!" aria-label="Larry Parker Twitter Profile"><i
                             class="fab fa-twitter"></i></a>
                     <a class="btn btn-dark btn-social mx-2" href="https://www.facebook.com/matthieu.beauchet"
-                        aria-label="Larry Parker Facebook Profile" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                        target="_blank" aria-label="Larry Parker Facebook Profile"><i class="fab fa-facebook-f"></i></a>
                     <a class="btn btn-dark btn-social mx-2"
                         href="https://fr.linkedin.com/in/matthieu-beauchet-51b468158?trk=people-guest_people_search-card"
-                        aria-label="Larry Parker LinkedIn Profile" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+                        target="_blank" aria-label="Larry Parker LinkedIn Profile"><i
+                            class="fab fa-linkedin-in"></i></a>
                 </div>
             </div>
             <div class="col-lg-4">
@@ -322,10 +332,11 @@
                     <a class="btn btn-dark btn-social mx-2" href="#!" aria-label="Larry Parker Twitter Profile"><i
                             class="fab fa-twitter"></i></a>
                     <a class="btn btn-dark btn-social mx-2" href="https://www.facebook.com/alexis.perrocheau.zer"
-                        aria-label="Larry Parker Facebook Profile" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                        target="_blank" aria-label="Larry Parker Facebook Profile"><i class="fab fa-facebook-f"></i></a>
                     <a class="btn btn-dark btn-social mx-2"
                         href="https://fr.linkedin.com/in/alexis-perrocheau?trk=people-guest_people_search-card"
-                        aria-label="Larry Parker LinkedIn Profile" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+                        target="_blank" aria-label="Larry Parker LinkedIn Profile"><i
+                            class="fab fa-linkedin-in"></i></a>
                 </div>
             </div>
             <div class="col-lg-4">
@@ -336,11 +347,12 @@
                     <br>
                     <a class="btn btn-dark btn-social mx-2" href="#!" aria-label="Larry Parker Twitter Profile"><i
                             class="fab fa-twitter"></i></a>
-                    <a class="btn btn-dark btn-social mx-2" href="https://www.facebook.com/dylan.sergeant.94"
-                        aria-label="Larry Parker Facebook Profile" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                    <a class="btn btn-dark btn-social mx-2" href="https://www.facebook.com/dylan.sergeant.94 "
+                        target="_blank" aria-label="Larry Parker Facebook Profile"><i class="fab fa-facebook-f"></i></a>
                     <a class="btn btn-dark btn-social mx-2"
                         href="https://fr.linkedin.com/in/dylan-sergeant-4172a219b?trk=people-guest_people_search-card"
-                        aria-label="Larry Parker LinkedIn Profile" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+                        target="_blank" aria-label="Larry Parker LinkedIn Profile"><i
+                            class="fab fa-linkedin-in"></i></a>
                 </div>
             </div>
             <div class="col-lg-4">
@@ -353,10 +365,11 @@
                     <a class="btn btn-dark btn-social mx-2" href="#!" aria-label="Larry Parker Twitter Profile"><i
                             class="fab fa-twitter"></i></a>
                     <a class="btn btn-dark btn-social mx-2" href="https://www.facebook.com/Alexandre.roux22"
-                        aria-label="Larry Parker Facebook Profile" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                        target="_blank" aria-label="Larry Parker Facebook Profile"><i class="fab fa-facebook-f"></i></a>
                     <a class="btn btn-dark btn-social mx-2"
                         href="https://fr.linkedin.com/in/alexandre-roux-726562142?trk=people-guest_people_search-card"
-                        aria-label="Larry Parker LinkedIn Profile" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+                        target="_blank" aria-label="Larry Parker LinkedIn Profile"><i
+                            class="fab fa-linkedin-in"></i></a>
                 </div>
             </div>
         </div>
