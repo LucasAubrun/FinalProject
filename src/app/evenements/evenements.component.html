@@ -131,12 +131,13 @@
                         <span class="card__status">{{e.niveau}}</span>
                         <p>
                         </p>
-                        <span class="card__status">{{e.nbmin}}</span>
+                        <span class="card__status">{{e.nbMin}}/{{e.nbMax}}</span>
                         <p>
                         </p>
                         <span class="card__status">{{e.nomActivite}}</span>
                         <p>
-                            <button type="button" class="btn btn" (click)="participant(e)">Rejoindre
+                            <button type="button" class="btn btn" (click)="participant(e)"
+                                (click)="setExperience(this.authentificationService.getUserConnect().id)">Rejoindre
                             </button>
                         </p>
                     </div>

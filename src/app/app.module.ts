@@ -27,6 +27,7 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { MessagerieComponent } from './messagerie/messagerie.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { PolitiqueComponent } from './politique/politique.component';
+import { ContactComponent } from './contact/contact.component';
 
 
 @NgModule({
@@ -54,7 +55,8 @@ import { PolitiqueComponent } from './politique/politique.component';
     ModifierProfilComponent,
     AmisComponent,
     MessagerieComponent,
-    PolitiqueComponent
+    PolitiqueComponent,
+    ContactComponent
   ],
   imports: [
     ReactiveFormsModule,
