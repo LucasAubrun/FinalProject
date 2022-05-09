@@ -48,7 +48,6 @@ export class CreationequipesComponent implements OnInit {
   ngOnInit(): void {
     this.callEquipeId1();
     this.callTtEquipeId();
-   
 
     /*
     this.goSurEquipe2();*/
@@ -58,7 +57,7 @@ export class CreationequipesComponent implements OnInit {
 
 
   callEquipeId1() {
-    this.http.get(this.url.baseURL+"equipes/membres/" + this.authentificationService.getUserConnect().id).subscribe({
+    this.http.get(this.url.baseURL + "equipes/membres/" + this.authentificationService.getUserConnect().id).subscribe({
       next: (data) => { this.EquipesId1 = data },
       error: (err) => { console.log(err) }
     });
@@ -78,7 +77,7 @@ export class CreationequipesComponent implements OnInit {
   //  }
 
   callTtEquipeId() {
-    this.http.get(this.url.baseURL+"associations/membres/" + this.authentificationService.getUserConnect().id).subscribe({
+    this.http.get(this.url.baseURL + "associations/membres/" + this.authentificationService.getUserConnect().id).subscribe({
       next: (data) => {
         this.TtEquipeId = data;
         if (this.equipe != null) {
@@ -106,7 +105,7 @@ export class CreationequipesComponent implements OnInit {
       },
     };
     console.log(equipe);
-    this.http.post(this.url.baseURL+"equipes", equipe)
+    this.http.post(this.url.baseURL + "equipes", equipe)
       .subscribe({
         next: (data) => {
           this.equipe = data;
@@ -116,6 +115,7 @@ export class CreationequipesComponent implements OnInit {
             this.resultMessage = "";
             this.route.navigateByUrl("equipes");
           }
+          this.association();
           this.resultMessage = "Votre équipe est bien créée";
           this.resultColor = "green";
           this.association()
@@ -131,23 +131,24 @@ export class CreationequipesComponent implements OnInit {
           this.resultColor = "red";
         }
       });
-    }
+
+  }
   //♦♣♦♣♦♣♦♣♦♣ association ♦♣♦♣♦♣♦♣♦♣//
 
 
 
 
-  association(){   
+  association() {
     let asso = {
-        "membres": {
-          "id": this.authentificationService.getUserConnect().id
-        },
-          "equipes": {
-          "id": this.equipeservice.getEquipe().id
-        }
+      "membres": {
+        "id": this.authentificationService.getUserConnect().id
+      },
+      "equipes": {
+        "id": this.equipeservice.getEquipe().id
       }
-      console.log(asso);
-    this.http.post(this.url.baseURL+"associations/inviter", asso).subscribe({
+    }
+    console.log(asso);
+    this.http.post(this.url.baseURL + "associations/inviter", asso).subscribe({
       next: (data) => { },
       error: (err) => { console.log(err) }
     })
@@ -155,8 +156,6 @@ export class CreationequipesComponent implements OnInit {
   }
 
   //♦♣♦♣♦♣♦♣♦♣ association ♦♣♦♣♦♣♦♣♦♣//
-
-
 
 
   //♦♣♦♣♦♣♦♣♦♣ fin création d'équipe ♦♣♦♣♦♣♦♣♦♣//

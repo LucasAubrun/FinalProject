@@ -1,27 +1,27 @@
-<div class="card one mx-auto" style="margin-top: 15%" *ngIf="leaderboard">
+<div class="card one mx-auto" style="margin-top: 10%" *ngIf="leaderboard">
     <div class="header">
         <h3 class="title mx-auto text-white">Leaderboard</h3>
     </div>
     <div class="profile">
         <div class="person second">
-            <div class="num" style="color: silver; font-size: xx-large;">2</div>
-            <a class="link mt-1" style="font-size: x-large"
+            <div class="num" style="color: silver; font-size: x-large;">2</div>
+            <a class="link mt-1" style="font-size: larger"
                 (click)="authService.setMembreTargetInLocalStorage(leaderboard[1])"
                 routerLink="/membres">{{leaderboard[1]?.prenom}}</a>
             <img src="" alt="" class="photo">
             <p class="points">{{leaderboard[1]?.score}}</p>
         </div>
         <div class="person first">
-            <div class="num" style="color: gold; font-size: xx-large;">1</div>
-            <a class="link mt-1" style="font-size: x-large"
+            <div class="num" style="color: gold; font-size: x-large;">1</div>
+            <a class="link mt-1" style="font-size: larger"
                 (click)="authService.setMembreTargetInLocalStorage(leaderboard[0])"
                 routerLink="/membres">{{leaderboard[0]?.prenom}}</a>
             <img src="" alt="" class="photo main">
             <p class="points">{{leaderboard[0]?.score}}</p>
         </div>
         <div class="person third">
-            <div class="num" style="color: rgb(207, 155, 86); font-size: xx-large;">3</div>
-            <a class="link mt-1" style="font-size: x-large"
+            <div class="num" style="color: rgb(207, 155, 86); font-size: x-large;">3</div>
+            <a class="link mt-1" style="font-size: larger"
                 (click)="authService.setMembreTargetInLocalStorage(leaderboard[2])"
                 routerLink="/membres">{{leaderboard[2]?.prenom}}</a>
             <img src="" alt="" class="photo">

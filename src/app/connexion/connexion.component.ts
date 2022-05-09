@@ -12,11 +12,11 @@ import { UrlService } from '../service/url.service';
 })
 export class ConnexionComponent implements OnInit {
 
-  baseURL: string = "http://localhost:8082/";
+  baseURL: string = "http://localhost:8080/";
   resultMessage: string = "";
   resultColor: string = "red";
   membre: any;
-  user= {mail: '', mdp: ''};
+  user = { mail: '', mdp: '' };
 
   constructor(
     private http: HttpClient,
@@ -26,7 +26,7 @@ export class ConnexionComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    if(this.authentificationService.isConnected()){
+    if (this.authentificationService.isConnected()) {
       this.route.navigateByUrl('membres');
     }
   }

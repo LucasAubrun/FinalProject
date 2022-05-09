@@ -9,7 +9,7 @@ import { UrlService } from '../service/url.service';
 })
 export class EvenementsComponent implements OnInit {
 
-  baseURL: string = "http://localhost:8482/";
+  baseURL: string = "http://localhost:8080/";
   resultMessage: string = " ";
   resultColor: string = " ";
   EventRandId: any;
@@ -28,11 +28,11 @@ export class EvenementsComponent implements OnInit {
   ngOnInit(): void {
     //this.callEventRandId();
     //this.callEventRandAll();
-    //this.callEvenementsAll();
+    this.callEvenementsAll();
   }
 
   callEventRandId() {
-    this.http.get(this.url.baseURL+"evenements/id").subscribe({
+    this.http.get(this.url.baseURL + "evenements/id").subscribe({
 
       next: (data) => { this.EventRandId = data },
       error: (err) => { console.log(err) }
@@ -50,7 +50,7 @@ export class EvenementsComponent implements OnInit {
 
   callEventByNom(val: any) {
     let nom = val.nom
-    this.http.get(this.url.baseURL+"evenements/nom/" + nom).subscribe({
+    this.http.get(this.url.baseURL + "evenements/nom/" + nom).subscribe({
 
       next: (data) => { this.EventByNom = data },
       error: (err) => { console.log(err) }
@@ -65,7 +65,7 @@ export class EvenementsComponent implements OnInit {
       idM: val.id,
     };
     console.log(rejoindre);
-    this.http.post(this.url.baseURL+"Participant/save", rejoindre).subscribe({
+    this.http.post(this.url.baseURL + "Participant/save", rejoindre).subscribe({
       next: (data) => {
         this.resultMessageInvit = "evenement rejoint"
       },
@@ -75,12 +75,29 @@ export class EvenementsComponent implements OnInit {
     })
   }
   callEvenementsAll() {
-    this.http.get(this.url.baseURL+"evenements/all")
+    this.http.get(this.url.baseURL + "evenements/all")
       .subscribe({
         next: (data) => { this.EvenementsOne = data },
         error: (err) => { console.log(err) }
       });
 
   }
+
+  //participant() {
+  // let part = {
+  // "membres": {
+  //   "id": this.authService.getUserConnect().id
+  // },
+  //  "evenements": {
+  //    "id": this.evenementservice.getEvenement().id
+  //  }
+  // }
+  //console.log(part);
+  //this.http.post(this.url.baseURL + "Participant/inviter", part).subscribe({
+  //  next: (data) => { },
+  //  error: (err) => { console.log(err) }
+  //})
+  //  ;
+  //}
 
 }

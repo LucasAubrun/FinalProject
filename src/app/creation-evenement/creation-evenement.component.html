@@ -31,6 +31,7 @@
 
 <body>
 
+
     <div class="col-md-6">
         <ul class="nav peach-gradient lighten-3 py-4 mb-4 font-weight-bold z-depth-1">
             <li class="nav-item col-md-9 mx-auto">
@@ -47,8 +48,7 @@
                             <div class=md-form>
                                 <label for="defaultFormCardNameEx" class="grey-text font-weight-light">Nom de
                                     l'évènement*</label>
-                                <input type="text" name="nom" placeholder="Donne un nom à ton évènement."
-                                    class="form-control" ngModel="" required>
+                                <input type="text" name="nom" placeholder="" class="form-control" ngModel="" required>
                             </div>
                             <div class=md-form>
                                 <label for="defaultFormCardNameEx" class="grey-text font-weight-light">Date*</label>
@@ -57,33 +57,37 @@
                             </div>
                             <div class=md-form>
                                 <label for="defaultFormCardNameEx" class="grey-text font-weight-light">Adresse*</label>
-                                <input type="text" name="adresse" placeholder="Où se déroulera l'évènement."
-                                    class="form-control" ngModel="" required>
-                            </div>
-                            <div class=md-form>
-                                <label for="defaultFormCardNameEx" class="grey-text font-weight-light">Activité*</label>
-                                <input type="text" name="activite" placeholder="à mettre" class="form-control"
-                                    ngModel="" required>
+                                <input type="text" name="adresse" placeholder="" class="form-control" ngModel=""
+                                    required>
                             </div>
 
+                            <div class="md-form">
+                                <label for="exampleFormControlSelect1" class="abc"></label>
+                                <select class="form-control" name="nomActivite" id="exampleFormControlSelect1"
+                                    ngModel="" required>
+                                    <option *ngFor="let ac of activitesOne" JSON.stringify>{{ac.nom}}</option>
+
+                                </select>
+                            </div>
 
                             <div class=md-form>
                                 <label for="defaultFormCardNameEx"
                                     class="grey-text font-weight-light">Description</label>
-                                <input type="text" name="description" placeholder="Description" class="form-control"
+                                <input type="text" name="description" placeholder="" class="form-control" ngModel="">
+                            </div>
+                            <div class=md-form>
+                                <label for="defaultFormCardNameEx" class="grey-text font-weight-light">Nombre de
+                                    joueurs
+                                    minimums</label>
+                                <input type="number" name="nbmin" min="1" placeholder="" class="form-control"
                                     ngModel="">
                             </div>
                             <div class=md-form>
-                                <label for="defaultFormCardNameEx" class="grey-text font-weight-light">Nombre de joueurs
-                                    minimums</label>
-                                <input type="number" name="nbmin" min="1" placeholder="Nombre de joueurs minimums."
-                                    class="form-control" ngModel="">
-                            </div>
-                            <div class=md-form>
-                                <label for="defaultFormCardNameEx" class="grey-text font-weight-light">Nombre de joueurs
+                                <label for="defaultFormCardNameEx" class="grey-text font-weight-light">Nombre de
+                                    joueurs
                                     maximum</label>
-                                <input type="number" name="nbmax" min="1" placeholder="Nombre de joueurs maximum."
-                                    class="form-control" ngModel="">
+                                <input type="number" name="nbmax" min="1" placeholder="" class="form-control"
+                                    ngModel="">
                             </div>
 
                             <div class="md-form">
@@ -97,13 +101,14 @@
                                 </select>
                             </div>
 
+
                             <div class="text-center py-4 mt-3">
                                 <button class="btn btn-danger btn-block" type="submit"
-                                    [disabled]="!EvenementForm.form.valid">Valider l'évènement<i
-                                        class="fa fa-paper-plane-o ml-1"></i></button>
+                                    [disabled]="!EvenementForm.form.valid">Valider
+                                    l'évènement<i class="fa fa-paper-plane-o ml-1"></i></button>
                                 <p class="result" [style.color]="resultColor">{{resultMessage}}</p>
                             </div>
-
+                            <!--   (click)="participant()" a mettre sur le bouton -->
                         </form>
                         <!-- Default form subscription -->
 
@@ -117,48 +122,5 @@
 
 
 
-
-    <!--
-            <div class="item">
-                <br><br>
-                <select name="type" id="fcom" ngModel="">
-                    <option value="">---</option>
-                    <option value="Sport">Tous les jours</option>
-                    <option value="Jeu de Société">Toutes les semaines</option>
-                    <option value="Jeu Vidéo">Tous les mois</option>
-                    <option value="Autre">Autre (à préciser en description)</option>
-                </select>
-            </div>
-            <div class="item">
-                <br><br>
-                <select name="type" id="fcom" ngModel="">
-                    <option value="">---</option>
-                    <option value="Sport">Débutant</option>
-                    <option value="Jeu de Société">Moyen</option>
-                    <option value="Jeu Vidéo">Expert</option>
-                    <option value="Autre">Autre (à préciser en description)</option>
-                </select>
-            </div>
-            <div class="item">
-                <br><br>
-                <textarea name="contenu" id="fcom" ngModel="" placeholder="Description"></textarea>
-            </div>
-            <div class="item">
-                <br><br>
-                <input type="int" id="fcom" name="nbmin" size="25" ngModel="" placeholder="Nombre de joueurs minimum" />
-            </div>
-            <div class="item">
-                <br><br>
-                <input type="int" id="fcom" name="nbmax" size="25" ngModel="" placeholder="Nombre de joueurs maximum" />
-            </div>
-
-            <div class="item">
-                <br><br>
-                <input type="text" id="fcom" name="activite" size="25" ngModel="" placeholder="Type d'activité" />
-            </div>
-            <div class="mt-4" style="text-align :center">
-                <button mat-raised-button color="primary">Validez la création de l'évenement</button>
-               le boutton a l'activation recupere le nom du mec connecté, qui vient prendre la place de evenement.createur
-            </div>-->
 
 </body>
