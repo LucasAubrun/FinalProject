@@ -49,7 +49,6 @@ export class CreationequipesComponent implements OnInit {
     this.callEquipeId1();
     this.callTtEquipeId();
 
-    this.callMember();//a supprimer
     /*
     this.goSurEquipe2();*/
   }
@@ -116,6 +115,7 @@ export class CreationequipesComponent implements OnInit {
             this.resultMessage = "";
             this.route.navigateByUrl("equipes");
           }
+          this.association();
           this.resultMessage = "Votre équipe est bien créée";
           this.resultColor = "green"
         },
@@ -155,15 +155,6 @@ export class CreationequipesComponent implements OnInit {
 
   //♦♣♦♣♦♣♦♣♦♣ association ♦♣♦♣♦♣♦♣♦♣//
 
-
-  //♦♣♦♣♦♣♦♣♦♣ a supprimer ♦♣♦♣♦♣♦♣♦♣//
-  callMember() {
-    this.http.get(this.url.baseURL + "associations/equipe/" + this.equipeservice.getEquipe().id).subscribe({
-      next: (data) => { this.LesMembres = data },
-      error: (err) => { console.log(err) }
-    });
-  }
-  //♦♣♦♣♦♣♦♣♦♣ a supprimer ♦♣♦♣♦♣♦♣♦♣//
 
   //♦♣♦♣♦♣♦♣♦♣ fin création d'équipe ♦♣♦♣♦♣♦♣♦♣//
 

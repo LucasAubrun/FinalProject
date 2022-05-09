@@ -16,13 +16,14 @@ export class EquipesComponent implements OnInit {
 
   //  ♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠    Création de varialbe   ♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠              //
 
-  baseURL: string = "http://localhost:8482/";
+  baseURL: string = "http://localhost:8082/";
   invitationEq: any;
   resultMessageInvit: any;
   errorInvit: any;
   LesMembres: any;
   resultColor: any;
-  bonjour =  this.equipeservice.getEquipe().id;
+  LesEvenements: any;
+  bonjour = this.equipeservice.getEquipe().id;
 
   //  ♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠    Invitation   ♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠              //
 
@@ -35,28 +36,37 @@ export class EquipesComponent implements OnInit {
 
 
 
-    
+
   ngOnInit(): void {
     this.callMember();
+    this.callEvenement();
   }
 
-//  ♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠    récuperer l'equipe   ♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠              //
+  //  ♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠    récuperer l'equipe   ♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠              //
 
 
 
- //  ♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠    Invitation   ♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠              //
+  //  ♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠    Invitation   ♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠              //
+
+  /* FindIdByMail(val: any){
+     
+     mail: val.mail
+     this.http.post(this.url.baseURL + "membre/id/" + mail).subscribe({
+   }*/
+
 
   sendinvitationEq(val: any) {
     let invitations = {
-        "membres": {
-          "id": val.id},
-        "equipes": {
+      "membres": {
+        "id": val.id
+      },
+      "equipes": {
         "id": this.equipeservice.getEquipe().id
       }
 
     };
     console.log(invitations);
-    this.http.post(this.url.baseURL+"associations/inviter", invitations).subscribe({
+    this.http.post(this.url.baseURL + "associations/inviter", invitations).subscribe({
       next: (data) => {
         this.resultMessageInvit = "Invitation réussite";
         this.resultColor = "green"
@@ -73,12 +83,72 @@ export class EquipesComponent implements OnInit {
 
 
   callMember() {
-    this.http.get(this.url.baseURL+"associations/equipe/" +  this.equipeservice.getEquipe().id).subscribe({
-      next: (data) => { this.LesMembres = data;
-      console.log(data)  },
+    this.http.get(this.url.baseURL + "associations/equipe/" + this.equipeservice.getEquipe().id).subscribe({
+      next: (data) => {
+        this.LesMembres = data;
+        console.log(data)
+      },
       error: (err) => { console.log(err) }
     });
   }
 
-    //  ♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠    Afficher les membres d'une équiês   ♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠              //
+  //  ♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠    Afficher les membres d'une équiês   ♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠              //
+
+
+  //  ♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠    Afficher les évenements   ♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠              //
+
+  callEvenement() {
+    this.http.get(this.url.baseURL + "associationEV/equipe/" + this.equipeservice.getEquipe().id).subscribe({
+      next: (data) => {
+        this.LesEvenements = data;
+        console.log(data)
+      },
+      error: (err) => { console.log(err) }
+    });
   }
+
+  //  ♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠    fin Afficher les évenements   ♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠              //
+
+  //  ♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠    Ajouter evenement   ♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠              //
+
+  AjouterEvenement(val: any) {
+    let invitations = {
+      "evenement": {
+        "id": val.id
+      },
+      "equipes": {
+        "id": this.equipeservice.getEquipe().id
+      }
+
+    };
+    console.log(invitations);
+    this.http.post(this.url.baseURL + "associationEV/ajouterEvEq", invitations).subscribe({
+      next: (data) => {
+        this.resultMessageInvit = "Evenement ajouté";
+        this.resultColor = "green"
+      },
+      error: (err) => {
+        this.resultMessageInvit = "Impossible d'ajouter l'évenement";
+        this.resultColor = "red"
+      }
+    })
+  }
+  //  ♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠  fin  Ajouter evenement   ♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠              //
+
+
+  /* 
+ Trouver_association
+ 
+ 
+ 
+ 
+ 
+ 
+   Exclureequipier(){
+     this.http.get(this.url.baseURL + "Associations/supprimer/" + this.equipeservice.getEquipe().id).subscribe({
+   }
+ */
+}
+
+
+

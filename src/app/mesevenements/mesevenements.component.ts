@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { UrlService } from '../service/url.service';
+import { AuthentificationService } from '../service/authentification.service';
 
 @Component({
   selector: 'app-mesevenements',
@@ -21,31 +22,33 @@ export class MesevenementsComponent implements OnInit {
   //♦♣♦♣♦♣♦♣♦♣ fin création de variable ♦♣♦♣♦♣♦♣♦♣//
 
   constructor(private http: HttpClient,
+    public authentificationService: AuthentificationService,
     private url: UrlService) { }
 
   ngOnInit(): void {
-    this.callTtEventId();
+    this.callTtEventId(this.authentificationService.getUserConnect().id);
   }
 
-  callTtEventId() {
-    this.http.get(this.url.baseURL+"participants/membres/1").subscribe({
+  callTtEventId(val: any) {
+    let id = val.id
+    this.http.get(this.url.baseURL + "participants/membres/" + id).subscribe({
       next: (data) => { this.TtEventId = data },
       error: (err) => { console.log(err) }
     });
   }
 
-  SupprimerEvent(id:any) {
+  SupprimerEvent(id: any) {
 
-    this.http.delete(this.url.baseURL+"Evenements/supprimer/"+id)
+    this.http.delete(this.url.baseURL + "Evenements/supprimer/" + id)
       .subscribe({
         next: (data) => { this.result = "Suppression réussie" },
         error: (err) => { console.log(err) }
       })
   }
 
-  QuitterEvent(id:any) {
+  QuitterEvent(id: any) {
 
-    this.http.delete(this.url.baseURL+"Participants/supprimer/"+id)
+    this.http.delete(this.url.baseURL + "Participants/supprimer/" + id)
       .subscribe({
         next: (data) => { this.result = "Suppression réussie" },
         error: (err) => { console.log(err) }
@@ -58,7 +61,7 @@ export class MesevenementsComponent implements OnInit {
       idM: val.id,
     };
     console.log(invitations);
-    this.http.post(this.url.baseURL+"Participant/inviter", invitations).subscribe({
+    this.http.post(this.url.baseURL + "Participant/inviter", invitations).subscribe({
       next: (data) => {
         this.resultMessageInvit = "invitation envoyée"
       },

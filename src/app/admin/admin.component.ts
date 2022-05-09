@@ -19,7 +19,7 @@ export class AdminComponent implements OnInit {
   }
 
   callActivitesAll() {
-    this.http.get(this.url.baseURL+"activites/all")
+    this.http.get(this.url.baseURL + "activites/all")
       .subscribe({
         next: (data) => { this.activitesOne = data, console.log(data) },
 
@@ -30,7 +30,7 @@ export class AdminComponent implements OnInit {
   setEtatValidationTrue(id: any) {
     let etatvalidation = true;
     console.log(etatvalidation);
-    this.http.patch(this.url.baseURL+"activites/set/valide/" + id, etatvalidation)
+    this.http.patch(this.url.baseURL + "activites/set/valide/" + id, etatvalidation)
       .subscribe({
         next: (data) => { window.location.reload() },
 
@@ -41,7 +41,7 @@ export class AdminComponent implements OnInit {
   setEtatValidationFalse(id: any) {
     let etatvalidation = false;
     console.log(etatvalidation);
-    this.http.patch(this.url.baseURL+"activites/set/valide/" + id, etatvalidation)
+    this.http.patch(this.url.baseURL + "activites/set/valide/" + id, etatvalidation)
       .subscribe({
         next: (data) => { window.location.reload() },
 

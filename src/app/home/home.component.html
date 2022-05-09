@@ -7,19 +7,34 @@
 
     <div>
         <ul class="medias">
-            <li class="bulle"><img src="assets/fb.svg" class="logo-medias"></li>
-            <li class="bulle"><img src="assets/insta.svg" href="https://www.instagram.com/" class="logo-medias"></li>
-            <li class="bulle"><img src="assets/yt.svg" class="logo-medias"></li>
-            <li class="bulle"><img src="assets/fb.svg" class="logo-medias"></li>
+            <a class="" href="https://www.twitter.com/" target="_blank">
+                <li class="bulle"><img src="assets/twi.png" class="logo-medias"></li>
+            </a>
+            <a class="" href="https://www.instagram.com/" target="_blank">
+                <li class="bulle"><img src="assets/insta.svg" class="logo-medias">
+                </li>
+            </a>
+            <a class="" href="https://youtube.com/" target="_blank">
+                <li class="bulle"><img src="assets/yt.svg" class="logo-medias"></li>
+            </a>
+            <a class="" href="https://www.facebook.com/" target="_blank">
+                <li class="bulle"><img src="assets/fb.svg" class="logo-medias"></li>
+            </a>
         </ul>
     </div>
 
     <div class="container-first">
         <h1><span>Rencontre </span><span>des </span><span>Joueurs </span></h1>
-        <div class="container-btns">
+        <div class="container-btns" *ngIf="authService.isConnected()">
             <button class="btn-first b1" (click)="scroll(concept)">Découvre-nous</button>
-            <button class="btn-first b2" routerLink="inscription">Rejoindre l'équipe</button>
+
         </div>
+        <div class="container-btns" *ngIf="!authService.isConnected()">
+            <button class="btn-first b1" (click)="scroll(concept)">Découvre-nous</button>
+            <button type="button" class="btn-first b2" routerLink="/inscription">Rejoindre l'équipe</button>
+        </div>
+
+
 
     </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.1/gsap.min.js"></script>
@@ -82,7 +97,8 @@
                             <h5 class="card-title">Sports</h5>
                             <p class="card-text">
 
-                                Organise ou rejoint des évènements sportifs publics ou entre amis grâce à notre large panel de sports. 
+                                Organise ou rejoint des évènements sportifs publics ou entre amis grâce à notre large
+                                panel de sports.
                             </p>
                             <p class="card-text"><a class="text-muted">Last updated 3 mins ago</a></p>
                         </div>
@@ -98,13 +114,15 @@
                             <h5 class="card-title">Jeux de société</h5>
                             <p class="card-text">
                                 <br>
-                                Participe à des des soirées sur le thème du jeu, organise des rencontres entre passionnés ou des sessions découverte de jeux pour les nouveaux arrivants.
+                                Participe à des des soirées sur le thème du jeu, organise des rencontres entre
+                                passionnés ou des sessions découverte de jeux pour les nouveaux arrivants.
                             </p>
                             <p class="card-text"><a class="text-muted">Last updated 3 mins ago</a></p>
                         </div>
                     </div>
                     <div class="col-md-6">
-                        <img src="https://cdn.pixabay.com/photo/2017/09/08/20/29/chess-2730034_960_720.jpg" class="img-fluid rounded-start" alt="...">
+                        <img src="https://cdn.pixabay.com/photo/2017/09/08/20/29/chess-2730034_960_720.jpg"
+                            class="img-fluid rounded-start" alt="...">
                     </div>
                 </div>
             </div>
@@ -167,13 +185,13 @@
                     </div>
 
                 </div>
-                
+
             </div>
         </div>
     </div>
-    <div class="d-grid gap-2 col-12 mx-auto" style="text-align: center;" >
+    <div class="d-grid gap-2 col-12 mx-auto" style="text-align: center;">
         <button type="button" class="btn btn-light" routerLink="inscription">Inscrivez vous pour participer</button>
-        </div>
+    </div>
 </section>
 
 <!-- Historique -->
@@ -208,7 +226,9 @@
 
             <li class="timeline-inverted">
                 <div class="timeline-image">
-                    <img class="rounded-circle img-fluid" src="https://cdn.pixabay.com/photo/2019/07/02/05/56/rocket-4311575_960_720.png" alt="..." style="width: 100%; margin-top: px;"/>
+                    <img class="rounded-circle img-fluid"
+                        src="https://cdn.pixabay.com/photo/2019/07/02/05/56/rocket-4311575_960_720.png" alt="..."
+                        style="width: 100%; margin-top: px;" />
                 </div>
                 <div class="timeline-panel">
                     <div class="timeline-heading">
@@ -258,10 +278,12 @@
                     <a class="btn btn-dark btn-social mx-2" href="#!" aria-label="Parveen Anand Twitter Profile"><i
                             class="fab fa-twitter"></i></a>
                     <a class="btn btn-dark btn-social mx-2" href="https://www.facebook.com/petit.ange2019"
-                        aria-label="Parveen Anand Facebook Profile"><i class="fab fa-facebook-f"></i></a>
+                        target="_blank" aria-label="Parveen Anand Facebook Profile"><i
+                            class="fab fa-facebook-f"></i></a>
                     <a class="btn btn-dark btn-social mx-2"
                         href="https://fr.linkedin.com/in/lucas-aubrun-4a5260171?trk=people-guest_people_search-card"
-                        aria-label="Parveen Anand LinkedIn Profile"><i class="fab fa-linkedin-in"></i></a>
+                        target="_blank" aria-label="Parveen Anand LinkedIn Profile"><i
+                            class="fab fa-linkedin-in"></i></a>
                 </div>
             </div>
             <div class="col-lg-4">
@@ -273,11 +295,12 @@
                     <a class="btn btn-dark btn-social mx-2" href="#!" aria-label="Diana Petersen Twitter Profile"><i
                             class="fab fa-twitter"></i></a>
                     <a class="btn btn-dark btn-social mx-2"
-                        href="https://www.facebook.com/profile.php?id=100006881985051"
+                        href="https://www.facebook.com/profile.php?id=100006881985051" target="_blank"
                         aria-label="Diana Petersen Facebook Profile"><i class="fab fa-facebook-f"></i></a>
                     <a class="btn btn-dark btn-social mx-2"
                         href="https://fr.linkedin.com/in/clara-raison-057943179?trk=people-guest_people_search-card"
-                        aria-label="Diana Petersen LinkedIn Profile"><i class="fab fa-linkedin-in"></i></a>
+                        target="_blank" aria-label="Diana Petersen LinkedIn Profile"><i
+                            class="fab fa-linkedin-in"></i></a>
                 </div>
             </div>
             <div class="col-lg-4">
@@ -289,10 +312,11 @@
                     <a class="btn btn-dark btn-social mx-2" href="#!" aria-label="Larry Parker Twitter Profile"><i
                             class="fab fa-twitter"></i></a>
                     <a class="btn btn-dark btn-social mx-2" href="https://www.facebook.com/matthieu.beauchet"
-                        aria-label="Larry Parker Facebook Profile"><i class="fab fa-facebook-f"></i></a>
+                        target="_blank" aria-label="Larry Parker Facebook Profile"><i class="fab fa-facebook-f"></i></a>
                     <a class="btn btn-dark btn-social mx-2"
                         href="https://fr.linkedin.com/in/matthieu-beauchet-51b468158?trk=people-guest_people_search-card"
-                        aria-label="Larry Parker LinkedIn Profile"><i class="fab fa-linkedin-in"></i></a>
+                        target="_blank" aria-label="Larry Parker LinkedIn Profile"><i
+                            class="fab fa-linkedin-in"></i></a>
                 </div>
             </div>
             <div class="col-lg-4">
@@ -304,10 +328,11 @@
                     <a class="btn btn-dark btn-social mx-2" href="#!" aria-label="Larry Parker Twitter Profile"><i
                             class="fab fa-twitter"></i></a>
                     <a class="btn btn-dark btn-social mx-2" href="https://www.facebook.com/alexis.perrocheau.zer"
-                        aria-label="Larry Parker Facebook Profile"><i class="fab fa-facebook-f"></i></a>
+                        target="_blank" aria-label="Larry Parker Facebook Profile"><i class="fab fa-facebook-f"></i></a>
                     <a class="btn btn-dark btn-social mx-2"
                         href="https://fr.linkedin.com/in/alexis-perrocheau?trk=people-guest_people_search-card"
-                        aria-label="Larry Parker LinkedIn Profile"><i class="fab fa-linkedin-in"></i></a>
+                        target="_blank" aria-label="Larry Parker LinkedIn Profile"><i
+                            class="fab fa-linkedin-in"></i></a>
                 </div>
             </div>
             <div class="col-lg-4">
@@ -318,11 +343,12 @@
                     <br>
                     <a class="btn btn-dark btn-social mx-2" href="#!" aria-label="Larry Parker Twitter Profile"><i
                             class="fab fa-twitter"></i></a>
-                    <a class="btn btn-dark btn-social mx-2" href="https://www.facebook.com/dylan.sergeant.94"
-                        aria-label="Larry Parker Facebook Profile"><i class="fab fa-facebook-f"></i></a>
+                    <a class="btn btn-dark btn-social mx-2" href="https://www.facebook.com/dylan.sergeant.94 "
+                        target="_blank" aria-label="Larry Parker Facebook Profile"><i class="fab fa-facebook-f"></i></a>
                     <a class="btn btn-dark btn-social mx-2"
                         href="https://fr.linkedin.com/in/dylan-sergeant-4172a219b?trk=people-guest_people_search-card"
-                        aria-label="Larry Parker LinkedIn Profile"><i class="fab fa-linkedin-in"></i></a>
+                        target="_blank" aria-label="Larry Parker LinkedIn Profile"><i
+                            class="fab fa-linkedin-in"></i></a>
                 </div>
             </div>
             <div class="col-lg-4">
@@ -335,10 +361,11 @@
                     <a class="btn btn-dark btn-social mx-2" href="#!" aria-label="Larry Parker Twitter Profile"><i
                             class="fab fa-twitter"></i></a>
                     <a class="btn btn-dark btn-social mx-2" href="https://www.facebook.com/Alexandre.roux22"
-                        aria-label="Larry Parker Facebook Profile"><i class="fab fa-facebook-f"></i></a>
+                        target="_blank" aria-label="Larry Parker Facebook Profile"><i class="fab fa-facebook-f"></i></a>
                     <a class="btn btn-dark btn-social mx-2"
                         href="https://fr.linkedin.com/in/alexandre-roux-726562142?trk=people-guest_people_search-card"
-                        aria-label="Larry Parker LinkedIn Profile"><i class="fab fa-linkedin-in"></i></a>
+                        target="_blank" aria-label="Larry Parker LinkedIn Profile"><i
+                            class="fab fa-linkedin-in"></i></a>
                 </div>
             </div>
         </div>
