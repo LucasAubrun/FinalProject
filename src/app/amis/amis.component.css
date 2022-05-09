@@ -20,6 +20,7 @@ body {
 .container {
     position: relative;
     width: 700px;
+    margin-bottom: 50px;
 
 }
 
@@ -505,10 +506,11 @@ h2 {
 }
 
 .card-header {
-    color: #3cb3cb;
-    background-color: #0e0e10;
-    margin-top: 30px;
+    color: #174141;
+    background-color: #b6b6b8;
+    
     font-size: 30px;
+    text-align: center;
 }
 
 
@@ -516,8 +518,8 @@ h2 {
 
 .pp1bis {
     src: url(profil1.png);
-    height: 60%;
-    width: 60%;
+    height: 30%;
+    width: 30%;
     margin: 20px;
     position: center;
 
@@ -525,32 +527,32 @@ h2 {
 
 .pp2bis {
     src: url(profil2.png);
-    height: 60%;
-    width: 60%;
+    height: 30%;
+    width: 30%;
     margin: 20px;
     position: center;
 }
 
 .pp3bis {
     src: url(profil3.png);
-    height: 60%;
-    width: 60%;
-    margin: 20px;
+    height: 30%;
+    width: 30%;
+    margin-right: 15px;
     position: center;
 }
 
 .pp4bis {
     src: url(profil4.png);
-    height: 60%;
-    width: 60%;
+    height: 30%;
+    width: 30%;
     margin: 20px;
     position: center;
 }
 
 .pp5bis {
     src: url(profil5.png);
-    height: 60%;
-    width: 60%;
+    height: 30%;
+    width: 30%;
     margin: 20px;
     position: center;
 }
@@ -727,4 +729,20 @@ h2 {
 
 .bn31:hover .bn31span {
     background: transparent;
+}
+
+.card-body{
+    position: relative;
+    margin-left: 25%;
+    margin-right: 25%;
+   
+}
+
+.imgBx1{
+    position: absolute;
+    right: 2.9%;
+    top: 4%;
+    width: 10px;
+    height: 80px;
+    cursor: pointer;
 }
