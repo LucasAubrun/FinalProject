@@ -22,10 +22,10 @@
     <ul class="nav sunny-morning-gradient lighten-3 py-4 mb-4 font-weight-bold z-depth-2">
 
       <div class="col-md-12">
-        <h1 text-align: center> Vos Coéquipiers</h1>
+        <h1 text-align: center> Inviter membres</h1>
       </div>
-
-      <div class="col-md-12">
+ 
+      <div class="col-md-12">     
         <div class="row">
           <div class="col-6">
             <div class="card-body">
@@ -54,7 +54,7 @@
             <div class="card one mx-auto" style="margin-top: 10%" *ngIf="membreall">
               <div class="rest">
                 <div class="scrollable">
-                  <p class="h6 text-center py-4">Membre et Id :</p>
+                  <p class="h6 text-center py-4">Liste des membres avec l'ID :</p>
                   <div class="others flex" *ngFor="let l of $any(membreall ) ; let i=index">
                     <div class="rank">
                       <p class="num" style="font-size: large;"> {{i}} </p>
@@ -73,7 +73,7 @@
       </div>
       <!-- Card body -->
 
-
+      <h1>Vos coéquipiers</h1>
       <div *ngFor="let Lm of LesMembres">
 
         <div class="card1">
@@ -134,7 +134,7 @@
               <div class="card one mx-auto" style="margin-top: 10%" *ngIf="evenementall">
                 <div class="rest">            
                   <div class="scrollable">
-                    <p class="h6 text-center py-4">Les évenements à importer :</p>
+                    <p class="h6 text-center py-4">Lste d'évenements à importer :</p>
                     <div class="others flex" *ngFor="let ev of $any(evenementall ) ; let i=index">
                       <div class="rank">
                         <p class="num" style="font-size: large;"> {{i}} </p>
