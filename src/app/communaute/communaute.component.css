@@ -11,10 +11,10 @@
 }
 
 :host {
+
   position: absolute;
   height: 100%;
   width: 100%;
-
   background-image: url(fireworks.png);
   background-size: cover;
   background-position: 50% 50%;
