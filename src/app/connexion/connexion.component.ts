@@ -12,7 +12,7 @@ import { UrlService } from '../service/url.service';
 })
 export class ConnexionComponent implements OnInit {
 
-  baseURL: string = "http://localhost:8082/";
+  baseURL: string = "http://localhost:8080/";
   resultMessage: string = "";
   resultColor: string = "red";
   membre: any;
