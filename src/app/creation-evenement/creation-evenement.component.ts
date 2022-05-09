@@ -17,6 +17,7 @@ export class CreationEvenementComponent implements OnInit {
   resultColor: string = "";
   activitesOne: any;
   evenement: any;
+  MembreById: any;
 
   constructor(private http: HttpClient,
     public authService: AuthentificationService,
@@ -27,6 +28,7 @@ export class CreationEvenementComponent implements OnInit {
 
   ngOnInit(): void {
     this.callActivitesAll()
+    this.callMembreById(this.authService.getUserConnect().id)
   }
 
 
@@ -77,7 +79,7 @@ export class CreationEvenementComponent implements OnInit {
   }
 
   setExperience(id: any) {
-    let xp = 4;
+    let xp = this.MembreById.xp + 1;
     console.log(xp);
     this.http.patch('http://localhost:8080/membre/set/xp/' + id, xp)
       .subscribe({
@@ -85,6 +87,15 @@ export class CreationEvenementComponent implements OnInit {
 
         error: (err) => { console.log(err) }
       })
+  }
+
+  callMembreById(id: any) {
+    this.http.get(this.url.baseURL + "membre/get/" + id).subscribe({
+
+      next: (data) => { this.MembreById = data },
+      error: (err) => { console.log(err) }
+
+    });
   }
 
   participant() {

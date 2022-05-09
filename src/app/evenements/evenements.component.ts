@@ -22,6 +22,7 @@ export class EvenementsComponent implements OnInit {
   joinEv: any;
   EvenementsOne: any;
   p: any;
+  MembreById: any;
 
   constructor(private http: HttpClient,
     public authentificationService: AuthentificationService,
@@ -31,6 +32,7 @@ export class EvenementsComponent implements OnInit {
     //this.callEventRandId();
     //this.callEventRandAll();
     this.callEvenementsAll();
+    this.callMembreById(this.authentificationService.getUserConnect().id)
   }
 
   callEventRandId() {
@@ -99,6 +101,25 @@ export class EvenementsComponent implements OnInit {
       error: (err) => { console.log(err) }
     })
       ;
+  }
+  setExperience(id: any) {
+    let xp = this.MembreById.xp + 1;
+    console.log(xp);
+    this.http.patch('http://localhost:8080/membre/set/xp/' + id, xp)
+      .subscribe({
+        next: (data) => { console.log(xp) },
+
+        error: (err) => { console.log(err) }
+      })
+  }
+
+  callMembreById(id: any) {
+    this.http.get(this.url.baseURL + "membre/get/" + id).subscribe({
+
+      next: (data) => { this.MembreById = data },
+      error: (err) => { console.log(err) }
+
+    });
   }
 
 }
