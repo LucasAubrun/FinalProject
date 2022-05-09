@@ -72,9 +72,9 @@
                         <tr>
                             <th>{{e.evenements.nom}}</th>
                             <td>{{e.evenements.adresse}}</td>
-                            <td>{{e.evenements.date}}</td>
+                            <td>{{e.evenements.date | date : 'dd/MM/yyyy'}}</td>
                             <td>{{e.evenements.description}}</td>
-                            <td>
+                            <!-- <td>
                                 <div class=" btndelete btn-link btn-sm btn-rounded"
                                     *ngIf="authService.getMembreTargeted().id == authService.getUserConnect().id">
                                     <button type="button" class="btndelete btn-link btn-sm "
@@ -84,15 +84,15 @@
                                 </div>
                             </td>
                             <td>
-                                <!--Mettre un if pour savoir si l'id du mec est connecté est le meme que celui du créateur(else)-->
+                                
                                 <div class=" btndelete btn-link btn-sm btn-rounded"
-                                    *ngIf="!(authService.getMembreTargeted().id == authService.getUserConnect().id)">
+                                    *ngIf="(authService.getMembreTargeted().id != authService.getUserConnect().id)">
                                     <button type="button" class="btndelete btn-link btn-sm btn-rounded "
                                         (click)="QuitterEvent(e.evenements.id)">
                                         <i class="fa fa-sign-out" aria-hidden="true"></i>
                                     </button>
                                 </div>
-                            </td>
+                            </td>-->
 
                         </tr>
 
