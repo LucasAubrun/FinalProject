@@ -34,8 +34,8 @@ h1 {
   text-transform: uppercase;
   font-size: 90px;
   color: #e9f581;
-  font-family: cursive, sans-serif;
-}
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+} 
 
 h1 span {
   position: relative;
@@ -49,12 +49,24 @@ h1 span {
 .btn-first {
   border: 2px solid #f1f1f1;
   outline: none;
-  background: transparent;
+  background: black;
   font-size: 30px;
   padding: 20px;
   width: 300px;
   color: #f1f1f1;
   cursor: pointer;
+}
+
+.btn-light {
+  border: 2px solid #000000;
+  outline: none;
+  background: black;
+  font-size: 20px;
+  padding: 20px;
+  width: 300px;
+  color: #070606;
+  cursor: pointer;
+
 }
 
 .btn-first:nth-child(1) {
@@ -106,6 +118,7 @@ h1 span {
 .logo-medias {
   width: 40px;
   height: 40px;
+  background: transparent;
 }
 
 
@@ -488,3 +501,4 @@ h1 span {
 .card-body.h5.card-title {
   font-size: 90px;
 }
+

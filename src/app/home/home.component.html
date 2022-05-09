@@ -3,7 +3,7 @@
 <head>
 </head>
 <div>
-    <img src="assets/img/Multisport.jpeg" alt="my image" width=100% height=max-height>
+    <img src="https://img.freepik.com/vecteurs-libre/mon-passe-temps-lie-sports-activites-illustration-temps-libre_24908-60577.jpg?t=st=1652087039~exp=1652087639~hmac=3a76103545711894688ca216e31cdab7504b80a36daab4f1e7bf5d37ca242133&w=1380" alt="my image" width=100% height=max-height style="margin-top: 74px;">
 
     <div>
         <ul class="medias">
@@ -24,20 +24,16 @@
     </div>
 
     <div class="container-first">
-        <h1><span>Rencontre </span><span>des </span><span>Joueurs </span></h1>
+        <h1 style="font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; color: black; margin-top: 0px;"><span>Rencontre </span><span>des </span><span>Joueurs </span></h1>
         <div class="container-btns" *ngIf="!authService.isConnected()">
-            <button class="btn-first b1" (click)="scroll(concept)">Découvre-nous</button>
-            <button class="btn-first b2" routerLink="/inscription">Rejoindre l'équipe</button>
+            <button class="btn-first b1" (click)="scroll(concept)" style="margin-top: 20px;">Découvre-nous</button>
+            <button class="btn-first b2" routerLink="/inscription" style="margin-top: 20px;">Rejoindre l'équipe</button>
         </div>
         <div class="container-btns" *ngIf="authService.isConnected()">
-            <button class="btn-first b1" (click)="scroll(concept)">Découvre-nous</button>
+            <button class="btn-first b1" (click)="scroll(concept)"style="margin-top: 20px;">Découvre-nous</button>
 
         </div>
-        <div class="container-btns" *ngIf="!authService.isConnected()">
-            <button class="btn-first b1" (click)="scroll(concept)">Découvre-nous</button>
-            <button type="button" class="btn-first b2" routerLink="/inscription">Rejoindre l'équipe</button>
-        </div>
-
+        
 
 
     </div>
@@ -80,7 +76,7 @@
                     <i class="fas fa-trophy fa-stack-1x fa-inverse"></i>
                 </span>
                 <h4 class="my-3">Compétitif</h4>
-                <p class="text-muted">Mesure toi aux autres utilisateurs dans tes domaines de prédilecton</p>
+                <p class="text-muted">Mesure toi aux autres utilisateurs dans tes domaines de prédilection</p>
             </div>
         </div>
     </div>
@@ -134,7 +130,7 @@
             <div class="card my-4 border-0 rounded-0">
                 <div class="row">
                     <div class="col-md-6">
-                        <img src="assets/jeuxv.jpg" class="img-fluid rounded-start" alt="...">
+                        <img src="assets/jeuxv.jpg" class="img-fluid rounded-start" alt="..." style="width: 100%;">
                         <!--  Carousel Wrapper
                         <div id="carousel-example-1z" class="carousel slide " data-ride="carousel">
                             Indicators
@@ -194,7 +190,7 @@
         </div>
     </div>
     <div class="d-grid gap-2 col-12 mx-auto" style="text-align: center;">
-        <button type="button" class="btn btn-light" routerLink="inscription">Inscrivez vous pour participer</button>
+        <button type="button" class="btn btn-light" routerLink="/inscription">Inscrivez vous pour participer</button>
     </div>
 </section>
 
@@ -378,8 +374,8 @@
             <div class="col-lg-8 mx-auto text-center">
                 <br>
                 <br>
-                <p class="large text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut eaque,
-                    laboriosam veritatis, quos non quis ad perspiciatis, totam corporis ea, alias ut unde.</p>
+                <!--<p class="large text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut eaque,
+                    laboriosam veritatis, quos non quis ad perspiciatis, totam corporis ea, alias ut unde.</p> -->
             </div>
         </div>
     </div>

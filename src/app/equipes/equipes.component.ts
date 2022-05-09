@@ -26,6 +26,11 @@ export class EquipesComponent implements OnInit {
   resultColor: any;
   LesEvenements: any;
   bonjour = this.equipeservice.getEquipe().id;
+  
+  membreall: any;
+  evenementall: any;
+  index: any;
+  index2: any;
 
   //  ♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠    Invitation   ♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠              //
 
@@ -42,6 +47,8 @@ export class EquipesComponent implements OnInit {
   ngOnInit(): void {
     this.callMember();
     this.callEvenement();
+    this.getAllMember();
+    this.getAllEvenement();
   }
 
   //  ♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠    récuperer l'equipe   ♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠              //
@@ -136,6 +143,33 @@ export class EquipesComponent implements OnInit {
   }
   //  ♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠  fin  Ajouter evenement   ♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠              //
 
+
+  getAllMember() {
+    this.http.get(this.url.baseURL+"membre/get/all")
+    .subscribe({
+      next: (data) => {
+        this.membreall = data;
+        console.log(data);
+      },
+      error: (err) => {
+        console.log(err);
+      }
+      });
+  }
+
+
+  getAllEvenement() {
+    this.http.get(this.url.baseURL+"evenements/all")
+    .subscribe({
+      next: (data) => {
+        this.evenementall = data;
+        console.log(data);
+      },
+      error: (err) => {
+        console.log(err);
+      }
+      });
+  }
 
   /* 
  Trouver_association

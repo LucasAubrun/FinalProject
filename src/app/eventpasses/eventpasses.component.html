@@ -1,0 +1,25 @@
+<div class="container-fluid mb-5" *ngIf="authService.getMembreTargeted().id == authService.getUserConnect().id">
+    <div class="row">
+        <div class="col-md-1"></div>
+        <div class="card p-5 blue-gradient-rgba col-md-10">
+            <h2 style="font-weight: bold;">Evenements passés</h2>
+            <br>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th class="h5" style="width:80%; font-weight: bold;">Nom de l'évènement</th>
+                        <th class="h5" style="font-weight: bold">Valider la fin d'un évènement</th>
+                    </tr>
+                </thead>
+                <tbody *ngFor="let e of this.eventpasses">
+                    <tr>
+                        <th class="h5" style="width:80%">{{e.nom}}</th>
+                        <button class="bn60 mt-2" type="button"
+                            *ngIf=" e.createur.id == authService.getUserConnect().id && e.fini == false "
+                            (click)="openDialog2(e.id)">Résultat</button>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

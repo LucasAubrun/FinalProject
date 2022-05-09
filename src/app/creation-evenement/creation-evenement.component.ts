@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { AuthentificationService } from '../service/authentification.service';
 import { UrlService } from '../service/url.service';
 import { Router } from '@angular/router';
+import { EquipeService } from '../service/equipe.service';
 
 @Component({
   selector: 'app-creation-evenement',
@@ -15,19 +16,24 @@ export class CreationEvenementComponent implements OnInit {
   resultMessage: string = "";
   resultColor: string = "";
   activitesOne: any;
+  evenement: any;
+  MembreById: any;
 
   constructor(private http: HttpClient,
     public authService: AuthentificationService,
+    public equipeservice: EquipeService,
+    private route: Router,
     private url: UrlService
   ) { }
 
   ngOnInit(): void {
     this.callActivitesAll()
+    this.callMembreById(this.authService.getUserConnect().id)
   }
 
 
   creerEvent(val: any) {
-    let event = {
+    let evenement = {
       nom: val.nom,
       date: val.date,
       adresse: val.adresse,
@@ -41,13 +47,23 @@ export class CreationEvenementComponent implements OnInit {
         "id": this.authService.getUserConnect().id
       },
     };
-    console.log(event);
-    this.http.post(this.baseURL + "Evenements/save", event)
+    console.log(evenement);
+    this.http.post(this.baseURL + "Evenements/save", evenement)
       .subscribe({
         next: (data) => {
-          this.resultMessage = "Évènement créé avec succès.";
-          this.resultColor = "green";
+
+          this.evenement = data;
+          if (this.evenement != null) {
+            this.equipeservice.setEvenementTargetInLocalStorage(this.evenement)
+            console.log(data);
+            this.resultMessage = "";
+            this.route.navigateByUrl("evenements");
+          }
+          this.participant();
+          this.resultMessage = "Votre evenement est bien créée";
+          this.resultColor = "green"
         },
+
         error: (err) => { console.log(err) }
       })
     console.log(event)
@@ -62,13 +78,33 @@ export class CreationEvenementComponent implements OnInit {
 
   }
 
-  participant(EvId: any) {
+  setExperience(id: any) {
+    let xp = this.MembreById.xp + 1;
+    console.log(xp);
+    this.http.patch('http://localhost:8080/membre/set/xp/' + id, xp)
+      .subscribe({
+        next: (data) => { console.log(xp) },
+
+        error: (err) => { console.log(err) }
+      })
+  }
+
+  callMembreById(id: any) {
+    this.http.get(this.url.baseURL + "membre/get/" + id).subscribe({
+
+      next: (data) => { this.MembreById = data },
+      error: (err) => { console.log(err) }
+
+    });
+  }
+
+  participant() {
     let part = {
       "membres": {
         "id": this.authService.getUserConnect().id
       },
       "evenements": {
-        "id": EvId
+        "id": this.equipeservice.getEvenementTargeted().id
       }
     }
     console.log(part);

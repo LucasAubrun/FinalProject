@@ -28,7 +28,6 @@ export class AmisComponent implements OnInit {
 
   callAmisMembre1() {
     this.http.get(this.url.baseURL + "amis/membre1/" + this.authService.getUserConnect().id)
-    this.http.get(this.url.baseURL + "amis/membre1/" + this.authService.getUserConnect().id)
       .subscribe({
         next: (data) => {
           this.listamis1 = data,

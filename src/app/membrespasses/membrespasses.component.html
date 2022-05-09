@@ -1,0 +1,16 @@
+<div class="">
+    <h2>Selectionnez les membres <br>vainqueurs de cet évènement</h2>
+    <div class="content">
+        <section>
+            <form [formGroup]="form" class="partevent" (ngSubmit)="setScores()" novalidate>
+                <div *ngFor="let p of participants">
+                    <input type="checkbox" name="1" formArrayName="selectedMembres" [value]="p.id"
+                        (change)="onCheckboxChange($event)" />
+                    {{p.prenom}} {{p.nom}}
+                </div>
+                <button class="bn11 mt-2" type="submit">Validez la selection</button>
+            </form>
+        </section>
+
+    </div>
+</div>

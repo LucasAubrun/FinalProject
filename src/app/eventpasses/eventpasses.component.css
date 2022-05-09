@@ -1,0 +1,16 @@
+/* button donner score participants*/
+.bn60 {
+    background-color: #190c8d;
+    color: #ffffff;
+    font-size: 1.3em;
+    font-weight: 600;
+    position: relative;
+    outline: none;
+    border-radius: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    height: 55px;
+    width: 160px;
+}
