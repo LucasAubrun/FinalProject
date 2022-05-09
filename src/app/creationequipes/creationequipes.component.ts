@@ -49,7 +49,7 @@ export class CreationequipesComponent implements OnInit {
     this.callEquipeId1();
     this.callTtEquipeId();
    
-    this.callMember();//a supprimer
+
     /*
     this.goSurEquipe2();*/
   }
@@ -117,19 +117,20 @@ export class CreationequipesComponent implements OnInit {
             this.route.navigateByUrl("equipes");
           }
           this.resultMessage = "Votre équipe est bien créée";
-          this.resultColor = "green"
+          this.resultColor = "green";
+          this.association()
         },
         error: (err) => {
           console.log(err);
           if (err.error.trace.includes("Duplicate")) {
             this.resultMessage = "Cette equipe existe déja.."
+            this.resultColor = "green"
           }
           else
             this.resultMessage = "Une erreur s'est produite"
           this.resultColor = "red";
         }
       });
-   
     }
   //♦♣♦♣♦♣♦♣♦♣ association ♦♣♦♣♦♣♦♣♦♣//
 
@@ -156,14 +157,7 @@ export class CreationequipesComponent implements OnInit {
   //♦♣♦♣♦♣♦♣♦♣ association ♦♣♦♣♦♣♦♣♦♣//
 
 
-  //♦♣♦♣♦♣♦♣♦♣ a supprimer ♦♣♦♣♦♣♦♣♦♣//
-  callMember() {
-    this.http.get(this.url.baseURL+"associations/equipe/" +  this.equipeservice.getEquipe().id).subscribe({
-      next: (data) => { this.LesMembres = data },
-      error: (err) => { console.log(err) }
-    });
-  }
-//♦♣♦♣♦♣♦♣♦♣ a supprimer ♦♣♦♣♦♣♦♣♦♣//
+
 
   //♦♣♦♣♦♣♦♣♦♣ fin création d'équipe ♦♣♦♣♦♣♦♣♦♣//
 

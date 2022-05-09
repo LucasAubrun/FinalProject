@@ -1,18 +1,9 @@
-<br><br><br><br><br><br><br>
+<h1 style="margin-top:120px" >Bienvenue sur l'equipe {{equipeservice.getEquipe().nom}}</h1>
 
 
-<h1 style="margin-top:200px" >hey{{equipeservice.getEquipe().id}}</h1>
 
-<div class="col-sm-6" *ngFor="let Lm of LesMembres">
-  <div class="card p-2">
-    <td>{{Lm.membres.prenom}}</td><br>
-    <td>{{Lm.membres.nom}}</td>
 
-  </div>
 
-</div>
-
-<h1>Bienvenue sur l'equipe {{equipeservice.getEquipe().nom}}</h1>
 <!--<h1>Bienvenue sur l'equipe {{equipeservice.getEquipe()[0].nom}}</h1>-->
 
 
@@ -59,7 +50,7 @@
 <!-- ♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠ -->
 
 
->
+
 
 
 <!-- Card body -->
@@ -100,10 +91,14 @@
 <p>Membres:</p>
 
 <div class="col-sm-6" *ngFor="let Lm of LesMembres">
-  <div class="card p-2">
-    <td>{{Lm.membres.prenom}}</td><br>
-    <td>{{Lm.membres.nom}}</td>
+  <div class="card mx-xl-5">
+    <button type="button" class="btn btn" (click)="authService.setMembreTargetInLocalStorage(Lm.membres)"
+    routerLink="/membres">
+     <p>{{Lm.membres.prenom}} {{Lm.membres.nom}}</p> Xp:{{Lm.membres.xp}}
+    
 
+    </button>
   </div>
 
 </div>
+

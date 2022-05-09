@@ -7,6 +7,7 @@ import { Router } from '@angular/router';
 import { UrlService } from '../service/url.service';
 
 
+
 @Component({
   selector: 'app-equipes',
   templateUrl: './equipes.component.html',
@@ -22,7 +23,9 @@ export class EquipesComponent implements OnInit {
   errorInvit: any;
   LesMembres: any;
   resultColor: any;
-  bonjour =  this.equipeservice.getEquipe().id;
+  LesEvenements: any;
+
+
 
   //  ♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠    Invitation   ♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠              //
 
@@ -35,9 +38,11 @@ export class EquipesComponent implements OnInit {
 
 
 
+
     
   ngOnInit(): void {
     this.callMember();
+   /* this.callEvenementEquipe();*/
   }
 
 //  ♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠    récuperer l'equipe   ♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠              //
@@ -80,5 +85,16 @@ export class EquipesComponent implements OnInit {
     });
   }
 
-    //  ♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠    Afficher les membres d'une équiês   ♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠              //
+    //  ♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠    Afficher les membres d'une équipes   ♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠              //
   }
+
+    //  ♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠    Trouver les évenements des membres d'une équipe   ♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠ 
+/*
+callEvenementEquipe(val : any){
+this.http.get(this.url.baseURL+"evenements/membres/nom/" +  Val).subscribe({
+  next: (data) => { this.LesMembres = data;
+  console.log(data)  },
+  error: (err) => { console.log(err) }
+});
+*/
+      //  ♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠    fin Trouver les évenements des membres d'une équipe  ♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠♥♦♣♠ 
