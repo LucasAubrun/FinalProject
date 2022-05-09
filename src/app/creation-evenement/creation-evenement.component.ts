@@ -31,12 +31,11 @@ export class CreationEvenementComponent implements OnInit {
       nom: val.nom,
       date: val.date,
       adresse: val.adresse,
-      recurrence: val.recurrence,
       niveau: val.niveau,
       description: val.description,
       nbMin: val.nbmin,
       nbMax: val.nbmax,
-      nomActivite: val.activite,
+      nomActivite: val.nomActivite,
       valide: false,
       "createur": {
         "id": this.authService.getUserConnect().id
@@ -63,20 +62,20 @@ export class CreationEvenementComponent implements OnInit {
 
   }
 
-  //participant() {
-  // let part = {
-  // "membres": {
-  //   "id": this.authService.getUserConnect().id
-  // },
-  //  "evenements": {
-  //    "id": this.evenementservice.getEvenement().id
-  //  }
-  // }
-  //console.log(part);
-  //this.http.post(this.url.baseURL + "Participant/inviter", part).subscribe({
-  //  next: (data) => { },
-  //  error: (err) => { console.log(err) }
-  //})
-  //  ;
-  //}
+  participant(EvId: any) {
+    let part = {
+      "membres": {
+        "id": this.authService.getUserConnect().id
+      },
+      "evenements": {
+        "id": EvId
+      }
+    }
+    console.log(part);
+    this.http.post(this.url.baseURL + "Participant/inviter", part).subscribe({
+      next: (data) => { },
+      error: (err) => { console.log(err) }
+    })
+      ;
+  }
 }

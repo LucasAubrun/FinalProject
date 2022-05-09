@@ -23,3 +23,6 @@ describe('EquipesComponent', () => {
     expect(component).toBeTruthy();
   });
 });
+
+
+

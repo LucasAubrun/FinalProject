@@ -117,12 +117,14 @@ export class CreationequipesComponent implements OnInit {
           }
           this.association();
           this.resultMessage = "Votre équipe est bien créée";
-          this.resultColor = "green"
+          this.resultColor = "green";
+          this.association()
         },
         error: (err) => {
           console.log(err);
           if (err.error.trace.includes("Duplicate")) {
             this.resultMessage = "Cette equipe existe déja.."
+            this.resultColor = "green"
           }
           else
             this.resultMessage = "Une erreur s'est produite"
