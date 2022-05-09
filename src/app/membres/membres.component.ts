@@ -69,8 +69,8 @@ export class MembresComponent implements OnInit {
   }
 
   callTtEventId() {
-    this.http.get(this.url.baseURL + "participants/membres/" + this.authService.getUserConnect().id).subscribe({
-      next: (data) => { this.TtEventId = data },
+    this.http.get(this.url.baseURL + "evenements/get/after/" + this.authService.getMembreTargeted().id).subscribe({
+      next: (data) => { this.TtEventId = data; console.log(data) },
       error: (err) => { console.log(err) }
     });
   }
