@@ -22,7 +22,7 @@
     <ul class="nav sunny-morning-gradient lighten-3 py-4 mb-4 font-weight-bold z-depth-2">
 
       <div class="col-md-12">
-        <h1 text-align: center> Vos coéquipiers</h1>
+        <h1 text-align: center> Vos Coéquipiers</h1>
       </div>
 
       <div class="col-md-12">
@@ -99,7 +99,7 @@
 
     <ul class="nav sunny-morning-gradient lighten-3 py-4 mb-4 font-weight-bold z-depth-2">
       <div class="col-md-12">
-        <h1 text-align: center>Les Evenements de {{equipeservice.getEquipe().nom}} </h1>
+        <h1 text-align: center>Les Évènements de {{equipeservice.getEquipe().nom}} </h1>
       </div>
       <!-- Card body -->
 
@@ -110,11 +110,11 @@
               <div class="card mx-xl-4">
                 <!-- Default form subscription -->
                 <form #creerevenement="ngForm" (ngSubmit)="AjouterEvenement(creerevenement.value)">
-                  <p class="h6 text-center py-4">Ajoutez un évenement</p>
+                  <p class="h6 text-center py-4">Ajouter un évènement</p>
 
                   <!-- Default input name -->
-                  <label for="defaultFormCardNameEx" class="grey-text font-weight-light">Entrez votre prochain évenement
-                    d'équipe</label>
+                  <label for="defaultFormCardNameEx" class="grey-text font-weight-light">Entrer le prochain évenement
+                    pour l'équipe</label>
                   <input type="text" name="id" placeholder="id de l'évenement" class="form-control" ngModel="">
 
                   <br>
