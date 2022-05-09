@@ -72,7 +72,7 @@
                         <tr>
                             <th>{{e.evenements.nom}}</th>
                             <td>{{e.evenements.adresse}}</td>
-                            <td>{{e.evenements.date}}</td>
+                            <td>{{e.evenements.date | date :'dd/MM/yyyy'}}</td>
                             <td>{{e.evenements.description}}</td>
                             <td>
                                 <div class=" btndelete btn-link btn-sm btn-rounded"
@@ -103,6 +103,9 @@
         </div>
     </div>
 </div>
+
+<app-eventpasses></app-eventpasses>
+
 <div class="container-fluid mb-5" *ngIf="authService.getMembreTargeted().id == authService.getUserConnect().id">
     <div class="row">
         <div class="col-md-1"></div>
