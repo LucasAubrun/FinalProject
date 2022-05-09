@@ -33,3 +33,10 @@ background-color: none;
 .ml-auto, .mx-auto {
     margin-left: auto!important;
 }
+.form-inline{
+    margin-right: 50px;
+    margin-left: 100px;
+ 
+}
+
+
