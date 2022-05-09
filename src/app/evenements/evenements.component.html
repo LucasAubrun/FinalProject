@@ -115,7 +115,7 @@
                     </svg>
                     <div class="card__header-text">
                         <h3 class="card__title">{{e.nom}}</h3>
-                        <span class="card__status">{{e.date}}</span>
+                        <span class="card__status">{{e.date| date : 'dd/MM/yyyy'}}</span>
                         <p>
                         </p>
                         <span class="card__status">{{e.adresse}}</span>
@@ -129,8 +129,8 @@
                         </p>
                         <span class="card__status">{{e.nomActivite}}</span>
                         <p>
-                            <!--<button type="button" class="btn btn" (click)="participant()">
-                              </button> -->
+                            <button type="button" class="btn btn" (click)="participant(e)">Rejoindre
+                            </button>
                         </p>
                     </div>
                 </div>
