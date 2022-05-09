@@ -25,7 +25,7 @@ export class AmisComponent implements OnInit {
   }
 
   callAmisMembre1() {
-    this.http.get('http://localhost:8082/amis/membre1/' + this.authService.getUserConnect().id)
+    this.http.get('http://localhost:8081/amis/membre1/' + this.authService.getUserConnect().id)
       .subscribe({
         next: (data) => {
           this.listamis1 = data,
@@ -37,7 +37,7 @@ export class AmisComponent implements OnInit {
   }
 
   callAmisMembre2() {
-    this.http.get('http://localhost:8082/amis/membre2/' + this.authService.getUserConnect().id)
+    this.http.get('http://localhost:8081/amis/membre2/' + this.authService.getUserConnect().id)
       .subscribe({
         next: (data) => {
           this.listamis2 = data,
@@ -50,7 +50,7 @@ export class AmisComponent implements OnInit {
   setAmitieTrue(id: any) {
     let amitievalidation = true;
     console.log(amitievalidation);
-    this.http.patch('http://localhost:8082/amis/membre1/valide/' + id, amitievalidation)
+    this.http.patch('http://localhost:8081/amis/membre1/valide/' + id, amitievalidation)
       .subscribe({
         next: (data) => { window.location.reload() },
 
@@ -61,7 +61,7 @@ export class AmisComponent implements OnInit {
   setAmitieFalse(id: any) {
     let amitievalidation = false;
     console.log(amitievalidation);
-    this.http.patch('http://localhost:8082/amis/membre1/valide/' + id, amitievalidation)
+    this.http.patch('http://localhost:8081/amis/membre1/valide/' + id, amitievalidation)
       .subscribe({
         next: (data) => { window.location.reload() },
 
