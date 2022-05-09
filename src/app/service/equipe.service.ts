@@ -8,7 +8,7 @@ import { Router } from '@angular/router';
 })
 export class EquipeService {
 
-equipe: any;
+  equipe: any;
   constructor(private route: Router) { }
 
   //getEquipeConnect(): any{
@@ -17,19 +17,28 @@ equipe: any;
   //  }
 
 
-setEquipe(equipe: any) {
-  localStorage.setItem('equipeConnect', JSON.stringify(equipe));
-}
+  setEquipe(equipe: any) {
+    localStorage.setItem('equipeConnect', JSON.stringify(equipe));
+  }
 
 
 
-getEquipe(){
-  let equipe: any = localStorage.getItem('equipeConnect');
-  return JSON.parse(equipe);
-}
- // getequipeUtil() {
- //   let user: any = localStorage.getItem('equipeUtil');
- //   return JSON.parse(equipe);
- // }
+  getEquipe() {
+    let equipe: any = localStorage.getItem('equipeConnect');
+    return JSON.parse(equipe);
+  }
+
+  setEvenementTargetInLocalStorage(Evenement: any) {
+    localStorage.setItem('EvenementTarget', JSON.stringify(Evenement));
+  }
+
+  getEvenementTargeted() {
+    let Evenement: any = localStorage.getItem('EvenementTarget');
+    return JSON.parse(Evenement);
+  }
+  // getequipeUtil() {
+  //   let user: any = localStorage.getItem('equipeUtil');
+  //   return JSON.parse(equipe);
+  // }
 
 }
