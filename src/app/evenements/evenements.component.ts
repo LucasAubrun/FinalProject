@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, Input, OnInit } from '@angular/core';
 import { UrlService } from '../service/url.service';
+import { AuthentificationService } from '../service/authentification.service';
 
 @Component({
   selector: 'app-evenements',
@@ -23,6 +24,7 @@ export class EvenementsComponent implements OnInit {
   p: any;
 
   constructor(private http: HttpClient,
+    public authentificationService: AuthentificationService,
     private url: UrlService) { }
 
   ngOnInit(): void {
@@ -83,21 +85,20 @@ export class EvenementsComponent implements OnInit {
 
   }
 
-  //participant() {
-  // let part = {
-  // "membres": {
-  //   "id": this.authService.getUserConnect().id
-  // },
-  //  "evenements": {
-  //    "id": this.evenementservice.getEvenement().id
-  //  }
-  // }
-  //console.log(part);
-  //this.http.post(this.url.baseURL + "Participant/inviter", part).subscribe({
-  //  next: (data) => { },
-  //  error: (err) => { console.log(err) }
-  //})
-  //  ;
-  //}
+  participant(EvId: any) {
+    let part = {
+      "membres": {
+        "id": this.authentificationService.getUserConnect().id
+      },
+      "evenements": {
+        "id": EvId.id
+      }
+    }
+    this.http.post(this.url.baseURL + "Participant/inviter", part).subscribe({
+      next: (data) => { this.resultMessageInvit = "evenement rejoint" },
+      error: (err) => { console.log(err) }
+    })
+      ;
+  }
 
 }

@@ -65,7 +65,7 @@
                                 <label for="exampleFormControlSelect1" class="abc"></label>
                                 <select class="form-control" name="nomActivite" id="exampleFormControlSelect1"
                                     ngModel="" required>
-                                    <option *ngFor="let ac of activitesOne" JSON.stringify>{{ac.nom}}</option>
+                                    <option *ngFor="let ac of activitesOne">{{ac.nom}}</option>
 
                                 </select>
                             </div>
@@ -108,7 +108,7 @@
                                     l'évènement<i class="fa fa-paper-plane-o ml-1"></i></button>
                                 <p class="result" [style.color]="resultColor">{{resultMessage}}</p>
                             </div>
-                            <!--   (click)="participant()" a mettre sur le bouton -->
+
                         </form>
                         <!-- Default form subscription -->
 
