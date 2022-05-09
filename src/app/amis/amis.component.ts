@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { AuthentificationService } from '../service/authentification.service';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { MessagerieComponent } from '../messagerie/messagerie.component';
+import { UrlService } from '../service/url.service';
 
 @Component({
   selector: 'app-amis',
@@ -17,7 +18,8 @@ export class AmisComponent implements OnInit {
   constructor(
     public authService: AuthentificationService,
     private http: HttpClient,
-    public dialog: MatDialog) { }
+    public dialog: MatDialog,
+    private url: UrlService) { }
 
   ngOnInit(): void {
     this.callAmisMembre1();
@@ -25,7 +27,7 @@ export class AmisComponent implements OnInit {
   }
 
   callAmisMembre1() {
-    this.http.get('http://localhost:8082/amis/membre1/' + this.authService.getUserConnect().id)
+    this.http.get(this.url.baseURL + "amis/membre1/" + this.authService.getUserConnect().id)
       .subscribe({
         next: (data) => {
           this.listamis1 = data,
@@ -37,7 +39,7 @@ export class AmisComponent implements OnInit {
   }
 
   callAmisMembre2() {
-    this.http.get('http://localhost:8082/amis/membre2/' + this.authService.getUserConnect().id)
+    this.http.get(this.url.baseURL + "amis/membre2/" + this.authService.getUserConnect().id)
       .subscribe({
         next: (data) => {
           this.listamis2 = data,
@@ -50,7 +52,7 @@ export class AmisComponent implements OnInit {
   setAmitieTrue(id: any) {
     let amitievalidation = true;
     console.log(amitievalidation);
-    this.http.patch('http://localhost:8082/amis/membre1/valide/' + id, amitievalidation)
+    this.http.patch(this.url.baseURL + "amis/membre1/valide/" + id, amitievalidation)
       .subscribe({
         next: (data) => { window.location.reload() },
 
@@ -61,7 +63,7 @@ export class AmisComponent implements OnInit {
   setAmitieFalse(id: any) {
     let amitievalidation = false;
     console.log(amitievalidation);
-    this.http.patch('http://localhost:8082/amis/membre1/valide/' + id, amitievalidation)
+    this.http.patch(this.url.baseURL + "amis/membre1/valide/" + id, amitievalidation)
       .subscribe({
         next: (data) => { window.location.reload() },
 
